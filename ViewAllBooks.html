@@ -4,14 +4,12 @@
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
     
   </head>
-  <body>
-  	<div ng-controller="viewBooksController as viewBooks">
+  <body ng-controller="viewBooksController as viewBooks">
      <div ng-repeat="book in viewBooks.products">
   		<h1> {{book.name}} </h1>
   		<h2> {{book.author}} </h2>
     </div>
-    </div>
-    <script type="text/javascript" src="angular.min.js"></script>
+        <script type="text/javascript" src="angular.min.js"></script>
     <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
