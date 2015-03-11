@@ -10,9 +10,7 @@
 	var books = [
 		{
 			name: "Harry Potter",
-			author: "J.K.Rolling",
-			image:  'Harry.jpg'
-			
+			author: "J.K.Rolling"
 		},
 		{
 			name: "The Lord of the rings",
