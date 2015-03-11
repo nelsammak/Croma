@@ -5,7 +5,8 @@
 /*viewing books controller*/
 	app.controller('viewBooksController', function(){
 		this.products = books;
-	});	
+	});
+	/*books array*/	
 	var books = [
 		{
 			name: "Harry Potter",
