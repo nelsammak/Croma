@@ -8,5 +8,5 @@
 	var book = {
 		name: "Harry Potter",
 		author: "J.K.Rolling"
-	}
+	};
 })();
