@@ -2,15 +2,14 @@
 <html ng-app="viewBooks">
   <head>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css" />
-    <script type="text/javascript" src="angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    
   </head>
   <body>
   	<div ng-controller="viewBooksController as viewBooks">
-  	<h1> {{viewBooks.name}} </h1>
-  	<h2> {{viewBooks.author}} </h2>
-
-
+  		<h1> {{viewBooks.product.name}} </h1>
+  		<h2> {{viewBooks.product.author}} </h2>
     </div>
+    <script type="text/javascript" src="angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
   </body>
 </html>
