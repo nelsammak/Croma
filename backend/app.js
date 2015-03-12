@@ -1,3 +1,4 @@
+var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var winston = require('winston');
@@ -36,6 +37,8 @@ var logger = new (winston.Logger)({
 });
 
 app.use(morgan('dev'));
+
+app.use(express.static(path.join(__dirname, '../frontend'))); 
 
 var router = express.Router(); 
 
