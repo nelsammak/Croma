@@ -1,8 +1,9 @@
 var express = require('express');
 var bodyParser = require('body-parser');
 var winston = require('winston');
-var models  = require('./models');
 var app = express();
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/skorr');
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -32,21 +33,13 @@ require('./views/users.js')(router, logger);
 
 
 
-models.sequelize.sync().complete(function (err) {
-    if (err) {
-        logger.error(err);
-        throw err;
+var port = process.env.PORT || 8081; 
+app.use(function (err, req, res) {
+    if (typeof(err) == 'SequelizeUniqueConstraintError') {
+        res.status(422);
+        res.json({message: "Email or username already in use."});
     }
-    var port = process.env.PORT || 8081; 
-    app.use('/api', router);
-    app.use(function (err, req, res) {
-        console.log(typeof(err));
-        if (typeof(err) == 'SequelizeUniqueConstraintError') {
-            res.status(422);
-            res.json({message: "Email or username already in use."});
-        }
-    });
-    app.listen(port);
-    logger.info('Listening on port', port);
 });
-
+app.use('/api', router);
+app.listen(port);
+logger.info('Listening on port', port);

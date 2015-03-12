@@ -1,26 +1,19 @@
-var models  = require('../models');
+var User = require('../models/user.js');
 module.exports = function(router, logger) {
 
-    router.get('/users', function(req, res) {
-        models.User.findAll().then(function (users) { 
-            res.json(users);
+    router.route('/users')
+    .post(function(req, res) {
+        var user = new User();
+        user.username = req.body.username;
+        user.password = req.body.password;
+        user.email = req.body.email;
+        user.save(function(err) {
+            if(err) {
+                res.send(err);
+            } else {
+                res.json(user);
+            }
         });
-    });
-
-    router.post('/users', function(req, res, next) {
-            models.User.create({
-                username: req.body.username,
-                email: req.body.email
-            }).then(function (user) {
-                user.setPassword(req.body.password, function() {
-                    user.save();
-                    res.status(201);
-                    res.json(user);
-                });
-                
-            }).catch( function (err) {
-                next(err);
-            });
     });
 
 
