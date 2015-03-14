@@ -2,7 +2,7 @@
   "name": "croma-backend",
   "version": "0.0.1",
   "description": "Subscription based ebook reader - The backend",
-  "author": "Nada Hamdy",
+  "author": "Nada Hamdi",
   "contributors": [
     {
       "name": "Omar Mahmoud"
@@ -36,9 +36,9 @@
     "mocha": "^2.2.1",
     "mongoose": "^3.8.24",
     "morgan": "^1.5.1",
-    "sequelize": "^2.0.4",
-    "sqlite3": "^3.0.5",
-    "winston": "^0.9.0"
+    "winston": "^0.9.0",
+    "passport": "~0.2.1",
+    "passport-local": "~1.0.0"
   },
   "devDependencies": {
     "should": "^5.2.0",
