@@ -1,28 +1,14 @@
 {
     "development": {
         "db": {
-          "url":"localhost/croma"
-        },
-        "dialect": "sqlite",
-        "storage": "../db.development.sqlite"
+          "url":"mongodb://localhost/croma"
+        }
     },
     "test": {
         "db": {
             "url": "localhost/croma_test"
-        },
-        "username": "croma_man",
-        "password": "foobar",
-        "database": "croma_test",
-        "dialect": "postgres",
-        "protocol": "postgres",
-        "host": "127.0.0.1"
+        }
     },
     "production": {
-        "username": "croma_man",
-        "password": "foobar",
-        "database": "croma",
-        "dialect": "postgres",
-        "protocol": "postgres",
-        "host": "127.0.0.1"
     }
 }
