@@ -28,7 +28,15 @@ UserSchema.pre('save', function(next) {
     });
 });
 
+/*Virtual to get info */
+UserSchema
+  .virtual('user_info')
+  .get(function () {
+    return { '_id': this._id, 'username': this.username, 'email': this.email };
+  });
 
+
+/*Instance methods*/
 UserSchema.methods.verifyPassword = function(candidate, callback) {
     bcrypt.compare(candidate, this.password, function(err, isMatch) {
         if (err) {
