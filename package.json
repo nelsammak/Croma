@@ -28,7 +28,8 @@
     "url": "https://github.com/nelsammak/Croma"
   },
   "dependencies": {
-    "express": "^4.12.3"
+    "express": "^4.12.3",
+    "fs": "0.0.2"
   },
   "devDependencies": {}
 }

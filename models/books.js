@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var booksSchema = new Schema({
+var books = new Schema({
 		name: String,
     	author: String,
     	genre :String,
@@ -9,4 +9,4 @@ var booksSchema = new Schema({
     	imagelocation:String
 })
 
-mongoose.Schema = ('books',booksSchema)
+mongoose.Schema = ('books',books);
