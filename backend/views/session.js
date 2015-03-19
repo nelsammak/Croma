@@ -1,4 +1,5 @@
-var session = require('../config/session')
+var passport = require('passport');
+var session = require('../config/session');
 module.exports = function(router) {
 
     router.route('/sessions')
@@ -12,22 +13,21 @@ module.exports = function(router) {
         })
 
         .post(function (req, res, next) {
+          console.log('Posted Request before authentication: ', req.body);
           passport.authenticate('local', function(err, user, info) {
+            console.log('Ady kol 7aga err: ', err, 'user', user 
+              , 'info' , info);
             var error = err || info;
-            if (error) { 
-                return res.json(400, error); 
+            if (err) { 
+                return next(error); 
             }
             req.logIn(user, function(err) {
               if (err) { 
-                return res.send(err); 
-            }
+                return next(err); 
+              }
               res.json(req.user.user_info);
             });
           })(req, res, next);
         })
-        
-        .get(session.ensureAuthenticated, function (req, res) {
-          res.json(req.user.user_info);
-        });
-    
+       
 };

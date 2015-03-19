@@ -12,9 +12,9 @@ describe('User', function() {
     it('Should be created on a post', function(done) {
         req.post('/users')
         .send({
-            username: "omar",
-            password: "password",
-            email: "omar@example.com"
+            username: "test2",
+            password: "test2",
+            email: "test2@example.com"
         })
         .end(function(err, res) {
             should.not.exist(err);
@@ -25,4 +25,16 @@ describe('User', function() {
             done();
         });
     });
+
+    it('Should retrieve all users', function (done) {
+        req.get('/users')
+        .send({})
+        .end(function (err, res) {
+            should.not.exist(err);
+            res.status.should.be.eql(201);
+            res.body.should.be.an.instanceOf(Array);
+            res.body[0].should.have.properties('username', 'email')
+            done();
+        })
+    })
 });

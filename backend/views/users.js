@@ -18,7 +18,6 @@ module.exports = function(router) {
                 password: req.body.password,
                 email: req.body.email
             }, function(err, user) {
-                console.log("help");
                 if (err) {
                     next(err);
                 } else {

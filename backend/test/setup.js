@@ -1,19 +1,22 @@
 /*globals before,beforeEach,after,afterEach,describe,it */
 
-
 process.env.NODE_ENV = 'test';
 
 var mongoose = require('mongoose');
-
+var config = require('../config/config.json');
 
 var url = 'http://localhost:8081';
 var api = url + "/api";
 var none = function() {};
+
 var clearDB = function clearDB(done) {
-    mongoose.connection.db.dropDatabase(done);
+   for (var i in mongoose.connection.collections) {
+     mongoose.connection.collections[i].remove(function() {});
+   }
+   return done();
 };
 
-var config = require('../config/config.json');
+
 
 before(function(done) {
     if (mongoose.connection.readyState === 0) {
@@ -38,3 +41,7 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
+
+
+
+
