@@ -25,8 +25,13 @@ db.once('open', function (callback) {
    original heroines of Victorian literature.',
    imagelocation:'blabla'
     })
-	console.log(Book.name)
+  console.log(Book.name);
 
+  NorthAndSouth.save(function (err, NorthAndSouth) {
+  	if (err) return console.error(err);
+  
+});
+Books.find({ name: /^NorthAndSouth/ }, callback)
 
 });
 
