@@ -6,6 +6,17 @@ mongoose.connect('mongodb://localhost/test');
 var db = mongoose.connection;
 
 
+    
+app.get('books/', function (req, res){
+	console.log("I recieved a GET request");
+	mongoose.model('books').find(function (err, books){
+		res.json(docs);
+	});
+		
+	})
+    
+
+
 
 
 app.use(express.static(__dirname + '/public'));
