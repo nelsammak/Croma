@@ -1,12 +1,12 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var books = new Schema({
+var booksSchema = new Schema({
 		name: String,
     	author: String,
     	genre :String,
     	description :String,
     	imagelocation:String
-})
+});
 
-mongoose.Schema = ('books',books);
+mongoose.model('books',booksSchema);

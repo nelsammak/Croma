@@ -2,26 +2,17 @@ var express = require('express');
 var app = express();
 var mongoose = require('mongoose');
 var fs = require('fs');
-
+require('./models/books.js');
 mongoose.connect('mongodb://localhost/test');
 
-var db = mongoose.connection;
-fs.readdirSync(__dirname+ '/models').forEach(function(filename){
-	if(~filename.indexOf('.js')) require(__dirname + '/models/' + filename)
-})
+app.use(express.static(__dirname + '/public'));
 
-mongoose.model('books', {
-		name: String,
-    	author: String,
-    	genre :String,
-    	description :String,
-    	imagelocation:String
-})  ;
 
-app.get('/books', function (req, res){
+app.get('/bo', function (req, res){
 	console.log("I recieved a GET request");
 	mongoose.model('books').find(function (err, books){
-		res.send(books);
+		//res.send(books);
+		res.json(books);
 		console.log("done");
 	});
 		
@@ -30,7 +21,7 @@ app.get('/books', function (req, res){
 
 
 
-app.use(express.static(__dirname + '/public'));
+
 
 app.listen(3000);
 console.log("server is running on port 3000");
