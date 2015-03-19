@@ -7,19 +7,19 @@ mongoose.connect('mongodb://localhost/test');
 
 app.use(express.static(__dirname + '/public'));
 
+app.get('/books', function (req, res){
 
-app.get('/bo', function (req, res){
+
 	console.log("I recieved a GET request");
 	mongoose.model('books').find(function (err, books){
-		//res.send(books);
 		res.json(books);
 		console.log("done");
 	});
 		
 	});
-
-
-
+ app.get('*', function(req, res) {
+        res.sendFile('./public/index.html'); 
+    });
 
 
 
