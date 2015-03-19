@@ -7,7 +7,17 @@ var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function (callback) {
   // yay!
+  var booksSchema = mongoose.Schema({
+    name: String,
+    author: String,
+    description :String,
+    imagelocation:String
+
+})
+
 });
+
+
 
 app.use(express.static(__dirname + '/public'));
 
