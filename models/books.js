@@ -11,7 +11,7 @@ booksSchema.set('toJSON', { virtuals: true })
 
 var books = mongoose.model('books',booksSchema);
 
-
+//insert books
 var book1 = new books({ 
 	name: 'Karim',
 	author:'Mina' });
