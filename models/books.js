@@ -12,7 +12,7 @@ booksSchema.set('toJSON', { virtuals: true });
 
 var books = mongoose.model('books',booksSchema);
 
-//inserting books
+//inserting books (delete the following code after running the app once)
 var book1 = new books({ 
 	name: 'Harry Potter and the Philosopher\'s Stone',
 	author:'J.K. Rowling',
