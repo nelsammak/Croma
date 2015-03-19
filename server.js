@@ -12,8 +12,11 @@ db.once('open', function (callback) {
     author: String,
     description :String,
     imagelocation:String
+   })
+  
+  var Book = mongoose.model('Book', booksSchema);
 
-})
+
 
 });
 
