@@ -33,7 +33,7 @@ describe('User', function() {
             should.not.exist(err);
             res.status.should.be.eql(201);
             res.body.should.be.an.instanceOf(Array);
-            res.body[0].should.have.properties('username', 'email')
+            res.body.should.have.properties('username', 'email')
             done();
         })
     })
