@@ -20,23 +20,23 @@ var clearDB = function clearDB(done) {
 
 
 
-// before(function(done) {
-//     if (mongoose.connection.readyState === 0) {
-//         mongoose.connect(config.test.db.url, function(err) {
-//             if (err) {
-//                 throw err;
-//             }
-//             return clearDB(done);
-//         });
-//     } else {
-//         return clearDB(done);
-//     }
-// });
+ before(function(done) {
+     if (mongoose.connection.readyState === 0) {
+         mongoose.connect(config.test.db.url, function(err) {
+             if (err) {
+                 throw err;
+             }
+             return clearDB(done);
+        });
+    } else {
+        return clearDB(done);
+    }
+});
 
-// after(function(done) {
-//     mongoose.disconnect();
-//     return done();
-// });
+after(function(done) {
+    mongoose.disconnect();
+    return done();
+});
 
 module.exports = {
     url: url,
