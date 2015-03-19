@@ -10,24 +10,19 @@ var req = request.agent('http://localhost:8081/api');
 describe('Session', function () {
   
   beforeEach(function (done) {
-    setup.clearDB(function  () {
-       var testUser = {
-         password: 'test',
-         email: 'test@test.com',
-         username: 'test'
-       }
-       User.create(testUser, function (err, testUser) {
-        console.log('This is error', err);
-        if (err) { return done(err) };
-         done();
-       });
-    })
+    var dummyDone = function () {
+      var testUser = {
+        password: 'test',
+        email: 'test@test.com',
+        username: 'test'
+      }
+      User.create(testUser, function (err, testUser) {
+       if (err) { return done(err) };
+        done();
+      });
+    };
+    setup.clearDB(dummyDone);
   });
-
-  afterEach( function (done) {
-    User.remove({});
-    done();
-  })
 
    it('Should send User object after login', function (done) {
      var post = {
@@ -68,5 +63,6 @@ describe('Session', function () {
          done();
        });
    });
-
-  });
+    
+    
+});

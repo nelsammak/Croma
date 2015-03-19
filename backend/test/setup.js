@@ -10,28 +10,31 @@ var api = url + "/api";
 var none = function() {};
 
 
-var clearDB = function clearDB(done) {
+var clearDBHelper = function clearDB(done) {
    mongoose.connect(config.test.db.url, function(){
-    mongoose.connection.db.dropDatabase(function(){
-        done();
-    });
+    for (var collection in mongoose.connection.collections){
+        mongoose.connection.collections[collection].drop( function(err) {
+            console.log('collection dropped');
+        });
+    }
+    done();
    });
 };
 
 
 
- before(function(done) {
+ var clearDB = function(done) {
      if (mongoose.connection.readyState === 0) {
          mongoose.connect(config.test.db.url, function(err) {
              if (err) {
                  throw err;
              }
-             return clearDB(done);
+             return clearDBHelper(done);
         });
     } else {
-        return clearDB(done);
+        return clearDBHelper(done);
     }
-});
+};
 
 after(function(done) {
     mongoose.disconnect();

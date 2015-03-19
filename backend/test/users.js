@@ -32,8 +32,10 @@ describe('User', function() {
         .end(function (err, res) {
             should.not.exist(err);
             res.status.should.be.eql(201);
-            res.body.should.be.an.instanceOf(Array);
-            res.body.should.have.properties('username', 'email')
+            res.body.should.be.an.instanceOf(Array)
+            .and.matchEach(function(it) {
+                return it.should.have.properties('username', 'email');
+            });
             done();
         })
     })

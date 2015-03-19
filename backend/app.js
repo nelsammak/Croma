@@ -51,7 +51,6 @@ var router = express.Router();
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 
-
 var port = process.env.PORT || 8081; 
 
 app.use('/api', router);
