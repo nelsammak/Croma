@@ -1,7 +1,7 @@
 {
-  "name": "croma-backend",
+  "name": "croma-library",
   "version": "0.0.1",
-  "description": "Subscription based ebook reader - The backend",
+  "description": "Library",
   "author": "Nada Hamdi",
   "contributors": [
     {
@@ -28,8 +28,20 @@
     "url": "https://github.com/nelsammak/Croma"
   },
   "dependencies": {
-    "express": "^4.12.3",
-    "fs": "0.0.2"
+    "bcrypt": "^0.8.1",
+    "bcryptjs": "^2.1.0",
+    "body-parser": "^1.12.0",
+    "express": "^4.12.2",
+    "express-session": "^1.10.3",
+    "jasmine": "^2.2.1",
+    "mocha": "^2.2.1",
+    "mongoose": "^3.8.24",
+    "morgan": "^1.5.1",
+    "passport": "~0.2.1",
+    "winston": "^0.9.0"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "should": "^5.2.0",
+    "supertest": "^0.15.0"
+  }
 }
