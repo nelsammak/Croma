@@ -3,6 +3,7 @@
          im = require('imagemagick'),
         util = require('util'),
          fs = require('fs'),
+         //apiConfig = require('../config/'),
          _= require('lodash');
       api = {};
 
