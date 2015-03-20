@@ -22,7 +22,7 @@ module.exports = function(router) {
                 return next(err); 
             }
             if (info) {
-              return res.json(info);
+              return next(info);
             }
             req.logIn(user, function(err) {
               if (err) { 

@@ -1,5 +1,6 @@
   var mongoose = require('mongoose'),
       Profile = require('../models/user')
+      url = require('url');
       api = {};
 
 module.exports = function(router) {
@@ -8,11 +9,15 @@ module.exports = function(router) {
 };
  
   // GET
-  api.profile = function (req, res) {
+  api.profile = function (req, res, next) {
+    console.log("Ed5ol fel get isa")
+
     var id = req.params.id;
+    
     Profile.findOne({ '_id': id }, function(err, profile) {
       if (err) {
         res.json(404, err);
+        next(err);
       } else {
         res.json({profile: profile});
       }
@@ -22,7 +27,7 @@ module.exports = function(router) {
  
 
   // PUT
-  api.editProfile = function (req, res) {
+  api.editProfile = function (req, res, next) {
     var id = req.params.id;
 
     Profile.findById(id, function (err, profile) {

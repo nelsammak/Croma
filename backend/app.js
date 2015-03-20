@@ -8,11 +8,6 @@ var mongoose = require('mongoose');
 var expressSession = require('express-session');
 var passport = require('passport');
 
-
-
-
-
-
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/config.json')[process.env.NODE_ENV];
@@ -20,6 +15,11 @@ var config = require('./config/config.json')[process.env.NODE_ENV];
 console.log(config);
 
 mongoose.connect(config.db.url);
+
+
+app.use(express.static(path.join(__dirname, '../frontend'))); 
+app.set('views', path.join(__dirname, '../frontend/views'));
+app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -44,21 +44,30 @@ app.use(passport.session());
 app.use(morgan('dev'));
 
 
-app.use(express.static(path.join(__dirname, '../frontend'))); 
-
 var router = express.Router(); 
 
 require('./views/users.js')(router);
 require('./views/session.js')(router);
-require('./views/profile')(router);
+require('./views/profile.js')(router);
+
+app.get('/partials/*', function(req, res) {
+    var requestedView = path.join('./', req.url);
+    res.render(requestedView);
+  });
+
+  app.get('/*', function(req, res) {
+    res.render('index.html');
+  });
 
 
 var port = process.env.PORT || 8081; 
+
 
 app.use('/api', router);
 
 app.use(function (err, req, res) {
     res.status(500);
+    console.log(err);
     res.json({err:err, message:"Internal Server Error"});
 });
 
