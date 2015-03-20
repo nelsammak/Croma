@@ -1,3 +1,4 @@
+//imports
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -12,10 +13,14 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 var config = require('./config/config.json')[process.env.NODE_ENV];
 console.log(config);
 
+//Connecting Database, using body-parser to parse JSON
 require('./models/book.js');
 mongoose.connect(config.db.url);
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+//importing the book model
+var Books = require('./models/book')
 
 // logging
 var logger = new (winston.Logger) ({
@@ -38,15 +43,17 @@ var logger = new (winston.Logger) ({
 
 app.use(morgan('dev'));
 
+//setting the main index page
 app.use(express.static(path.join(__dirname, '../frontend', 'views')));
 
+//routes
 app.get('/books', function (req, res) {
   res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
 });
 
 app.get('/books2', function (req, res) {
   console.log("I recieved a GET request");
-  mongoose.model('book').find(function (err, books) {
+  Books.find(function (err, books) {
     res.json(books);
     console.log("done");
   });
@@ -67,6 +74,5 @@ app.use(function (err, req, res) {
     res.json({err:err, message:"Internal Server Error"});
 });
 
-
 app.listen(port);
-//logger.info('Listening on port', port);
+logger.info('Listening on port', port);

@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 var schema = mongoose.Schema;
 
+//Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
 var bookSchema = new schema({
 	name: { type: String, required: true },
 	author: { type: String, required: true },
@@ -8,8 +9,10 @@ var bookSchema = new schema({
 	bio: { type: String, required: true }
 });
 
+//include Mongoose virtual fields in toJSON by default
 bookSchema.set('toJSON', { virtuals: true });
 
+//saving the Mongoose model in a variable
 var book = mongoose.model('book', bookSchema);
 
 //removing all books currently in database
@@ -17,7 +20,7 @@ book.remove({}, function(err) {
 });
 console.log('Current book collection removed');
 
-//inserting books
+//inserting books by creating an object using the Book schema and then saving it in the database
 var book1 = new book({ 
 	name: 'Harry Potter and the Philosopher\'s Stone',
 	author:'J.K. Rowling',
@@ -87,5 +90,8 @@ var book7 = new book({
 book7.save(function (err, book7) {
   if (err) return console.error(err);
 });
+
+//exporting the Book model to use it in app.js
+module.exports = mongoose.model('book', bookSchema)
 
 console.log('Inserted new book collection into database');
