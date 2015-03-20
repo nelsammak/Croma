@@ -31,10 +31,7 @@ describe('Profile', function() {
         });
     });
 
-afterEach(function(done) {
-  mongoose.connection.close();
-    return done();
-});
+
 
     it('Should retrieve all users', function (done) {
         req.get('/users')
