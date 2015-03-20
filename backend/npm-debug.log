@@ -2,12 +2,12 @@
 1 verbose cli [ '/home/veegas/.nvm/v0.10.36/bin/node',
 1 verbose cli   '/home/veegas/.nvm/v0.10.36/bin/npm',
 1 verbose cli   'install',
-1 verbose cli   '--save',
-1 verbose cli   'express-session' ]
+1 verbose cli   'ejs',
+1 verbose cli   '--save' ]
 2 info using npm@1.4.28
 3 info using node@v0.10.36
 4 error Failed to parse json
-4 error Unexpected token /
+4 error Unexpected token <
 5 error File: /home/veegas/GUC/SE/Croma/backend/package.json
 6 error Failed to parse package.json data.
 6 error package.json must be actual JSON, not just JavaScript.
@@ -15,7 +15,7 @@
 6 error This is not a bug in npm.
 6 error Tell the package author to fix their package.json file. JSON.parse
 7 error System Linux 3.13.0-46-generic
-8 error command "/home/veegas/.nvm/v0.10.36/bin/node" "/home/veegas/.nvm/v0.10.36/bin/npm" "install" "--save" "express-session"
+8 error command "/home/veegas/.nvm/v0.10.36/bin/node" "/home/veegas/.nvm/v0.10.36/bin/npm" "install" "ejs" "--save"
 9 error cwd /home/veegas/GUC/SE/Croma/backend
 10 error node -v v0.10.36
 11 error npm -v 1.4.28
