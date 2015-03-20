@@ -6,7 +6,7 @@ module.exports = function(router) {
         .delete(function (req, res) {
           if(req.user) {
             req.logout();
-            res.send(200);
+            res.send(204);
           } else {
             res.send(400, "Not logged in");
           }
@@ -15,11 +15,14 @@ module.exports = function(router) {
         .post(function (req, res, next) {
           console.log('Posted Request before authentication: ', req.body);
           passport.authenticate('local', function(err, user, info) {
-            console.log('Ady kol 7aga err: ', err, 'user', user 
+            console.log('Ady kol 7aga err ', err, 'user', user 
               , 'info' , info);
             var error = err || info;
             if (err) { 
-                return next(error); 
+                return next(err); 
+            }
+            if (info) {
+              return res.json(info);
             }
             req.logIn(user, function(err) {
               if (err) { 

@@ -9,7 +9,7 @@ var req = request.agent('http://localhost:8081/api');
 
 describe('Session', function () {
   
-  beforeEach(function (done) {
+  before(function (done) {
     var dummyDone = function () {
       var testUser = {
         password: 'test',
@@ -46,12 +46,11 @@ describe('Session', function () {
        });
    });
    
-    it('Should send User object after logout'
+    it('Should send status 200 after logout'
     , function (done) {
      var post = {
       email: 'test@test.com',
-      password: 'test',
-      username: 'test'
+      password: 'test'
      };
 
     req.post('/sessions').send(post)
@@ -59,10 +58,49 @@ describe('Session', function () {
        .send(post)
        .end(function (err, res) {
          should.not.exist(err);
+         res.status.should.be.eql(204);
+         done();
+       }); 
+    });
+    
+    it('Should send "Email is not registered." error json after incorrect email login'
+      , function (done){
+        var post = {
+          email: 'WrongEmail@test.com',
+          password: 'WrongPassword'
+        }
+        req.post('/sessions')
+       .send(post)
+       .end(function (err, res) {
+         should.not.exist(err);
          res.status.should.be.eql(200);
+         res.body.should.be.an.instanceOf(Object);
+         res.body.should.have.properties('errors');
+         res.body.errors.should.have.properties('email');
+         res.body.errors.email.should.have.properties('type');
+         res.body.errors.email.type.should.be.eql('Email is not registered.');
          done();
        });
-   });
-    
+      })
+
+      it('Should send "Password is incorrect." error json after incorrect password login'
+      , function (done){
+        var post = {
+          email: 'test@test.com',
+          password: 'WrongPassword'
+        }
+        req.post('/sessions')
+       .send(post)
+       .end(function (err, res) {
+         should.not.exist(err);
+         res.status.should.be.eql(200);
+         res.body.should.be.an.instanceOf(Object);
+         res.body.should.have.properties('errors');
+         res.body.errors.should.have.properties('password');
+         res.body.errors.password.should.have.properties('type');
+         res.body.errors.password.type.should.be.eql('Password is incorrect.');         
+         done();
+       });
+      })
     
 });
