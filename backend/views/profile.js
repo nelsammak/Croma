@@ -3,7 +3,7 @@
          im = require('imagemagick'),
         util = require('util'),
          fs = require('fs'),
-         apiConfig = require('../../config/api'),
+         //apiConfig = require('../config/'),
          _= require('lodash');
       api = {};
 
@@ -77,7 +77,7 @@ exports.deletePhoto = function(profilePhoto) {
     console.log('Successfully delete the profile Photo');
   });
 
-
+};
 
 
 
