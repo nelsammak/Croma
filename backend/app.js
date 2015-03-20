@@ -1,12 +1,16 @@
+//imports
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
-var passport = require('passport');
 var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
 var passport = require('passport');
+
+//importing the book model
+var Books = require('./models/book.js')
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -46,6 +50,23 @@ app.use(morgan('dev'));
 
 var router = express.Router(); 
 
+
+//routes NEEDS TO BE RENDERED INSTEAD OF SEND
+app.get('/books', function getBooksIndex (req, res, next) {
+  res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
+});
+
+app.get('/books2', function getBooksCollection (req, res, next) {
+  console.log("I recieved a GET request");
+  Books.find(function (err, books) {
+    if (err) {
+      next(err);
+    }
+    res.json(books);
+  });
+});
+
+
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
@@ -65,7 +86,7 @@ var port = process.env.PORT || 8081;
 
 
 
-app.use(function (err, req, res, next) {
+app.use(function reportInternalServerError(err, req, res, next) {
     console.log(err.stack);
     res.status(500);
     res.json({err:err, message:"Internal Server Error"});

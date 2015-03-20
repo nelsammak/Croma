@@ -5,9 +5,12 @@ angular.module('angularPassportApp')
     $scope.menu = [
     ];
 
-    $scope.authMenu = [{
+    $scope.authMenu = [/*{
       "title": "Profile",
       "link": "blogs"
+    },*/ {
+      "title": "Books",
+      "link": "books"
     }];
 
     $scope.logout = function() {

@@ -22,6 +22,10 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/books', {
+        templateUrl: 'partials/books.html',
+        controller: 'AppCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

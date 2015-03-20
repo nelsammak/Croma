@@ -1,5 +1,6 @@
 /*globals before,beforeEach,after,afterEach,describe,it */
 
+
 process.env.NODE_ENV = 'test';
 
 var mongoose = require('mongoose');
@@ -8,7 +9,6 @@ var config = require('../config/config.json');
 var url = 'http://localhost:8081';
 var api = url + "/api";
 var none = function() {};
-
 
 var clearDBHelper = function clearDB(done) {
    mongoose.connect(config.test.db.url, function(){
@@ -46,7 +46,10 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
+<<<<<<< HEAD
+=======
 
 
 
 
+>>>>>>> not_very_new_begining
