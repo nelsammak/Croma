@@ -16,7 +16,7 @@ bookSchema.set('toJSON', { virtuals: true });
 var book = mongoose.model('book', bookSchema);
 
 //removing all books currently in database
-book.remove({}, function(err) { 
+book.remove({}, function error (err) { 
 });
 console.log('Current book collection removed');
 
@@ -27,7 +27,7 @@ var book1 = new book({
 	coverLocation: 'bookCovers/1.jpg',
 	bio: '[Insert Bio Here]'
 });
-book1.save(function (err, book1) {
+book1.save(function func (err, book1) {
   if (err) return console.error(err);
 });
 
@@ -37,7 +37,7 @@ var book2 = new book({
 	coverLocation: 'bookCovers/2.jpg',
 	bio: '[Insert Bio Here]'
 });
-book2.save(function (err, book2) {
+book2.save(function func (err, book2) {
   if (err) return console.error(err);
 });
 
@@ -47,7 +47,7 @@ var book3 = new book({
 	coverLocation: 'bookCovers/3.jpg',
 	bio: '[Insert Bio Here]'
 });
-book3.save(function (err, book3) {
+book3.save(function func (err, book3) {
   if (err) return console.error(err);
 });
 
@@ -57,7 +57,7 @@ var book4 = new book({
 	coverLocation: 'bookCovers/4.jpg',
 	bio: '[Insert Bio Here]'
 });
-book4.save(function (err, book4) {
+book4.save(function func (err, book4) {
   if (err) return console.error(err);
 });
 
@@ -67,7 +67,7 @@ var book5 = new book({
 	coverLocation: 'bookCovers/5.jpg',
 	bio: '[Insert Bio Here]'
 });
-book5.save(function (err, book5) {
+book5.save(function func (err, book5) {
   if (err) return console.error(err);
 });
 
@@ -77,7 +77,7 @@ var book6 = new book({
 	coverLocation: 'bookCovers/6.jpg',
 	bio: '[Insert Bio Here]'
 });
-book6.save(function (err, book6) {
+book6.save(function func (err, book6) {
   if (err) return console.error(err);
 });
 
@@ -87,7 +87,7 @@ var book7 = new book({
 	coverLocation: 'bookCovers/7.jpg',
 	bio: '[Insert Bio Here]'
 });
-book7.save(function (err, book7) {
+book7.save(function func (err, book7) {
   if (err) return console.error(err);
 });
 

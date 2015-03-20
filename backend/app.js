@@ -47,11 +47,11 @@ app.use(morgan('dev'));
 app.use(express.static(path.join(__dirname, '../frontend', 'views')));
 
 //routes
-app.get('/books', function (req, res) {
+app.get('/books', function getBooksIndex (req, res) {
   res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
 });
 
-app.get('/books2', function (req, res) {
+app.get('/books2', function getBooksCollection (req, res) {
   console.log("I recieved a GET request");
   Books.find(function (err, books) {
     res.json(books);
@@ -59,7 +59,7 @@ app.get('/books2', function (req, res) {
   });
 });
 
-app.get('*', function(req, res) {
+app.get('*', function redirect (req, res) {
   res.sendFile(path.join(__dirname, '../frontend', 'views', 'index.html'));
 });
 
@@ -69,7 +69,7 @@ require('./views/users.js')(router, logger);
 var port = process.env.PORT || 8081; 
 app.use('/api', router);
 
-app.use(function (err, req, res) {
+app.use(function reportInternalServerError (err, req, res) {
     res.status(500);
     res.json({err:err, message:"Internal Server Error"});
 });
