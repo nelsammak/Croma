@@ -4,29 +4,37 @@
 process.env.NODE_ENV = 'test';
 
 var mongoose = require('mongoose');
-
+var config = require('../config/config.json');
 
 var url = 'http://localhost:8081';
 var api = url + "/api";
 var none = function() {};
-var clearDB = function clearDB(done) {
-    mongoose.connection.db.dropDatabase(done);
+
+var clearDBHelper = function clearDB(done) {
+   mongoose.connect(config.test.db.url, function(){
+    for (var collection in mongoose.connection.collections){
+        mongoose.connection.collections[collection].drop( function(err) {
+            console.log('collection dropped');
+        });
+    }
+    done();
+   });
 };
 
-var config = require('../config/config.json');
 
-before(function(done) {
-    if (mongoose.connection.readyState === 0) {
-        mongoose.connect(config.test.db.url, function(err) {
-            if (err) {
-                throw err;
-            }
-            return clearDB(done);
+
+ var clearDB = function(done) {
+     if (mongoose.connection.readyState === 0) {
+         mongoose.connect(config.test.db.url, function(err) {
+             if (err) {
+                 throw err;
+             }
+             return clearDBHelper(done);
         });
     } else {
-        return clearDB(done);
+        return clearDBHelper(done);
     }
-});
+};
 
 after(function(done) {
     mongoose.disconnect();
@@ -38,3 +46,10 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> not_very_new_begining
