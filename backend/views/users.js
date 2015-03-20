@@ -1,5 +1,5 @@
 var User = require('../models/user.js');
-module.exports = function(router, logger) {
+module.exports = function(router) {
 
     router.route('/users')
         .get(function (req,res,next) {
@@ -16,9 +16,14 @@ module.exports = function(router, logger) {
             var user = User.create({
                 username: req.body.username,
                 password: req.body.password,
-                email: req.body.email
+                email: req.body.email,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                age: req.body.age,
+                address: req.body.address,
+                gender: req.body.gender,
+                profilePhoto: req.body.profilePhoto
             }, function(err, user) {
-                console.log("help");
                 if (err) {
                     next(err);
                 } else {
