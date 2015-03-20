@@ -1,78 +1,96 @@
 //imports
+var fs = require('fs');
 var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
-var winston = require('winston');
 var morgan = require('morgan');
 var app = express();
 var mongoose = require('mongoose');
-var fs = require('fs');
+var expressSession = require('express-session');
+var passport = require('passport');
+
+//importing the book model
+var Books = require('./models/book.js')
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/config.json')[process.env.NODE_ENV];
+
 console.log(config);
 
-//Connecting Database, using body-parser to parse JSON
-require('./models/book.js');
 mongoose.connect(config.db.url);
+
+
+app.use(express.static(path.join(__dirname, '../frontend'))); 
+app.set('views', path.join(__dirname, '../frontend/views'));
+app.engine('html', require('ejs').renderFile);
+
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//importing the book model
-var Books = require('./models/book')
 
-// logging
-var logger = new (winston.Logger) ({
-    transports: [
-    new (winston.transports.File)({
-        name: 'info-file',
-        filename: 'log/infolog',
-        level: 'info',
-        timestamp: true
-    }), 
-    new (winston.transports.File)({
-        name: 'error-file',
-        filename: 'log/errorlog',
-        level: 'error',
-        timestamp: true
-    }),
-    new(winston.transports.Console)()
-    ]
-});
+var passportConfig = require('./config/passport')();
+
+
+app.use(expressSession({
+
+ saveUninitialized: true,
+
+ resave: true,
+
+ secret: 'CromaSecret'
+
+ }));
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(morgan('dev'));
 
-//setting the main index page
-app.use(express.static(path.join(__dirname, '../frontend', 'views')));
 
-//routes
-app.get('/books', function getBooksIndex (req, res) {
+var router = express.Router(); 
+
+
+//routes NEEDS TO BE RENDERED INSTEAD OF SEND
+app.get('/books', function getBooksIndex (req, res, next) {
   res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
 });
 
-app.get('/books2', function getBooksCollection (req, res) {
+app.get('/books2', function getBooksCollection (req, res, next) {
   console.log("I recieved a GET request");
   Books.find(function (err, books) {
+    if (err) {
+      next(err);
+    }
     res.json(books);
-    console.log("done");
   });
 });
 
-app.get('*', function redirect (req, res) {
-  res.sendFile(path.join(__dirname, '../frontend', 'views', 'index.html'));
-});
 
-var router = express.Router(); 
-require('./views/users.js')(router, logger);
-
-var port = process.env.PORT || 8081; 
+require('./views/users.js')(router);
+require('./views/session.js')(router);
+require('./views/profile.js')(router);
 app.use('/api', router);
 
-app.use(function reportInternalServerError (err, req, res) {
+app.get('/partials/*', function(req, res) {
+    var requestedView = path.join('./', req.url);
+    res.render(requestedView);
+  });
+
+  app.get('/*', function(req, res) {
+    res.render('index.html');
+  });
+
+
+var port = process.env.PORT || 8081; 
+
+
+
+app.use(function reportInternalServerError(err, req, res, next) {
+    console.log(err.stack);
     res.status(500);
     res.json({err:err, message:"Internal Server Error"});
 });
 
 app.listen(port);
-logger.info('Listening on port', port);
+console.log('Listening on port', port);
