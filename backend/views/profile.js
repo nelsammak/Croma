@@ -1,11 +1,11 @@
-module.exports = function(app) {
+module.exports = function(router) {
   // Module dependencies.
   var mongoose = require('mongoose'),
       Profile = require('../models/user')
       api = {};
 
  
-  // GEt
+  // GET
   api.profile = function (req, res) {
     var id = req.params.id;
     Profile.findOne({ '_id': id }, function(err, profile) {
@@ -102,7 +102,7 @@ console.log(req.files);
 
 };
 
-  app.get('/api/users/:id', api.profile);
-  app.put('/api/users/:id', api.editProfile);
+  router.route.get('users/:id', api.profile);
+  router.route.put('users/:id', api.editProfile);
 
 };

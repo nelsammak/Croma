@@ -10,7 +10,7 @@ var fields = {
 	age: { type: Number },
 	address: { type: String },
     profilePhoto: { type: String },
-    gender: { type: String, enum: ['male', 'female'], index: true }, 
+    gender: { type: String, enum: ['male', 'female'] /*, index: true */ }, 
   	user: { type: ObjectId, ref: 'userSchema' },
 };
 userSchema.pre('save', function(next) {

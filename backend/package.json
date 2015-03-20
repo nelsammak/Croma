@@ -34,7 +34,12 @@
     "express": "^4.12.2",
     "express-session": "^1.10.3",
     "jasmine": "^2.2.1",
+<<<<<<< Updated upstream
     "mocha": "~2.2.1",
+=======
+    "lodash": "^3.5.0",
+    "mocha": "^2.2.1",
+>>>>>>> Stashed changes
     "mongoose": "^3.8.24",
     "morgan": "^1.5.1",
     "passport": "~0.2.1",
