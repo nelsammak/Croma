@@ -2,5 +2,5 @@
 
 angular.module('angularPassportApp')
   .factory('Session', function ($resource) {
-    return $resource('/api/session/');
+    return $resource('/api/sessions/');
   });

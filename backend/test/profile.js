@@ -32,12 +32,12 @@ describe('Profile', function() {
         });
     });
 
-    it('Should retrieve all users', function (done) {
+    it('Should retrieve all profiles', function (done) {
         req.get('/users')
         .send({})
         .end(function (err, res) {
             should.not.exist(err);
-            res.status.should.be.eql(201);
+            res.status.should.be.eql(200);
             console.log(res.body);
             res.body.should.be.an.instanceOf(Array)
             .and.matchEach(function(it) {
@@ -58,7 +58,7 @@ describe('Profile', function() {
                   should.not.exist(err);
                   res.status.should.be.eql(200);
                   console.log(res.body);
-                  res.body.should.be.an.instanceOf(Array)
+                  res.body.should.be.an.instanceOf(Object)
                   .and.matchEach(function(it) {
                       return it.should.have.properties('username', 'email', 'firstName', 'lastName', 'age', 'address', 'gender');
                   });

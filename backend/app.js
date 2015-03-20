@@ -49,6 +49,7 @@ var router = express.Router();
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
+app.use('/api', router);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
@@ -63,11 +64,10 @@ app.get('/partials/*', function(req, res) {
 var port = process.env.PORT || 8081; 
 
 
-app.use('/api', router);
 
-app.use(function (err, req, res) {
+app.use(function (err, req, res, next) {
+    console.log(err.stack);
     res.status(500);
-    console.log(err);
     res.json({err:err, message:"Internal Server Error"});
 });
 

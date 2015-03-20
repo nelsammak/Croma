@@ -10,8 +10,7 @@ module.exports = function(router) {
  
   // GET
   api.profile = function (req, res, next) {
-    console.log("Ed5ol fel get isa")
-
+    console.log("Ed5ol fel get isa");
     var id = req.params.id;
     
     Profile.findOne({ '_id': id }, function(err, profile) {

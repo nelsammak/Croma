@@ -11,7 +11,7 @@ angular.module('angularPassportApp')
             ngModel.$setValidity('unique', true);
             return;
           }
-          $http.get('/auth/check_username/' + value).success(function(user) {
+          $http.get('/api/check_username/' + value).success(function(user) {
             if(!user.exists) {
               ngModel.$setValidity('unique', true);
             } else {

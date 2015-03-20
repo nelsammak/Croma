@@ -6,10 +6,6 @@ angular.module('angularPassportApp')
     ];
 
     $scope.authMenu = [{
-      "title": "Create New Blog",
-      "link": "blogs/create"
-    },
-    {
       "title": "Profile",
       "link": "blogs"
     }];
