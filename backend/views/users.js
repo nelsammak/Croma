@@ -16,7 +16,13 @@ module.exports = function(router) {
             var user = User.create({
                 username: req.body.username,
                 password: req.body.password,
-                email: req.body.email
+                email: req.body.email,
+                firstName: req.body.firstName,
+                lastName: req.body.lastName,
+                age: req.body.age,
+                address: req.body.address,
+                gender: req.body.gender,
+                profilePhoto: req.body.profilePhoto
             }, function(err, user) {
                 if (err) {
                     next(err);

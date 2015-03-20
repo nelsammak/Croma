@@ -1,9 +1,11 @@
-module.exports = function(router) {
-  // Module dependencies.
   var mongoose = require('mongoose'),
       Profile = require('../models/user')
       api = {};
 
+module.exports = function(router) {
+  router.route('users/:id').get(api.profile);
+  router.route('users/:id').put(api.editProfile);
+};
  
   // GET
   api.profile = function (req, res) {
@@ -98,11 +100,4 @@ console.log(req.files);
         });
       };
   });
-
-
-};
-
-  router.route.get('users/:id', api.profile);
-  router.route.put('users/:id', api.editProfile);
-
 };

@@ -48,13 +48,10 @@ app.use(express.static(path.join(__dirname, '../frontend')));
 
 var router = express.Router(); 
 
-<<<<<<< Updated upstream
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile')(router);
 
-
->>>>>>> Stashed changes
 
 var port = process.env.PORT || 8081; 
 
