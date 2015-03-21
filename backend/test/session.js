@@ -73,7 +73,7 @@ describe('Session', function () {
        .send(post)
        .end(function (err, res) {
          should.not.exist(err);
-         res.status.should.be.eql(200);
+         res.status.should.be.eql(400);
          res.body.should.be.an.instanceOf(Object);
          res.body.should.have.properties('errors');
          res.body.errors.should.have.properties('email');
@@ -93,7 +93,7 @@ describe('Session', function () {
        .send(post)
        .end(function (err, res) {
          should.not.exist(err);
-         res.status.should.be.eql(200);
+         res.status.should.be.eql(400);
          res.body.should.be.an.instanceOf(Object);
          res.body.should.have.properties('errors');
          res.body.errors.should.have.properties('password');

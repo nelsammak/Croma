@@ -18,15 +18,12 @@ module.exports = function(router) {
             console.log('Ady kol 7aga err ', err, 'user', user 
               , 'info' , info);
             var error = err || info;
-            if (err) { 
-                return next(err); 
-            }
-            if (info) {
-              return res.json(info);
+            if (error) { 
+                return res.json(400, error); 
             }
             req.logIn(user, function(err) {
               if (err) { 
-                return next(err); 
+                return res.send(err); 
               }
               res.json(req.user.user_info);
             });

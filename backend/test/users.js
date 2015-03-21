@@ -7,7 +7,7 @@ var req = request('http://localhost:8081/api');
 
 describe('User', function() {
     
-    beforeEach(setup.clearDB);
+    before(setup.clearDB);
 
     it('Should be created on a post', function(done) {
         req.post('/users')
@@ -30,8 +30,9 @@ describe('User', function() {
         req.get('/users')
         .send({})
         .end(function (err, res) {
+            console.log('All users ahom' ,res.body);
             should.not.exist(err);
-            res.status.should.be.eql(201);
+            res.status.should.be.eql(200);
             res.body.should.be.an.instanceOf(Array)
             .and.matchEach(function(it) {
                 return it.should.have.properties('username', 'email');

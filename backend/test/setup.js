@@ -9,7 +9,6 @@ var url = 'http://localhost:8081';
 var api = url + "/api";
 var none = function() {};
 
-
 var clearDBHelper = function clearDB(done) {
    mongoose.connect(config.test.db.url, function(){
     for (var collection in mongoose.connection.collections){
@@ -46,7 +45,3 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
-
-
-
-

@@ -25,6 +25,7 @@ module.exports = function(router) {
                 profilePhoto: req.body.profilePhoto
             }, function(err, user) {
                 if (err) {
+                    console.log(err);
                     next(err);
                 } else {
                     res.status(201);

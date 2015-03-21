@@ -1,15 +1,17 @@
   var mongoose = require('mongoose'),
       Profile = require('../models/user'),
-         im = require('imagemagick'),
-        util = require('util'),
-         fs = require('fs'),
-         _= require('lodash');
+      im = require('imagemagick'),
+      util = require('util'),
+      fs = require('fs'),
+      _= require('lodash');
+      url = require('url');
       api = {};
 
 module.exports = function(router) {
   router.route('users/:id').get(api.profile);
   router.route('users/:id').put(api.editProfile);
 };
+
 exports.uploadFile = function(file, callback) {
   var tmpPath = file.path
     , oldName = file.name
@@ -75,25 +77,15 @@ exports.deletePhoto = function(profilePhoto) {
 
     console.log('Successfully delete the profile Photo');
   });
-
 };
 
-
-
-
-
-
-
-
-
-
-
 // GET
-  api.profile = function (req, res) {
+  api.profile = function (req, res, next) {
     var id = req.params.id;
     Profile.findOne({ '_id': id }, function(err, profile) {
       if (err) {
         res.json(404, err);
+        next(err);
       } else {
         res.json({profile: profile});
       }
@@ -103,13 +95,10 @@ exports.deletePhoto = function(profilePhoto) {
  
 
   // PUT
-  api.editProfile = function (req, res) {
+  api.editProfile = function (req, res, next) {
     var id = req.params.id;
-
     Profile.findById(id, function (err, profile) {
 
-
-    
       if(typeof req.body.profile["firstName"] != 'undefined'){
         profile["firstName"] = req.body.profile["firstName"];
       }  
