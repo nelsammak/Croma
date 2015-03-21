@@ -24,7 +24,7 @@ console.log('Current book collection removed');
 var book1 = new book({ 
 	name: 'Harry Potter and the Philosopher\'s Stone',
 	author:'J.K. Rowling',
-	coverLocation: 'partials/bookCovers/1.jpg',
+	coverLocation: 'bookCovers/1.jpg',
 	bio: '[Insert Bio Here]'
 });
 book1.save(function func (err, book1) {
