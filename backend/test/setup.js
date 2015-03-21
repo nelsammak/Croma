@@ -46,10 +46,3 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
-<<<<<<< HEAD
-=======
-
-
-
-
->>>>>>> not_very_new_begining

@@ -42,5 +42,4 @@ describe('User', function() {
             done();
         })
     })
->>>>>>> not_very_new_begining
 });
