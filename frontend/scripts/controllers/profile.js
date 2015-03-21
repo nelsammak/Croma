@@ -1,5 +1,5 @@
-angular.module('angularPassportApp')
-.controller('ProfileController', ['$scope', 'Profile', function($scope,Profile) {
+
+/*.controller('ProfileController', ['$scope', 'Profile', function($scope,Profile) {
 $scope.user = Profile.get({id: $routeParams.id}, function(profile) {
 
     $scope.profilePhoto = profile.profilePhoto;
@@ -16,8 +16,20 @@ $scope.user = Profile.get({id: $routeParams.id}, function(profile) {
       $scope.profilePhoto = imageUrl;
   };
 
-}]);
-
+}]);*/
+angular.module('angularPassportApp')
+.controller('ProfileController', ['$scope','$routeParams', 'Profile',
+	function sendUserInfo ($scope, $routeParams , Profile) {
+		$scope.userInfo = Profile.get({userId: $routeParams.userId}, function(userInfo) {
+      $scope.profileImage = userInfo.profilephoto;
+    });
+	
+/*$scope.setImage = function(imageUrl) {
+      $scope.mainImageUrl = imageUrl;
+    }*/
+	} 
+]);
+/*
 directive('fileInput',['$parse',function($parse){
 	return{
 		restrict:A,
@@ -52,7 +64,7 @@ $scope.upload=function(){
 }
 }
 ])
-
+*/
 
 // <div ng-app>
 //   <div ng-controller="ClickToEditCtrl">

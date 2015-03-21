@@ -73,9 +73,10 @@
     
 </head>    
 
-<body id="pages" class="full-layout  nav-right-hide nav-right-start-hide  nav-top-fixed      responsive    clearfix breakpoint-975" data-active="pages " data-smooth-scrolling="1" ng-controller="ProfileController as profile">     
-<div class="vd_body">
+<body id="pages" class="full-layout  nav-right-hide nav-right-start-hide  nav-top-fixed      responsive    clearfix breakpoint-975" data-active="pages " data-smooth-scrolling="1">     
+<div class="vd_body" >
 <!-- Header Start -->
+<h1> {{userInfo.username}} </h1>
   <header class="header-1" id="header">
       <div class="vd_top-menu-wrapper">
         <div class="container ">
@@ -133,7 +134,7 @@
                 <img ng-src="{{profile.profilePhoto}}" ><!-- src="./User Profile Pages/avatar.jpg" alt="example image" -->               
             </span>
             <span class="mega-name">
-                {{profile.firstName}} <i class="fa fa-caret-down fa-fw"></i> 
+                {{user.username}} <i class="fa fa-caret-down fa-fw"></i> 
             </span>
         </a> 
       <div class="vd_mega-menu-content  width-xs-2  left-xs left-sm" data-action="click-target" style="">
@@ -222,7 +223,7 @@
                    <!-- upload image -->
  
 
-                    <h2 class="font-semibold mgbt-xs-5">{{profile.username}}<!-- Mariah Caraiban --></h2>
+                    <h2 class="font-semibold mgbt-xs-5">{{userInfo.username}}<!-- Mariah Caraiban --></h2>
                    <div class="text-center vd_info-parent"> <img ng-src="{{profile.profilePhoto}}" ng-click="setImage(img)"> </div>
               
                   </div>
@@ -269,7 +270,7 @@
           <div class="col-sm-6">
             <div class="row mgbt-xs-0">
               <label class="col-xs-5 control-label">User Name:</label>
-              <div class="col-xs-7 controls"><!-- Mariah -->{{profile.userName}}</div>
+              <div class="col-xs-7 controls"><!-- Mariah -->{{userInfo.userName}}</div>
               <!-- col-sm-10 --> 
             </div>
           </div>
