@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var bcrypt = require('bcrypt');
+util = require('util');
 var SALT_FACTOR = 10;
 var Schema = mongoose.Schema;
 var ObjectId = Schema.ObjectId;
@@ -19,7 +20,6 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function(next) {
     var user = this;
-
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 

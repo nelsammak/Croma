@@ -26,6 +26,10 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'AppCtrl'
       })
+      .when('/profile', {
+        templateUrl: 'partials/userprofile.html',
+        controller: 'ProfileController'
+      })
       .otherwise({
         redirectTo: '/'
       });
