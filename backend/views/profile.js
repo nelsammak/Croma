@@ -7,10 +7,23 @@
       url = require('url');
       api = {};
 
-module.exports = function(router) {
-  router.route('users/:id').get(api.profile);
-  router.route('users/:id').put(api.editProfile);
-};
+// GET
+  api.profile = function (req, res, next) {
+    console.log("BLALALALALALALALALALALALA");
+    var id = req.params.id;
+    console.log('THIS IS THE ID FOR THE USER TO BE FOUND', id);
+    Profile.findOne({ '_id': id }, function(err, profile) {
+      console.log('FOUND THIS PROFILE BY ID', profile);
+      if (err) {
+        res.json(404, err);
+        next(err);
+      } else {
+        res.json(profile);
+      }
+    });
+  // res.send(req.params.id);
+  };
+
 
 exports.uploadFile = function(file, callback) {
   var tmpPath = file.path
@@ -79,18 +92,7 @@ exports.deletePhoto = function(profilePhoto) {
   });
 };
 
-// GET
-  api.profile = function (req, res, next) {
-    var id = req.params.id;
-    Profile.findOne({ '_id': id }, function(err, profile) {
-      if (err) {
-        res.json(404, err);
-        next(err);
-      } else {
-        res.json({profile: profile});
-      }
-    });
-  };
+
 
  
 
@@ -165,9 +167,14 @@ console.log(req.files);
             else {
              return res.json(500, err);
             }
-          return res.json({profile: profile});
+          return res.json(profile);
         });
         });
       };
   });
+};
+module.exports = function(router) {
+  /*console.log('PROFILE APII', api);
+   router.route('users/:id').get(api.profile).put(api.editProfile);*/
+   router.route('/users/:id').get(api.profile).put(api.editProfile);
 };
