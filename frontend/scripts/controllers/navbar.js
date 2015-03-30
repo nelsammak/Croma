@@ -7,7 +7,7 @@ angular.module('angularPassportApp')
 
     $scope.authMenu = [{
       "title": "Profile",
-      "link":"profile"
+      "link": "profile"
     }, {
       "title": "Books",
       "link": "books"
