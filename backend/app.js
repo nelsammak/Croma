@@ -43,9 +43,10 @@ app.use(morgan('dev'));
 
 var router = express.Router(); 
 
-//routes 
+
+//routes NEEDS TO BE RENDERED INSTEAD OF SEND
 app.get('/books', function getBooksIndex (req, res, next) {
-  res.render(path.join(__dirname, '../frontend', 'views', 'books.html'));
+  res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
 });
 
 app.get('/books2', function getBooksCollection (req, res, next) {
@@ -58,21 +59,21 @@ app.get('/books2', function getBooksCollection (req, res, next) {
   });
 });
 
-app.use('/api', router);
-require('./views/profile.js')(router);
+
 require('./views/users.js')(router);
 require('./views/session.js')(router);
-
-
+require('./views/profile.js')(router);
+app.use('/api', router);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
     res.render(requestedView);
   });
 
-app.get('/*', function(req, res) {
+  app.get('/*', function(req, res) {
     res.render('index.html');
   });
+
 
 var port = process.env.PORT || 8081; 
 
