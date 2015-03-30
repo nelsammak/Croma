@@ -49,28 +49,14 @@ app.use(morgan('dev'));
 
 
 var router = express.Router(); 
+app.use('/api', router);
 
 
-//routes NEEDS TO BE RENDERED INSTEAD OF SEND
-app.get('/books', function getBooksIndex (req, res, next) {
-  res.sendFile(path.join(__dirname, '../frontend', 'views', 'books.html'));
-});
 
-app.get('/books2', function getBooksCollection (req, res, next) {
-  console.log("I recieved a GET request");
-  Books.find(function (err, books) {
-    if (err) {
-      next(err);
-    }
-    res.json(books);
-  });
-});
-
-
+require('./views/book.js')(router);
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
-app.use('/api', router);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
