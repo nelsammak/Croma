@@ -41,7 +41,7 @@ var book1 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.',
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book1.save(function func (err, book1) {
   if (err) return console.error(err);
@@ -63,7 +63,7 @@ var book2 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.',
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book2.save(function func (err, book2) {
   if (err) return console.error(err);
@@ -85,7 +85,7 @@ var book3 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book3.save(function func (err, book3) {
   if (err) return console.error(err);
@@ -107,7 +107,7 @@ var book4 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book4.save(function func (err, book4) {
   if (err) return console.error(err);
@@ -129,7 +129,7 @@ var book5 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book5.save(function func (err, book5) {
   if (err) return console.error(err);
@@ -151,7 +151,7 @@ var book6 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-  text: 'books/bookEpub/orwell-animal-farm.epub'
+  text: 'books/bookEpub/orwell-animal-farm'
 });
 book6.save(function func (err, book6) {
   if (err) return console.error(err);
@@ -173,7 +173,7 @@ var book7 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm.epub'
+	text: 'books/bookEpub/orwell-animal-farm'
 });
 book7.save(function func (err, book7) {
   if (err) return console.error(err);
