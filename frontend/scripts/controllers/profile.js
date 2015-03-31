@@ -1,23 +1,16 @@
-
-/*.controller('ProfileController', ['$scope', 'Profile', function($scope,Profile) {
-$scope.user = Profile.get({id: $routeParams.id}, function(profile) {
-
-    $scope.profilePhoto = profile.profilePhoto;
-//     function ClickToEditCtrl($scope) {
-//   $scope.firstname = Profile.firstName;
-// }
-  });
-//$scope.user=Profile.query();
-//$scope.profPicUrl="big.jpg";
-// $scope.mainImageUrl = user.profilephoto[0];
-});
-
- $scope.setImage = function(imageUrl) {
-      $scope.profilePhoto = imageUrl;
-  };
-
-}]);*/
+'use strict'
 angular.module('angularPassportApp')
+.controller('ProfileController', ['$scope', '$http',
+	function sendUserInfo ($scope, $http) {
+		$http.get('/user/:{{currentUser._id}}').success(function(response) {
+			console.log("I received the DATA");
+		 	$scope.userInfo=response;
+		});
+	}
+]);
+
+
+/*angular.module('angularPassportApp')
 .controller('ProfileController', ['$scope','$routeParams', 'Profile',
 	function sendUserInfo ($scope, $routeParams , Profile) {
 		$scope.userInfo = Profile.get({userId: $routeParams.userId}, function(userInfo) {
@@ -26,9 +19,9 @@ angular.module('angularPassportApp')
 	
 /*$scope.setImage = function(imageUrl) {
       $scope.mainImageUrl = imageUrl;
-    }*/
+    }
 	} 
-]);
+]);*/
 /*
 directive('fileInput',['$parse',function($parse){
 	return{

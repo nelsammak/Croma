@@ -26,7 +26,7 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'AppCtrl'
       })
-      .when('/profile', {
+      .when('/profile/:id', {
         templateUrl: 'partials/userprofile.html',
         controller: 'ProfileController'
       })
