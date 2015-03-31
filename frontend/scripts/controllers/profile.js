@@ -2,7 +2,7 @@
 angular.module('angularPassportApp')
 .controller('ProfileController', ['$scope', '$http',
 	function sendUserInfo ($scope, $http) {
-		$http.get('/user/{{currentUser._id}}').success(function(response) {
+		$http.get('api/users/550c63a6d4d5f5280d565015').success(function(response) {
 			console.log(response);
 		 	$scope.userInfo=response;
 		});

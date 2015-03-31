@@ -15,7 +15,7 @@
                 <a href="/#/{{item.link}}">{{item.title}}</a>
             </li>
             <li ng-repeat="item in authMenu" ng-show="currentUser" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">
-                <a href="/#/{{item.link}}/{{currentUser._id}}">{{item.title}}</a>
+                <a href="/#/{{item.link}}">{{item.title}}</a>
             </li>
         </ul>
     </div>
