@@ -4,8 +4,7 @@
       api = {};
 
 module.exports = function(router) {
-  router.route('users/:id').get(api.profile);
-  router.route('users/:id').put(api.editProfile);
+  router.route('/users/:id').get(api.profile).put(api.editProfile);
 };
  
   // GET

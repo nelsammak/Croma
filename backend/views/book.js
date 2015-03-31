@@ -1,4 +1,6 @@
+'use strict';
 var Books = require('../models/book.js');
+// var path = require('path');
 module.exports = function(router) {
 	router.route('/books').get(function getBooksCollection (req, res, next) {
 	  Books.find(function findAllBooks(err, books) {
@@ -17,6 +19,8 @@ module.exports = function(router) {
 				next(err);
 			}
 			res.json({book: {text: book.text}});
+			// res.sendFile(path.join(__dirname, '../../frontend', book.text));
+
 		})
 	})
 
@@ -28,7 +32,6 @@ module.exports = function(router) {
 				next(err);
 			}
 			res.json({book: book});
-		})
-	})
- 
-}
+		});
+	}); 
+};
