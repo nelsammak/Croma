@@ -70,7 +70,7 @@ app.get('/partials/*', function(req, res) {
     res.render(requestedView);
   });
 
-  app.get('/*', function(req, res) {
+  app.get('/', function(req, res) {
     res.render('index.html');
   });
 
