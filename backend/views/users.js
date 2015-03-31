@@ -26,10 +26,9 @@ module.exports = function(router) {
             }, function(err, user) {
                 if (err) {
                     console.log(err);
-                    next(err);
+                    res.status(400).json(err);
                 } else {
-                    res.status(201);
-                    res.json(user);
+                    res.status(201).json(user);
                 }
             });
         });
