@@ -8,14 +8,27 @@ module.exports = function(router) {
 	    res.json(books);
 	  });
 	});
-router.route('/books/:id/text').get(function getBookText (req,res,next){
+
+	router.route('/books/:id/text').get(function getBookText (req,res,next){
+		var id = req.params.id;
+		Books.findOne({'_id': id}, function findBookText(err, book) {
+			if (err) {
+				res.json(404, err);
+				next(err);
+			}
+			res.json({book: {text: book.text}});
+		})
+	})
+
+	router.route('/books/:id').get(function getBook (req,res,next){
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBook(err, book) {
 			if (err) {
 				res.json(404, err);
 				next(err);
 			}
-			res.json(book.text);
+			res.json({book: book});
+		})
 	})
-}) 	
+ 
 }
