@@ -5,7 +5,7 @@ angular.module('angularPassportApp')
 	function sendBookCollection ($scope, $http) {
 		$http.get('api/books').success(function(response) {
 			console.log("I received the DATA");
-		 	$scope.books2=response;
+		 	$scope.books=response;
 		});
 	}
 ]);
