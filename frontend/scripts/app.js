@@ -6,7 +6,8 @@ angular.module('angularPassportApp', [
   'ngSanitize',
   'ngRoute',
   'http-auth-interceptor',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.router'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -33,6 +34,8 @@ angular.module('angularPassportApp', [
       .otherwise({
         redirectTo: '/'
       });
+
+      
     $locationProvider.html5Mode(true);
   })
 
