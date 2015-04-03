@@ -6,7 +6,9 @@ angular.module('angularPassportApp')
       Auth.createUser({
           email: $scope.user.email,
           username: $scope.user.username,
-          password: $scope.user.password
+          password: $scope.user.password,
+          firstName: $scope.user.firstName,
+          
         },
         function(err) {
           $scope.errors = {};

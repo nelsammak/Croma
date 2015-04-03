@@ -48,7 +48,7 @@
                         That username is already taken.
                     </p>
                     <p class="help-block"
-                       ng-show="form.password.$error.mongoose">
+                       ng-show="form.username.$error.mongoose">
                         {{ errors.username }}
                     </p>
                 </div>
@@ -77,6 +77,60 @@
                         {{ errors.password }}
                     </p>
                 </div>
+
+                <div class="form-group"
+                      ng-class="{'has-warning' : form.firstName.$dirty,
+                                  'has-success' : form.firstName.$valid && !form.firstName.$error.mongoose,
+                                  'has-error' : form.firstName.$error.mongoose
+                                  }">
+                    <input class="form-control"
+                            placeholder="First Name"
+                            type="text"
+                            name="firstName"
+                            ng-model="user.firstName"
+                            mongoose-error/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Last Name"
+                            type="text"
+                            name="lastName"
+                            ng-model="user.lastName"
+                            mongoose-error/>
+                </div>
+
+                 <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Age"
+                            type="number"
+                            name="age"
+                            ng-model="user.age"
+                            mongoose-error/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Address"
+                            type="text"
+                            name="address"
+                            ng-model="user.address"
+                            mongoose-error/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            type="radio"
+                            value= "Male"
+                            ng-model="user.gender"
+                            mongoose-error/>male
+                   <input class="form-control"
+                            type="radio"
+                            value= "Female"
+                            ng-model="user.gender"
+                            mongoose-error/>female
+                </div>
+
                 <br />
                 <button class="btn btn-lg btn-primary btn-block"
                         type="submit"
