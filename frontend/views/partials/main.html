@@ -15,7 +15,7 @@
 		<![endif]-->
 		<link href="css/styles.css" rel="stylesheet">
 	</head>
-	<body>
+	<body ng-controller= "MainCtrl">
 <div class="container-full" ng-show="!currentUser">
 
       <div class="row">
@@ -29,9 +29,9 @@
           
           
             <div class="input-group" style="width:340px;text-align:center;margin:0 auto;">
-            <button class="btn btn-lg btn-primary" type="button" onclick="location.href = '/login'">Login</button>
+            <button class="btn btn-lg btn-primary" type="button" ng-click="loginGo()">Login</button>
             &nbsp;
-             <button class="btn btn-lg btn-primary"  type="button" onclick="location.href = '/signup'">Sign Up</button>
+             <button class="btn btn-lg btn-primary"  type="button" ng-click="signupGo()">Sign Up</button>
             </div>
           
         </div>
