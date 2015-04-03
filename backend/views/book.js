@@ -10,6 +10,19 @@ module.exports = function(router) {
 	    res.json(books);
 	  });
 	});
+
+	router.route('/books/:id').get(function getBook (req,res,next){
+		var id = req.params.id;
+		var user = req.query.user;
+		Books.findOne({'_id': id}, function findBook(err, book) {
+			if (err) {
+				res.json(404, err);
+				next(err);
+			}
+			res.json({book: book});
+			console.log(user);
+		});
+	}); 
 /**
 * routes /api/books/:id/text returns a JSON {book: {text: 'path of the book'}}
 */
@@ -24,16 +37,5 @@ module.exports = function(router) {
 			// res.sendFile(path.join(__dirname, '../../frontend', book.text));
 
 		})
-	})
-
-	router.route('/books/:id').get(function getBook (req,res,next){
-		var id = req.params.id;
-		Books.findOne({'_id': id}, function findBook(err, book) {
-			if (err) {
-				res.json(404, err);
-				next(err);
-			}
-			res.json({book: book});
-		});
-	}); 
+	});
 };
