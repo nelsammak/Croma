@@ -9,4 +9,13 @@ angular.module('angularPassportApp')
 		});
 	}
 ]);
+
+angular.module('angularPassportApp')
+  .controller('BioCtrl', function ($scope,$routeParams, $location,$window) {
+   $scope.viewBio = function() {
+    $location.path ('/login');
+   };
+  });
+
+
 //Book Controller's job is to send the book collection in JSON format
