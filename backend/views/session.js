@@ -13,10 +13,7 @@ module.exports = function(router) {
         })
 
         .post(function (req, res, next) {
-          console.log('Posted Request before authentication: ', req.body);
           passport.authenticate('local', function(err, user, info) {
-            console.log('Ady kol 7aga err ', err, 'user', user 
-              , 'info' , info);
             var error = err || info;
             if (error) { 
                 return res.json(400, error); 

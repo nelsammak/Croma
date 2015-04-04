@@ -6,16 +6,21 @@ var mongoose = require('mongoose'),
  	ObjectId = Schema.ObjectId;
 
 
-var userBook = new schema({
+var userBook = new Schema({
 	user: {
 		type: ObjectId,
-		ref: User
-	}
+		ref: User,
+		required: true,
+		index: true
+	},
 	book: {
 		type: ObjectId,
-		ref: Book
-	}
+		ref: Book,
+		required: true
+	},
 	reading: Boolean
 })
 
 userBook.plugin(findOrCreate);
+
+module.exports = mongoose.model('UserBook', userBook);
