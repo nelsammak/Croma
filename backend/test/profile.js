@@ -46,7 +46,6 @@ describe('Profile', function() {
             done();
         })
     })
-      
   it('Should get one user', function (done) {
       User.findOne({email: 'test@test.com'}, function (err, tempUser) {
               req.get('/users/' + tempUser._id)
