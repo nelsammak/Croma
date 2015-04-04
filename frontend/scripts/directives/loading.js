@@ -4,7 +4,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('angularPassportApp')
     .directive('rdLoading', rdLoading);
 
 function rdLoading() {
