@@ -1,5 +1,5 @@
 'use strict';
-//Book Controller's job is to send the book collection in JSON format
+//Books Controller's job is to send the book collection in JSON format
 angular.module('angularPassportApp')
 .controller('BooksCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
@@ -13,8 +13,9 @@ angular.module('angularPassportApp')
 //response to view bio button and routing to a specific book
 angular.module('angularPassportApp')
   .controller('BioCtrl', function ($scope,$routeParams, $location,$window) {
-   $scope.viewBio = function(id, name) {
+   $scope.viewBio = function(id) {
+    console.log("Id: " + id);
     $location.path ('books/'+id);
-    console.log("book id : "+ id);
+    $scope.bookId=id;
    };
   });
