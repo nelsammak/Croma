@@ -38,7 +38,7 @@
 
 
 </head>
-  <body ng-app="angularPassportApp">
+  <body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -50,8 +50,7 @@
 
     <!-- Add your site or application content here -->
     
- <!-- <div ng-include="" src="'partials/navbar.html'"></div> -->
- <nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top">
 
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -62,33 +61,53 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="page-top">Croma</a>
+                 <li class="page-scroll">
+                <a class="navbar-brand" href="#pageTop">Croma</a>
+                  </li>
             </div>
 
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
+            <!-- these items when not logged in -->
+            <div ng-show = "!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul ng-show = "!currentUser" class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="page-top"></a>
+                        <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="portfolio">Portfolio</a>
+                        <a href="#portfolio">Browse</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="about">About</a>
+                        <a href="#about">About</a>
                     </li>
                     <li class="page-scroll">
-                        <a href="contact">Contact</a>
+                        <a href="#contact">Contact</a>
                     </li>
                 </ul>
+ <!-- these items when logged in -->
+                  <ul ng-show = "currentUser" class="nav navbar-nav navbar-right">
+                    <li class="hidden">
+                        <a href="#page-top"></a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#portfolio">To be Read</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#about">Hot this week</a>
+                    </li>
+                    <li class="page-scroll">
+                        <a href="#contact">Best Sellers</a>
+                    </li>
+                </ul>
+
             </div>
+        
             <!-- /.navbar-collapse -->
         </div>
         <!-- /.container-fluid -->
     </nav>
-<br><br><br><br><br>
+ 
+<br><br><br><br><br><br>
     <div ng-hide="currentUser" class="container" ng-view=""></div>
-
+ 
 <div ng-hide="!currentUser" ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
 
 
@@ -108,7 +127,7 @@
           <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
         <li class="sidebar-list">
-          <a href="#/tables">Tables <span class="menu-icon fa fa-table"></span></a>
+          <a href="#/tables">Books <span class="menu-icon fa fa-table"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -144,11 +163,11 @@
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header">
-                    Joe Bloggs
+                    {{currentUser.username}}
                   </li>
                   <li class="divider"></li>
                   <li class="link">
-                    <a href="#">
+                    <a href="/#/profile">
                       Profile
                     </a>
                   </li>
@@ -164,7 +183,7 @@
                   </li>
                   <li class="divider"></li>
                   <li class="link">
-                    <a href="#">
+                    <a ng-click="logout()">
                       Logout
                     </a>
                   </li>
@@ -180,7 +199,7 @@
                   </li>
                   <li class="divider"></li>
                   <li>
-                    <a href="#">Server Down!</a>
+                    <a href="#" >Server Down!</a>
                   </li>
                 </ul>
               </div>
@@ -198,6 +217,7 @@
         <!-- End Header Bar -->
 
         <!-- Main Content -->
+        <br><br>
         <div class="container" ng-view=""></div>
 
       </div><!-- End Page Content -->

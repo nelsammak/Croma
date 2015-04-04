@@ -12,7 +12,7 @@ angular.module('angularPassportApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/landing.html',
+        templateUrl: 'partials/main.html',
         controller: 'MainCtrl'
       })
       .when('/login', {
