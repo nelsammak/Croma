@@ -3,7 +3,7 @@
 angular.module('angularPassportApp')
 .controller('BookCtrl', ['$scope', '$http',
 	function getBook ($scope, $http) {
-		$http.get('api/books/'+$scope.bookId).success(function(response) {
+		$http.get('api/books/').success(function(response) {
 			console.log("I received the book");
 			console.log(respnse);
 		 	$scope.books=response;

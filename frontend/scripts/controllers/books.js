@@ -12,10 +12,24 @@ angular.module('angularPassportApp')
 
 //response to view bio button and routing to a specific book
 angular.module('angularPassportApp')
-  .controller('BioCtrl', function ($scope,$routeParams, $location,$window) {
+  .controller('BioCtrl', function ($scope,$routeParams, $location,$window, ShareService) {
    $scope.viewBio = function(id) {
-    console.log("Id: " + id);
     $location.path ('books/'+id);
-    $scope.bookId=id;
+    ShareService.setValue(id);
    };
   });
+
+//a service to pass id  from books Ctrl to book Ctrl
+angular.module('angularPassportApp')
+ .service('ShareService', function(){
+    var id = 0;
+    return {
+            getValue: function () {
+                return id;
+            },
+            setValue: function(value) {
+                id = value;
+            }
+        };
+ 
+});
