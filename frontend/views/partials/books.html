@@ -22,10 +22,6 @@
 							<div><h3>{{book.author}}</h3></div>
 							<button ng-controller ="BioCtrl" class="btn btn-lg btn-primary" type="button" 
 								ng-click="viewBio(book.id, book.name)">View Bio</button>
-							<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showBio = ! showBio">
-	  						<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-							</button>
-							<div ng-show="showBio">{{book.bio}}</div>
 						</td>
 					</tr>
 				</tbody>

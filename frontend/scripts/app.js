@@ -8,6 +8,7 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap'
 ])
+//choosing a specific partial HTML and a controller for any route
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
