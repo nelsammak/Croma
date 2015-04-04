@@ -6,8 +6,7 @@ angular.module('angularPassportApp')
 
    	$http.get('api/books/'+ShareService.getValue()).success(function(response) {
 			console.log("I received the book");
-		 	$scope.book=response;
-		 	console.log(response);
+		 	$scope.book=response.book;
 		});
   });
 
