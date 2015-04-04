@@ -12,8 +12,9 @@ angular.module('angularPassportApp')
 
 angular.module('angularPassportApp')
   .controller('BioCtrl', function ($scope,$routeParams, $location,$window) {
-   $scope.viewBio = function() {
-    $location.path ('/login');
+   $scope.viewBio = function(id) {
+    $location.path ('/'+id);
+    console.log("book id : "+ id);
    };
   });
 
