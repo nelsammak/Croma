@@ -1,13 +1,13 @@
 'use strict';
-//Book Controller's job is to recieve a book and prepare it to be displayed
+
+///Book Controller's job is to recieve a book and prepare it to be displayed
 angular.module('angularPassportApp')
-.controller('BookCtrl', ['$scope', '$http',
-	function getBook ($scope, $http) {
-		$http.get('api/books/').success(function(response) {
+  .controller('BookCtrl', function ($scope, $http, ShareService) {
+
+   	$http.get('api/books/'+ShareService.getValue()).success(function(response) {
 			console.log("I received the book");
-			console.log(respnse);
-		 	$scope.books=response;
+		 	$scope.book=response;
+		 	console.log(response);
 		});
-	}
-]);
+  });
 
