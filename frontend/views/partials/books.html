@@ -14,12 +14,13 @@
 				<tbody>
 					<tr ng-repeat="book in books">
 						<td>
+						<a href="myfile.htm"><img ng-src="{{book.coverLocation}}" border="0" alt="Link to this page"></a>
 						</td>
 						<td>
 						
 							<div><h1>{{book.name}}</h1></div>
 							<div><h3>{{book.author}}</h3></div>
-							<div><h3>Bio</h3></div>
+							<div><button class="btn btn-lg btn-primary" type="button" ng-click="viewBio()">Login</button></div>
 							<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showBio = ! showBio">
 	  						<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 							</button>
