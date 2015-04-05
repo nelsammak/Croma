@@ -99,21 +99,27 @@ exports.deletePhoto = function(profilePhoto) {
     var id = req.params.id;
     Profile.findById(id, function (err, profile) {
 
+
+    
       if(typeof req.body.profile["firstName"] != 'undefined'){
         profile["firstName"] = req.body.profile["firstName"];
       }  
+    
       if(typeof req.body.profile["lastName"] != 'undefined'){
         profile["lastName"] = req.body.profile["lastName"];
       }  
+    
       if(typeof req.body.profile["age"] != 'undefined'){
         profile["age"] = req.body.profile["age"];
       }  
+    
       if(typeof req.body.profile["address"] != 'undefined'){
         profile["address"] = req.body.profile["address"];
       }  
-      if(typeof req.body.profile["gender"] != 'undefined'){
+ if(typeof req.body.profile["gender"] != 'undefined'){
         profile["gender"] = req.body.profile["gender"];
       } 
+    
       if(typeof req.body.profile["user"] != 'undefined'){
         profile["user"] = req.body.profile["user"];
       } 
@@ -166,34 +172,4 @@ console.log(req.files);
         });
       };
   });
-
 };
-
-  var checkUserName = function checkUserName(req, res, next) {
-
-          User.findOne({username : req.params.username},
-           function findUserCallback(err, user) {
-              if (err) {
-                  return next(new Error('Failed to load User' 
-                      +  username));
-              }
-              if (user) {
-                  res.json({exists: true});
-              }
-              else {
-                  res.json({exits: false});
-              }
-          });
-      };
-
-  var currentlyReadingBooks = function currentlyReadingBooks (req, res, next) {
-    var userID = req.params.user;
-    User.find({user: userID}).populate(currentlyReading)
-          .exec(function userCurrentlyReadingBooks (err, user) {
-            if (err) {
-              return next(err);
-            }
-            res.json(user.currentlyReading);
-            res.status(201);
-          })
-  };

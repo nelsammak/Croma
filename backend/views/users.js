@@ -1,8 +1,6 @@
 var User = require('../models/user.js');
 module.exports = function(router) {
 
-    
-                            
     router.route('/users')
         .get(function (req,res,next) {
             User.find({}, function (err, users) {
@@ -35,6 +33,23 @@ module.exports = function(router) {
             });
         });
         
+        router.route('/check_username/:username')
+                    .get(function checkUserName(req, res, next) {
+                        User.findOne({username : req.params.username},
+                         function findUserCallback(err, user) {
+                            if (err) {
+                                return next(new Error('Failed to load User' 
+                                    +  username));
+                            }
+
+                            if (user) {
+                                res.json({exists: true});
+                            }
+                            else {
+                                res.json({exits: false});
+                            }
+                        });
+                    });
  
 
 
