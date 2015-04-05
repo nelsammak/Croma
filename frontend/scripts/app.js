@@ -7,7 +7,8 @@ angular.module('angularPassportApp', [
   'ngRoute',
   'http-auth-interceptor',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router',
+  'angularModalService'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
