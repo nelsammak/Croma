@@ -8,6 +8,9 @@ var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
 var passport = require('passport');
+var cookieParser = require('cookie-parser');
+
+var MongoStore = require('connect-mongo')(expressSession);
 
 //importing the book model
 var Books = require('./models/book.js')
@@ -27,19 +30,21 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(cookieParser('CromaSecret'));
 
 
 var passportConfig = require('./config/passport')();
 
 
 app.use(expressSession({
-
  saveUninitialized: true,
-
  resave: true,
-
- secret: 'CromaSecret'
-
+ secret: 'CromaSecret',
+ store: new MongoStore(
+        {mongooseConnection:mongoose.connection},
+        function(err){
+            console.log(err || 'connect-mongodb setup ok');
+        })
  }));
 
 app.use(passport.initialize());

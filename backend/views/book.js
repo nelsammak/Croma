@@ -1,6 +1,7 @@
 'use strict';
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
+var cookieParser = require('cookie-parser');
 // var path = require('path');
 module.exports = function(router) {
 
@@ -15,6 +16,7 @@ module.exports = function(router) {
 		}
 		user = req.user;
 		console.log(user);
+
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
 				res.json(404, err);
@@ -44,6 +46,8 @@ module.exports = function(router) {
 	}); 
 	router.route('/books').get(function getBooksCollection (req, res, next) {
 	  Books.find(function findAllBooks(err, books) {
+	    console.log(req.user);
+	    console.log('Current Cookies', req.cookies);
 	    if (err) {
 	      next(err);
 	    }
