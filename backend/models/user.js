@@ -1,10 +1,19 @@
 var mongoose = require('mongoose');
+<<<<<<< Updated upstream
     bcrypt = require('bcrypt'),
     SALT_FACTOR = 10,
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     Book = require('./book.js'),
     _= require('lodash');
+=======
+
+var bcrypt = require('bcrypt');
+var SALT_FACTOR = 10;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
+var _= require('lodash');
+>>>>>>> Stashed changes
 
 var UserSchema = new Schema({
     email: { type: String, index: {unique: true}, required: true },
