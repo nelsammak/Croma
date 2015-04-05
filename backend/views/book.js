@@ -1,5 +1,6 @@
 'use strict';
 var Books = require('../models/book.js');
+var User = require('../models/user.js');
 // var path = require('path');
 module.exports = function(router) {
 
@@ -20,6 +21,13 @@ module.exports = function(router) {
 				return next(err);
 			}
 		user.currentlyReading.push(book);
+
+		User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+			if (err) {
+				return next(err);
+			}	
+			console.log(newUser);
+		})
 		res.json({book: {text: book.text}});
 		})
 			// res.sendFile(path.join(__dirname, '../../frontend', book.text));
