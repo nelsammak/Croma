@@ -4,7 +4,6 @@
       util = require('util'),
       fs = require('fs'),
       _= require('lodash');
-      url = require('url');
 
 module.exports = function(router) {  
   router.route('/users/:id').get(profile).put(editProfile);
