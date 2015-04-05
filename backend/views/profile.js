@@ -1,10 +1,4 @@
   var mongoose = require('mongoose'),
-<<<<<<< Updated upstream
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> Stashed changes
       Profile = require('../models/user'),
       url = require('url');
 
@@ -16,23 +10,6 @@ module.exports = function(router) {
  
   // GET
   var profile = function (req, res, next) {
-<<<<<<< Updated upstream
-    console.log("Ed5ol fel get isa");
-=======
-=======
-      Profile = require('../models/user')
-      url = require('url');
-      api = {};
-
-module.exports = function(router) {
-  router.route('/users/:id').get(api.profile).put(api.editProfile);
-};
- 
-  // GET
-  api.profile = function (req, res, next) {
-    console.log("Ed5ol fel get isa");
->>>>>>> parent of cf1654e... Currently reading most probably done but tests needs a little bit of work as I'm trying to login before requesting the book text. #28
->>>>>>> Stashed changes
     var id = req.params.id;
     
     Profile.findOne({ '_id': id }, function(err, profile) {
@@ -48,7 +25,7 @@ module.exports = function(router) {
  
 
   // PUT
-  api.editProfile = function (req, res, next) {
+   var editProfile = function (req, res, next) {
     var id = req.params.id;
 
     Profile.findById(id, function (err, profile) {
