@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     Book = require('./book.js'),
+    util = require('util'),
     _= require('lodash');
 
 var UserSchema = new Schema({
@@ -21,7 +22,6 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function(next) {
     var user = this;
-
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 

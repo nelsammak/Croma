@@ -4,7 +4,7 @@ angular.module('angularPassportApp')
 .controller('AppCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
 		$http.get('/api/books').success(function(response) {
-		 	$scope.books2=response;
+		 	$scope.books=response;
 		});
 	}
 ]);

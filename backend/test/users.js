@@ -7,13 +7,11 @@ var req = request('http://localhost:8081/api');
 
 describe('User', function() {
     
-
     before(setup.clearDB);
 
     it('Should be created on a post', function(done) {
         req.post('/users')
         .send({
-
             username: "test2",
             password: "test2",
             email: "test2@example.com"
