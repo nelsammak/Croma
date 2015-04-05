@@ -31,6 +31,10 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/userprofile.html',
         controller: 'ProfileController'
       })
+      .when('/thebook', {
+        templateUrl: 'partials/index.html',
+        controller: 'ReaderController'
+      })
       .otherwise({
         redirectTo: '/'
       });
@@ -40,6 +44,10 @@ angular.module('angularPassportApp', [
   })
 
   .run(function ($rootScope, $location, Auth) {
+ 
+ $rootScope.contentsPath = '';
+    
+    $rootScope.metadata = {bookTitle: 'TDO'};
 
     //watching the value of the currentUser variable.
     $rootScope.$watch('currentUser', function(currentUser) {

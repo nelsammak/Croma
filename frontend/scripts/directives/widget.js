@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('RDash')
+    .module('angularPassportApp')
     .directive('rdWidget', rdWidget);
 
 function rdWidget() {
