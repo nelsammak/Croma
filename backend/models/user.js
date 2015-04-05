@@ -1,10 +1,19 @@
 var mongoose = require('mongoose');
+/*<<<<<<< HEAD*/
     bcrypt = require('bcrypt'),
     SALT_FACTOR = 10,
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     Book = require('./book.js'),
     _= require('lodash');
+/*=======
+var bcrypt = require('bcrypt');
+util = require('util');
+var SALT_FACTOR = 10;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
+var _= require('lodash');
+>>>>>>> website_template*/
 
 var UserSchema = new Schema({
     email: { type: String, index: {unique: true}, required: true },
@@ -21,7 +30,6 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save', function(next) {
     var user = this;
-
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 

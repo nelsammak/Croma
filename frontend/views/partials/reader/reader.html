@@ -1,0 +1,38 @@
+<div id="sidebar" ng-class="{open: open, single: single}">
+	<div id="controls">
+		<input id="searchBox" placeholder="search" type="search">
+		<!-- <a id="fullscreen">
+			<img id="fullscreenicon" src="img/fullscreen.png">
+			<img id="cancelfullscreenicon" src="img/cancelfullscreen.png" style="display: none">
+		</a> -->
+	</div>
+	<epubtoc toc="toc" current="{{currentChapterId}}" ></epubtoc>
+	<div id="searchView">
+		<ul id="searchResults"></ul>
+	</div>
+</div>
+
+<hypothesis id="hypothesis"
+						on-annotations-loaded="afterAnnotationsLoaded(annotator, annotations)" ></hypothesis>
+
+<div id="main" ng-class="{open: open, single: single}">
+	<div id="opener">
+		<a id="open" ng-click="open = !open" class="icon" ng-class="{open: open}"><img src="images/menu-icon.png"></a>
+	</div>
+	<div id="singlepage">
+	</div>
+	<div id="titlebar">
+		<span id="book-title">{{metadata.bookTitle}}</span>
+		<span id="title-seperator" ng-class="{hidden: !metadata.bookTitle}">&nbsp;&nbsp;–&nbsp;&nbsp;</span>
+		<span id="chapter-title">{{metadata.creator}}</span>
+	</div>
+	<epubviewer src="{{src}}"
+							path="{{path}}"
+							cfi="{{cfi}}"
+							metadata="metadata" 
+							toc="toc"
+							on-ready="afterReady(book)"
+							on-chapter-displayed="afterChapterDisplayed(e)"
+							on-page-changed="afterPageChanged(e)"
+							></epubviewer>
+</div>

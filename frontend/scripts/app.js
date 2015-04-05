@@ -6,7 +6,8 @@ angular.module('angularPassportApp', [
   'ngSanitize',
   'ngRoute',
   'http-auth-interceptor',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.router'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -26,13 +27,27 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'AppCtrl'
       })
+      .when('/profile', {
+        templateUrl: 'partials/userprofile.html',
+        controller: 'ProfileController'
+      })
+      .when('/thebook', {
+        templateUrl: 'partials/index.html',
+        controller: 'ReaderController'
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+      
     $locationProvider.html5Mode(true);
   })
 
   .run(function ($rootScope, $location, Auth) {
+ 
+ $rootScope.contentsPath = '';
+    
+    $rootScope.metadata = {bookTitle: 'TDO'};
 
     //watching the value of the currentUser variable.
     $rootScope.$watch('currentUser', function(currentUser) {

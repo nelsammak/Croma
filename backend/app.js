@@ -4,6 +4,7 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
+var passport = require('passport');
 var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
@@ -23,14 +24,15 @@ console.log(config);
 
 mongoose.connect(config.db.url);
 
-
 app.use(express.static(path.join(__dirname, '../frontend'))); 
 app.set('views', path.join(__dirname, '../frontend/views'));
 app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
 app.use(cookieParser('CromaSecret'));
+
 
 
 var passportConfig = require('./config/passport')();
@@ -39,19 +41,22 @@ var passportConfig = require('./config/passport')();
 app.use(expressSession({
  saveUninitialized: true,
  resave: true,
+/*<<<<<<< HEAD*/
  secret: 'CromaSecret',
  store: new MongoStore(
         {mongooseConnection:mongoose.connection},
         function(err){
             console.log(err || 'connect-mongodb setup ok');
         })
+/*=======
+ secret: 'CromaSecret'
+>>>>>>> website_template*/
  }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan('dev'));
-
 
 var router = express.Router(); 
 app.use('/api', router);
