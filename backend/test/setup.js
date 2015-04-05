@@ -36,6 +36,21 @@ var clearDBHelper = function clearDB(done) {
     }
 };
 
+before(function(done) {
+     if (mongoose.connection.readyState === 0) {
+         mongoose.connect(config.test.db.url, function(err) {
+             if (err) {
+                 throw err;
+             }
+             console.log('CONNECTED TO DB');
+             done();
+        });
+    } else {
+        console.log('readyState != 0');
+        done();
+    }
+})
+
 after(function(done) {
     mongoose.disconnect();
     return done();
