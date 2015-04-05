@@ -1,5 +1,6 @@
   var mongoose = require('mongoose'),
 <<<<<<< HEAD
+<<<<<<< HEAD
       Profile = require('../models/user'),
       im = require('imagemagick'),
       util = require('util'),
