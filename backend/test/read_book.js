@@ -22,6 +22,7 @@ describe('ReadBook', function () {
        if (err) { return done(err) };
         console.log('Created User', testUser);
      */ 
+        req.post('/sessions').send(post)
         Book.findOne({}, function (err, books) {
          if (err) { return done(err) };
           console.log(books._id);
@@ -37,10 +38,6 @@ describe('ReadBook', function () {
        password: 'test',
        username: 'test'
      };
-    Book.findOne({}, function (err, book) {
-      console.log('found this book', book);
-      req.post('/sessions').send(post).end(function (error, response) {
-        console.log('RESPONSE EL FOO2' , response.body);
       req.post('/books/' + testBook._id).send({}).end(function (err, res) {
       if (err) {
         done(err);
@@ -50,8 +47,6 @@ describe('ReadBook', function () {
       res.body.should.have.properties('text');        
       done();
       });
-      });  
-    });
   });
 
 });
