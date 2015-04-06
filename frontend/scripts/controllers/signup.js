@@ -4,7 +4,8 @@ angular.module('angularPassportApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
 
     $scope.register = function(form) {
-      if($scope.user.admin != 'true'){
+
+      if($scope.user.admin != true){
         $scope.user.admin = false;
       };
       console.log($scope.user.admin);
