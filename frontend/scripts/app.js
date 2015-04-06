@@ -12,27 +12,27 @@ angular.module('angularPassportApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main.html',
+        templateUrl: 'views/partials/main.html',
         controller: 'MainCtrl'
       })
       .when('/login', {
-        templateUrl: 'partials/login.html',
+        templateUrl: 'views/partials/login.html',
         controller: 'LoginCtrl'
       })
       .when('/signup', {
-        templateUrl: 'partials/signup.html',
+        templateUrl: 'views/partials/signup.html',
         controller: 'SignupCtrl'
       })
       .when('/books', {
-        templateUrl: 'partials/books.html',
+        templateUrl: 'views/partials/books.html',
         controller: 'AppCtrl'
       })
       .when('/profile', {
-        templateUrl: 'partials/userprofile.html',
+        templateUrl: 'views/partials/userprofile.html',
         controller: 'ProfileController'
       })
       .when('/thebook', {
-        templateUrl: 'partials/index.html',
+        templateUrl: 'views/partials/index.html',
         controller: 'ReaderController'
       })
       .otherwise({

@@ -116,7 +116,7 @@ console.log(req.files);
 * @return {JSON} {exist: {TRUE OR FALSE}} 
 */
   var checkUserName = function checkUserName(req, res, next) {
-        User.findOne({username : req.params.username}
+        Profile.findOne({username : req.params.username}
           , function findUserCallback(err, user) {
               if (err) {
                   return next(new Error('Failed to load User' 
