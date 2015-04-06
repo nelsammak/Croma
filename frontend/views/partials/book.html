@@ -1,0 +1,33 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title> View Bio </title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+	</head>
+	<body>
+		<div align="center">
+			<h1 >{{book.name}}</h1>
+			<h3 >{{book.author}}</h3>
+			<img  ng-src="{{book.coverLocation}}"/>    	
+		</div>
+		<div id = "bio">
+			{{book.bio}}
+		</div>
+	</body>
+
+<style>
+#bio {
+	margin-top: 13px;
+	border: 2px solid #a1a1a1;
+    border-radius: 25px;
+    background-color:blue;
+    font-family: cursive;
+    color:white;
+    clear:both;
+    text-align:center;
+    padding:5px; 
+}
+</style>
+</html>

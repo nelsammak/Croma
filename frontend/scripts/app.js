@@ -8,6 +8,7 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap'
 ])
+//choosing a specific partial HTML and a controller for any route
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -24,12 +25,17 @@ angular.module('angularPassportApp', [
       })
       .when('/books', {
         templateUrl: 'partials/books.html',
-        controller: 'AppCtrl'
+        controller: 'BooksCtrl'
+      })
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
       })
       .when('/profile', {
         templateUrl: 'partials/userprofile.html',
         controller: 'ProfileController'
       })
+
       .otherwise({
         redirectTo: '/'
       });
