@@ -9,6 +9,35 @@ var cookieParser = require('cookie-parser');
 */
 module.exports = function(router) {
 
+
+	router.route('/books/:id/currentlyReading')
+	.post(function addToCurrentlyReading (req, res, next) {
+		var id = req.params.id;
+		if (!req.user) {
+			return next('User not logged in');
+		}
+		user = req.user;
+		Books.findOne({'_id': id}, function findBookText(err, book) {
+			if (err) {
+				res.json(404, err);
+				return next(err);
+			}
+		user.currentlyReading.push(book._id);
+
+			User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+				if (err) {
+					
+					return next(err);
+				}	
+				res.json({user: newUser});
+				console.log(newUser);
+			})
+		})
+	})
+
+
+
+
 /**
 * @function getBookText Called on GET "/api/books/:id/text" 
 * Returns books text and Adds book to currently reading of the current user
@@ -31,7 +60,7 @@ module.exports = function(router) {
 				res.json(404, err);
 				return next(err);
 			}
-		user.currentlyReading.push(book);
+		user.currentlyReading.push(book._id);
 
 		User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
 			if (err) {
