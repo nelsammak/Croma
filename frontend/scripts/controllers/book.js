@@ -9,9 +9,13 @@ angular.module('angularPassportApp')
 		});
    	//rate function's job is to send the the backend the user who wants to rate a book and his rating
    	$scope.rate = function(rating) {
-    $http
-    $scope.id = ShareService.getValue();
-    console.log($scope.id);
+   	$http.post('api/books/'+ShareService.getValue(), id)
+            .success(function(data) {
+                $scope.book=response.book;
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
    };
   });
 
