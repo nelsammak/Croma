@@ -11,6 +11,7 @@
 */
 module.exports = function(router) {
   router.route('/users/:id/currentlyReading').get(currentlyReadingBooks);
+  router.route('/users/:id/readBooks').get(alreadReadBooks);
   router.route('/users/:id').get(profile).put(editProfile);
   router.route('/check_username/:username').get(checkUserName);
 };
@@ -147,6 +148,18 @@ console.log(req.files);
               return next(err);
             }
             res.json(user.currentlyReading);
+            res.status(201);
+          })
+  };
+
+  var alreadyReadBooks = function alreadyReadBooks (req, res, next) {
+    var userID = req.params.user;
+    User.find({user: userID}).populate(read)
+          .exec(function useralreadyReadBooks (err, user) {
+            if (err) {
+              return next(err);
+            }
+            res.json(user.read);
             res.status(201);
           })
   };
