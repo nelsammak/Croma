@@ -22,7 +22,10 @@
 							<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showBio = ! showBio">
 	  						<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
 							</button>
-							<div ng-show="showBio">{{book.bio}}</div>
+                          <div ng-show="showBio">{{book.bio}}</div>
+							<button type="button" class="btn btn-default" ng-click="sendReading(book.id)"> add read
+							</button>
+							
 						</td>
 					</tr>
 				</tbody>
