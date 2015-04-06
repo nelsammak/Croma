@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
     bcrypt = require('bcrypt'),
     SALT_FACTOR = 10,
     Schema = mongoose.Schema,
-    ObjectId = Schema.ObjectId,
+    ObjectId = Schema.Types.ObjectId,
     Book = require('./book.js'),
     _= require('lodash');
 
@@ -18,7 +18,7 @@ var UserSchema = new Schema({
     address: { type: String },
     profilePhoto: { type: String },
     gender: { type: String, enum: ['male', 'female']},
-    currentlyReading: { type: [ObjectId], ref: Book}
+    currentlyReading: [{type: ObjectId, ref: 'book'}]
 });
 
 UserSchema.pre('save', function(next) {

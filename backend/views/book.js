@@ -16,14 +16,16 @@ module.exports = function(router) {
 		if (!req.user) {
 			return next('User not logged in');
 		}
-		user = req.user;
+		var user = req.user;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
 				res.json(404, err);
 				return next(err);
 			}
-		user.currentlyReading.push(book._id);
-
+		if(user.currentlyReading.indexOf(book._id) === -1) {
+			user.currentlyReading.push(book._id);
+		}
+		
 			User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
 				if (err) {
 					

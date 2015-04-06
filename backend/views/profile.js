@@ -1,5 +1,6 @@
   var mongoose = require('mongoose'),
-      Profile = require('../models/user'),
+      Profile = require('../models/user.js'),
+      Book = require('../models/book.js'),
       im = require('imagemagick'),
       util = require('util'),
       fs = require('fs'),
@@ -140,8 +141,8 @@ console.log(req.files);
 * @return {JSON} {{Currently Reading Books}} 
 */
   var currentlyReadingBooks = function currentlyReadingBooks (req, res, next) {
-    var userID = req.params.user;
-    User.find({user: userID}).populate(currentlyReading)
+    var userID = req.params.id;
+    Profile.findOne({'_id': userID}).populate('currentlyReading')
           .exec(function userCurrentlyReadingBooks (err, user) {
             if (err) {
               return next(err);
