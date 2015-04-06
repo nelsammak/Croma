@@ -1,19 +1,11 @@
 var mongoose = require('mongoose');
-/*<<<<<<< HEAD*/
     bcrypt = require('bcrypt'),
     SALT_FACTOR = 10,
     Schema = mongoose.Schema,
     ObjectId = Schema.ObjectId,
     Book = require('./book.js'),
     _= require('lodash');
-/*=======
-var bcrypt = require('bcrypt');
-util = require('util');
-var SALT_FACTOR = 10;
-var Schema = mongoose.Schema;
-var ObjectId = Schema.ObjectId;
-var _= require('lodash');
->>>>>>> website_template*/
+
 
 var UserSchema = new Schema({
     email: { type: String, index: {unique: true}, required: true },
@@ -22,6 +14,7 @@ var UserSchema = new Schema({
     firstName: { type: String },
     lastName: { type: String },
     age: { type: Number },
+    admin: {type: Boolean },
     address: { type: String },
     profilePhoto: { type: String },
     gender: { type: String, enum: ['male', 'female']},

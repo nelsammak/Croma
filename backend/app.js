@@ -41,16 +41,12 @@ var passportConfig = require('./config/passport')();
 app.use(expressSession({
  saveUninitialized: true,
  resave: true,
-/*<<<<<<< HEAD*/
  secret: 'CromaSecret',
  store: new MongoStore(
-        {mongooseConnection:mongoose.connection},
-        function(err){
-            console.log(err || 'connect-mongodb setup ok');
-        })
-/*=======
- secret: 'CromaSecret'
->>>>>>> website_template*/
+    {mongooseConnection:mongoose.connection},
+    function(err){
+      console.log(err || 'connect-mongodb setup ok');
+    })
  }));
 
 app.use(passport.initialize());
@@ -64,7 +60,7 @@ app.use('/api', router);
 
 
 require('./views/book.js')(router);
-require('./views/users.js')(router);
+require('./views/user.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
 
@@ -73,9 +69,9 @@ app.get('/partials/*', function(req, res) {
     res.render(requestedView);
   });
 
-  app.get('/', function(req, res) {
-    res.render('index.html');
-  });
+app.get('/', function(req, res) {
+ 	res.render('index.html');
+});
 
 
 var port = process.env.PORT || 8081; 
@@ -83,9 +79,9 @@ var port = process.env.PORT || 8081;
 
 
 app.use(function reportInternalServerError(err, req, res, next) {
-    console.log(err.stack);
-    res.status(500);
-    res.json({err:err, message:"Internal Server Error"});
+  console.log(err.stack);
+  res.status(500);
+  res.json({err:err, message:"Internal Server Error"});
 });
 
 app.listen(port);

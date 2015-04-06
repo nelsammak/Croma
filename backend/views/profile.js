@@ -1,97 +1,22 @@
   var mongoose = require('mongoose'),
       Profile = require('../models/user'),
-/*<<<<<<< HEAD
-=======
       im = require('imagemagick'),
       util = require('util'),
       fs = require('fs'),
       _= require('lodash');
->>>>>>> website_template*/
-      url = require('url');
 
+/**
+* A module to export users profile related routes
+* @module Profile
+*/
 module.exports = function(router) {
-/*<<<<<<< HEAD*/
-  
+  router.route('/users/:id/currentlyReading').get(currentlyReadingBooks);
   router.route('/users/:id').get(profile).put(editProfile);
   router.route('/check_username/:username').get(checkUserName);
 };
  
   // GET
   var profile = function (req, res, next) {
-/*=======
-  router.route('/users/:id').get(api.profile).put(api.editProfile);
-};
-
-exports.uploadFile = function(file, callback) {
-  var tmpPath = file.path
-    , oldName = file.name
-    , extension, newName, newPath;
-
-  // get the extension of the file
-  extension = oldName.substr(oldName.lastIndexOf('.'));
-
-  // Check file type
-  var allowed_extensions = ['.gif', '.GIF', '.png', '.jpeg', '.jpg', '.JPG', '.JPEG'];
-  if (!_.contains(allowed_extensions, extension)) {
-    var err = {
-      type: 'extension',
-    };
-
-    return callback(err, false);
-  }
-
-  // Create the newName by hashing the file path
-  newName = crypto.createHash('md5').update(tmpPath).digest('hex') + extension;
-
-  // Create the path for upload image
-  if (process.env.NODE_ENV === 'production') {
-    newPath = './public/' + newName;    
-  } else {
-    newPath = './public/images/' + newName;
-  }
-
-  // resize and move the image
-  im.resize({
-    srcPath: tmpPath,
-    dstPath: newPath,
-    width: 300
-  }, function(err, stdout, stderr) {
-    console.log(stdout);
-    console.log(stderr);
-    console.log(err);
-    callback(err, newName);
-  });
-};
-
-// Middle ware to delete the profile photo
-exports.deletePhoto = function(profilePhoto) {
-  var defaultPhotos = ['male_avatar.png', 'female_avatar.png', 'default_avatar.png'];
-  // If profile photo of this user is a default one do nothing
-  if (_.indexOf(defaultPhotos, profilePhoto) !== -1) {
-    return;
-  }
-
-  var photoPath;
-  // Create the photo path according to environment
-  if (process.env.NODE_ENV === 'production') {
-    photoPath = './public/';      
-  } else {
-    photoPath = './public/images/';
-  }
-  // Delete the photo
-  fs.unlink(photoPath + profilePhoto, function(err) {
-    if (err) {
-      console.log(err);
-      return;
-    }
-
-    console.log('Successfully delete the profile Photo');
-  });
-};
-
-// GET
-  api.profile = function (req, res, next) {
->>>>>>> website_template*/
     var id = req.params.id;
     Profile.findOne({ '_id': id }, function(err, profile) {
       if (err) {
@@ -180,10 +105,18 @@ console.log(req.files);
 
 };
 
+/**
+* @function checkUserName Called on GET "/api/check_username/:username" 
+* Checks if username exists or not 
+* @params {Object} req - Http request
+* @params {Object} res - Http response
+* @params {Object} next - Next middleware
+* @params {Number} :username - username that needs to be checked
+* @return {JSON} {exist: {TRUE OR FALSE}} 
+*/
   var checkUserName = function checkUserName(req, res, next) {
-
-          User.findOne({username : req.params.username},
-           function findUserCallback(err, user) {
+        User.findOne({username : req.params.username}
+          , function findUserCallback(err, user) {
               if (err) {
                   return next(new Error('Failed to load User' 
                       +  username));
@@ -194,9 +127,18 @@ console.log(req.files);
               else {
                   res.json({exits: false});
               }
-          });
+        });
       };
 
+  /**
+* @function currentlyReadingBooks Called on GET "/api/users/:id/currentlyReading" 
+* Returns currently reading book collection for a user 
+* @params {Object} req - Http request
+* @params {Object} res - Http response
+* @params {Object} next - Next middleware
+* @params {Number} :id - username that needs to be checked
+* @return {JSON} {{Currently Reading Books}} 
+*/
   var currentlyReadingBooks = function currentlyReadingBooks (req, res, next) {
     var userID = req.params.user;
     User.find({user: userID}).populate(currentlyReading)
@@ -208,3 +150,74 @@ console.log(req.files);
             res.status(201);
           })
   };
+
+
+/*
+exports.uploadFile = function(file, callback) {
+  var tmpPath = file.path
+    , oldName = file.name
+    , extension, newName, newPath;
+
+  // get the extension of the file
+  extension = oldName.substr(oldName.lastIndexOf('.'));
+
+  // Check file type
+  var allowed_extensions = ['.gif', '.GIF', '.png', '.jpeg', '.jpg', '.JPG', '.JPEG'];
+  if (!_.contains(allowed_extensions, extension)) {
+    var err = {
+      type: 'extension',
+    };
+
+    return callback(err, false);
+  }
+
+  // Create the newName by hashing the file path
+  newName = crypto.createHash('md5').update(tmpPath).digest('hex') + extension;
+
+  // Create the path for upload image
+  if (process.env.NODE_ENV === 'production') {
+    newPath = './public/' + newName;    
+  } else {
+    newPath = './public/images/' + newName;
+  }
+
+  // resize and move the image
+  im.resize({
+    srcPath: tmpPath,
+    dstPath: newPath,
+    width: 300
+  }, function(err, stdout, stderr) {
+    console.log(stdout);
+    console.log(stderr);
+    console.log(err);
+    callback(err, newName);
+  });
+};
+
+// Middle ware to delete the profile photo
+exports.deletePhoto = function(profilePhoto) {
+  var defaultPhotos = ['male_avatar.png', 'female_avatar.png', 'default_avatar.png'];
+  // If profile photo of this user is a default one do nothing
+  if (_.indexOf(defaultPhotos, profilePhoto) !== -1) {
+    return;
+  }
+
+  var photoPath;
+  // Create the photo path according to environment
+  if (process.env.NODE_ENV === 'production') {
+    photoPath = './public/';      
+  } else {
+    photoPath = './public/images/';
+  }
+  // Delete the photo
+  fs.unlink(photoPath + profilePhoto, function(err) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    console.log('Successfully delete the profile Photo');
+  });
+};
+
+>>>>>>> website_template*/
