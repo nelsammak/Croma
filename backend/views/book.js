@@ -23,7 +23,7 @@ module.exports = function(router) {
 		if (!req.user) {
 			return next('User not logged in');
 		}
-		user = req.user;
+		var user = req.user;
 		console.log(user);
 
 		Books.findOne({'_id': id}, function findBookText(err, book) {
@@ -31,16 +31,17 @@ module.exports = function(router) {
 				res.json(404, err);
 				return next(err);
 			}
-		user.currentlyReading.push(book);
 
-		User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
-			if (err) {
-				return next(err);
-			}	
-			console.log(newUser);
-		})
-		res.json({book: {text: book.text}});
-		})
+			if(user.currentlyReading.indexOf(book._id) === -1) {
+				user.currentlyReading.push(book._id);
+				User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+					if (err) {
+						return next(err);
+					}	
+				});
+			}
+			res.json({book: {text: book.text}});
+		});
 			// res.sendFile(path.join(__dirname, '../../frontend', book.text));
 	});
 

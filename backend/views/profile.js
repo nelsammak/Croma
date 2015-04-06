@@ -11,7 +11,7 @@
 */
 module.exports = function(router) {
   router.route('/users/:id/currentlyReading').get(currentlyReadingBooks);
-  router.route('/users/:id/readBooks').get(alreadReadBooks);
+  router.route('/users/:id/readBooks').get(alreadyReadBooks);
   router.route('/users/:id').get(profile).put(editProfile);
   router.route('/check_username/:username').get(checkUserName);
 };
@@ -141,8 +141,8 @@ console.log(req.files);
 * @return {JSON} {{Currently Reading Books}} 
 */
   var currentlyReadingBooks = function currentlyReadingBooks (req, res, next) {
-    var userID = req.params.user;
-    User.find({user: userID}).populate(currentlyReading)
+    var userID = req.params.id;
+    User.findOne({'_id': userID}).populate('currentlyReading')
           .exec(function userCurrentlyReadingBooks (err, user) {
             if (err) {
               return next(err);
@@ -153,9 +153,9 @@ console.log(req.files);
   };
 
   var alreadyReadBooks = function alreadyReadBooks (req, res, next) {
-    var userID = req.params.user;
-    User.find({user: userID}).populate(read)
-          .exec(function useralreadyReadBooks (err, user) {
+    var userID = req.params.id;
+    User.findOne({'_id': userID}).populate('read')
+          .exec(function userAlreadyReadBooks (err, user) {
             if (err) {
               return next(err);
             }
