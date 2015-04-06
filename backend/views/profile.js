@@ -24,6 +24,7 @@ module.exports = function(router) {
         res.json(404, err);
         next(err);
       } else {
+        console.log(profile);
         res.json({profile: profile});
       }
     });

@@ -41,7 +41,8 @@ module.exports = function(router) {
 					age: req.body.age,
 					address: req.body.address,
 					gender: req.body.gender,
-					profilePhoto: req.body.profilePhoto
+					profilePhoto: req.body.profilePhoto,
+					admin: req.body.admin
 					},  function createUser(err, user) {
 								if (err) {
 									console.log(err);
