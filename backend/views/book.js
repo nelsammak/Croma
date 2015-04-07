@@ -50,7 +50,7 @@ module.exports = function(router) {
 					res.status(404).json(err);
 					return next(err);
 				}
-				res.json({books: books});
+				res.json(books);
 			});
 		}
 		else {
