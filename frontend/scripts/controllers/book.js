@@ -8,5 +8,4 @@ angular.module('angularPassportApp')
 			console.log("I received the book");
 		 	$scope.book=response.book;
 		});
-  });
-
+	}, ['ngSanitize']);

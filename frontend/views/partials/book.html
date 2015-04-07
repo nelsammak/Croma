@@ -12,9 +12,12 @@
 			<h3 >{{book.author}}</h3>
 			<img  ng-src="{{book.coverLocation}}"/>    	
 		</div>
+		<br>
 		<div id = "bio">
-			{{book.bio}}
+			<p ng-bind-html="book.bio"></p>
 		</div>
+		<script src="angular-sanitize.js"/>
+		</br>
 	</body>
 
 <style>

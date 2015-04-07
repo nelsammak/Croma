@@ -8,10 +8,9 @@ var passport = require('passport');
 var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
-var passport = require('passport');
 
 //importing the book model
-var Books = require('./models/book.js')
+var Books = require('./models/book.js');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -30,10 +29,10 @@ app.use(bodyParser.json());
 var passportConfig = require('./config/passport')();
 
 
-app.use(expressSession({
- saveUninitialized: true,
- resave: true,
- secret: 'CromaSecret'
+app.use(expressSession( {
+  saveUninitializedtialized: true,
+  resave: true,
+  secret: 'CromaSecret'
  }));
 
 app.use(passport.initialize());
@@ -47,11 +46,11 @@ app.use('/api', router);
 
 //routes NEEDS TO BE RENDERED INSTEAD OF SEND
 
-
 require('./views/book.js')(router);
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
+
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);

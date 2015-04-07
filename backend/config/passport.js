@@ -1,9 +1,6 @@
 var mongoose = require('mongoose'),
-    LocalStrategy = require('passport-local').Strategy,
-    passport = require('passport');
-
-
-
+LocalStrategy = require('passport-local').Strategy,
+passport = require('passport');
 
 module.exports = function () {
 
