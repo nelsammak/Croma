@@ -41,7 +41,7 @@ module.exports = function(router) {
 							if (err) { 
 								return res.send(err); 
 							}
-							res.json(req.user.user_info);
+							res.json(req.user);
 						});
 					})(req, res, next);
 				})
