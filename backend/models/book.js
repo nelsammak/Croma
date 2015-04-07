@@ -1,19 +1,40 @@
 var mongoose = require('mongoose');
+var mongoosastic=require("mongoosastic");
 var schema = mongoose.Schema;
 
 //Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
 var bookSchema = new schema({
-	name: { type: String, required: true },
-	author: { type: String, required: true },
+	name: { type: String, required: true  , es_indexed:true },
+    publisher: { type: String, required: true  , es_indexed:true },
+    author: { type: String, required: true , es_indexed:true },
 	coverLocation: { type: String, required: true },
 	bio: { type: String, required: true }
 });
+bookSchema.plugin(mongoosastic);
 
 //include Mongoose virtual fields in toJSON by default
 bookSchema.set('toJSON', { virtuals: true });
 
 //saving the Mongoose model in a variable
 var book = mongoose.model('book', bookSchema);
+
+//for mongosastic
+var stream = book.synchronize();
+var count = 0;
+
+console.log("Start indexing on elastic search...");
+/*stream.on('data', function(err, doc){
+  count++;
+  if ((count % 1000) == 0)
+	  console.log("Indexed " + count + " documents...");
+});
+stream.on('close', function(){
+  console.log('indexed ' + count + ' documents!');
+});
+stream.on('error', function(err){
+  console.log(err);
+});
+*/
 
 //removing all books currently in database
 book.remove({}, function error (err) { 
@@ -23,6 +44,7 @@ console.log('Current book collection removed');
 //inserting books by creating an object using the Book schema and then saving it in the database
 var book1 = new book({ 
 	name: 'Harry Potter and the Philosopher\'s Stone',
+	publisher: ' 	Bloomsbury (UK) (Canada 2010-present),Arthur A. Levine,Scholastic (US),Raincoast (Canada 1998-2010)',
 	author:'J.K. Rowling',
 	coverLocation: 'bookCovers/1.jpg',
 	bio: '[Insert Bio Here]'
@@ -33,7 +55,8 @@ book1.save(function func (err, book1) {
 
 var book2 = new book({ 
 	name: 'Harry Potter and the Chamber of Secrets',
-	author:'J.K. Rowling',
+	publisher: ' 	Bloomsbury (UK) (Canada 2010-present),Arthur A. Levine,Scholastic (US),Raincoast (Canada 1998-2010)',
+    author:'J.K. Rowling',
 	coverLocation: 'bookCovers/2.jpg',
 	bio: '[Insert Bio Here]'
 });
@@ -43,7 +66,8 @@ book2.save(function func (err, book2) {
 
 var book3 = new book({ 
 	name: 'Harry Potter and the Prisoner of Azkaban',
-	author:'J.K. Rowling',
+	publisher: ' 	Bloomsbury (UK) (Canada 2010-present),Arthur A. Levine,Scholastic (US),Raincoast (Canada 1998-2010)',
+    author:'J.K. Rowling',
 	coverLocation: 'bookCovers/3.jpg',
 	bio: '[Insert Bio Here]'
 });
