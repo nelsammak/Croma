@@ -11,8 +11,6 @@ angular.module('angularPassportApp')
    	//rate function's job is to send to the backend am object consisting of a user and his rating
    	$scope.rate = function() {
    		console.log($scope.rating);
-   	   	//console.log($scope.rating.user);
-
    	$http.post('api/books/'+ShareService.getValue()+'/rate',$scope.rating)
             .success(function(data) {
                 $scope.book=response.book;
@@ -22,6 +20,20 @@ angular.module('angularPassportApp')
             });
 
    };
+   //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
+    $scope.addTobeRead = function() {
+      console.log($scope.rating);
+    $http.post('api/books/'+ShareService.getValue()+'/addTobeRead',$scope.rating)
+            .success(function(response) {
+                console.log(response);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+
+   };
+
+
   });
 
   
