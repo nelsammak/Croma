@@ -1,12 +1,19 @@
 'use strict';
 
+angular.module('bookSearch', ['elasticsearch'],
+  ['$locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode(true);
+  }]
+);
 angular.module('angularPassportApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
   'ngRoute',
   'http-auth-interceptor',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.router',
+  'bookSearch'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -26,13 +33,27 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'AppCtrl'
       })
+      .when('/profile', {
+        templateUrl: 'partials/userprofile.html',
+        controller: 'ProfileController'
+      })
+      .when('/thebook', {
+        templateUrl: 'partials/index.html',
+        controller: 'ReaderController'
+      })
       .otherwise({
         redirectTo: '/'
       });
+
+      
     $locationProvider.html5Mode(true);
   })
 
   .run(function ($rootScope, $location, Auth) {
+ 
+ $rootScope.contentsPath = '';
+    
+    $rootScope.metadata = {bookTitle: 'TDO'};
 
     //watching the value of the currentUser variable.
     $rootScope.$watch('currentUser', function(currentUser) {

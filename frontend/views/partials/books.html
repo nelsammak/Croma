@@ -3,8 +3,8 @@
 	<head>
 		<title> Browse books </title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+		<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css"> -->
 	</head>
 	<body>
 		<div class="container" ng-controller="AppCtrl">
@@ -12,10 +12,9 @@
 			<h1>Browse all books</h1>	
 			<table class="table">
 				<tbody>
-					<tr ng-repeat="book in books2">
+					<tr ng-repeat="book in books">
 						<td><img ng-src="{{book.coverLocation}}"></td>
 						<td>
-						
 							<div><h1>{{book.name}}</h1></div>
 							<div><h3>{{book.author}}</h3></div>
 							<div><h3>Bio</h3></div>

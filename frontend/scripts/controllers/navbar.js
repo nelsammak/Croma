@@ -5,10 +5,10 @@ angular.module('angularPassportApp')
     $scope.menu = [
     ];
 
-    $scope.authMenu = [/*{
+    $scope.authMenu = [{
       "title": "Profile",
-      "link": "blogs"
-    },*/ {
+      "link": "profile" 
+    }, {
       "title": "Books",
       "link": "books"
     }];
