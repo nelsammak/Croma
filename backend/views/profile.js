@@ -109,6 +109,7 @@ console.log(req.files);
   });
 };
 
+
 exports.uploadFile = function(file, callback) {
   var tmpPath = file.path
     , oldName = file.name
@@ -150,4 +151,29 @@ exports.uploadFile = function(file, callback) {
   });
 };
 
+// Middle ware to delete the profile photo
+exports.deletePhoto = function(profilePhoto) {
+  var defaultPhotos = ['male_avatar.png', 'female_avatar.png', 'default_avatar.png'];
+  // If profile photo of this user is a default one do nothing
+  if (_.indexOf(defaultPhotos, profilePhoto) !== -1) {
+    return;
+  }
+
+  var photoPath;
+  // Create the photo path according to environment
+  if (process.env.NODE_ENV === 'production') {
+    photoPath = './public/images/';
+  } else {
+    photoPath = './public/images/';
+  }
+  // Delete the photo
+  fs.unlink(photoPath + profilePhoto, function(err) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+
+    console.log('Successfully delete the profile Photo');
+  });
+};
 
