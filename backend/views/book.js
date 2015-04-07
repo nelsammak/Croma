@@ -27,12 +27,14 @@ module.exports = function(router) {
 				res.json(404, err);
 				next(err);
 			}
-			var ratingSum = 0;
+			var sumOfRatings = 0;
 			for (var i = 0; i < book.ratings.length; i++) {
-				ratingSum += book.ratings[i];
+				sumOfRatings += parseInt(book.ratings[i].rating);
 			}
+			console.log(sumOfRatings);
+
 			if (book.ratings.length > 0) {
-				res.json({book: {avgRating: (ratingSum / book.ratings.length)}});
+				res.json({book: {avgRating: (sumOfRatings / book.ratings.length)}});
 			}
 			else {
 				res.json({book: {avgRating: 0}});
@@ -51,7 +53,7 @@ module.exports = function(router) {
 		})
 	})
 
-	router.route('/books/:id').post(function rateBook (req,res,next) {
+	router.route('/books/:id/rating').post(function rateBook (req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBook(err, book) {
 			if (err) {
@@ -59,26 +61,23 @@ module.exports = function(router) {
 				next(err);
 			}
 			var alreadyRatedByThisUser = false;
-			var newRatings = book.ratings;
+
 			for (var i = 0; i < book.ratings.length; i++) {
-				if (ratings[i].id == id) {
+				if (book.ratings[i].id == req.query.userID) {
 					alreadyRatedByThisUser = true;
-					newRatings[i].rating = req.params.rating;
+					book.ratings[i].rating = req.query.rating;
 					break;
 				}
 			}
+
 			if (!alreadyRatedByThisUser) {
-				newRatings.push({id: _id, rating: req.params.rating});
+				book.ratings.push({id: req.query.userID, rating: req.query.rating});
 			}
-			var conditions = { _id: 'id' };
-			var update = { ratings: newRatings };
-			var options = { multi: true };
 
-			Model.update(conditions, update, options, callback);
+			console.log("hi");
 
-			function callback (err, numAffected) {
-				// numAffected is the number of updated documents
-			}
+			book.save();
+			res.json("Rated the book successfully");
 		})
 	})
 };
