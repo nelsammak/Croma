@@ -12,6 +12,7 @@
 module.exports = function(router) {
   router.route('/users/:id/currentlyReading').get(currentlyReadingBooks);
   router.route('/users/:id/readBooks').get(alreadyReadBooks);
+  router.route('/users/:id/toBeReadBooks').get(toBeReadBooks);
   router.route('/users/:id').get(profile).put(editProfile);
   router.route('/check_username/:username').get(checkUserName);
 };
@@ -160,6 +161,18 @@ console.log(req.files);
               return next(err);
             }
             res.json(user.read);
+            res.status(201);
+          })
+  };
+
+  var toBeReadBooks = function toBeReadBooks (req, res, next) {
+    var userID = req.params.id;
+    User.findOne({'_id': userID}).populate('toBeRead')
+          .exec(function userToBeReadBooks (err, user) {
+            if (err) {
+              return next(err);
+            }
+            res.json(user.toBeRead);
             res.status(201);
           })
   };
