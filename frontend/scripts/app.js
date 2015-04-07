@@ -53,7 +53,7 @@ angular.module('angularPassportApp', [
     $locationProvider.html5Mode(true);
 
     flowFactoryProvider.defaults = {
-    target: 'upload.php',
+    target: '/api/admin/addBook',
     permanentErrors: [404, 500, 501],
     maxChunkRetries: 1,
     chunkRetryInterval: 5000,
@@ -62,7 +62,7 @@ angular.module('angularPassportApp', [
   flowFactoryProvider.on('catchAll', function (event) {
     console.log('catchAll', arguments);
   });
-  
+
   })
 
   .run(function ($rootScope, $location, Auth) {
