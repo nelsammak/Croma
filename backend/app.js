@@ -33,8 +33,6 @@ app.use(bodyParser.json());
 
 app.use(cookieParser('CromaSecret'));
 
-
-
 var passportConfig = require('./config/passport')();
 
 
@@ -58,7 +56,7 @@ var router = express.Router();
 app.use('/api', router);
 
 
-
+require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
 require('./views/session.js')(router);
@@ -66,8 +64,13 @@ require('./views/profile.js')(router);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
+    console.log('Partials', req.url);
     res.render(requestedView);
   });
+app.get('/views/*', function(req, res) {
+  // var requestedView = path.join('./', req.url)
+  console.log(req.url);
+})
 
 app.get('/', function(req, res) {
  	res.render('index.html');
