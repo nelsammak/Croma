@@ -3,37 +3,18 @@ module.exports = function(router) {
 	router.route('/books').get(function getBooksCollection(req, res, next) {
 		Books.find(function findAllBooks(err, books) {
 			if (err) {
-				next(err);
+				return next(err);
 			}
 			res.json(books);
 		});
-	});
-
-	router.route('/books/:option').get(function getBooksWithOptions(req, res, next) {
-		if (req.params.option == "newarrivals") {
-			Books.find({}).sort('-arrivalTime').exec(function(err, books) {
-				if (err) {
-					next(err);
-				}
-				res.json(books)
-			});
-		}
-		else {
-			Books.find(function findAllBooks(err, books) {
-				if (err) {
-					next(err);
-				}
-				res.status(404).json('No Option found for ' + req.params.option);
-			});
-		}
 	});
 
 	router.route('/books/:id/text').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
-				res.json(404, err);
-				next(err);
+				res.status(404).json(err);
+				return next(err);
 			}
 			res.json({book: {text: book.text}});
 		})
@@ -43,8 +24,8 @@ module.exports = function(router) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
-				res.json(404, err);
-				next(err);
+				res.status(404).json(err);
+				return next(err);
 			}
 			var sumOfRatings = 0;
 			for (var i = 0; i < book.ratings.length; i++) {
@@ -56,28 +37,39 @@ module.exports = function(router) {
 				res.json({book: {avgRating: (sumOfRatings / book.ratings.length)}});
 			}
 			else {
-				res.json({book: {avgRating: 0}});
+				res.json({book: {avgRating: -1}});
 			}
 		})
 	});
 
 	router.route('/books/:id').get(function getBook(req, res, next) {
 		var id = req.params.id;
-		Books.findOne({'_id': id}, function findBook(err, book) {
-			if (err) {
-				res.json(404, err);
-				next(err);
-			}
-			res.json({book: book});
-		})
+		if (id == 'newarrivals') {
+			Books.find({}).sort('-arrivalTime').exec(function (err, books) {
+				if (err) {
+					res.status(404).json(err);
+					return next(err);
+				}
+				res.json({books: books});
+			});
+		}
+		else {
+			Books.findOne({'_id': id}, function findBook(err, book) {
+				if (err) {
+					res.status(404).json(err);
+					return next(err);
+				}
+				res.json({book: book});
+			})
+		}
 	});
 
 	router.route('/books/:id/rating').post(function rateBook(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBook(err, book) {
 			if (err) {
-				res.json(404, err);
-				next(err);
+				res.status(404).json(err);
+				return next(err);
 			}
 			var alreadyRatedByThisUser = false;
 

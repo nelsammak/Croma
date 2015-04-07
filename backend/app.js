@@ -13,7 +13,7 @@ var expressSession = require('express-session');
 var Books = require('./models/book.js');
 
 //inserting the books
-require('./inserts/book');
+//require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -65,14 +65,18 @@ app.get('/partials/*', function(req, res) {
   });
 
 
-var port = process.env.PORT || 8081; 
+var port = process.env.PORT || 8081;
 
 
+app.get('/error', function createError(req, res, next) {
+  var err = new Error('Sample error');
+  err.status = 500;
+  next(err);
+});
 
-app.use(function reportInternalServerError(err, req, res, next) {
-    console.log(err.stack);
-    res.status(500);
-    res.json({err:err, message:"Internal Server Error"});
+app.use(function errorHandler(err, req, res, next) {
+  console.error(err.stack);
+  res.status(err.status || 500).json("Something broke!");
 });
 
 app.listen(port);
