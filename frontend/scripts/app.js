@@ -38,8 +38,8 @@ angular.module('angularPassportApp', [
       })
       .when('/currentread',{
         templateUrl: 'partials/myShelf.html'
-       /* controller: '',*/
-       /* css: 'partials/css/shelf.css'*/
+        controller: '',
+        css: 'partials/css/shelf.css'
       })
       .otherwise({
         redirectTo: '/'
