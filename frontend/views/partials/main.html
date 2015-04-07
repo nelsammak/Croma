@@ -1,2 +1,3 @@
 <div ng-show= "!currentUser" ng-include src="'views/partials/landing.html'"></div>
-<div ng-show= "currentUser" ng-include src="'views/partials/home.html'"></div>
+<div ng-show= "!currentUser.admin" ng-include src="'views/partials/home.html'"></div>
+<div ng-show= "currentUser.admin" ng-include src="'views/partials/adminHome.html'"></div>
