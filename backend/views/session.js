@@ -1,33 +1,49 @@
 var passport = require('passport');
 var session = require('../config/session');
+
+/**
+* A module to export login and logout routes
+* @module Session
+*/
 module.exports = function(router) {
 
-    router.route('/sessions')
-        .delete(function (req, res) {
-          if(req.user) {
-            req.logout();
-            res.send(204);
-          } else {
-            res.send(400, "Not logged in");
-          }
-        })
+	/**
+	*	@function logOut - Called on DELETE "/api/sessions"	
+	*	@params {Object} req - Http request
+	* @params {Object} res - Http response
+	*	@params {Object} next - Next middleware
+	*	@returns {JSON} Status 204 if succesfully signed out else 400
+ 	*/
+		router.route('/sessions')
+				.delete(function logOut(req, res) {
+					if(req.user) {
+						req.logout();
+						res.send(204);
+					} else {
+						res.send(400, "Not logged in");
+					}
+				})
 
-        .post(function (req, res, next) {
-          console.log('Posted Request before authentication: ', req.body);
-          passport.authenticate('local', function(err, user, info) {
-            console.log('Ady kol 7aga err ', err, 'user', user 
-              , 'info' , info);
-            var error = err || info;
-            if (error) { 
-                return res.json(400, error); 
-            }
-            req.logIn(user, function(err) {
-              if (err) { 
-                return res.send(err); 
-              }
-              res.json(req.user.user_info);
-            });
-          })(req, res, next);
-        })
-       
+	/**
+	*	@function logIn - Called on POST "/api/sessions"	
+	*	@params {Object} req - Http request
+	* @params {Object} res - Http response
+	*	@params {Object} next - Next middleware
+	*	@returns {JSON} User info of the user just logged in
+ 	*/
+				.post(function logIn(req, res, next) {
+					passport.authenticate('local', function(err, user, info) {
+						var error = err || info;
+						if (error) { 
+								return res.json(400, error); 
+						}
+						req.logIn(user, function(err) {
+							if (err) { 
+								return res.send(err); 
+							}
+							res.json(req.user.user_info);
+						});
+					})(req, res, next);
+				})
+			 
 };
