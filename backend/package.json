@@ -38,7 +38,7 @@
     "jasmine": "^2.2.1",
     "lodash": "^3.5.0",
     "mocha": "~2.2.1",
-    "mongoose": "^3.8.24",
+    "mongoose": "^4.0.0",
     "morgan": "^1.5.1",
     "passport": "~0.2.1",
     "passport-local": "~1.0.0",
