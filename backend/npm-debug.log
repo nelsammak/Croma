@@ -1,0 +1,103 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/home/esraa/.nvm/versions/node/v0.12.0/bin/node',
+1 verbose cli   '/home/esraa/.nvm/versions/node/v0.12.0/bin/npm',
+1 verbose cli   'install' ]
+2 info using npm@2.5.1
+3 info using node@v0.12.0
+4 warn package.json croma-backend@0.0.1 No README data
+5 warn package.json Dependency 'should' exists in both dependencies and devDependencies, using 'should@~5.2.0' from dependencies
+6 warn package.json Dependency 'supertest' exists in both dependencies and devDependencies, using 'supertest@~0.15.0' from dependencies
+7 verbose install where, deps [ '/home/esraa/cromaa/Croma/backend',
+7 verbose install   [ 'bcrypt',
+7 verbose install     'bcryptjs',
+7 verbose install     'body-parser',
+7 verbose install     'ejs',
+7 verbose install     'express',
+7 verbose install     'express-session',
+7 verbose install     'jasmine',
+7 verbose install     'lodash',
+7 verbose install     'mocha',
+7 verbose install     'mongoose',
+7 verbose install     'morgan',
+7 verbose install     'passport',
+7 verbose install     'passport-local',
+7 verbose install     'should',
+7 verbose install     'supertest' ] ]
+8 verbose install where, peers [ '/home/esraa/cromaa/Croma/backend', [] ]
+9 info preinstall croma-backend@0.0.1
+10 verbose already installed skipping lodash@^3.5.0 /home/esraa/cromaa/Croma/backend
+11 verbose already installed skipping mocha@~2.2.1 /home/esraa/cromaa/Croma/backend
+12 verbose already installed skipping mongoose@^3.8.24 /home/esraa/cromaa/Croma/backend
+13 verbose already installed skipping morgan@^1.5.1 /home/esraa/cromaa/Croma/backend
+14 verbose already installed skipping passport@~0.2.1 /home/esraa/cromaa/Croma/backend
+15 verbose already installed skipping passport-local@~1.0.0 /home/esraa/cromaa/Croma/backend
+16 verbose already installed skipping should@~5.2.0 /home/esraa/cromaa/Croma/backend
+17 verbose already installed skipping supertest@~0.15.0 /home/esraa/cromaa/Croma/backend
+18 verbose already installed skipping bcrypt@^0.8.1 /home/esraa/cromaa/Croma/backend
+19 verbose already installed skipping bcryptjs@^2.1.0 /home/esraa/cromaa/Croma/backend
+20 verbose already installed skipping body-parser@^1.12.0 /home/esraa/cromaa/Croma/backend
+21 verbose already installed skipping ejs@^2.3.1 /home/esraa/cromaa/Croma/backend
+22 verbose already installed skipping express@^4.12.2 /home/esraa/cromaa/Croma/backend
+23 verbose already installed skipping express-session@^1.10.3 /home/esraa/cromaa/Croma/backend
+24 verbose already installed skipping jasmine@^2.2.1 /home/esraa/cromaa/Croma/backend
+25 silly install resolved []
+26 info build /home/esraa/cromaa/Croma/backend
+27 verbose linkStuff [ false, false, false, '/home/esraa/cromaa/Croma' ]
+28 info linkStuff croma-backend@0.0.1
+29 verbose linkBins croma-backend@0.0.1
+30 verbose linkMans croma-backend@0.0.1
+31 verbose rebuildBundles croma-backend@0.0.1
+32 verbose rebuildBundles [ '.bin',
+32 verbose rebuildBundles   'bcrypt',
+32 verbose rebuildBundles   'bcryptjs',
+32 verbose rebuildBundles   'body-parser',
+32 verbose rebuildBundles   'ejs',
+32 verbose rebuildBundles   'express',
+32 verbose rebuildBundles   'express-session',
+32 verbose rebuildBundles   'jasmine',
+32 verbose rebuildBundles   'lodash',
+32 verbose rebuildBundles   'mocha',
+32 verbose rebuildBundles   'mongoosastic',
+32 verbose rebuildBundles   'mongoose',
+32 verbose rebuildBundles   'morgan',
+32 verbose rebuildBundles   'passport',
+32 verbose rebuildBundles   'passport-local',
+32 verbose rebuildBundles   'should',
+32 verbose rebuildBundles   'supertest' ]
+33 verbose rebuild bundle /home/esraa/cromaa/Croma/backend/node_modules/mongoosastic
+34 info build /home/esraa/cromaa/Croma/backend/node_modules/mongoosastic
+35 info preinstall mongoosastic@3.0.0
+36 verbose linkStuff [ false,
+36 verbose linkStuff   false,
+36 verbose linkStuff   false,
+36 verbose linkStuff   '/home/esraa/cromaa/Croma/backend/node_modules' ]
+37 info linkStuff mongoosastic@3.0.0
+38 verbose linkBins mongoosastic@3.0.0
+39 verbose linkMans mongoosastic@3.0.0
+40 verbose rebuildBundles mongoosastic@3.0.0
+41 verbose rebuildBundles [ 'elasticsearch', 'nop' ]
+42 info install mongoosastic@3.0.0
+43 info postinstall mongoosastic@3.0.0
+44 info install croma-backend@0.0.1
+45 info postinstall croma-backend@0.0.1
+46 info prepublish croma-backend@0.0.1
+47 verbose stack Error: The package mongoose does not satisfy its siblings' peerDependencies requirements!
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/lib/install.js:103:32
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/lib/install.js:225:5
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+47 verbose stack     at cb (/home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+47 verbose stack     at cb (/home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+47 verbose stack     at cb (/home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+47 verbose stack     at /home/esraa/.nvm/versions/node/v0.12.0/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+48 verbose cwd /home/esraa/cromaa/Croma/backend
+49 error Linux 3.13.0-32-generic
+50 error argv "/home/esraa/.nvm/versions/node/v0.12.0/bin/node" "/home/esraa/.nvm/versions/node/v0.12.0/bin/npm" "install"
+51 error node v0.12.0
+52 error npm  v2.5.1
+53 error code EPEERINVALID
+54 error peerinvalid The package mongoose does not satisfy its siblings' peerDependencies requirements!
+54 error peerinvalid Peer mongoosastic@3.0.0 wants mongoose@^4.x
+55 verbose exit [ 1, true ]

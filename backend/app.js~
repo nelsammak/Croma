@@ -70,9 +70,8 @@ app.get('/books2', function getBooksCollection (req, res, next) {
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
-require('./views/search.js')(router);
 app.use('/api', router);
-//app.use('/api/search', search);
+app.use('/api/search', search);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
