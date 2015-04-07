@@ -6,6 +6,8 @@ var bodyParser = require('body-parser');
 var morgan = require('morgan');
 var passport = require('passport');
 var app = express();
+var multipart = require('connect-multiparty');
+var multipartMiddleware = multipart();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
 var passport = require('passport');
@@ -55,7 +57,7 @@ app.use(morgan('dev'));
 var router = express.Router(); 
 app.use('/api', router);
 
-
+// app.use(multipartMiddleware);
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
