@@ -24,9 +24,22 @@ console.log('Current book collection removed');
 var book1 = new book({ 
 	name: 'Harry Potter and the Philosopher\'s Stone',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/1.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: 'books/bookCovers/1.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.',
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
+
 book1.save(function func (err, book1) {
   if (err) return console.error(err);
 });
@@ -34,8 +47,20 @@ book1.save(function func (err, book1) {
 var book2 = new book({ 
 	name: 'Harry Potter and the Chamber of Secrets',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/2.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/2.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.',
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book2.save(function func (err, book2) {
   if (err) return console.error(err);
@@ -44,8 +69,20 @@ book2.save(function func (err, book2) {
 var book3 = new book({ 
 	name: 'Harry Potter and the Prisoner of Azkaban',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/3.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/3.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.', 
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book3.save(function func (err, book3) {
   if (err) return console.error(err);
@@ -54,8 +91,20 @@ book3.save(function func (err, book3) {
 var book4 = new book({ 
 	name: 'Harry Potter and the Goblet of Fire',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/4.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/4.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.', 
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book4.save(function func (err, book4) {
   if (err) return console.error(err);
@@ -64,8 +113,20 @@ book4.save(function func (err, book4) {
 var book5 = new book({ 
 	name: 'Harry Potter and the Order of the Phoenix',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/5.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/5.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.', 
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book5.save(function func (err, book5) {
   if (err) return console.error(err);
@@ -74,8 +135,20 @@ book5.save(function func (err, book5) {
 var book6 = new book({ 
 	name: 'Harry Potter and the Half-Blood Prince',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/6.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/6.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+	   		sed venenatis leo massa sit amet justo.\
+	   		Vestibulum eu consectetur est.\
+	   		In hac habitasse platea dictumst. \
+	   		Sed in rutrum dolor, at euismod sapien. \
+	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.', 
+   text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book6.save(function func (err, book6) {
   if (err) return console.error(err);
@@ -84,8 +157,20 @@ book6.save(function func (err, book6) {
 var book7 = new book({ 
 	name: 'Harry Potter and the Deathly Hallows',
 	author:'J.K. Rowling',
-	coverLocation: 'bookCovers/7.jpg',
-	bio: '[Insert Bio Here]'
+	coverLocation: '/books/bookCovers/7.jpg',
+ 	bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.\
+ 	 	    In lobortis nunc sodales odio scelerisque, et eleifend velit\
+ 	  		fringilla. Sed luctus lorem vitae sapien cursus posuere.\
+ 	   		Nunc ultrices fermentum pulvinar. Etiam consequat,\
+ 	   		velit sed tincidunt euismod, dolor leo pharetra nunc,\
+ 	   		sed venenatis leo massa sit amet justo.\
+ 	   		Vestibulum eu consectetur est.\
+ 	   		In hac habitasse platea dictumst. \
+ 	   		Sed in rutrum dolor, at euismod sapien. \
+ 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam. \
+ 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget. \
+ 	   		Vivamus elementum eu odio laoreet condimentum.', 
+ 	text: 'books/bookEpub/orwell-animal-farm.epub'
 });
 book7.save(function func (err, book7) {
   if (err) return console.error(err);
