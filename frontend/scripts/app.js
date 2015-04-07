@@ -37,9 +37,9 @@ angular.module('angularPassportApp', [
         controller: 'ReaderController'
       })
       .when('/currentread',{
-        templateUrl: 'partials/myShelf.html',
-        controller: '',
-        css: 'partials/css/shelf.css'
+        templateUrl: 'partials/myShelf.html'
+       /* controller: '',*/
+       /* css: 'partials/css/shelf.css'*/
       })
       .otherwise({
         redirectTo: '/'
