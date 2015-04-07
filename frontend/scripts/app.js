@@ -7,9 +7,10 @@ angular.module('angularPassportApp', [
   'ngRoute',
   'http-auth-interceptor',
   'ui.bootstrap',
-  'ui.router'
+  'ui.router',
+  'flow'
 ])
-  .config(function ($routeProvider, $locationProvider) {
+  .config(function ($routeProvider, $locationProvider,flowFactoryProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main.html',
@@ -37,12 +38,31 @@ angular.module('angularPassportApp', [
        // controller: 'ReaderController'
 
       })
+      .when('/dashboard', {
+
+        templateUrl: 'partials/dashboard.html',
+       // controller: 'ReaderController'
+
+      })
       .otherwise({
         redirectTo: '/'
       });
 
       
+
     $locationProvider.html5Mode(true);
+
+    flowFactoryProvider.defaults = {
+    target: 'upload.php',
+    permanentErrors: [404, 500, 501],
+    maxChunkRetries: 1,
+    chunkRetryInterval: 5000,
+    simultaneousUploads: 4
+  };
+  flowFactoryProvider.on('catchAll', function (event) {
+    console.log('catchAll', arguments);
+  });
+  
   })
 
   .run(function ($rootScope, $location, Auth) {
