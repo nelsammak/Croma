@@ -1,4 +1,5 @@
 var Books = require('../models/book.js');
+var mongoose = require('mongoose');
 module.exports = function(router) {
 	router.route('/books').get(function getBooksCollection(req, res, next) {
 		Books.find(function findAllBooks(err, books) {
@@ -73,16 +74,21 @@ module.exports = function(router) {
 			}
 			var alreadyRatedByThisUser = false;
 
+
+			var userId = req.body.userId;
+			var rating = req.body.rating;
+			console.log(userId);
+			console.log(rating);
 			for (var i = 0; i < book.ratings.length; i++) {
-				if (book.ratings[i].id == req.query.userID) {
+				if (book.ratings[i].id == userId) {
 					alreadyRatedByThisUser = true;
-					book.ratings[i].rating = req.query.rating;
+					book.ratings[i].rating = rating;	//Update the rating if already have rated
 					break;
 				}
 			}
 
 			if (!alreadyRatedByThisUser) {
-				book.ratings.push({id: req.query.userID, rating: req.query.rating});
+				book.ratings.push({id: userId, rating: rating});
 			}
 
 			book.save();
@@ -90,5 +96,15 @@ module.exports = function(router) {
 		})
 	});
 
+	router.route('/books/genres/:genre').get(function getBookText(req, res, next) {
+		var genre = req.params.genre;
+		Books.find({ genres: genre }, function findBooksByGenre (err, books) {
+			if (err) {
+				res.status(404).json(err);
+				return next(err);
+			}
+			res.json(books);
+		})
+	});
 };
 
