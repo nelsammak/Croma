@@ -9,8 +9,13 @@ angular.module('angularPassportApp')
       "title": "Profile",
       "link": "profile" 
     }, {
-      "title": "Books",
+      "title": "All Books",
       "link": "books"
+    }, {
+      "title": "New arrivals",
+      "link": "books/new_arrivals"
+
+
     }];
 
     $scope.logout = function() {

@@ -15,7 +15,7 @@ var UserSchema = new Schema({
     age: { type: Number },
     address: { type: String },
     profilePhoto: { type: String },
-    gender: { type: String, enum: ['male', 'female']}
+    gender: { type: String, enum: ['male', 'female'], index: true }
 });
 
 UserSchema.pre('save', function(next) {
