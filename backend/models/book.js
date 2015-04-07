@@ -7,7 +7,8 @@ var bookSchema = new schema({
 	author: { type: String, required: true },
 	coverLocation: { type: String, required: true },
 	bio: { type: String, required: true },
-	ratings: Array
+	ratings: Array,
+	arrivalTime: { type: Date, default: Date.now }
 });
 
 //include Mongoose virtual fields in toJSON by default

@@ -1,15 +1,34 @@
 var Books = require('../models/book.js');
 module.exports = function(router) {
-	router.route('/books').get(function getBooksCollection (req, res, next) {
-	  Books.find(function findAllBooks(err, books) {
-	    if (err) {
-	      next(err);
-	    }
-	    res.json(books);
-	  });
+	router.route('/books').get(function getBooksCollection(req, res, next) {
+		Books.find(function findAllBooks(err, books) {
+			if (err) {
+				next(err);
+			}
+			res.json(books);
+		});
 	});
 
-	router.route('/books/:id/text').get(function getBookText (req, res, next) {
+	router.route('/books/:option').get(function getBooksWithOptions(req, res, next) {
+		if (req.params.option == "newarrivals") {
+			Books.find({}).sort('-arrivalTime').exec(function(err, books) {
+				if (err) {
+					next(err);
+				}
+				res.json(books)
+			});
+		}
+		else {
+			Books.find(function findAllBooks(err, books) {
+				if (err) {
+					next(err);
+				}
+				res.status(404).json('No Option found for ' + req.params.option);
+			});
+		}
+	});
+
+	router.route('/books/:id/text').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
@@ -18,9 +37,9 @@ module.exports = function(router) {
 			}
 			res.json({book: {text: book.text}});
 		})
-	})
+	});
 
-	router.route('/books/:id/rating').get(function getBookText (req, res, next) {
+	router.route('/books/:id/rating').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
@@ -40,9 +59,9 @@ module.exports = function(router) {
 				res.json({book: {avgRating: 0}});
 			}
 		})
-	})
+	});
 
-	router.route('/books/:id').get(function getBook (req, res, next) {
+	router.route('/books/:id').get(function getBook(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBook(err, book) {
 			if (err) {
@@ -51,9 +70,9 @@ module.exports = function(router) {
 			}
 			res.json({book: book});
 		})
-	})
+	});
 
-	router.route('/books/:id/rating').post(function rateBook (req, res, next) {
+	router.route('/books/:id/rating').post(function rateBook(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBook(err, book) {
 			if (err) {
@@ -74,10 +93,10 @@ module.exports = function(router) {
 				book.ratings.push({id: req.query.userID, rating: req.query.rating});
 			}
 
-			console.log("hi");
-
 			book.save();
 			res.json("Rated the book successfully");
 		})
-	})
+	});
+
 };
+
