@@ -7,15 +7,21 @@ angular.module('angularPassportApp')
 			console.log("I received the book");
 		 	$scope.book=response.book;
 		});
-   	//rate function's job is to send the the backend the user who wants to rate a book and his rating
+   	//rate function's job is to send to the backend am object consisting of a user and his rating
    	$scope.rate = function(rating) {
-   	$http.post('api/books/'+ShareService.getValue(), id)
-            .success(function(data) {
-                $scope.book=response.book;
-            })
-            .error(function(data) {
-                console.log('Error: ' + data);
-            });
+   	console.log(rating);
+   	$scope.rate= {
+   		rating : rating,
+   		user : $scope.currentUser._id
+   	}
+   	console.log($scope.rate.rating);
+   	//$http.post('api/books/'+ShareService.getValue(),rating,$scope.currentUser._id)
+            //.success(function(data) {
+              //  $scope.book=response.book;
+            //})
+            //.error(function(data) {
+              //  console.log('Error: ' + data);
+            //});
    };
   });
 

@@ -17,6 +17,14 @@
 		</div>
 		<div align="center">
 			<h3> Ratings </h3> <h2> {{book.avgRating}}/5 </h2>
+            <div style="width:130px">
+               <input ng-model="rating"
+                      type="number"
+                      max="5"
+                      min="0">
+               <button class="btn  btn-sm btn-link" type="button" 
+								ng-click="rate(rating)">rate</button>
+			</div>  
 		</div>
 	</body>
 
