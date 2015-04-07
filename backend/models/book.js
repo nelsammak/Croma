@@ -9,7 +9,7 @@ var bookSchema = new schema({
 	name: { type: String, required: true },
 	author: { type: String, required: true },
 	coverLocation: { type: String, required: true },
-	bio: { type: String, required: true },
+	bio: { type: String},
 	text: { type: String, required: true}
 });
 
