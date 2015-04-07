@@ -10,8 +10,19 @@
     <div class="navbar-header"><a class="navbar-brand" href="#" name="top" style="font-size: 60px;">Croma</a>
     </div>
 
-  <!-- In results, we show a message if there are no results, and
 
+<div ng-app="bookSearch" ng-controller="searchCtrl">
+ 
+  <!-- The search box puts the term into $scope.searchTerm
+       and calls $scope.search() on submit -->
+  <section class="searchField">
+    <form ng-submit="search()">
+      <input type="text" ng-model="searchTerm">
+      <input type="submit" value="Search for books">
+    </form>
+  </section>
+ 
+  <!-- In results, we show a message if there are no results, and
        a list of results otherwise. -->
   <section class="results">
     <div class="no-books" ng-hide="books.length">No results</div>
@@ -33,6 +44,8 @@
       <a ng-click="loadMore()">More...</a>
     </div>
   </section>
+
+ 
     <div class="nav navbar-nav">
         <ul class="nav navbar-nav">
             <li ng-repeat="item in menu" ui-route="/{{item.link}}" ng-class="{active: $uiRoute}">

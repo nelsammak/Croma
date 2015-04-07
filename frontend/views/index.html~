@@ -307,6 +307,6 @@
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
         <!-- endbuild -->
-<script src="elasticsearch/elasticsearch.angular.js">
+<script src="Croma/backend/node_modules/elasticsearch/src/elasticsearch.angular.js">
 </body>
 </html>
