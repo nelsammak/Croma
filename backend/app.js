@@ -58,7 +58,7 @@ var router = express.Router();
 app.use('/api', router);
 
 
-
+require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
 require('./views/session.js')(router);
