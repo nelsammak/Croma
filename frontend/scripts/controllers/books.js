@@ -22,6 +22,19 @@ angular.module('angularPassportApp')
 ]);
 
 
+//genre controller's job is  to request take the genre specified from html by click of user and request that genre from backend then route to it and display it
+angular.module('angularPassportApp')
+  .controller('GenreCtrl', function ($scope,$routeParams, $location,$window, ShareService) {
+    $scope.showGenre = function(genre) {
+    $location.path ('books/genre/'+genre);
+    $http.get('api/books/genre'+genre).success(function(response) {
+      console.log("I received genre");
+      $scope.books=response;
+    });
+   };
+  });
+
+
 
 //response to view bio button and routing to a specific book
 angular.module('angularPassportApp')

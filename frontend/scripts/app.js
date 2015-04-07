@@ -31,7 +31,7 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'NewArrivalsCtrl'
       })
-      .when('/books/Genre', {
+      .when('/books/genre', {
         templateUrl: 'partials/genre.html',
         controller: 'GenreCtrl'
       })

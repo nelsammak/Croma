@@ -16,7 +16,7 @@ angular.module('angularPassportApp')
       "link": "books/new_arrivals"
     }, {
       "title": "Browse by Genre",
-      "link": "books/Genre"
+      "link": "books/genre"
     }];
 
     $scope.logout = function() {
