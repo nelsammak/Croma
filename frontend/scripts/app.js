@@ -36,8 +36,8 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/index.html',
         controller: 'ReaderController'
       })
-      .when('/currentread',{
-        templateUrl: 'partials/myShelf.html'
+      .when('/shelves',{
+        templateUrl: 'partials/myShelf.html',
         controller: '',
         css: 'partials/css/shelf.css'
       })
