@@ -21,18 +21,27 @@ angular.module('angularPassportApp')
   }
 ]);
 
-
-//genre controller's job is  to request take the genre specified from html by click of user and request that genre from backend then route to it and display it
+//genre display controller's job is  to request genre books from backend and display it
 angular.module('angularPassportApp')
-  .controller('GenreCtrl', function ($scope,$routeParams, $location,$window, ShareService) {
-    $scope.showGenre = function(genre) {
-    $location.path ('books/genre/'+genre);
-    $http.get('api/books/genre'+genre).success(function(response) {
-      console.log("I received genre");
+  .controller('GenreDisplayCtrl', function ($scope, $http, ShareService2) {
+   $http.get('api/books/genre/'+ShareService2.getValue()).success(function(response) {
+      console.log("I received the genre");
       $scope.books=response;
     });
+  });
+
+
+
+//genre controller's job is  to  take the genre specified from html by click of user and request that genre from backend then route to it 
+angular.module('angularPassportApp')
+  .controller('GenreCtrl', function ($scope, $http, $routeParams, $location,$window, ShareService2) {
+    $scope.showGenre = function(genre) {
+    ShareService2.setValue(genre);
+    $location.path ('books/genre/'+genre);
    };
   });
+
+
 
 
 
@@ -48,6 +57,7 @@ angular.module('angularPassportApp')
   });
 
 
+
 //a service to pass id  from books Ctrl to book Ctrl
 angular.module('angularPassportApp')
  .service('ShareService', function(){
@@ -58,6 +68,21 @@ angular.module('angularPassportApp')
             },
             setValue: function(value) {
                 id = value;
+            }
+        };
+ 
+});
+
+ //a service to pass genre  from Genre Ctrl to Genre display Ctrl
+angular.module('angularPassportApp')
+ .service('ShareService2', function(){
+    var genre = '';
+    return {
+            getValue: function () {
+                return genre;
+            },
+            setValue: function(value) {
+                genre = value;
             }
         };
  
