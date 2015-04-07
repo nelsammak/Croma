@@ -13,13 +13,12 @@ angular.module('angularPassportApp')
    		$scope.rating.user = $scope.currentUser._id;
    		console.log($scope.rating.value);
    	   	console.log($scope.rating.user);
-   	//$http.post('api/books/'+ShareService.getValue(),rating,$scope.currentUser._id)
-            //.success(function(data) {
-              //  $scope.book=response.book;
-            //})
-            //.error(function(data) {
-              //  console.log('Error: ' + data);
-            //});
+            .success(function(data) {
+                $scope.book=response.book;
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
    };
   });
 
