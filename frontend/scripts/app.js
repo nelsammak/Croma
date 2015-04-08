@@ -32,7 +32,7 @@ angular.module('angularPassportApp', [
         controller: 'BookCtrl'
       })
       .when('/newarrivals', {
-        templateUrl: 'partials/newarrivals.html',
+        templateUrl: 'partials/books.html',
         controller: 'NewArrivalsCtrl'
       })
       .when('/genre', {
