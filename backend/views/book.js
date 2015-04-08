@@ -1,4 +1,5 @@
 var Books = require('../models/book.js');
+var User = require('../models/user.js');
 
 module.exports = function(router) {
 
@@ -25,7 +26,7 @@ module.exports = function(router) {
 	});
 
 	//Route to get the specific book's average Rating
-	router.route('/books/:id/rating').get(function getBookText(req, res, next) {
+	router.route('/books/:id/avgRating').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
@@ -39,10 +40,45 @@ module.exports = function(router) {
 			console.log(sumOfRatings);
 
 			if (book.ratings.length > 0) {
-				res.json({book: {avgRating: (sumOfRatings / book.ratings.length)}});
+				res.json(sumOfRatings / book.ratings.length);
 			}
 			else {
-				res.json({book: {avgRating: -1}});
+				res.json(0);
+			}
+		})
+	});
+
+	router.route('/books/:id/getrate').post(function getMyRating(req, res, next) {
+		var id = req.params.id;
+		var userId = req.body.userId;
+		Books.findOne({'_id': id}, function findBookText(err, book) {
+			if (err) {
+				res.status(404).json(err);
+				return next(err);
+			}
+			for(var i = 0; i < book.ratings.length; i++) {
+				if(book.ratings[i].id==userId) {
+					return res.json(book.ratings[i].rating);
+				}
+			}
+
+			return res.json("0");
+		})
+	});
+
+	router.route('/books/:id/istoberead').post(function getIsToBeReadByMe(req, res, next) {
+		var id = req.params.id;
+		var userId = req.body.userId;
+		User.findOne({'_id': userId}, function findBookText(err, user) {
+			if (err) {
+				res.status(404).json(err);
+				return next(err);
+			}
+			if(user.toBeRead.indexOf(id)>=0) {
+				res.json(true);
+			}
+			else {
+				res.json(false);
 			}
 		})
 	});

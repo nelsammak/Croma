@@ -9,7 +9,7 @@ angular.module('angularPassportApp')
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
-      console.log("avg rating is" + rating);
+      console.log("avg rating is " + rating);
       $scope.book.avgRating=rating;
       });
 
@@ -27,7 +27,7 @@ angular.module('angularPassportApp')
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function(bool) {
           $scope.book.tobeRead=bool;
-          console.log("user added book" + bool);
+          console.log("user added book " + bool);
         })
         .error(function(data) {
           console.log('Error: ' + data);
