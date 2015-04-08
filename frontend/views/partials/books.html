@@ -3,68 +3,49 @@
 	<head>
 		<title> Browse books </title>
 
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
-		<link rel="stylesheet" type="text/css" href="css/books.css">
+		<!-- Bootstrap Core CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+    	<!-- Custom CSS -->
+    	<link href="css/thumbnail-gallery.css" rel="stylesheet">
+
+    	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    	<!--[if lt IE 9]>
+        	<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        	<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    	<![endif]-->
+
 	</head>
+
 	<body>
-		<div class="container" align = "center">
-			<h1>Browse books</h1>	
-			<div align = "center" class="row" ng-repeat="book in books" >
- 				 <div align="center">
-    			  	<a href="www.google.com" class="thumbnail">
-   	  			 	<p>{{book.name}}</p> 
-     			 	<img align="middle" ng-src="{{book.coverLocation}}" alt="book.name" style="width:320px;height:480px">
-  				  	</a>
- 				 </div>
-			</div>
+		<!-- Page Content -->
+    <div class="container">
 
-	<div id="header">
-<h1>City Gallery</h1>
-</div>
+    	<div class="col-lg-12">
+                <h1 class="page-header">Browse {{page}}</h1>
+        </div>
 
-<div id="nav">
-London<br>
-Paris<br>
-Tokyo<br>
-</div>
+        <div class="row" >
+            <div ng-repeat="book in books" class="col-lg-3 col-md-4 col-xs-6 thumb">
+                <a class="thumbnail" href="#">
+                    <img class="img-responsive" ng-src="{{book.coverLocation}}" alt="">
+                </a>
+            </div>
+        </div>
 
-<div id="section">
-<h1>London</h1>
-<p>
-London is the capital city of England. It is the most populous city in the United Kingdom,
-with a metropolitan area of over 13 million inhabitants.
-</p>
-<p>
-Standing on the River Thames, London has been a major settlement for two millennia,
-its history going back to its founding by the Romans, who named it Londinium.
-</p>
-</div>
+        <hr>
 
-<div id="footer">
-Copyright © W3Schools.com
-</div>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Your Website 2014</p>
+                </div>
+            </div>
+        </footer>
 
-
-
-			<!--<table class="table">
-				<tbody>
-					<tr ng-repeat="book in books">
-						<td>
-						<img ng-src="{{book.coverLocation}}" alt="Link to this page"></a>
-						</td>
-						<td>
-							<div><h1>{{book.name}}</h1></div>
-							<div><h3>{{book.author}}</h3></div>
-							<button ng-controller ="BioCtrl" class="btn btn-lg btn-primary" type="button" 
-								ng-click="viewBio(book.id)">View Bio</button>
-
-						</td>
-					</tr>
-				</tbody>
-			</table> -->
-			
-		</div>
+    </div>
 
 
 	</body>
