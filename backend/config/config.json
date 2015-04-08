@@ -1,14 +1,14 @@
 {
-    "development": {
-        "db": {
-          "url":"mongodb://localhost/croma"
-        }
-    },
-    "test": {
-        "db": {
-            "url": "localhost/croma_test"
-        }
-    },
-    "production": {
-    }
+	"development": {
+		"db": {
+		  "url":"mongodb://localhost/croma"
+		}
+	},
+	"test": {
+		"db": {
+			"url": "localhost/croma_test"
+		}
+	},
+	"production": {
+	}
 }

@@ -37,7 +37,7 @@ describe('Profile', function() {
         .send({})
         .end(function (err, res) {
             should.not.exist(err);
-            res.status.should.be.eql(200);
+            res.status.should.be.eql(201);
             console.log(res.body);
             res.body.should.be.an.instanceOf(Array)
             .and.matchEach(function(it) {
@@ -46,7 +46,6 @@ describe('Profile', function() {
             done();
         })
     })
-      
   it('Should get one user', function (done) {
       User.findOne({email: 'test@test.com'}, function (err, tempUser) {
               req.get('/users/' + tempUser._id)

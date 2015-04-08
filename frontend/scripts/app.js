@@ -6,9 +6,14 @@ angular.module('angularPassportApp', [
   'ngSanitize',
   'ngRoute',
   'http-auth-interceptor',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'ui.router',
+  'flow'
+
 ])
-  .config(function ($routeProvider, $locationProvider) {
+//choosing a specific partial HTML and a controller for any route
+
+  .config(function ($routeProvider, $locationProvider,flowFactoryProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main.html',
@@ -24,15 +29,78 @@ angular.module('angularPassportApp', [
       })
       .when('/books', {
         templateUrl: 'partials/books.html',
-        controller: 'AppCtrl'
+        controller: 'BooksCtrl'
+      })
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
+      })
+      .when('/newarrivals', {
+        templateUrl: 'partials/books.html',
+        controller: 'NewArrivalsCtrl'
+      })
+      .when('/genre', {
+        templateUrl: 'partials/genre.html',
+        controller: 'GenreCtrl'
+      })
+      .when('/genre/:genre', {
+        templateUrl: 'partials/books.html',
+        controller: 'GenreDisplayCtrl'
+      })
+
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
+      })
+      
+      .when('/profile', {
+        templateUrl: 'partials/userprofile.html',
+        controller: 'ProfileController'
+      })
+      .when('/thebook', {
+
+        templateUrl: 'partials/index.html',
+       // controller: 'ReaderController'
+
+      })
+      .when('/dashboard', {
+
+        templateUrl: 'partials/dashboard.html',
+       // controller: 'ReaderController'
+
+      })
+      .when('/shelves',{
+        templateUrl: 'partials/myShelf.html',
+        controller: 'ShelfCtrl'
+        
       })
       .otherwise({
         redirectTo: '/'
       });
+
+      
+
     $locationProvider.html5Mode(true);
+
+    flowFactoryProvider.defaults = {
+    target: '/api/admin/addBook',
+    testChunks: false,
+    permanentErrors: [404, 500, 501],
+    maxChunkRetries: 1,
+    chunkRetryInterval: 5000,
+    simultaneousUploads: 4
+  };
+  flowFactoryProvider.on('catchAll', function (event) {
+    console.log('catchAll', arguments);
+  });
+
   })
 
   .run(function ($rootScope, $location, Auth) {
+ 
+ $rootScope.contentsPath = '';
+    
+    $rootScope.metadata = {bookTitle: 'TDO'};
 
     //watching the value of the currentUser variable.
     $rootScope.$watch('currentUser', function(currentUser) {
