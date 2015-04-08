@@ -17,7 +17,7 @@ var saveEpubData = function (req, res, next) {
 	flow.post(req, function(status, filename, original_filename, identifier) {
 		 console.log('POST', status, original_filename, identifier);
 		 console.log('STATUS:', status);
-	})
+	});
 
 	var epubTitle = 'orwell-animal-farm.epub';
 	var epubPath = 'books/bookEpub/' + epubTitle;

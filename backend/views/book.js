@@ -118,7 +118,14 @@ module.exports = function(router) {
 	});
 
 
-	
+	/**
+	* @function getAllLabels Called on GET "/api/labels" 
+	* Returns All books
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @return {JSON} { [[{'each book labels'}]] } 
+	*/
 	var getAllLabels = function (req, res, next) {
 		Book.find({}, function (err, books) {
 			if (err) {
@@ -138,19 +145,39 @@ module.exports = function(router) {
 	}
 
 
-
+	/**
+	* @function getLabels Called on GET "/api/books/:id/labels" 
+	* Returns All labels of a book
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @return {JSON} {book: {labels: ['book labels']}} 
+	*/
 	var getLabels = function (req, res, next) {
 		var id = req.params.id;
+		console.log('ID' , id);
 		Book.findOne({'_id': id}, function (err, book) {
 			if (err) {
+				console.log('ERROR', err);
 				return next(err);
 			}
-				res.json({book: {labels: book.labels}});
+				if (book) {
+					res.json({book: {labels: book.labels}});
+				} else {
+					res.json({err: 'Book not found'})
+				}
 			});
 		}
 	
 
-
+	/**
+	* @function addLabels Called on Post "/api/books/:id/labels" 
+	* Returns Book after old labels are removed and new ones added
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @return {JSON} { book: {'book'} } 
+	*/
 	var addLabels = function (req, res, next) {
 		var id = req.params.id;
 		var labels = req.body.labels;
@@ -159,14 +186,16 @@ module.exports = function(router) {
 			if (err) {
 					return next(err);
 				}
-			console.log('Book LABELS', book.labels);
-			book.labels = req.body.labels;
-			book.save(function (err, newBook){
-				if (err) {
-					return next(err);
-				}
-				res.json({book: newBook});
-			});
+			if(book) {
+				console.log('Book LABELS', book.labels);
+				book.labels = req.body.labels;
+				book.save(function (err, newBook){
+					if (err) {
+						return next(err);
+					}
+					res.status(201).json({book: newBook});
+				});
+			}
 		});
 	}
 	router.route('/books/:id/labels').get(getLabels).post(addLabels);
