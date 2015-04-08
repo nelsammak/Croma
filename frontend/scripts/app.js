@@ -8,7 +8,8 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'flow'
+  'flow',
+  'bootstrap-tagsinput'
 ])
   .config(function ($routeProvider, $locationProvider,flowFactoryProvider) {
     $routeProvider
