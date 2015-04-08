@@ -4,7 +4,6 @@ var path = require('path');
 var express = require('express');
 var bodyParser = require('body-parser');
 var morgan = require('morgan');
-var passport = require('passport');
 var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
@@ -21,25 +20,33 @@ console.log(config);
 
 mongoose.connect(config.db.url);
 
+
 app.use(express.static(path.join(__dirname, '../frontend'))); 
 app.set('views', path.join(__dirname, '../frontend/views'));
 app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+
+
 var passportConfig = require('./config/passport')();
 
 
 app.use(expressSession({
+
  saveUninitialized: true,
+
  resave: true,
+
  secret: 'CromaSecret'
+
  }));
 
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan('dev'));
+
 
 var router = express.Router(); 
 
@@ -63,14 +70,16 @@ app.get('/books2', function getBooksCollection (req, res, next) {
 require('./views/users.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
+require('./views/search.js')(router);
 app.use('/api', router);
+//app.use('/api/search', search);
 
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
     res.render(requestedView);
   });
 
-  app.get('/', function(req, res) {
+  app.get('/*', function(req, res) {
     res.render('index.html');
   });
 

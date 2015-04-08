@@ -1,5 +1,6 @@
 /*globals before,beforeEach,after,afterEach,describe,it */
 
+
 process.env.NODE_ENV = 'test';
 
 var mongoose = require('mongoose');
@@ -45,3 +46,10 @@ module.exports = {
     api: api,
     clearDB: clearDB,
 };
+<<<<<<< HEAD
+=======
+
+
+
+
+>>>>>>> not_very_new_begining
