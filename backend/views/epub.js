@@ -1,48 +1,60 @@
 var Epub = require('epub'),
+
+	fs = require('fs'),
+	flow = require('../config/flow-node.js')('tmp'),
 	Book = require('../models/book.js'),
-	fileBase = '../frontend/books/bookEpub/',
-	image = '../frontend/books/bookCovers',
-	link = '../frontend/books/bookLinks';
+	fileBase = '../frontend/',
+	imageDirectory = '../frontend/books/bookCovers/',
+	linkDirectory = '../frontend/books/bookLinks/';
+
 module.exports = function(router) {
-	
-	var epub = new Epub(fileBase + 'orwell-animal-farm.epub'
-		, image, link);
-	epub.on('end', function() {
-		console.log(epub.metadata);
-		epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
-			if (err) {
-				console.log(err);
-				return;
-			}
-				console.log(img);
-				console.log(mimetype);
-		})
-	});
-		epub.parse();
+	router.route('/admin/addBook').get(saveEpubData);
 }
 
 var saveEpubData = function (req, res, next) {
-	
-	var epub = new Epub(fileBase + 'orwell-animal-farm.epub'
-		, image, link);
+
+	flow.post(req, function(status, filename, original_filename, identifier) {
+		 console.log('POST', status, original_filename, identifier);
+		 console.log('STATUS:', status);
+	});
+
+	var epubTitle = 'orwell-animal-farm.epub';
+	var epubPath = 'books/bookEpub/' + epubTitle;
+	var imagePath = '';
+	var epub = new Epub( fileBase + epubPath , imageDirectory, linkDirectory);
 	epub.on('end', function() {
+		imagePath = imageDirectory + epub.metadata.title + '.jpg';
+		console.log(epub.metadata);
 		epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
 			if (err) {
-				console.log(err);
-				return;
+				return next(err);
 			}
-		
-				console.log(mimetype);
-		});
+				fs.writeFile(imagePath, img, function (err) {
+					if (err)
+					{
+				  	return next(err);
+					}
+					console.log(mimetype);
+					console.log(epub.metadata.title + '.jpg' + ' Saved');
+				});
+		})
+	});
 
+		epub.on('end', function() {
 		var book = new Book({
 			name: epub.metadata.title,
 			author: epub.metadata.creator,
-			coverLocation: epub.metadata.cover
+			coverLocation: imagePath,
+			text: epubPath
 			// bio:
-
-
 		})
+		book.save(function saveBook(err, newBook) {
+			if (err) {
+				return next(err);
+			}
+			res.json(newBook).status(201);
+		})
+
 	});
 
 	epub.parse();

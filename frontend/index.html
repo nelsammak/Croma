@@ -25,6 +25,7 @@
   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
 
+<link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
 
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -125,10 +126,10 @@
           </a>
         </li>
         <li class="sidebar-title"><span>NAVIGATION</span></li>
-        <li class="sidebar-list">
-          <a href="#">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+        <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
-        <li class="sidebar-list">
+        <li class="sidebar-list" ng-show=  "!currentUser.admin">
           <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
         </li>
       </ul>
@@ -245,6 +246,11 @@
 
         <!-- build:js(app) scripts/modules.js -->
         <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+ <script src="bower_components/bootstrap-tagsinput/bootstrap-tagsinput-angular.js"></script>
+  <script src="bower_components/bootstrap-tagsinput/bootstrap-tagsinput-angular.min.js"></script>
+  <script src="bower_components/bootstrap-tagsinput/bootstrap-tagsinput.min.js"></script>
+
         <script src="bower_components/angular-cookies/angular-cookies.js"></script>
         <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
         <script src="bower_components/angular-route/angular-route.js"></script>
@@ -266,7 +272,6 @@
         <script src="scripts/directives/onFocus.js"></script>
         <script src="scripts/directives/mongooseError.js"></script>
         <script src="scripts/services/Session.js"></script>
-        <script src="scripts/services/Profile.js"></script>
 
         <script src="scripts/controllers/alert-ctrl.js"></script>
         <script src="scripts/controllers/master-ctrl.js"></script>
@@ -320,7 +325,7 @@
         
     <!-- Hypothes.is 
 
-    <script src="https://static.hypothes.is/lib/d3.min.js"></script>
+ <!--   <script src="https://static.hypothes.is/lib/d3.min.js"></script>
     <script src="https://static.hypothes.is/lib/dom_text.min.js"></script>
     <script src="https://static.hypothes.is/lib/jquery.scrollintoview.min.js"></script>
     <script src="https://static.hypothes.is/lib/jquery.ui.core.min.js"></script>
@@ -337,7 +342,7 @@
     <script src="https://static.hypothes.is/js/plugin/bridge.js"></script>
     <script src="https://static.hypothes.is/js/plugin/heatmap.js"></script>
     <script src="https://static.hypothes.is/js/plugin/toolbar.js"></script>
-    <script src="https://static.hypothes.is/js/inject.min.js"></script>
+    <script src="https://static.hypothes.is/js/inject.min.js"></script> -->
     
     -->
     <!-- build:js({.tmp,src}) scripts/scripts.js -->
@@ -363,5 +368,20 @@
     <script src="scripts/directives/epub-toc.js"></script>
     <script src="scripts/directives/hypothesis.js"></script>
     <!-- endbuild -->
+
+
+      <script src="scripts/directives/btn.js"></script>
+    <script src="scripts/directives/drag-events.js"></script>
+    <script src="scripts/directives/drop.js"></script>
+    <script src="scripts/directives/events.js"></script>
+    <script src="scripts/directives/img.js"></script>
+    <script src="scripts/directives/init.js"></script>
+    <script src="scripts/directives/transfers.js"></script>
+     
+     <script src="scripts/angular-flow.js"></script>
+    <script src="scripts/provider.js"></script>
+    <script src="bower_components/flow.js/dist/flow.js"></script>
+    <script src="bower_components/flow.js/dist/flow.min.js"></script>
+   <!--  <script src="dist/ng-flow-standalone.js"></script> -->
 </body>
 </html>

@@ -3,7 +3,13 @@
 angular.module('angularPassportApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.gender='male';
+
     $scope.register = function(form) {
+
+      if($scope.user.admin != true){
+        $scope.user.admin = false;
+      };
+      console.log($scope.user.admin);
       Auth.createUser({
           email: $scope.user.email,
           username: $scope.user.username,
