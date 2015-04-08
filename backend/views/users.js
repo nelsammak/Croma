@@ -35,7 +35,7 @@ module.exports = function(router) {
             });
         });
 
-    router.route('/users/:id/addabook').post(function(req, res, next) {
+    router.route('/users/:id/addToBeRead').post(function(req, res, next) {
         var userId = req.params.id;
         var bookId = req.body.bookId;
         User.findById(userId, function (err, user) {
@@ -43,11 +43,11 @@ module.exports = function(router) {
                 res.status(404).json(err);
                 return next(err);
             }
-            if (user.currentlyReading.indexOf(bookId) > -1) { //Already has the book in his Currently Reading List
+            if (user.toBeRead.indexOf(bookId) > -1) { //Already has the book in his Currently Reading List
                 return res.json("Already has the book");
             }
             else {
-                user.currentlyReading.push(bookId);
+                user.toBeRead.push(bookId);
             }
             user.save();
             res.json("Added the book successfully");

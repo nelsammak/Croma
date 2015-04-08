@@ -13,7 +13,7 @@ var expressSession = require('express-session');
 var Books = require('./models/book.js');
 
 //inserting the books
-//require('./inserts/book');
+require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -64,9 +64,7 @@ app.get('/partials/*', function(req, res) {
     res.render('index.html');
   });
 
-
 var port = process.env.PORT || 8081;
-
 
 app.get('/error', function createError(req, res, next) {
   var err = new Error('Sample error');

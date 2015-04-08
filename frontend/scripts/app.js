@@ -31,6 +31,24 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/book.html',
         controller: 'BookCtrl'
       })
+      .when('/newarrivals', {
+        templateUrl: 'partials/newarrivals.html',
+        controller: 'NewArrivalsCtrl'
+      })
+      .when('/genre', {
+        templateUrl: 'partials/genre.html',
+        controller: 'GenreCtrl'
+      })
+      .when('/genre/:genre', {
+        templateUrl: 'partials/books.html',
+        controller: 'GenreDisplayCtrl'
+      })
+
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
+      })
+      
       .when('/profile', {
         templateUrl: 'partials/userprofile.html',
         controller: 'ProfileController'

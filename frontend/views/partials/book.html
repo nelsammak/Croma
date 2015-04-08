@@ -12,12 +12,22 @@
 			<h3 >{{book.author}}</h3>
 			<img  ng-src="{{book.coverLocation}}"/>    	
 		</div>
-		<br>
 		<div id = "bio">
 			<p ng-bind-html="book.bio"></p>
 		</div>
-		<script src="angular-sanitize.js"/>
-		<br>
+		<div align="center">
+			<h3> Ratings </h3> <h2> {{book.avgRating}}/5 </h2>
+            <div style="width:130px">
+               <input ng-model="rating"
+                      type="number"
+                      max="5"
+                      min="0">
+               <button class="btn  btn-sm btn-link" type="button" 
+								ng-click="rate()">rate</button>
+			</div> 
+			<button style="margin-top: 10px" class="btn btn-primary" type="button" 
+								ng-click="addTobeRead()">Read it later</button> 
+		</div>
 	</body>
 
 <style>

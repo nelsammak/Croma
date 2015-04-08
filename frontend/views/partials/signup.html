@@ -48,7 +48,7 @@
                         That username is already taken.
                     </p>
                     <p class="help-block"
-                       ng-show="form.username.$error.mongoose">
+                       ng-show="form.password.$error.mongoose">
                         {{ errors.username }}
                     </p>
                 </div>
@@ -77,93 +77,7 @@
                         {{ errors.password }}
                     </p>
                 </div>
-
-                <div class="form-group">
-                    <input class="form-control"
-                            placeholder="First Name"
-                            type="text"
-                            name="firstName"
-                            ng-model="user.firstName"
-                            mongoose-error/>
-                </div>
-
-                <div class="form-group">
-                    <input class="form-control"
-                            placeholder="Last Name"
-                            type="text"
-                            name="lastName"
-                            ng-model="user.lastName"
-                            mongoose-error/>
-                </div>
-
-                 <div class="form-group">
-                    <input class="form-control"
-                            placeholder="Age"
-                            type="number"
-                            name="age"
-                            ng-model="user.age"
-                            min = 10
-                            max = 109
-                            mongoose-error/>
-                </div>
-
-                <div class="form-group">
-                    <input class="form-control"
-                            placeholder="Address"
-                            type="text"
-                            name="address"
-                            ng-model="user.address"
-                            mongoose-error/>
-                </div>
-<!-- <span>
-                <div class="form-group">
-                    <input class="form-control"
-                            type="radio"
-                            value= "Male"
-                            ng-model="user.gender"
-                            mongoose-error>male
-
-                   <input class="form-control"
-                            type="radio"
-                            value= "Female"
-                            ng-model="user.gender"
-                            mongoose-error>female
-                </div> </span> -->
-               <!--  <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default">
-                    <input type="radio" id="q156" name="quality[25]" value="1" /> 1
-                </label> 
-                <label class="btn btn-default">
-                    <input type="radio" id="q157" name="quality[25]" value="2" 
-                    /> 2
-                </label> 
-               
-             
-            </div>
-        </div>
-    </div> -->
-
-           
-                 <div class="form-group">
-                <input type="hidden" name="option" value="" id="btn-input" />
-                <div class="btn-group" data-toggle="buttons-radio">  
-                  <button id="btn-one" 
-                          type="button" data-toggle="button" 
-                          name="option" value="male" 
-                          class="btn btn-default" 
-                          ng-model="user.gender"
-                          ng-click="gender='male'"
-                          mongoose-error>Male</button>
-                  <button id="btn-two" type="button" data-toggle="button"        name="option" value="female" 
-                          class="btn btn-default"
-                          ng-model="user.gender"
-                          ng-click="gender='female'"
-                          mongoose-error>Female</button>
-                </div>
-                </div>
-
-
-                <br /><br />
+                <br />
                 <button class="btn btn-lg btn-primary btn-block"
                         type="submit"
                         ng-disabled="form.$invalid">Sign up</button>
@@ -171,27 +85,3 @@
         </div>
     </div>
 </div>
-<!-- /*<script>
-
-  $('radioop0').on('click', function () {
-    $(this).button('complete') 
-  })
-
-  var btns = ['radioop0', 'radioop1'];
-  var input = document.getElementById('btn-input');
-  for(var i = 0; i < btns.length; i++) {
-    document.getElementById(radioop[i]).addEventListener('click', function() {
-      input.value = this.value;
-    });
-  }
-</script>*/ -->
-
-<script>
-  var btns = ['btn-one', 'btn-two'];
-  var input = document.getElementById('btn-input');
-  for(var i = 0; i < btns.length; i++) {
-    document.getElementById(btns[i]).addEventListener('click', function() {
-      input.value = this.value;
-    });
-  }
-</script>
