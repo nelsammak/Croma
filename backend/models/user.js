@@ -17,9 +17,14 @@ var UserSchema = new Schema({
     admin: {type: Boolean },
     address: { type: String },
     profilePhoto: { type: String },
+/*<<<<<<< HEAD
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}]
-});
+=======*/
+    gender: { type: String, enum: ['male', 'female'], index: true },
+    toBeRead: { type: Array, default: [] }
+/*>>>>>>> aed1011f69770ecd261ce46136719ef2837a8095
+*/});
 
 UserSchema.pre('save', function(next) {
     var user = this;

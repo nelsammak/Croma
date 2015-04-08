@@ -13,8 +13,12 @@ var cookieParser = require('cookie-parser');
 
 var MongoStore = require('connect-mongo')(expressSession);
 
+
 //importing the book model
-var Books = require('./models/book.js')
+var Books = require('./models/book.js');
+
+//inserting the books
+require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -47,6 +51,10 @@ app.use(expressSession({
     function(err){
       console.log(err || 'connect-mongodb setup ok');
     })
+app.use(expressSession( {
+  saveUninitializedtialized: true,
+  resave: true,
+  secret: 'CromaSecret'
  }));
 
 app.use(passport.initialize());
@@ -64,6 +72,7 @@ require('./views/user.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
 
+
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
     res.render(requestedView);
@@ -73,15 +82,19 @@ app.get('/', function(req, res) {
  	res.render('index.html');
 });
 
+var port = process.env.PORT || 8081;
 
-var port = process.env.PORT || 8081; 
-
-
+app.get('/error', function createError(req, res, next) {
+  var err = new Error('Sample error');
+  err.status = 500;
+  next(err);
+});
 
 app.use(function reportInternalServerError(err, req, res, next) {
   console.log(err.stack);
   res.status(500);
   res.json({err:err, message:"Internal Server Error"});
+
 });
 
 app.listen(port);

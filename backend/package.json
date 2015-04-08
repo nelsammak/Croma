@@ -40,8 +40,12 @@
     "jasmine": "^2.2.1",
     "lodash": "^3.5.0",
     "mocha": "~2.2.1",
+<<<<<<< HEAD
     "mongoose": "^3.8.24",
     "mongoose-findorcreate": "^0.1.2",
+=======
+    "mongoose": "^4.0.0",
+>>>>>>> aed1011f69770ecd261ce46136719ef2837a8095
     "morgan": "^1.5.1",
     "passport": "~0.2.1",
     "passport-local": "~1.0.0",
