@@ -1,6 +1,8 @@
 var Books = require('../models/book.js');
 
 module.exports = function(router) {
+
+	//Route to get the list of all books
 	router.route('/books').get(function getBooksCollection(req, res, next) {
 		Books.find(function findAllBooks(err, books) {
 			if (err) {
@@ -10,6 +12,7 @@ module.exports = function(router) {
 		});
 	});
 
+	//Route to get the specific book's text
 	router.route('/books/:id/text').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
@@ -21,6 +24,7 @@ module.exports = function(router) {
 		})
 	});
 
+	//Route to get the specific book's average Rating
 	router.route('/books/:id/rating').get(function getBookText(req, res, next) {
 		var id = req.params.id;
 		Books.findOne({'_id': id}, function findBookText(err, book) {
@@ -43,6 +47,7 @@ module.exports = function(router) {
 		})
 	});
 
+	//Route to get the specific book's bio page containing the book bio, cover and average rating
 	router.route('/books/:id').get(function getBook(req, res, next) {
 		var id = req.params.id;
 			Books.findOne({'_id': id}, function findBook(err, book) {
@@ -54,6 +59,7 @@ module.exports = function(router) {
 			})
 	});
 
+	//Route to get the New Arrivals
 	router.route('/newarrivals').get(function getBook(req, res, next) {
 		var id = req.params.id;
 		Books.find({}).sort('-arrivalTime').exec(function (err, books) {
@@ -61,10 +67,11 @@ module.exports = function(router) {
 				res.status(404).json(err);
 				return next(err);
 			}
-			res.json(books.slice(0, Math.min(5, books.length)));
+			res.status(200).json(books.slice(0, Math.min(5, books.length)));
 		});
 	});
 
+	//Route to rate the specific book
 	router.route('/books/:id/rate').post(function rateBook(req, res, next) {
 		var bookId = req.params.id;
 		Books.findOne({'_id': bookId}, function findBook(err, book) {
@@ -105,6 +112,7 @@ module.exports = function(router) {
 		})
 	});
 
+	//Route to get the books of the specified genre
 	router.route('/genre/:genre').get(function getBookText(req, res, next) {
 		console.log("yeskarim123");
 		var genre = req.params.genre;

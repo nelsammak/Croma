@@ -35,6 +35,7 @@ module.exports = function(router) {
             });
         });
 
+    //Route to add the book to user's To Be Read list
     router.route('/users/:id/addToBeRead').post(function(req, res, next) {
         var userId = req.params.id;
         var bookId = req.body.bookId;
