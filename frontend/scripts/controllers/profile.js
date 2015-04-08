@@ -7,13 +7,13 @@ angular.module('angularPassportApp')
 			console.log('scope current user', $scope.currentUser._id);
 			console.log(response);
 		 	$scope.userInfo=response;
+
 $scope.editedInfo=$scope.userInfo;
 $scope.editorEnabled = false;
 
    $scope.enableEditor = function() {
      $scope.editorEnabled = true;
      $scope.editableTitle = $scope.editedInfo;
-     //$http.post('/user', data).success(successCallback);
    };
 
    $scope.disableEditor = function() {
@@ -23,11 +23,31 @@ $scope.editorEnabled = false;
    $scope.save = function() {
      $scope.editedInfo= $scope.editableTitle;
      $scope.disableEditor();
-     $scope.addInfo = function() {
+ $scope.addInfo = function() {
+        $http.post('api/users/', $scope.editedInfo)
+            .success(function(data) {
+                $scope.userInfo = data;
+                console.log(data);
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+            });
+    };
+     
+
+  };
+      
+    });
+	}
+]);
+
+
+/*
+$scope.addInfo = function() {
        console.log($scope.editedInfo);
         $http({
             method: 'POST',
-            url: 'api/users',
+            url: 'api/profile',
             data: $scope.editedInfo
         }).
         success( function(response) {
@@ -39,14 +59,7 @@ $scope.editorEnabled = false;
 
     };
 
-  };
-                });
-
-	}
-]);
-
-
-/*angular.module('angularPassportApp')
+angular.module('angularPassportApp')
 .controller('ClickToEditCtrl',function ($http,$scope) {
   $scope.title = "Enter";
 $scope.editorEnabled = false;
