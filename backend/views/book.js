@@ -6,15 +6,20 @@ var cookieParser = require('cookie-parser');
 module.exports = function(router) {
 
 /**
-* routes /api/books/:id/text' where user must be signed in.
-* 	returns a JSON {book: {text: 'path of the book'}}
+* @function getBookText Called on GET "/api/books/:id/text" 
+* Returns books text and Adds book to currently reading of the current user
+* @params {Object} req - Http request
+* @params {Object} res - Http response
+* @params {Object} next - Next middleware
+* @params {Number} :id - ID of the book
+* @return {String} {book: {text: {Path of the epub book} }} 
 */
 	router.route('/books/:id/text').get(function getBookText (req,res,next){
 		var id = req.params.id;
 		if (!req.user) {
 			return next('User not logged in');
 		}
-		user = req.user;
+		var user = req.user;
 		console.log(user);
 
 		Books.findOne({'_id': id}, function findBookText(err, book) {
@@ -22,16 +27,17 @@ module.exports = function(router) {
 				res.json(404, err);
 				return next(err);
 			}
-		user.currentlyReading.push(book);
 
-		User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
-			if (err) {
-				return next(err);
-			}	
-			console.log(newUser);
-		})
-		res.json({book: {text: book.text}});
-		})
+			if(user.currentlyReading.indexOf(book._id) === -1) {
+				user.currentlyReading.push(book._id);
+				User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+					if (err) {
+						return next(err);
+					}	
+				});
+			}
+			res.json({book: {text: book.text}});
+		});
 			// res.sendFile(path.join(__dirname, '../../frontend', book.text));
 	});
 	router.route('/books/:id/').get(function getBook (req,res,next){
