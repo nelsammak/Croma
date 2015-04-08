@@ -61,7 +61,6 @@ app.use(passport.session());
 
 app.use(morgan('dev'));
 
-
 var router = express.Router(); 
 app.use('/api', router);
 
@@ -88,7 +87,9 @@ app.get('/', function(req, res) {
  	res.render('index.html');
 });
 
-var port = process.env.PORT || 8081;
+
+var port = process.env.PORT || 8081; 
+
 
 app.get('/error', function createError(req, res, next) {
   var err = new Error('Sample error');

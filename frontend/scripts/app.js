@@ -10,6 +10,7 @@ angular.module('angularPassportApp', [
   'ui.router',
   'flow'
 
+
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -73,6 +74,7 @@ angular.module('angularPassportApp', [
         
       })
 
+
       .otherwise({
         redirectTo: '/'
       });
@@ -92,6 +94,7 @@ angular.module('angularPassportApp', [
   flowFactoryProvider.on('catchAll', function (event) {
     console.log('catchAll', arguments);
   });
+
 
   })
 
@@ -116,3 +119,6 @@ angular.module('angularPassportApp', [
       return false;
     });
   });
+
+
+

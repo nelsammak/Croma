@@ -10,6 +10,7 @@ angular.module('angularPassportApp')
       "link": "profile" 
     }, {
       "title": "All Books",
+
       "link": "books"
     }, {
       "title": "New arrivals",

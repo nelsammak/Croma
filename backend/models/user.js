@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
     Book = require('./book.js'),
     _= require('lodash');
 
-
 var UserSchema = new Schema({
     email: { type: String, index: {unique: true}, required: true },
     username: { type: String, required: true, unique: true},
