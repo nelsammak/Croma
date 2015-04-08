@@ -7,9 +7,21 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
 	</head>
 	<body>
-		<div class="container">
+		<div class="container" align = "center">
 			<h1>Browse books</h1>	
-			<table class="table">
+			<div align = "center" class="row" ng-repeat="book in books" >
+ 				 <div align= "center" >
+    			  	<a href="www.google.com" class="thumbnail">
+   	  			 	<p>{{book.name}}</p> 
+     			 	<img align="middle" ng-src="{{book.coverLocation}}" alt="book.name" style="width:320px;height:480px">
+  				  	</a>
+ 				 </div>
+			</div>
+
+
+
+
+			<!--<table class="table">
 				<tbody>
 					<tr ng-repeat="book in books">
 						<td>
@@ -24,7 +36,14 @@
 						</td>
 					</tr>
 				</tbody>
-			</table>
+			</table> -->
+			
 		</div>
+
+
 	</body>
 </html>
+
+
+
+
