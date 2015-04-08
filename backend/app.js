@@ -11,6 +11,8 @@ var expressSession = require('express-session');
 var passport = require('passport');
 var modRewrite = require('connect-modrewrite');
 var cookieParser = require('cookie-parser');
+var multer = require('multer');
+
 
 var MongoStore = require('connect-mongo')(expressSession);
 
@@ -33,6 +35,7 @@ app.engine('html', require('ejs').renderFile);
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(multer({ dest: './files/'}))
 
 app.use(cookieParser('CromaSecret'));
 

@@ -92,6 +92,9 @@ module.exports = flow = function(temporaryFolder) {
         var fields = req.body;
         var files = req.files;
 
+        console.log('FIELDS IN FLOW NODE' , fields);
+        console.log('FILES IN FLOW NODE', files);
+
         var chunkNumber = fields['flowChunkNumber'];
         var chunkSize = fields['flowChunkSize'];
         var totalSize = fields['flowTotalSize'];

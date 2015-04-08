@@ -79,6 +79,7 @@ angular.module('angularPassportApp', [
 
     flowFactoryProvider.defaults = {
     target: '/api/admin/addBook',
+    testChunks: false,
     permanentErrors: [404, 500, 501],
     maxChunkRetries: 1,
     chunkRetryInterval: 5000,
