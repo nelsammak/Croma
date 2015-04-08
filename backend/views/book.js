@@ -25,6 +25,7 @@ module.exports = function(router) {
 			return next('User not logged in');
 		}
 		var user = req.user;
+
 		Books.findOne({'_id': id}, function findBookText(err, book) {
 			if (err) {
 				res.json({err: err}).status(404);
@@ -78,6 +79,7 @@ module.exports = function(router) {
 				console.log(newUser);
 			})
 		})
+
 	});
 
 	/**

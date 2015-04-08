@@ -1,0 +1,3468 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/bin/nodejs', '/usr/bin/npm', 'install', '-g', 'bower' ]
+2 info using npm@1.3.10
+3 info using node@v0.10.25
+4 verbose cache add [ 'bower', null ]
+5 verbose cache add name=undefined spec="bower" args=["bower",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'bower',
+6 verbose parsed url   path: 'bower',
+6 verbose parsed url   href: 'bower' }
+7 silly lockFile 206e3ce5-bower bower
+8 verbose lock bower /home/nada/.npm/206e3ce5-bower.lock
+9 silly lockFile 206e3ce5-bower bower
+10 silly lockFile 206e3ce5-bower bower
+11 verbose addNamed [ 'bower', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 1240aab1-bower bower@
+14 verbose lock bower@ /home/nada/.npm/1240aab1-bower.lock
+15 silly addNameRange { name: 'bower', range: '*', hasData: false }
+16 verbose url raw bower
+17 verbose url resolving [ 'https://registry.npmjs.org/', './bower' ]
+18 verbose url resolved https://registry.npmjs.org/bower
+19 info trying registry request attempt 1 at 17:10:52
+20 verbose etag "BXLVC6YFMAF1Y3BI9XE5HNI2Y"
+21 http GET https://registry.npmjs.org/bower
+22 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+23 info trying registry request attempt 2 at 17:11:02
+24 verbose etag "BXLVC6YFMAF1Y3BI9XE5HNI2Y"
+25 http GET https://registry.npmjs.org/bower
+26 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+27 info trying registry request attempt 3 at 17:12:03
+28 verbose etag "BXLVC6YFMAF1Y3BI9XE5HNI2Y"
+29 http GET https://registry.npmjs.org/bower
+30 silly registry.get cb [ 304, undefined ]
+31 verbose etag bower from cache
+32 silly addNameRange number 2 { name: 'bower', range: '*', hasData: true }
+33 silly addNameRange versions [ 'bower',
+33 silly addNameRange   [ '0.1.0',
+33 silly addNameRange     '0.1.2',
+33 silly addNameRange     '0.1.3',
+33 silly addNameRange     '0.2.0',
+33 silly addNameRange     '0.3.0',
+33 silly addNameRange     '0.3.1',
+33 silly addNameRange     '0.3.2',
+33 silly addNameRange     '0.4.0',
+33 silly addNameRange     '0.5.0',
+33 silly addNameRange     '0.5.1',
+33 silly addNameRange     '0.6.0',
+33 silly addNameRange     '0.6.1',
+33 silly addNameRange     '0.6.2',
+33 silly addNameRange     '0.6.3',
+33 silly addNameRange     '0.6.4',
+33 silly addNameRange     '0.6.5',
+33 silly addNameRange     '0.6.6',
+33 silly addNameRange     '0.6.7',
+33 silly addNameRange     '0.6.8',
+33 silly addNameRange     '0.7.0',
+33 silly addNameRange     '0.7.1',
+33 silly addNameRange     '0.8.0',
+33 silly addNameRange     '0.8.1',
+33 silly addNameRange     '0.8.2',
+33 silly addNameRange     '0.8.3',
+33 silly addNameRange     '0.8.4',
+33 silly addNameRange     '0.8.5',
+33 silly addNameRange     '0.8.6',
+33 silly addNameRange     '0.9.0',
+33 silly addNameRange     '0.9.1',
+33 silly addNameRange     '0.9.2',
+33 silly addNameRange     '0.10.0',
+33 silly addNameRange     '1.0.0',
+33 silly addNameRange     '1.0.1',
+33 silly addNameRange     '1.0.2',
+33 silly addNameRange     '1.0.3',
+33 silly addNameRange     '1.1.0',
+33 silly addNameRange     '1.1.1',
+33 silly addNameRange     '1.1.2',
+33 silly addNameRange     '1.2.0',
+33 silly addNameRange     '1.2.1',
+33 silly addNameRange     '1.2.2',
+33 silly addNameRange     '1.2.3',
+33 silly addNameRange     '1.2.4',
+33 silly addNameRange     '1.2.5',
+33 silly addNameRange     '1.2.6',
+33 silly addNameRange     '1.2.7',
+33 silly addNameRange     '1.2.8',
+33 silly addNameRange     '1.3.0',
+33 silly addNameRange     '1.3.1',
+33 silly addNameRange     '1.3.2',
+33 silly addNameRange     '1.3.3',
+33 silly addNameRange     '1.3.4',
+33 silly addNameRange     '1.3.5',
+33 silly addNameRange     '1.3.6',
+33 silly addNameRange     '1.3.7',
+33 silly addNameRange     '1.3.8',
+33 silly addNameRange     '1.3.9',
+33 silly addNameRange     '1.3.10',
+33 silly addNameRange     '1.3.11',
+33 silly addNameRange     '1.3.12',
+33 silly addNameRange     '1.4.0',
+33 silly addNameRange     '1.4.1' ] ]
+34 verbose addNamed [ 'bower', '1.4.1' ]
+35 verbose addNamed [ '1.4.1', '1.4.1' ]
+36 silly lockFile 185f46c0-bower-1-4-1 bower@1.4.1
+37 verbose lock bower@1.4.1 /home/nada/.npm/185f46c0-bower-1-4-1.lock
+38 silly lockFile 185f46c0-bower-1-4-1 bower@1.4.1
+39 silly lockFile 185f46c0-bower-1-4-1 bower@1.4.1
+40 silly lockFile 1240aab1-bower bower@
+41 silly lockFile 1240aab1-bower bower@
+42 silly resolved [ { name: 'bower',
+42 silly resolved     version: '1.4.1',
+42 silly resolved     description: 'The browser package manager',
+42 silly resolved     author: { name: 'Twitter' },
+42 silly resolved     licenses: [ [Object] ],
+42 silly resolved     repository: { type: 'git', url: 'git://github.com/bower/bower' },
+42 silly resolved     main: 'lib',
+42 silly resolved     homepage: 'http://bower.io',
+42 silly resolved     engines: { node: '>=0.10.0' },
+42 silly resolved     dependencies:
+42 silly resolved      { abbrev: '^1.0.5',
+42 silly resolved        archy: '1.0.0',
+42 silly resolved        'bower-config': '^0.6.1',
+42 silly resolved        'bower-endpoint-parser': '^0.2.2',
+42 silly resolved        'bower-json': '^0.4.0',
+42 silly resolved        'bower-logger': '^0.2.2',
+42 silly resolved        'bower-registry-client': '^0.3.0',
+42 silly resolved        cardinal: '0.4.4',
+42 silly resolved        chalk: '^1.0.0',
+42 silly resolved        chmodr: '0.1.0',
+42 silly resolved        configstore: '^0.3.2',
+42 silly resolved        'decompress-zip': '^0.1.0',
+42 silly resolved        fstream: '^1.0.3',
+42 silly resolved        'fstream-ignore': '^1.0.2',
+42 silly resolved        github: '^0.2.3',
+42 silly resolved        glob: '^4.3.2',
+42 silly resolved        'graceful-fs': '^3.0.5',
+42 silly resolved        handlebars: '^2.0.0',
+42 silly resolved        inquirer: '0.8.0',
+42 silly resolved        insight: '^0.5.0',
+42 silly resolved        'is-root': '^1.0.0',
+42 silly resolved        junk: '^1.0.0',
+42 silly resolved        lockfile: '^1.0.0',
+42 silly resolved        'lru-cache': '^2.5.0',
+42 silly resolved        mkdirp: '0.5.0',
+42 silly resolved        mout: '^0.11.0',
+42 silly resolved        nopt: '^3.0.1',
+42 silly resolved        opn: '^1.0.1',
+42 silly resolved        'p-throttler': '0.1.1',
+42 silly resolved        promptly: '0.2.0',
+42 silly resolved        q: '^1.1.2',
+42 silly resolved        request: '2.53.0',
+42 silly resolved        'request-progress': '0.3.1',
+42 silly resolved        retry: '0.6.1',
+42 silly resolved        rimraf: '^2.2.8',
+42 silly resolved        semver: '^2.3.0',
+42 silly resolved        'shell-quote': '^1.4.2',
+42 silly resolved        'stringify-object': '^1.0.0',
+42 silly resolved        'tar-fs': '^1.4.1',
+42 silly resolved        tmp: '0.0.24',
+42 silly resolved        'update-notifier': '^0.3.0',
+42 silly resolved        'user-home': '^1.1.0',
+42 silly resolved        which: '^1.0.8' },
+42 silly resolved     devDependencies:
+42 silly resolved      { chai: '^1.10.0',
+42 silly resolved        coveralls: '^2.11.2',
+42 silly resolved        'expect.js': '^0.3.1',
+42 silly resolved        grunt: '^0.4.5',
+42 silly resolved        'grunt-cli': '^0.1.13',
+42 silly resolved        'grunt-contrib-jshint': '^0.10.0',
+42 silly resolved        'grunt-contrib-watch': '^0.6.1',
+42 silly resolved        'grunt-exec': '^0.4.6',
+42 silly resolved        'grunt-simple-mocha': '^0.4.0',
+42 silly resolved        istanbul: '^0.3.5',
+42 silly resolved        'load-grunt-tasks': '^2.0.0',
+42 silly resolved        mocha: '^2.1.0',
+42 silly resolved        multiline: '^1.0.2',
+42 silly resolved        nock: '^0.56.0',
+42 silly resolved        'node-uuid': '^1.4.2',
+42 silly resolved        proxyquire: '^1.3.0',
+42 silly resolved        'spawn-sync': '^1.0.5' },
+42 silly resolved     scripts: { test: 'grunt test' },
+42 silly resolved     bin: { bower: 'bin/bower' },
+42 silly resolved     preferGlobal: true,
+42 silly resolved     readme: '# Bower\n\n[![Build Status](https://travis-ci.org/bower/bower.svg?branch=master)](https://travis-ci.org/bower/bower) [![Windows Build](https://ci.appveyor.com/api/projects/status/jr6vfra8w84plh2g/branch/master?svg=true)](https://ci.appveyor.com/project/sheerun/bower/history) [![Coverage Status](https://img.shields.io/coveralls/bower/bower.svg)](https://coveralls.io/r/bower/bower?branch=master) \n\n<img align="right" height="300" src="http://bower.io/img/bower-logo.png">\n\n> A package manager for the web\n\nBower offers a generic, unopinionated solution to the problem of **front-end package management**, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack. There are no system wide dependencies, no dependencies are shared between different apps, and the dependency tree is flat.\n\nBower runs over Git, and is package-agnostic. A packaged component can be made up of any type of asset, and use any type of transport (e.g., AMD, CommonJS, etc.).\n\n**View complete docs on [bower.io](http://bower.io)**\n\n[View all packages available through Bower\'s registry](http://bower.io/search/).\n\n## Install\n\n```sh\n$ npm install -g bower\n```\n\nBower depends on [Node.js](http://nodejs.org/) and [npm](http://npmjs.org/). Also make sure that [git](http://git-scm.com/) is installed as some bower\npackages require it to be fetched and installed.\n\n\n## Usage\n\nSee complete command line reference at [bower.io/docs/api/](http://bower.io/docs/api/)\n\n### Installing packages and dependencies\n\n```sh\n# install dependencies listed in bower.json\n$ bower install\n\n# install a package and add it to bower.json\n$ bower install <package> --save\n\n# install specific version of a package and add it to bower.json\n$ bower install <package>#<version> --save\n```\n\n### Using packages\n\nWe discourage using bower components statically for performance and security reasons (if component has an `upload.php` file that is not ignored, that can be easily exploited to do malicious stuff).\n\nThe best approach is to process components installed by bower with build tool (like [Grunt](http://gruntjs.com/) or [gulp](http://gulpjs.com/)), and serve them concatenated or using module loader (like [RequireJS](http://requirejs.org/)).\n\n### Uninstalling packages\n\nTo uninstall a locally installed package:\n\n```sh\n$ bower uninstall <package-name>\n```\n\n### prezto and oh-my-zsh users\n\nOn `prezto` or `oh-my-zsh`, do not forget to `alias bower=\'noglob bower\'` or `bower install jquery\\#1.9.1`\n\n### Running commands with sudo\n\nBower is a user command, there is no need to execute it with superuser permissions.\nHowever, if you still want to run commands with sudo, use `--allow-root` option.\n\n### Windows users\n\nTo use Bower on Windows, you must install\n[msysgit](http://msysgit.github.io/) correctly. Be sure to check the\noption shown below:\n\n![msysgit](http://f.cl.ly/items/2V2O3i1p3R2F1r2v0a12/mysgit.png)\n\nNote that if you use TortoiseGit and if Bower keeps asking for your SSH\npassword, you should add the following environment variable: `GIT_SSH -\nC:\\Program Files\\TortoiseGit\\bin\\TortoisePlink.exe`. Adjust the `TortoisePlink`\npath if needed.\n\n## Configuration\n\nBower can be configured using JSON in a `.bowerrc` file. Read over available options at [bower.io/docs/config](http://bower.io/docs/config).\n\n## Completion (experimental)\n\n_NOTE_: Completion is still not implemented for the 1.0.0 release\n\nBower now has an experimental `completion` command that is based on, and works\nsimilarly to the [npm completion](https://npmjs.org/doc/cli/completion.html). It is\nnot available for Windows users.\n\nThis command will output a Bash / ZSH script to put into your `~/.bashrc`,\n`~/.bash_profile`, or `~/.zshrc` file.\n\n```sh\n$ bower completion >> ~/.bash_profile\n```\n\n\n## Support\n\n* [StackOverflow](http://stackoverflow.com/questions/tagged/bower)\n* [Mailinglist](http://groups.google.com/group/twitter-bower) - twitter-bower@googlegroups.com\n* [\\#bower](http://webchat.freenode.net/?channels=bower) on Freenode\n\n\n## Contributing\n\nWe welcome contributions of all kinds from anyone. Please take a moment to\nreview the [guidelines for contributing](CONTRIBUTING.md).\n\n* [Bug reports](CONTRIBUTING.md#bugs)\n* [Feature requests](CONTRIBUTING.md#features)\n* [Pull requests](CONTRIBUTING.md#pull-requests)\n\n\nNote that on Windows for tests to pass you need to configure Git before cloning:\n\n```\ngit config --global core.autocrlf input\n```\n\n## Bower Team\n\nBower is made by lots of people across the globe, contributions large and small. Our thanks to everyone who has played a part.\n\n### Core team\n\n* [@satazor](https://github.com/satazor)\n* [@wibblymat](https://github.com/wibblymat)\n* [@paulirish](https://github.com/paulirish)\n* [@benschwarz](https://github.com/benschwarz)\n* [@svnlto](https://github.com/svnlto)\n* [@sheerun](https://github.com/sheerun)\n\n### Bower Alumni\n\n* [@fat](https://github.com/fat)\n* [@maccman](https://github.com/maccman)\n\n\n## License\n\nCopyright (c) 2015 Twitter and other contributors\n\nLicensed under the MIT License\n',
+42 silly resolved     readmeFilename: 'README.md',
+42 silly resolved     bugs: { url: 'https://github.com/bower/bower/issues' },
+42 silly resolved     _id: 'bower@1.4.1',
+42 silly resolved     _from: 'bower@' } ]
+43 info install bower@1.4.1 into /usr/local/lib
+44 info installOne bower@1.4.1
+45 info /usr/local/lib/node_modules/bower unbuild
+46 verbose tar unpack /home/nada/.npm/bower/1.4.1/package.tgz
+47 silly lockFile 1396471b-usr-local-lib-node-modules-bower tar:///usr/local/lib/node_modules/bower
+48 verbose lock tar:///usr/local/lib/node_modules/bower /home/nada/.npm/1396471b-usr-local-lib-node-modules-bower.lock
+49 silly lockFile d76dbb52-nada-npm-bower-1-4-1-package-tgz tar:///home/nada/.npm/bower/1.4.1/package.tgz
+50 verbose lock tar:///home/nada/.npm/bower/1.4.1/package.tgz /home/nada/.npm/d76dbb52-nada-npm-bower-1-4-1-package-tgz.lock
+51 silly gunzTarPerm modes [ '755', '644' ]
+52 silly gunzTarPerm extractEntry package.json
+53 silly gunzTarPerm extractEntry .npmignore
+54 silly gunzTarPerm extractEntry README.md
+55 silly gunzTarPerm extractEntry LICENSE
+56 silly gunzTarPerm extractEntry Gruntfile.js
+57 silly gunzTarPerm extractEntry CONTRIBUTING.md
+58 silly gunzTarPerm extractEntry .editorconfig
+59 silly gunzTarPerm extractEntry HOOKS.md
+60 silly gunzTarPerm extractEntry .jshintrc
+61 silly gunzTarPerm extractEntry .travis.yml
+62 silly gunzTarPerm extractEntry appveyor.yml
+63 silly gunzTarPerm extractEntry bin/bower
+64 silly gunzTarPerm extractEntry lib/config.js
+65 silly gunzTarPerm extractEntry lib/index.js
+66 silly gunzTarPerm extractEntry lib/commands/version.js
+67 silly gunzTarPerm extractEntry lib/commands/init.js
+68 silly gunzTarPerm extractEntry lib/commands/install.js
+69 silly gunzTarPerm extractEntry lib/commands/link.js
+70 silly gunzTarPerm extractEntry lib/commands/list.js
+71 silly gunzTarPerm extractEntry lib/commands/info.js
+72 silly gunzTarPerm extractEntry lib/commands/lookup.js
+73 silly gunzTarPerm extractEntry lib/commands/prune.js
+74 silly gunzTarPerm extractEntry lib/commands/register.js
+75 silly gunzTarPerm extractEntry lib/commands/search.js
+76 silly gunzTarPerm extractEntry lib/commands/uninstall.js
+77 silly gunzTarPerm extractEntry lib/commands/index.js
+78 silly gunzTarPerm extractEntry lib/commands/unregister.js
+79 silly gunzTarPerm extractEntry lib/commands/home.js
+80 silly gunzTarPerm extractEntry lib/commands/update.js
+81 silly gunzTarPerm extractEntry lib/commands/help.js
+82 silly gunzTarPerm extractEntry lib/commands/login.js
+83 silly gunzTarPerm extractEntry lib/commands/cache/clean.js
+84 silly gunzTarPerm extractEntry lib/commands/cache/list.js
+85 silly gunzTarPerm extractEntry lib/core/Manager.js
+86 silly gunzTarPerm extractEntry lib/core/PackageRepository.js
+87 silly gunzTarPerm extractEntry lib/core/Project.js
+88 silly gunzTarPerm extractEntry lib/core/ResolveCache.js
+89 silly gunzTarPerm extractEntry lib/core/resolverFactory.js
+90 silly gunzTarPerm extractEntry lib/core/scripts.js
+91 silly gunzTarPerm extractEntry lib/core/resolvers/FsResolver.js
+92 silly gunzTarPerm extractEntry lib/core/resolvers/GitFsResolver.js
+93 silly gunzTarPerm extractEntry lib/core/resolvers/GitHubResolver.js
+94 silly gunzTarPerm extractEntry lib/core/resolvers/GitRemoteResolver.js
+95 silly gunzTarPerm extractEntry lib/core/resolvers/GitResolver.js
+96 silly gunzTarPerm extractEntry lib/core/resolvers/Resolver.js
+97 silly gunzTarPerm extractEntry lib/core/resolvers/SvnResolver.js
+98 silly gunzTarPerm extractEntry lib/core/resolvers/UrlResolver.js
+99 silly gunzTarPerm extractEntry lib/core/resolvers/index.js
+100 silly gunzTarPerm extractEntry lib/renderers/JsonRenderer.js
+101 silly gunzTarPerm extractEntry lib/renderers/StandardRenderer.js
+102 silly gunzTarPerm extractEntry lib/renderers/index.js
+103 silly gunzTarPerm extractEntry lib/util/analytics.js
+104 silly gunzTarPerm extractEntry lib/util/createError.js
+105 silly gunzTarPerm extractEntry lib/util/createLink.js
+106 silly gunzTarPerm extractEntry lib/util/download.js
+107 silly gunzTarPerm extractEntry lib/util/copy.js
+108 silly gunzTarPerm extractEntry lib/util/md5.js
+109 silly gunzTarPerm extractEntry lib/util/readJson.js
+110 silly gunzTarPerm extractEntry lib/util/removeIgnores.js
+111 silly gunzTarPerm extractEntry lib/util/rootCheck.js
+112 silly gunzTarPerm extractEntry lib/util/semver.js
+113 silly gunzTarPerm extractEntry lib/util/cmd.js
+114 silly gunzTarPerm extractEntry lib/util/template.js
+115 silly gunzTarPerm extractEntry lib/util/cli.js
+116 silly gunzTarPerm extractEntry lib/util/validLink.js
+117 silly gunzTarPerm extractEntry lib/util/extract.js
+118 silly gunzTarPerm extractEntry CHANGELOG.md
+119 silly gunzTarPerm extractEntry templates/helpers/colors.js
+120 silly gunzTarPerm extractEntry templates/helpers/condense.js
+121 silly gunzTarPerm extractEntry templates/helpers/indent.js
+122 silly gunzTarPerm extractEntry templates/helpers/index.js
+123 silly gunzTarPerm extractEntry templates/helpers/rpad.js
+124 silly gunzTarPerm extractEntry templates/helpers/sum.js
+125 silly gunzTarPerm extractEntry templates/json/help-lookup.json
+126 silly gunzTarPerm extractEntry templates/json/help-cache/clean.json
+127 silly gunzTarPerm extractEntry templates/json/help-cache/list.json
+128 silly gunzTarPerm extractEntry templates/json/help-home.json
+129 silly gunzTarPerm extractEntry templates/json/help-info.json
+130 silly gunzTarPerm extractEntry templates/json/help-init.json
+131 silly gunzTarPerm extractEntry templates/json/help-install.json
+132 silly gunzTarPerm extractEntry templates/json/help-link.json
+133 silly gunzTarPerm extractEntry templates/json/help-list.json
+134 silly gunzTarPerm extractEntry templates/json/help-login.json
+135 silly gunzTarPerm extractEntry templates/json/help-cache.json
+136 silly gunzTarPerm extractEntry templates/json/help-prune.json
+137 silly gunzTarPerm extractEntry templates/json/help-register.json
+138 silly gunzTarPerm extractEntry templates/json/help-search.json
+139 silly gunzTarPerm extractEntry templates/json/help-uninstall.json
+140 silly gunzTarPerm extractEntry templates/json/help-unregister.json
+141 silly gunzTarPerm extractEntry templates/json/help-update.json
+142 silly gunzTarPerm extractEntry templates/json/help-version.json
+143 silly gunzTarPerm extractEntry templates/json/help.json
+144 silly gunzTarPerm extractEntry templates/std/conflict-resolved.std
+145 silly gunzTarPerm extractEntry templates/std/conflict.std
+146 silly gunzTarPerm extractEntry templates/std/help-cache.std
+147 silly gunzTarPerm extractEntry templates/std/help-generic.std
+148 silly gunzTarPerm extractEntry templates/std/help.std
+149 silly gunzTarPerm extractEntry templates/std/info.std
+150 silly gunzTarPerm extractEntry templates/std/lookup.std
+151 silly gunzTarPerm extractEntry templates/std/register.std
+152 silly gunzTarPerm extractEntry templates/std/search-results.std
+153 silly gunzTarPerm extractEntry test/helpers.js
+154 silly gunzTarPerm extractEntry test/packages-svn.js
+155 silly gunzTarPerm extractEntry test/packages.js
+156 silly gunzTarPerm extractEntry test/test.js
+157 silly gunzTarPerm extractEntry test/packages-svn.json
+158 silly gunzTarPerm extractEntry test/commands/bower.js
+159 silly gunzTarPerm extractEntry test/commands/info.js
+160 silly gunzTarPerm extractEntry test/commands/init.js
+161 silly gunzTarPerm extractEntry test/commands/install.js
+162 silly gunzTarPerm extractEntry test/commands/link.js
+163 silly gunzTarPerm extractEntry test/commands/index.js
+164 silly gunzTarPerm extractEntry test/commands/login.js
+165 silly gunzTarPerm extractEntry test/commands/lookup.js
+166 silly gunzTarPerm extractEntry test/commands/prune.js
+167 silly gunzTarPerm extractEntry test/commands/register.js
+168 silly gunzTarPerm extractEntry test/commands/search.js
+169 silly gunzTarPerm extractEntry test/commands/home.js
+170 silly gunzTarPerm extractEntry test/commands/uninstall.js
+171 silly gunzTarPerm extractEntry test/commands/help.js
+172 silly gunzTarPerm extractEntry test/commands/unregister.js
+173 silly gunzTarPerm extractEntry test/commands/update.js
+174 silly gunzTarPerm extractEntry test/commands/version.js
+175 silly gunzTarPerm extractEntry test/commands/list.js
+176 silly gunzTarPerm extractEntry test/commands/cache/clean.js
+177 silly gunzTarPerm extractEntry test/commands/cache/list.js
+178 silly gunzTarPerm extractEntry test/assets/package-tar.tar.gz
+179 silly gunzTarPerm extractEntry test/assets/package-zip-folder-single-file.zip
+180 silly gunzTarPerm extractEntry test/assets/package-zip-folder.zip
+181 silly gunzTarPerm extractEntry test/assets/package-zip-single-bower-json.zip
+182 silly gunzTarPerm extractEntry test/assets/package-zip-single-component-json.zip
+183 silly gunzTarPerm extractEntry test/assets/package-zip-single-file.zip
+184 silly gunzTarPerm extractEntry test/assets/package-zip.zip
+185 silly gunzTarPerm extractEntry test/assets/resolve-cache/list-json-1.json
+186 silly gunzTarPerm extractEntry test/assets/test-temp-dir/test-exception.js
+187 silly gunzTarPerm extractEntry test/assets/test-temp-dir/test.js
+188 silly gunzTarPerm extractEntry test/packages.json
+189 silly gunzTarPerm extractEntry test/renderers/JsonRenderer.js
+190 silly gunzTarPerm extractEntry test/renderers/StandardRenderer.js
+191 silly gunzTarPerm extractEntry test/core/Manager.js
+192 silly gunzTarPerm extractEntry test/core/packageRepository.js
+193 silly gunzTarPerm extractEntry test/core/resolveCache.js
+194 silly gunzTarPerm extractEntry test/core/resolverFactory.js
+195 silly gunzTarPerm extractEntry test/core/scripts.js
+196 silly gunzTarPerm extractEntry test/core/resolvers/fsResolver.js
+197 silly gunzTarPerm extractEntry test/core/resolvers/gitFsResolver.js
+198 silly gunzTarPerm extractEntry test/core/resolvers/gitHubResolver.js
+199 silly gunzTarPerm extractEntry test/core/resolvers/gitRemoteResolver.js
+200 silly gunzTarPerm extractEntry test/core/resolvers/gitResolver.js
+201 silly gunzTarPerm extractEntry test/core/resolvers/resolver.js
+202 silly gunzTarPerm extractEntry test/core/resolvers/svnResolver.js
+203 silly gunzTarPerm extractEntry test/core/resolvers/urlResolver.js
+204 silly gunzTarPerm extractEntry test/util/analytics.js
+205 silly gunzTarPerm extractEntry test/util/index.js
+206 silly gunzTarPerm extractEntry test/util/removeIgnores.js
+207 silly lockFile 1396471b-usr-local-lib-node-modules-bower tar:///usr/local/lib/node_modules/bower
+208 silly lockFile 1396471b-usr-local-lib-node-modules-bower tar:///usr/local/lib/node_modules/bower
+209 silly lockFile d76dbb52-nada-npm-bower-1-4-1-package-tgz tar:///home/nada/.npm/bower/1.4.1/package.tgz
+210 silly lockFile d76dbb52-nada-npm-bower-1-4-1-package-tgz tar:///home/nada/.npm/bower/1.4.1/package.tgz
+211 info preinstall bower@1.4.1
+212 verbose readDependencies using package.json deps
+213 verbose readDependencies using package.json deps
+214 verbose cache add [ 'bower-config@^0.6.1', null ]
+215 verbose cache add name=undefined spec="bower-config@^0.6.1" args=["bower-config@^0.6.1",null]
+216 verbose parsed url { protocol: null,
+216 verbose parsed url   slashes: null,
+216 verbose parsed url   auth: null,
+216 verbose parsed url   host: null,
+216 verbose parsed url   port: null,
+216 verbose parsed url   hostname: null,
+216 verbose parsed url   hash: null,
+216 verbose parsed url   search: null,
+216 verbose parsed url   query: null,
+216 verbose parsed url   pathname: 'bower-config@^0.6.1',
+216 verbose parsed url   path: 'bower-config@^0.6.1',
+216 verbose parsed url   href: 'bower-config@^0.6.1' }
+217 verbose cache add name="bower-config" spec="^0.6.1" args=["bower-config","^0.6.1"]
+218 verbose parsed url { protocol: null,
+218 verbose parsed url   slashes: null,
+218 verbose parsed url   auth: null,
+218 verbose parsed url   host: null,
+218 verbose parsed url   port: null,
+218 verbose parsed url   hostname: null,
+218 verbose parsed url   hash: null,
+218 verbose parsed url   search: null,
+218 verbose parsed url   query: null,
+218 verbose parsed url   pathname: '^0.6.1',
+218 verbose parsed url   path: '^0.6.1',
+218 verbose parsed url   href: '^0.6.1' }
+219 verbose addNamed [ 'bower-config', '^0.6.1' ]
+220 verbose addNamed [ null, '>=0.6.1-0 <0.7.0-0' ]
+221 silly lockFile b1e84b7d-bower-config-0-6-1 bower-config@^0.6.1
+222 verbose lock bower-config@^0.6.1 /home/nada/.npm/b1e84b7d-bower-config-0-6-1.lock
+223 verbose cache add [ 'abbrev@^1.0.5', null ]
+224 verbose cache add name=undefined spec="abbrev@^1.0.5" args=["abbrev@^1.0.5",null]
+225 verbose parsed url { protocol: null,
+225 verbose parsed url   slashes: null,
+225 verbose parsed url   auth: null,
+225 verbose parsed url   host: null,
+225 verbose parsed url   port: null,
+225 verbose parsed url   hostname: null,
+225 verbose parsed url   hash: null,
+225 verbose parsed url   search: null,
+225 verbose parsed url   query: null,
+225 verbose parsed url   pathname: 'abbrev@^1.0.5',
+225 verbose parsed url   path: 'abbrev@^1.0.5',
+225 verbose parsed url   href: 'abbrev@^1.0.5' }
+226 verbose cache add name="abbrev" spec="^1.0.5" args=["abbrev","^1.0.5"]
+227 verbose parsed url { protocol: null,
+227 verbose parsed url   slashes: null,
+227 verbose parsed url   auth: null,
+227 verbose parsed url   host: null,
+227 verbose parsed url   port: null,
+227 verbose parsed url   hostname: null,
+227 verbose parsed url   hash: null,
+227 verbose parsed url   search: null,
+227 verbose parsed url   query: null,
+227 verbose parsed url   pathname: '^1.0.5',
+227 verbose parsed url   path: '^1.0.5',
+227 verbose parsed url   href: '^1.0.5' }
+228 verbose addNamed [ 'abbrev', '^1.0.5' ]
+229 verbose addNamed [ null, '>=1.0.5-0 <2.0.0-0' ]
+230 silly lockFile ec559f65-abbrev-1-0-5 abbrev@^1.0.5
+231 verbose lock abbrev@^1.0.5 /home/nada/.npm/ec559f65-abbrev-1-0-5.lock
+232 verbose cache add [ 'archy@1.0.0', null ]
+233 verbose cache add name=undefined spec="archy@1.0.0" args=["archy@1.0.0",null]
+234 verbose parsed url { protocol: null,
+234 verbose parsed url   slashes: null,
+234 verbose parsed url   auth: null,
+234 verbose parsed url   host: null,
+234 verbose parsed url   port: null,
+234 verbose parsed url   hostname: null,
+234 verbose parsed url   hash: null,
+234 verbose parsed url   search: null,
+234 verbose parsed url   query: null,
+234 verbose parsed url   pathname: 'archy@1.0.0',
+234 verbose parsed url   path: 'archy@1.0.0',
+234 verbose parsed url   href: 'archy@1.0.0' }
+235 verbose cache add name="archy" spec="1.0.0" args=["archy","1.0.0"]
+236 verbose parsed url { protocol: null,
+236 verbose parsed url   slashes: null,
+236 verbose parsed url   auth: null,
+236 verbose parsed url   host: null,
+236 verbose parsed url   port: null,
+236 verbose parsed url   hostname: null,
+236 verbose parsed url   hash: null,
+236 verbose parsed url   search: null,
+236 verbose parsed url   query: null,
+236 verbose parsed url   pathname: '1.0.0',
+236 verbose parsed url   path: '1.0.0',
+236 verbose parsed url   href: '1.0.0' }
+237 verbose addNamed [ 'archy', '1.0.0' ]
+238 verbose addNamed [ '1.0.0', '1.0.0' ]
+239 silly lockFile 21c4cc2a-archy-1-0-0 archy@1.0.0
+240 verbose lock archy@1.0.0 /home/nada/.npm/21c4cc2a-archy-1-0-0.lock
+241 verbose cache add [ 'bower-endpoint-parser@^0.2.2', null ]
+242 verbose cache add name=undefined spec="bower-endpoint-parser@^0.2.2" args=["bower-endpoint-parser@^0.2.2",null]
+243 verbose parsed url { protocol: null,
+243 verbose parsed url   slashes: null,
+243 verbose parsed url   auth: null,
+243 verbose parsed url   host: null,
+243 verbose parsed url   port: null,
+243 verbose parsed url   hostname: null,
+243 verbose parsed url   hash: null,
+243 verbose parsed url   search: null,
+243 verbose parsed url   query: null,
+243 verbose parsed url   pathname: 'bower-endpoint-parser@^0.2.2',
+243 verbose parsed url   path: 'bower-endpoint-parser@^0.2.2',
+243 verbose parsed url   href: 'bower-endpoint-parser@^0.2.2' }
+244 verbose cache add name="bower-endpoint-parser" spec="^0.2.2" args=["bower-endpoint-parser","^0.2.2"]
+245 verbose parsed url { protocol: null,
+245 verbose parsed url   slashes: null,
+245 verbose parsed url   auth: null,
+245 verbose parsed url   host: null,
+245 verbose parsed url   port: null,
+245 verbose parsed url   hostname: null,
+245 verbose parsed url   hash: null,
+245 verbose parsed url   search: null,
+245 verbose parsed url   query: null,
+245 verbose parsed url   pathname: '^0.2.2',
+245 verbose parsed url   path: '^0.2.2',
+245 verbose parsed url   href: '^0.2.2' }
+246 verbose addNamed [ 'bower-endpoint-parser', '^0.2.2' ]
+247 verbose addNamed [ null, '>=0.2.2-0 <0.3.0-0' ]
+248 silly lockFile 5f551f4b-bower-endpoint-parser-0-2-2 bower-endpoint-parser@^0.2.2
+249 verbose lock bower-endpoint-parser@^0.2.2 /home/nada/.npm/5f551f4b-bower-endpoint-parser-0-2-2.lock
+250 verbose cache add [ 'bower-json@^0.4.0', null ]
+251 verbose cache add name=undefined spec="bower-json@^0.4.0" args=["bower-json@^0.4.0",null]
+252 verbose parsed url { protocol: null,
+252 verbose parsed url   slashes: null,
+252 verbose parsed url   auth: null,
+252 verbose parsed url   host: null,
+252 verbose parsed url   port: null,
+252 verbose parsed url   hostname: null,
+252 verbose parsed url   hash: null,
+252 verbose parsed url   search: null,
+252 verbose parsed url   query: null,
+252 verbose parsed url   pathname: 'bower-json@^0.4.0',
+252 verbose parsed url   path: 'bower-json@^0.4.0',
+252 verbose parsed url   href: 'bower-json@^0.4.0' }
+253 verbose cache add name="bower-json" spec="^0.4.0" args=["bower-json","^0.4.0"]
+254 verbose parsed url { protocol: null,
+254 verbose parsed url   slashes: null,
+254 verbose parsed url   auth: null,
+254 verbose parsed url   host: null,
+254 verbose parsed url   port: null,
+254 verbose parsed url   hostname: null,
+254 verbose parsed url   hash: null,
+254 verbose parsed url   search: null,
+254 verbose parsed url   query: null,
+254 verbose parsed url   pathname: '^0.4.0',
+254 verbose parsed url   path: '^0.4.0',
+254 verbose parsed url   href: '^0.4.0' }
+255 verbose addNamed [ 'bower-json', '^0.4.0' ]
+256 verbose addNamed [ null, '>=0.4.0-0 <0.5.0-0' ]
+257 silly lockFile c093c21d-bower-json-0-4-0 bower-json@^0.4.0
+258 verbose lock bower-json@^0.4.0 /home/nada/.npm/c093c21d-bower-json-0-4-0.lock
+259 silly addNameRange { name: 'bower-config',
+259 silly addNameRange   range: '>=0.6.1-0 <0.7.0-0',
+259 silly addNameRange   hasData: false }
+260 silly addNameRange { name: 'abbrev', range: '>=1.0.5-0 <2.0.0-0', hasData: false }
+261 verbose cache add [ 'bower-logger@^0.2.2', null ]
+262 verbose cache add name=undefined spec="bower-logger@^0.2.2" args=["bower-logger@^0.2.2",null]
+263 verbose parsed url { protocol: null,
+263 verbose parsed url   slashes: null,
+263 verbose parsed url   auth: null,
+263 verbose parsed url   host: null,
+263 verbose parsed url   port: null,
+263 verbose parsed url   hostname: null,
+263 verbose parsed url   hash: null,
+263 verbose parsed url   search: null,
+263 verbose parsed url   query: null,
+263 verbose parsed url   pathname: 'bower-logger@^0.2.2',
+263 verbose parsed url   path: 'bower-logger@^0.2.2',
+263 verbose parsed url   href: 'bower-logger@^0.2.2' }
+264 verbose cache add name="bower-logger" spec="^0.2.2" args=["bower-logger","^0.2.2"]
+265 verbose parsed url { protocol: null,
+265 verbose parsed url   slashes: null,
+265 verbose parsed url   auth: null,
+265 verbose parsed url   host: null,
+265 verbose parsed url   port: null,
+265 verbose parsed url   hostname: null,
+265 verbose parsed url   hash: null,
+265 verbose parsed url   search: null,
+265 verbose parsed url   query: null,
+265 verbose parsed url   pathname: '^0.2.2',
+265 verbose parsed url   path: '^0.2.2',
+265 verbose parsed url   href: '^0.2.2' }
+266 verbose addNamed [ 'bower-logger', '^0.2.2' ]
+267 verbose addNamed [ null, '>=0.2.2-0 <0.3.0-0' ]
+268 silly lockFile 1b248943-bower-logger-0-2-2 bower-logger@^0.2.2
+269 verbose lock bower-logger@^0.2.2 /home/nada/.npm/1b248943-bower-logger-0-2-2.lock
+270 silly addNameRange { name: 'bower-endpoint-parser',
+270 silly addNameRange   range: '>=0.2.2-0 <0.3.0-0',
+270 silly addNameRange   hasData: false }
+271 verbose cache add [ 'bower-registry-client@^0.3.0', null ]
+272 verbose cache add name=undefined spec="bower-registry-client@^0.3.0" args=["bower-registry-client@^0.3.0",null]
+273 verbose parsed url { protocol: null,
+273 verbose parsed url   slashes: null,
+273 verbose parsed url   auth: null,
+273 verbose parsed url   host: null,
+273 verbose parsed url   port: null,
+273 verbose parsed url   hostname: null,
+273 verbose parsed url   hash: null,
+273 verbose parsed url   search: null,
+273 verbose parsed url   query: null,
+273 verbose parsed url   pathname: 'bower-registry-client@^0.3.0',
+273 verbose parsed url   path: 'bower-registry-client@^0.3.0',
+273 verbose parsed url   href: 'bower-registry-client@^0.3.0' }
+274 verbose cache add name="bower-registry-client" spec="^0.3.0" args=["bower-registry-client","^0.3.0"]
+275 verbose parsed url { protocol: null,
+275 verbose parsed url   slashes: null,
+275 verbose parsed url   auth: null,
+275 verbose parsed url   host: null,
+275 verbose parsed url   port: null,
+275 verbose parsed url   hostname: null,
+275 verbose parsed url   hash: null,
+275 verbose parsed url   search: null,
+275 verbose parsed url   query: null,
+275 verbose parsed url   pathname: '^0.3.0',
+275 verbose parsed url   path: '^0.3.0',
+275 verbose parsed url   href: '^0.3.0' }
+276 verbose addNamed [ 'bower-registry-client', '^0.3.0' ]
+277 verbose addNamed [ null, '>=0.3.0-0 <0.4.0-0' ]
+278 silly lockFile 2ef9f29d-bower-registry-client-0-3-0 bower-registry-client@^0.3.0
+279 verbose lock bower-registry-client@^0.3.0 /home/nada/.npm/2ef9f29d-bower-registry-client-0-3-0.lock
+280 silly addNameRange { name: 'bower-json',
+280 silly addNameRange   range: '>=0.4.0-0 <0.5.0-0',
+280 silly addNameRange   hasData: false }
+281 verbose cache add [ 'cardinal@0.4.4', null ]
+282 verbose cache add name=undefined spec="cardinal@0.4.4" args=["cardinal@0.4.4",null]
+283 verbose parsed url { protocol: null,
+283 verbose parsed url   slashes: null,
+283 verbose parsed url   auth: null,
+283 verbose parsed url   host: null,
+283 verbose parsed url   port: null,
+283 verbose parsed url   hostname: null,
+283 verbose parsed url   hash: null,
+283 verbose parsed url   search: null,
+283 verbose parsed url   query: null,
+283 verbose parsed url   pathname: 'cardinal@0.4.4',
+283 verbose parsed url   path: 'cardinal@0.4.4',
+283 verbose parsed url   href: 'cardinal@0.4.4' }
+284 verbose cache add name="cardinal" spec="0.4.4" args=["cardinal","0.4.4"]
+285 verbose parsed url { protocol: null,
+285 verbose parsed url   slashes: null,
+285 verbose parsed url   auth: null,
+285 verbose parsed url   host: null,
+285 verbose parsed url   port: null,
+285 verbose parsed url   hostname: null,
+285 verbose parsed url   hash: null,
+285 verbose parsed url   search: null,
+285 verbose parsed url   query: null,
+285 verbose parsed url   pathname: '0.4.4',
+285 verbose parsed url   path: '0.4.4',
+285 verbose parsed url   href: '0.4.4' }
+286 verbose addNamed [ 'cardinal', '0.4.4' ]
+287 verbose addNamed [ '0.4.4', '0.4.4' ]
+288 silly lockFile 6295c634-cardinal-0-4-4 cardinal@0.4.4
+289 verbose lock cardinal@0.4.4 /home/nada/.npm/6295c634-cardinal-0-4-4.lock
+290 verbose cache add [ 'chalk@^1.0.0', null ]
+291 verbose cache add name=undefined spec="chalk@^1.0.0" args=["chalk@^1.0.0",null]
+292 verbose parsed url { protocol: null,
+292 verbose parsed url   slashes: null,
+292 verbose parsed url   auth: null,
+292 verbose parsed url   host: null,
+292 verbose parsed url   port: null,
+292 verbose parsed url   hostname: null,
+292 verbose parsed url   hash: null,
+292 verbose parsed url   search: null,
+292 verbose parsed url   query: null,
+292 verbose parsed url   pathname: 'chalk@^1.0.0',
+292 verbose parsed url   path: 'chalk@^1.0.0',
+292 verbose parsed url   href: 'chalk@^1.0.0' }
+293 verbose cache add name="chalk" spec="^1.0.0" args=["chalk","^1.0.0"]
+294 verbose parsed url { protocol: null,
+294 verbose parsed url   slashes: null,
+294 verbose parsed url   auth: null,
+294 verbose parsed url   host: null,
+294 verbose parsed url   port: null,
+294 verbose parsed url   hostname: null,
+294 verbose parsed url   hash: null,
+294 verbose parsed url   search: null,
+294 verbose parsed url   query: null,
+294 verbose parsed url   pathname: '^1.0.0',
+294 verbose parsed url   path: '^1.0.0',
+294 verbose parsed url   href: '^1.0.0' }
+295 verbose addNamed [ 'chalk', '^1.0.0' ]
+296 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+297 silly lockFile 2b6848f7-chalk-1-0-0 chalk@^1.0.0
+298 verbose lock chalk@^1.0.0 /home/nada/.npm/2b6848f7-chalk-1-0-0.lock
+299 verbose cache add [ 'chmodr@0.1.0', null ]
+300 verbose cache add name=undefined spec="chmodr@0.1.0" args=["chmodr@0.1.0",null]
+301 verbose parsed url { protocol: null,
+301 verbose parsed url   slashes: null,
+301 verbose parsed url   auth: null,
+301 verbose parsed url   host: null,
+301 verbose parsed url   port: null,
+301 verbose parsed url   hostname: null,
+301 verbose parsed url   hash: null,
+301 verbose parsed url   search: null,
+301 verbose parsed url   query: null,
+301 verbose parsed url   pathname: 'chmodr@0.1.0',
+301 verbose parsed url   path: 'chmodr@0.1.0',
+301 verbose parsed url   href: 'chmodr@0.1.0' }
+302 verbose cache add name="chmodr" spec="0.1.0" args=["chmodr","0.1.0"]
+303 verbose parsed url { protocol: null,
+303 verbose parsed url   slashes: null,
+303 verbose parsed url   auth: null,
+303 verbose parsed url   host: null,
+303 verbose parsed url   port: null,
+303 verbose parsed url   hostname: null,
+303 verbose parsed url   hash: null,
+303 verbose parsed url   search: null,
+303 verbose parsed url   query: null,
+303 verbose parsed url   pathname: '0.1.0',
+303 verbose parsed url   path: '0.1.0',
+303 verbose parsed url   href: '0.1.0' }
+304 verbose addNamed [ 'chmodr', '0.1.0' ]
+305 verbose addNamed [ '0.1.0', '0.1.0' ]
+306 silly lockFile 3c50e6b3-chmodr-0-1-0 chmodr@0.1.0
+307 verbose lock chmodr@0.1.0 /home/nada/.npm/3c50e6b3-chmodr-0-1-0.lock
+308 verbose cache add [ 'configstore@^0.3.2', null ]
+309 verbose cache add name=undefined spec="configstore@^0.3.2" args=["configstore@^0.3.2",null]
+310 verbose parsed url { protocol: null,
+310 verbose parsed url   slashes: null,
+310 verbose parsed url   auth: null,
+310 verbose parsed url   host: null,
+310 verbose parsed url   port: null,
+310 verbose parsed url   hostname: null,
+310 verbose parsed url   hash: null,
+310 verbose parsed url   search: null,
+310 verbose parsed url   query: null,
+310 verbose parsed url   pathname: 'configstore@^0.3.2',
+310 verbose parsed url   path: 'configstore@^0.3.2',
+310 verbose parsed url   href: 'configstore@^0.3.2' }
+311 verbose cache add name="configstore" spec="^0.3.2" args=["configstore","^0.3.2"]
+312 verbose parsed url { protocol: null,
+312 verbose parsed url   slashes: null,
+312 verbose parsed url   auth: null,
+312 verbose parsed url   host: null,
+312 verbose parsed url   port: null,
+312 verbose parsed url   hostname: null,
+312 verbose parsed url   hash: null,
+312 verbose parsed url   search: null,
+312 verbose parsed url   query: null,
+312 verbose parsed url   pathname: '^0.3.2',
+312 verbose parsed url   path: '^0.3.2',
+312 verbose parsed url   href: '^0.3.2' }
+313 verbose addNamed [ 'configstore', '^0.3.2' ]
+314 verbose addNamed [ null, '>=0.3.2-0 <0.4.0-0' ]
+315 silly lockFile fa6a014c-configstore-0-3-2 configstore@^0.3.2
+316 verbose lock configstore@^0.3.2 /home/nada/.npm/fa6a014c-configstore-0-3-2.lock
+317 verbose cache add [ 'decompress-zip@^0.1.0', null ]
+318 verbose cache add name=undefined spec="decompress-zip@^0.1.0" args=["decompress-zip@^0.1.0",null]
+319 verbose parsed url { protocol: null,
+319 verbose parsed url   slashes: null,
+319 verbose parsed url   auth: null,
+319 verbose parsed url   host: null,
+319 verbose parsed url   port: null,
+319 verbose parsed url   hostname: null,
+319 verbose parsed url   hash: null,
+319 verbose parsed url   search: null,
+319 verbose parsed url   query: null,
+319 verbose parsed url   pathname: 'decompress-zip@^0.1.0',
+319 verbose parsed url   path: 'decompress-zip@^0.1.0',
+319 verbose parsed url   href: 'decompress-zip@^0.1.0' }
+320 verbose cache add name="decompress-zip" spec="^0.1.0" args=["decompress-zip","^0.1.0"]
+321 verbose parsed url { protocol: null,
+321 verbose parsed url   slashes: null,
+321 verbose parsed url   auth: null,
+321 verbose parsed url   host: null,
+321 verbose parsed url   port: null,
+321 verbose parsed url   hostname: null,
+321 verbose parsed url   hash: null,
+321 verbose parsed url   search: null,
+321 verbose parsed url   query: null,
+321 verbose parsed url   pathname: '^0.1.0',
+321 verbose parsed url   path: '^0.1.0',
+321 verbose parsed url   href: '^0.1.0' }
+322 verbose addNamed [ 'decompress-zip', '^0.1.0' ]
+323 verbose addNamed [ null, '>=0.1.0-0 <0.2.0-0' ]
+324 silly lockFile eb420c69-decompress-zip-0-1-0 decompress-zip@^0.1.0
+325 verbose lock decompress-zip@^0.1.0 /home/nada/.npm/eb420c69-decompress-zip-0-1-0.lock
+326 silly addNameRange { name: 'bower-logger',
+326 silly addNameRange   range: '>=0.2.2-0 <0.3.0-0',
+326 silly addNameRange   hasData: false }
+327 verbose cache add [ 'fstream@^1.0.3', null ]
+328 verbose cache add name=undefined spec="fstream@^1.0.3" args=["fstream@^1.0.3",null]
+329 verbose parsed url { protocol: null,
+329 verbose parsed url   slashes: null,
+329 verbose parsed url   auth: null,
+329 verbose parsed url   host: null,
+329 verbose parsed url   port: null,
+329 verbose parsed url   hostname: null,
+329 verbose parsed url   hash: null,
+329 verbose parsed url   search: null,
+329 verbose parsed url   query: null,
+329 verbose parsed url   pathname: 'fstream@^1.0.3',
+329 verbose parsed url   path: 'fstream@^1.0.3',
+329 verbose parsed url   href: 'fstream@^1.0.3' }
+330 verbose cache add name="fstream" spec="^1.0.3" args=["fstream","^1.0.3"]
+331 verbose parsed url { protocol: null,
+331 verbose parsed url   slashes: null,
+331 verbose parsed url   auth: null,
+331 verbose parsed url   host: null,
+331 verbose parsed url   port: null,
+331 verbose parsed url   hostname: null,
+331 verbose parsed url   hash: null,
+331 verbose parsed url   search: null,
+331 verbose parsed url   query: null,
+331 verbose parsed url   pathname: '^1.0.3',
+331 verbose parsed url   path: '^1.0.3',
+331 verbose parsed url   href: '^1.0.3' }
+332 verbose addNamed [ 'fstream', '^1.0.3' ]
+333 verbose addNamed [ null, '>=1.0.3-0 <2.0.0-0' ]
+334 silly lockFile 73ef0ca1-fstream-1-0-3 fstream@^1.0.3
+335 verbose lock fstream@^1.0.3 /home/nada/.npm/73ef0ca1-fstream-1-0-3.lock
+336 verbose cache add [ 'fstream-ignore@^1.0.2', null ]
+337 verbose cache add name=undefined spec="fstream-ignore@^1.0.2" args=["fstream-ignore@^1.0.2",null]
+338 verbose parsed url { protocol: null,
+338 verbose parsed url   slashes: null,
+338 verbose parsed url   auth: null,
+338 verbose parsed url   host: null,
+338 verbose parsed url   port: null,
+338 verbose parsed url   hostname: null,
+338 verbose parsed url   hash: null,
+338 verbose parsed url   search: null,
+338 verbose parsed url   query: null,
+338 verbose parsed url   pathname: 'fstream-ignore@^1.0.2',
+338 verbose parsed url   path: 'fstream-ignore@^1.0.2',
+338 verbose parsed url   href: 'fstream-ignore@^1.0.2' }
+339 verbose cache add name="fstream-ignore" spec="^1.0.2" args=["fstream-ignore","^1.0.2"]
+340 verbose parsed url { protocol: null,
+340 verbose parsed url   slashes: null,
+340 verbose parsed url   auth: null,
+340 verbose parsed url   host: null,
+340 verbose parsed url   port: null,
+340 verbose parsed url   hostname: null,
+340 verbose parsed url   hash: null,
+340 verbose parsed url   search: null,
+340 verbose parsed url   query: null,
+340 verbose parsed url   pathname: '^1.0.2',
+340 verbose parsed url   path: '^1.0.2',
+340 verbose parsed url   href: '^1.0.2' }
+341 verbose addNamed [ 'fstream-ignore', '^1.0.2' ]
+342 verbose addNamed [ null, '>=1.0.2-0 <2.0.0-0' ]
+343 silly lockFile 19e979a0-fstream-ignore-1-0-2 fstream-ignore@^1.0.2
+344 verbose lock fstream-ignore@^1.0.2 /home/nada/.npm/19e979a0-fstream-ignore-1-0-2.lock
+345 verbose cache add [ 'github@^0.2.3', null ]
+346 verbose cache add name=undefined spec="github@^0.2.3" args=["github@^0.2.3",null]
+347 verbose parsed url { protocol: null,
+347 verbose parsed url   slashes: null,
+347 verbose parsed url   auth: null,
+347 verbose parsed url   host: null,
+347 verbose parsed url   port: null,
+347 verbose parsed url   hostname: null,
+347 verbose parsed url   hash: null,
+347 verbose parsed url   search: null,
+347 verbose parsed url   query: null,
+347 verbose parsed url   pathname: 'github@^0.2.3',
+347 verbose parsed url   path: 'github@^0.2.3',
+347 verbose parsed url   href: 'github@^0.2.3' }
+348 verbose cache add name="github" spec="^0.2.3" args=["github","^0.2.3"]
+349 verbose parsed url { protocol: null,
+349 verbose parsed url   slashes: null,
+349 verbose parsed url   auth: null,
+349 verbose parsed url   host: null,
+349 verbose parsed url   port: null,
+349 verbose parsed url   hostname: null,
+349 verbose parsed url   hash: null,
+349 verbose parsed url   search: null,
+349 verbose parsed url   query: null,
+349 verbose parsed url   pathname: '^0.2.3',
+349 verbose parsed url   path: '^0.2.3',
+349 verbose parsed url   href: '^0.2.3' }
+350 verbose addNamed [ 'github', '^0.2.3' ]
+351 verbose addNamed [ null, '>=0.2.3-0 <0.3.0-0' ]
+352 silly lockFile 24b6ccae-github-0-2-3 github@^0.2.3
+353 verbose lock github@^0.2.3 /home/nada/.npm/24b6ccae-github-0-2-3.lock
+354 verbose cache add [ 'glob@^4.3.2', null ]
+355 verbose cache add name=undefined spec="glob@^4.3.2" args=["glob@^4.3.2",null]
+356 verbose parsed url { protocol: null,
+356 verbose parsed url   slashes: null,
+356 verbose parsed url   auth: null,
+356 verbose parsed url   host: null,
+356 verbose parsed url   port: null,
+356 verbose parsed url   hostname: null,
+356 verbose parsed url   hash: null,
+356 verbose parsed url   search: null,
+356 verbose parsed url   query: null,
+356 verbose parsed url   pathname: 'glob@^4.3.2',
+356 verbose parsed url   path: 'glob@^4.3.2',
+356 verbose parsed url   href: 'glob@^4.3.2' }
+357 verbose cache add name="glob" spec="^4.3.2" args=["glob","^4.3.2"]
+358 verbose parsed url { protocol: null,
+358 verbose parsed url   slashes: null,
+358 verbose parsed url   auth: null,
+358 verbose parsed url   host: null,
+358 verbose parsed url   port: null,
+358 verbose parsed url   hostname: null,
+358 verbose parsed url   hash: null,
+358 verbose parsed url   search: null,
+358 verbose parsed url   query: null,
+358 verbose parsed url   pathname: '^4.3.2',
+358 verbose parsed url   path: '^4.3.2',
+358 verbose parsed url   href: '^4.3.2' }
+359 verbose addNamed [ 'glob', '^4.3.2' ]
+360 verbose addNamed [ null, '>=4.3.2-0 <5.0.0-0' ]
+361 silly lockFile fecc13ff-glob-4-3-2 glob@^4.3.2
+362 verbose lock glob@^4.3.2 /home/nada/.npm/fecc13ff-glob-4-3-2.lock
+363 silly addNameRange { name: 'bower-registry-client',
+363 silly addNameRange   range: '>=0.3.0-0 <0.4.0-0',
+363 silly addNameRange   hasData: false }
+364 silly addNameRange { name: 'chalk', range: '>=1.0.0-0 <2.0.0-0', hasData: false }
+365 silly addNameRange { name: 'configstore',
+365 silly addNameRange   range: '>=0.3.2-0 <0.4.0-0',
+365 silly addNameRange   hasData: false }
+366 verbose cache add [ 'graceful-fs@^3.0.5', null ]
+367 verbose cache add name=undefined spec="graceful-fs@^3.0.5" args=["graceful-fs@^3.0.5",null]
+368 verbose parsed url { protocol: null,
+368 verbose parsed url   slashes: null,
+368 verbose parsed url   auth: null,
+368 verbose parsed url   host: null,
+368 verbose parsed url   port: null,
+368 verbose parsed url   hostname: null,
+368 verbose parsed url   hash: null,
+368 verbose parsed url   search: null,
+368 verbose parsed url   query: null,
+368 verbose parsed url   pathname: 'graceful-fs@^3.0.5',
+368 verbose parsed url   path: 'graceful-fs@^3.0.5',
+368 verbose parsed url   href: 'graceful-fs@^3.0.5' }
+369 verbose cache add name="graceful-fs" spec="^3.0.5" args=["graceful-fs","^3.0.5"]
+370 verbose parsed url { protocol: null,
+370 verbose parsed url   slashes: null,
+370 verbose parsed url   auth: null,
+370 verbose parsed url   host: null,
+370 verbose parsed url   port: null,
+370 verbose parsed url   hostname: null,
+370 verbose parsed url   hash: null,
+370 verbose parsed url   search: null,
+370 verbose parsed url   query: null,
+370 verbose parsed url   pathname: '^3.0.5',
+370 verbose parsed url   path: '^3.0.5',
+370 verbose parsed url   href: '^3.0.5' }
+371 verbose addNamed [ 'graceful-fs', '^3.0.5' ]
+372 verbose addNamed [ null, '>=3.0.5-0 <4.0.0-0' ]
+373 silly lockFile d9390ef3-graceful-fs-3-0-5 graceful-fs@^3.0.5
+374 verbose lock graceful-fs@^3.0.5 /home/nada/.npm/d9390ef3-graceful-fs-3-0-5.lock
+375 verbose cache add [ 'handlebars@^2.0.0', null ]
+376 verbose cache add name=undefined spec="handlebars@^2.0.0" args=["handlebars@^2.0.0",null]
+377 verbose parsed url { protocol: null,
+377 verbose parsed url   slashes: null,
+377 verbose parsed url   auth: null,
+377 verbose parsed url   host: null,
+377 verbose parsed url   port: null,
+377 verbose parsed url   hostname: null,
+377 verbose parsed url   hash: null,
+377 verbose parsed url   search: null,
+377 verbose parsed url   query: null,
+377 verbose parsed url   pathname: 'handlebars@^2.0.0',
+377 verbose parsed url   path: 'handlebars@^2.0.0',
+377 verbose parsed url   href: 'handlebars@^2.0.0' }
+378 verbose cache add name="handlebars" spec="^2.0.0" args=["handlebars","^2.0.0"]
+379 verbose parsed url { protocol: null,
+379 verbose parsed url   slashes: null,
+379 verbose parsed url   auth: null,
+379 verbose parsed url   host: null,
+379 verbose parsed url   port: null,
+379 verbose parsed url   hostname: null,
+379 verbose parsed url   hash: null,
+379 verbose parsed url   search: null,
+379 verbose parsed url   query: null,
+379 verbose parsed url   pathname: '^2.0.0',
+379 verbose parsed url   path: '^2.0.0',
+379 verbose parsed url   href: '^2.0.0' }
+380 verbose addNamed [ 'handlebars', '^2.0.0' ]
+381 verbose addNamed [ null, '>=2.0.0-0 <3.0.0-0' ]
+382 silly lockFile 0eb14452-handlebars-2-0-0 handlebars@^2.0.0
+383 verbose lock handlebars@^2.0.0 /home/nada/.npm/0eb14452-handlebars-2-0-0.lock
+384 verbose cache add [ 'inquirer@0.8.0', null ]
+385 verbose cache add name=undefined spec="inquirer@0.8.0" args=["inquirer@0.8.0",null]
+386 verbose parsed url { protocol: null,
+386 verbose parsed url   slashes: null,
+386 verbose parsed url   auth: null,
+386 verbose parsed url   host: null,
+386 verbose parsed url   port: null,
+386 verbose parsed url   hostname: null,
+386 verbose parsed url   hash: null,
+386 verbose parsed url   search: null,
+386 verbose parsed url   query: null,
+386 verbose parsed url   pathname: 'inquirer@0.8.0',
+386 verbose parsed url   path: 'inquirer@0.8.0',
+386 verbose parsed url   href: 'inquirer@0.8.0' }
+387 verbose cache add name="inquirer" spec="0.8.0" args=["inquirer","0.8.0"]
+388 verbose parsed url { protocol: null,
+388 verbose parsed url   slashes: null,
+388 verbose parsed url   auth: null,
+388 verbose parsed url   host: null,
+388 verbose parsed url   port: null,
+388 verbose parsed url   hostname: null,
+388 verbose parsed url   hash: null,
+388 verbose parsed url   search: null,
+388 verbose parsed url   query: null,
+388 verbose parsed url   pathname: '0.8.0',
+388 verbose parsed url   path: '0.8.0',
+388 verbose parsed url   href: '0.8.0' }
+389 verbose addNamed [ 'inquirer', '0.8.0' ]
+390 verbose addNamed [ '0.8.0', '0.8.0' ]
+391 silly lockFile 200a5243-inquirer-0-8-0 inquirer@0.8.0
+392 verbose lock inquirer@0.8.0 /home/nada/.npm/200a5243-inquirer-0-8-0.lock
+393 verbose cache add [ 'insight@^0.5.0', null ]
+394 verbose cache add name=undefined spec="insight@^0.5.0" args=["insight@^0.5.0",null]
+395 verbose parsed url { protocol: null,
+395 verbose parsed url   slashes: null,
+395 verbose parsed url   auth: null,
+395 verbose parsed url   host: null,
+395 verbose parsed url   port: null,
+395 verbose parsed url   hostname: null,
+395 verbose parsed url   hash: null,
+395 verbose parsed url   search: null,
+395 verbose parsed url   query: null,
+395 verbose parsed url   pathname: 'insight@^0.5.0',
+395 verbose parsed url   path: 'insight@^0.5.0',
+395 verbose parsed url   href: 'insight@^0.5.0' }
+396 verbose cache add name="insight" spec="^0.5.0" args=["insight","^0.5.0"]
+397 verbose parsed url { protocol: null,
+397 verbose parsed url   slashes: null,
+397 verbose parsed url   auth: null,
+397 verbose parsed url   host: null,
+397 verbose parsed url   port: null,
+397 verbose parsed url   hostname: null,
+397 verbose parsed url   hash: null,
+397 verbose parsed url   search: null,
+397 verbose parsed url   query: null,
+397 verbose parsed url   pathname: '^0.5.0',
+397 verbose parsed url   path: '^0.5.0',
+397 verbose parsed url   href: '^0.5.0' }
+398 verbose addNamed [ 'insight', '^0.5.0' ]
+399 verbose addNamed [ null, '>=0.5.0-0 <0.6.0-0' ]
+400 silly lockFile f953e2f0-insight-0-5-0 insight@^0.5.0
+401 verbose lock insight@^0.5.0 /home/nada/.npm/f953e2f0-insight-0-5-0.lock
+402 silly addNameRange { name: 'decompress-zip',
+402 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+402 silly addNameRange   hasData: false }
+403 verbose url raw bower-config
+404 verbose url resolving [ 'https://registry.npmjs.org/', './bower-config' ]
+405 verbose url resolved https://registry.npmjs.org/bower-config
+406 info trying registry request attempt 1 at 17:12:03
+407 verbose etag "2B2D97J9PJFU5GDKGPRKHA7YD"
+408 http GET https://registry.npmjs.org/bower-config
+409 verbose url raw abbrev
+410 verbose url resolving [ 'https://registry.npmjs.org/', './abbrev' ]
+411 verbose url resolved https://registry.npmjs.org/abbrev
+412 info trying registry request attempt 1 at 17:12:03
+413 verbose etag "AIK2XDX1GJIIYUUY93UDLGJV0"
+414 http GET https://registry.npmjs.org/abbrev
+415 silly addNameRange { name: 'fstream', range: '>=1.0.3-0 <2.0.0-0', hasData: false }
+416 silly addNameRange { name: 'fstream-ignore',
+416 silly addNameRange   range: '>=1.0.2-0 <2.0.0-0',
+416 silly addNameRange   hasData: false }
+417 silly addNameRange { name: 'github', range: '>=0.2.3-0 <0.3.0-0', hasData: false }
+418 verbose cache add [ 'is-root@^1.0.0', null ]
+419 verbose cache add name=undefined spec="is-root@^1.0.0" args=["is-root@^1.0.0",null]
+420 verbose parsed url { protocol: null,
+420 verbose parsed url   slashes: null,
+420 verbose parsed url   auth: null,
+420 verbose parsed url   host: null,
+420 verbose parsed url   port: null,
+420 verbose parsed url   hostname: null,
+420 verbose parsed url   hash: null,
+420 verbose parsed url   search: null,
+420 verbose parsed url   query: null,
+420 verbose parsed url   pathname: 'is-root@^1.0.0',
+420 verbose parsed url   path: 'is-root@^1.0.0',
+420 verbose parsed url   href: 'is-root@^1.0.0' }
+421 verbose cache add name="is-root" spec="^1.0.0" args=["is-root","^1.0.0"]
+422 verbose parsed url { protocol: null,
+422 verbose parsed url   slashes: null,
+422 verbose parsed url   auth: null,
+422 verbose parsed url   host: null,
+422 verbose parsed url   port: null,
+422 verbose parsed url   hostname: null,
+422 verbose parsed url   hash: null,
+422 verbose parsed url   search: null,
+422 verbose parsed url   query: null,
+422 verbose parsed url   pathname: '^1.0.0',
+422 verbose parsed url   path: '^1.0.0',
+422 verbose parsed url   href: '^1.0.0' }
+423 verbose addNamed [ 'is-root', '^1.0.0' ]
+424 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+425 silly lockFile 42ef8871-is-root-1-0-0 is-root@^1.0.0
+426 verbose lock is-root@^1.0.0 /home/nada/.npm/42ef8871-is-root-1-0-0.lock
+427 verbose cache add [ 'junk@^1.0.0', null ]
+428 verbose cache add name=undefined spec="junk@^1.0.0" args=["junk@^1.0.0",null]
+429 verbose parsed url { protocol: null,
+429 verbose parsed url   slashes: null,
+429 verbose parsed url   auth: null,
+429 verbose parsed url   host: null,
+429 verbose parsed url   port: null,
+429 verbose parsed url   hostname: null,
+429 verbose parsed url   hash: null,
+429 verbose parsed url   search: null,
+429 verbose parsed url   query: null,
+429 verbose parsed url   pathname: 'junk@^1.0.0',
+429 verbose parsed url   path: 'junk@^1.0.0',
+429 verbose parsed url   href: 'junk@^1.0.0' }
+430 verbose cache add name="junk" spec="^1.0.0" args=["junk","^1.0.0"]
+431 verbose parsed url { protocol: null,
+431 verbose parsed url   slashes: null,
+431 verbose parsed url   auth: null,
+431 verbose parsed url   host: null,
+431 verbose parsed url   port: null,
+431 verbose parsed url   hostname: null,
+431 verbose parsed url   hash: null,
+431 verbose parsed url   search: null,
+431 verbose parsed url   query: null,
+431 verbose parsed url   pathname: '^1.0.0',
+431 verbose parsed url   path: '^1.0.0',
+431 verbose parsed url   href: '^1.0.0' }
+432 verbose addNamed [ 'junk', '^1.0.0' ]
+433 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+434 silly lockFile de101e8f-junk-1-0-0 junk@^1.0.0
+435 verbose lock junk@^1.0.0 /home/nada/.npm/de101e8f-junk-1-0-0.lock
+436 verbose cache add [ 'lockfile@^1.0.0', null ]
+437 verbose cache add name=undefined spec="lockfile@^1.0.0" args=["lockfile@^1.0.0",null]
+438 verbose parsed url { protocol: null,
+438 verbose parsed url   slashes: null,
+438 verbose parsed url   auth: null,
+438 verbose parsed url   host: null,
+438 verbose parsed url   port: null,
+438 verbose parsed url   hostname: null,
+438 verbose parsed url   hash: null,
+438 verbose parsed url   search: null,
+438 verbose parsed url   query: null,
+438 verbose parsed url   pathname: 'lockfile@^1.0.0',
+438 verbose parsed url   path: 'lockfile@^1.0.0',
+438 verbose parsed url   href: 'lockfile@^1.0.0' }
+439 verbose cache add name="lockfile" spec="^1.0.0" args=["lockfile","^1.0.0"]
+440 verbose parsed url { protocol: null,
+440 verbose parsed url   slashes: null,
+440 verbose parsed url   auth: null,
+440 verbose parsed url   host: null,
+440 verbose parsed url   port: null,
+440 verbose parsed url   hostname: null,
+440 verbose parsed url   hash: null,
+440 verbose parsed url   search: null,
+440 verbose parsed url   query: null,
+440 verbose parsed url   pathname: '^1.0.0',
+440 verbose parsed url   path: '^1.0.0',
+440 verbose parsed url   href: '^1.0.0' }
+441 verbose addNamed [ 'lockfile', '^1.0.0' ]
+442 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+443 silly lockFile 688d7dfe-lockfile-1-0-0 lockfile@^1.0.0
+444 verbose lock lockfile@^1.0.0 /home/nada/.npm/688d7dfe-lockfile-1-0-0.lock
+445 verbose cache add [ 'lru-cache@^2.5.0', null ]
+446 verbose cache add name=undefined spec="lru-cache@^2.5.0" args=["lru-cache@^2.5.0",null]
+447 verbose parsed url { protocol: null,
+447 verbose parsed url   slashes: null,
+447 verbose parsed url   auth: null,
+447 verbose parsed url   host: null,
+447 verbose parsed url   port: null,
+447 verbose parsed url   hostname: null,
+447 verbose parsed url   hash: null,
+447 verbose parsed url   search: null,
+447 verbose parsed url   query: null,
+447 verbose parsed url   pathname: 'lru-cache@^2.5.0',
+447 verbose parsed url   path: 'lru-cache@^2.5.0',
+447 verbose parsed url   href: 'lru-cache@^2.5.0' }
+448 verbose cache add name="lru-cache" spec="^2.5.0" args=["lru-cache","^2.5.0"]
+449 verbose parsed url { protocol: null,
+449 verbose parsed url   slashes: null,
+449 verbose parsed url   auth: null,
+449 verbose parsed url   host: null,
+449 verbose parsed url   port: null,
+449 verbose parsed url   hostname: null,
+449 verbose parsed url   hash: null,
+449 verbose parsed url   search: null,
+449 verbose parsed url   query: null,
+449 verbose parsed url   pathname: '^2.5.0',
+449 verbose parsed url   path: '^2.5.0',
+449 verbose parsed url   href: '^2.5.0' }
+450 verbose addNamed [ 'lru-cache', '^2.5.0' ]
+451 verbose addNamed [ null, '>=2.5.0-0 <3.0.0-0' ]
+452 silly lockFile f4c34f80-lru-cache-2-5-0 lru-cache@^2.5.0
+453 verbose lock lru-cache@^2.5.0 /home/nada/.npm/f4c34f80-lru-cache-2-5-0.lock
+454 verbose cache add [ 'mkdirp@0.5.0', null ]
+455 verbose cache add name=undefined spec="mkdirp@0.5.0" args=["mkdirp@0.5.0",null]
+456 verbose parsed url { protocol: null,
+456 verbose parsed url   slashes: null,
+456 verbose parsed url   auth: null,
+456 verbose parsed url   host: null,
+456 verbose parsed url   port: null,
+456 verbose parsed url   hostname: null,
+456 verbose parsed url   hash: null,
+456 verbose parsed url   search: null,
+456 verbose parsed url   query: null,
+456 verbose parsed url   pathname: 'mkdirp@0.5.0',
+456 verbose parsed url   path: 'mkdirp@0.5.0',
+456 verbose parsed url   href: 'mkdirp@0.5.0' }
+457 verbose cache add name="mkdirp" spec="0.5.0" args=["mkdirp","0.5.0"]
+458 verbose parsed url { protocol: null,
+458 verbose parsed url   slashes: null,
+458 verbose parsed url   auth: null,
+458 verbose parsed url   host: null,
+458 verbose parsed url   port: null,
+458 verbose parsed url   hostname: null,
+458 verbose parsed url   hash: null,
+458 verbose parsed url   search: null,
+458 verbose parsed url   query: null,
+458 verbose parsed url   pathname: '0.5.0',
+458 verbose parsed url   path: '0.5.0',
+458 verbose parsed url   href: '0.5.0' }
+459 verbose addNamed [ 'mkdirp', '0.5.0' ]
+460 verbose addNamed [ '0.5.0', '0.5.0' ]
+461 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+462 verbose lock mkdirp@0.5.0 /home/nada/.npm/bf9ae38d-mkdirp-0-5-0.lock
+463 verbose cache add [ 'mout@^0.11.0', null ]
+464 verbose cache add name=undefined spec="mout@^0.11.0" args=["mout@^0.11.0",null]
+465 verbose parsed url { protocol: null,
+465 verbose parsed url   slashes: null,
+465 verbose parsed url   auth: null,
+465 verbose parsed url   host: null,
+465 verbose parsed url   port: null,
+465 verbose parsed url   hostname: null,
+465 verbose parsed url   hash: null,
+465 verbose parsed url   search: null,
+465 verbose parsed url   query: null,
+465 verbose parsed url   pathname: 'mout@^0.11.0',
+465 verbose parsed url   path: 'mout@^0.11.0',
+465 verbose parsed url   href: 'mout@^0.11.0' }
+466 verbose cache add name="mout" spec="^0.11.0" args=["mout","^0.11.0"]
+467 verbose parsed url { protocol: null,
+467 verbose parsed url   slashes: null,
+467 verbose parsed url   auth: null,
+467 verbose parsed url   host: null,
+467 verbose parsed url   port: null,
+467 verbose parsed url   hostname: null,
+467 verbose parsed url   hash: null,
+467 verbose parsed url   search: null,
+467 verbose parsed url   query: null,
+467 verbose parsed url   pathname: '^0.11.0',
+467 verbose parsed url   path: '^0.11.0',
+467 verbose parsed url   href: '^0.11.0' }
+468 verbose addNamed [ 'mout', '^0.11.0' ]
+469 verbose addNamed [ null, '>=0.11.0-0 <0.12.0-0' ]
+470 silly lockFile e28b7f80-mout-0-11-0 mout@^0.11.0
+471 verbose lock mout@^0.11.0 /home/nada/.npm/e28b7f80-mout-0-11-0.lock
+472 silly addNameRange { name: 'glob', range: '>=4.3.2-0 <5.0.0-0', hasData: false }
+473 verbose url raw archy/1.0.0
+474 verbose url resolving [ 'https://registry.npmjs.org/', './archy/1.0.0' ]
+475 verbose url resolved https://registry.npmjs.org/archy/1.0.0
+476 info trying registry request attempt 1 at 17:12:03
+477 verbose etag "D7HMYH6YSGX3VN6DV6CTUIUSI"
+478 http GET https://registry.npmjs.org/archy/1.0.0
+479 verbose url raw bower-endpoint-parser
+480 verbose url resolving [ 'https://registry.npmjs.org/', './bower-endpoint-parser' ]
+481 verbose url resolved https://registry.npmjs.org/bower-endpoint-parser
+482 info trying registry request attempt 1 at 17:12:03
+483 verbose etag "7AQXYZCXXMDJNPLNA62DDQU91"
+484 http GET https://registry.npmjs.org/bower-endpoint-parser
+485 silly addNameRange { name: 'graceful-fs',
+485 silly addNameRange   range: '>=3.0.5-0 <4.0.0-0',
+485 silly addNameRange   hasData: false }
+486 silly addNameRange { name: 'handlebars',
+486 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+486 silly addNameRange   hasData: false }
+487 verbose cache add [ 'nopt@^3.0.1', null ]
+488 verbose cache add name=undefined spec="nopt@^3.0.1" args=["nopt@^3.0.1",null]
+489 verbose parsed url { protocol: null,
+489 verbose parsed url   slashes: null,
+489 verbose parsed url   auth: null,
+489 verbose parsed url   host: null,
+489 verbose parsed url   port: null,
+489 verbose parsed url   hostname: null,
+489 verbose parsed url   hash: null,
+489 verbose parsed url   search: null,
+489 verbose parsed url   query: null,
+489 verbose parsed url   pathname: 'nopt@^3.0.1',
+489 verbose parsed url   path: 'nopt@^3.0.1',
+489 verbose parsed url   href: 'nopt@^3.0.1' }
+490 verbose cache add name="nopt" spec="^3.0.1" args=["nopt","^3.0.1"]
+491 verbose parsed url { protocol: null,
+491 verbose parsed url   slashes: null,
+491 verbose parsed url   auth: null,
+491 verbose parsed url   host: null,
+491 verbose parsed url   port: null,
+491 verbose parsed url   hostname: null,
+491 verbose parsed url   hash: null,
+491 verbose parsed url   search: null,
+491 verbose parsed url   query: null,
+491 verbose parsed url   pathname: '^3.0.1',
+491 verbose parsed url   path: '^3.0.1',
+491 verbose parsed url   href: '^3.0.1' }
+492 verbose addNamed [ 'nopt', '^3.0.1' ]
+493 verbose addNamed [ null, '>=3.0.1-0 <4.0.0-0' ]
+494 silly lockFile a4366549-nopt-3-0-1 nopt@^3.0.1
+495 verbose lock nopt@^3.0.1 /home/nada/.npm/a4366549-nopt-3-0-1.lock
+496 verbose cache add [ 'opn@^1.0.1', null ]
+497 verbose cache add name=undefined spec="opn@^1.0.1" args=["opn@^1.0.1",null]
+498 verbose parsed url { protocol: null,
+498 verbose parsed url   slashes: null,
+498 verbose parsed url   auth: null,
+498 verbose parsed url   host: null,
+498 verbose parsed url   port: null,
+498 verbose parsed url   hostname: null,
+498 verbose parsed url   hash: null,
+498 verbose parsed url   search: null,
+498 verbose parsed url   query: null,
+498 verbose parsed url   pathname: 'opn@^1.0.1',
+498 verbose parsed url   path: 'opn@^1.0.1',
+498 verbose parsed url   href: 'opn@^1.0.1' }
+499 verbose cache add name="opn" spec="^1.0.1" args=["opn","^1.0.1"]
+500 verbose parsed url { protocol: null,
+500 verbose parsed url   slashes: null,
+500 verbose parsed url   auth: null,
+500 verbose parsed url   host: null,
+500 verbose parsed url   port: null,
+500 verbose parsed url   hostname: null,
+500 verbose parsed url   hash: null,
+500 verbose parsed url   search: null,
+500 verbose parsed url   query: null,
+500 verbose parsed url   pathname: '^1.0.1',
+500 verbose parsed url   path: '^1.0.1',
+500 verbose parsed url   href: '^1.0.1' }
+501 verbose addNamed [ 'opn', '^1.0.1' ]
+502 verbose addNamed [ null, '>=1.0.1-0 <2.0.0-0' ]
+503 silly lockFile b7106061-opn-1-0-1 opn@^1.0.1
+504 verbose lock opn@^1.0.1 /home/nada/.npm/b7106061-opn-1-0-1.lock
+505 verbose cache add [ 'p-throttler@0.1.1', null ]
+506 verbose cache add name=undefined spec="p-throttler@0.1.1" args=["p-throttler@0.1.1",null]
+507 verbose parsed url { protocol: null,
+507 verbose parsed url   slashes: null,
+507 verbose parsed url   auth: null,
+507 verbose parsed url   host: null,
+507 verbose parsed url   port: null,
+507 verbose parsed url   hostname: null,
+507 verbose parsed url   hash: null,
+507 verbose parsed url   search: null,
+507 verbose parsed url   query: null,
+507 verbose parsed url   pathname: 'p-throttler@0.1.1',
+507 verbose parsed url   path: 'p-throttler@0.1.1',
+507 verbose parsed url   href: 'p-throttler@0.1.1' }
+508 verbose cache add name="p-throttler" spec="0.1.1" args=["p-throttler","0.1.1"]
+509 verbose parsed url { protocol: null,
+509 verbose parsed url   slashes: null,
+509 verbose parsed url   auth: null,
+509 verbose parsed url   host: null,
+509 verbose parsed url   port: null,
+509 verbose parsed url   hostname: null,
+509 verbose parsed url   hash: null,
+509 verbose parsed url   search: null,
+509 verbose parsed url   query: null,
+509 verbose parsed url   pathname: '0.1.1',
+509 verbose parsed url   path: '0.1.1',
+509 verbose parsed url   href: '0.1.1' }
+510 verbose addNamed [ 'p-throttler', '0.1.1' ]
+511 verbose addNamed [ '0.1.1', '0.1.1' ]
+512 silly lockFile 833f3def-p-throttler-0-1-1 p-throttler@0.1.1
+513 verbose lock p-throttler@0.1.1 /home/nada/.npm/833f3def-p-throttler-0-1-1.lock
+514 verbose cache add [ 'promptly@0.2.0', null ]
+515 verbose cache add name=undefined spec="promptly@0.2.0" args=["promptly@0.2.0",null]
+516 verbose parsed url { protocol: null,
+516 verbose parsed url   slashes: null,
+516 verbose parsed url   auth: null,
+516 verbose parsed url   host: null,
+516 verbose parsed url   port: null,
+516 verbose parsed url   hostname: null,
+516 verbose parsed url   hash: null,
+516 verbose parsed url   search: null,
+516 verbose parsed url   query: null,
+516 verbose parsed url   pathname: 'promptly@0.2.0',
+516 verbose parsed url   path: 'promptly@0.2.0',
+516 verbose parsed url   href: 'promptly@0.2.0' }
+517 verbose cache add name="promptly" spec="0.2.0" args=["promptly","0.2.0"]
+518 verbose parsed url { protocol: null,
+518 verbose parsed url   slashes: null,
+518 verbose parsed url   auth: null,
+518 verbose parsed url   host: null,
+518 verbose parsed url   port: null,
+518 verbose parsed url   hostname: null,
+518 verbose parsed url   hash: null,
+518 verbose parsed url   search: null,
+518 verbose parsed url   query: null,
+518 verbose parsed url   pathname: '0.2.0',
+518 verbose parsed url   path: '0.2.0',
+518 verbose parsed url   href: '0.2.0' }
+519 verbose addNamed [ 'promptly', '0.2.0' ]
+520 verbose addNamed [ '0.2.0', '0.2.0' ]
+521 silly lockFile c940dc36-promptly-0-2-0 promptly@0.2.0
+522 verbose lock promptly@0.2.0 /home/nada/.npm/c940dc36-promptly-0-2-0.lock
+523 verbose cache add [ 'q@^1.1.2', null ]
+524 verbose cache add name=undefined spec="q@^1.1.2" args=["q@^1.1.2",null]
+525 verbose parsed url { protocol: null,
+525 verbose parsed url   slashes: null,
+525 verbose parsed url   auth: null,
+525 verbose parsed url   host: null,
+525 verbose parsed url   port: null,
+525 verbose parsed url   hostname: null,
+525 verbose parsed url   hash: null,
+525 verbose parsed url   search: null,
+525 verbose parsed url   query: null,
+525 verbose parsed url   pathname: 'q@^1.1.2',
+525 verbose parsed url   path: 'q@^1.1.2',
+525 verbose parsed url   href: 'q@^1.1.2' }
+526 verbose cache add name="q" spec="^1.1.2" args=["q","^1.1.2"]
+527 verbose parsed url { protocol: null,
+527 verbose parsed url   slashes: null,
+527 verbose parsed url   auth: null,
+527 verbose parsed url   host: null,
+527 verbose parsed url   port: null,
+527 verbose parsed url   hostname: null,
+527 verbose parsed url   hash: null,
+527 verbose parsed url   search: null,
+527 verbose parsed url   query: null,
+527 verbose parsed url   pathname: '^1.1.2',
+527 verbose parsed url   path: '^1.1.2',
+527 verbose parsed url   href: '^1.1.2' }
+528 verbose addNamed [ 'q', '^1.1.2' ]
+529 verbose addNamed [ null, '>=1.1.2-0 <2.0.0-0' ]
+530 silly lockFile b7624628-q-1-1-2 q@^1.1.2
+531 verbose lock q@^1.1.2 /home/nada/.npm/b7624628-q-1-1-2.lock
+532 verbose cache add [ 'request@2.53.0', null ]
+533 verbose cache add name=undefined spec="request@2.53.0" args=["request@2.53.0",null]
+534 verbose parsed url { protocol: null,
+534 verbose parsed url   slashes: null,
+534 verbose parsed url   auth: null,
+534 verbose parsed url   host: null,
+534 verbose parsed url   port: null,
+534 verbose parsed url   hostname: null,
+534 verbose parsed url   hash: null,
+534 verbose parsed url   search: null,
+534 verbose parsed url   query: null,
+534 verbose parsed url   pathname: 'request@2.53.0',
+534 verbose parsed url   path: 'request@2.53.0',
+534 verbose parsed url   href: 'request@2.53.0' }
+535 verbose cache add name="request" spec="2.53.0" args=["request","2.53.0"]
+536 verbose parsed url { protocol: null,
+536 verbose parsed url   slashes: null,
+536 verbose parsed url   auth: null,
+536 verbose parsed url   host: null,
+536 verbose parsed url   port: null,
+536 verbose parsed url   hostname: null,
+536 verbose parsed url   hash: null,
+536 verbose parsed url   search: null,
+536 verbose parsed url   query: null,
+536 verbose parsed url   pathname: '2.53.0',
+536 verbose parsed url   path: '2.53.0',
+536 verbose parsed url   href: '2.53.0' }
+537 verbose addNamed [ 'request', '2.53.0' ]
+538 verbose addNamed [ '2.53.0', '2.53.0' ]
+539 silly lockFile aee8052e-request-2-53-0 request@2.53.0
+540 verbose lock request@2.53.0 /home/nada/.npm/aee8052e-request-2-53-0.lock
+541 silly addNameRange { name: 'insight', range: '>=0.5.0-0 <0.6.0-0', hasData: false }
+542 verbose url raw bower-json
+543 verbose url resolving [ 'https://registry.npmjs.org/', './bower-json' ]
+544 verbose url resolved https://registry.npmjs.org/bower-json
+545 info trying registry request attempt 1 at 17:12:03
+546 verbose etag "7671XOTQAKOQE9XSK89WX328C"
+547 http GET https://registry.npmjs.org/bower-json
+548 silly addNameRange { name: 'is-root', range: '>=1.0.0-0 <2.0.0-0', hasData: false }
+549 silly addNameRange { name: 'junk', range: '>=1.0.0-0 <2.0.0-0', hasData: false }
+550 silly addNameRange { name: 'lockfile', range: '>=1.0.0-0 <2.0.0-0', hasData: false }
+551 silly addNameRange { name: 'lru-cache',
+551 silly addNameRange   range: '>=2.5.0-0 <3.0.0-0',
+551 silly addNameRange   hasData: false }
+552 silly addNameRange { name: 'mout', range: '>=0.11.0-0 <0.12.0-0', hasData: false }
+553 verbose cache add [ 'request-progress@0.3.1', null ]
+554 verbose cache add name=undefined spec="request-progress@0.3.1" args=["request-progress@0.3.1",null]
+555 verbose parsed url { protocol: null,
+555 verbose parsed url   slashes: null,
+555 verbose parsed url   auth: null,
+555 verbose parsed url   host: null,
+555 verbose parsed url   port: null,
+555 verbose parsed url   hostname: null,
+555 verbose parsed url   hash: null,
+555 verbose parsed url   search: null,
+555 verbose parsed url   query: null,
+555 verbose parsed url   pathname: 'request-progress@0.3.1',
+555 verbose parsed url   path: 'request-progress@0.3.1',
+555 verbose parsed url   href: 'request-progress@0.3.1' }
+556 verbose cache add name="request-progress" spec="0.3.1" args=["request-progress","0.3.1"]
+557 verbose parsed url { protocol: null,
+557 verbose parsed url   slashes: null,
+557 verbose parsed url   auth: null,
+557 verbose parsed url   host: null,
+557 verbose parsed url   port: null,
+557 verbose parsed url   hostname: null,
+557 verbose parsed url   hash: null,
+557 verbose parsed url   search: null,
+557 verbose parsed url   query: null,
+557 verbose parsed url   pathname: '0.3.1',
+557 verbose parsed url   path: '0.3.1',
+557 verbose parsed url   href: '0.3.1' }
+558 verbose addNamed [ 'request-progress', '0.3.1' ]
+559 verbose addNamed [ '0.3.1', '0.3.1' ]
+560 silly lockFile a2b190cd-request-progress-0-3-1 request-progress@0.3.1
+561 verbose lock request-progress@0.3.1 /home/nada/.npm/a2b190cd-request-progress-0-3-1.lock
+562 verbose cache add [ 'retry@0.6.1', null ]
+563 verbose cache add name=undefined spec="retry@0.6.1" args=["retry@0.6.1",null]
+564 verbose parsed url { protocol: null,
+564 verbose parsed url   slashes: null,
+564 verbose parsed url   auth: null,
+564 verbose parsed url   host: null,
+564 verbose parsed url   port: null,
+564 verbose parsed url   hostname: null,
+564 verbose parsed url   hash: null,
+564 verbose parsed url   search: null,
+564 verbose parsed url   query: null,
+564 verbose parsed url   pathname: 'retry@0.6.1',
+564 verbose parsed url   path: 'retry@0.6.1',
+564 verbose parsed url   href: 'retry@0.6.1' }
+565 verbose cache add name="retry" spec="0.6.1" args=["retry","0.6.1"]
+566 verbose parsed url { protocol: null,
+566 verbose parsed url   slashes: null,
+566 verbose parsed url   auth: null,
+566 verbose parsed url   host: null,
+566 verbose parsed url   port: null,
+566 verbose parsed url   hostname: null,
+566 verbose parsed url   hash: null,
+566 verbose parsed url   search: null,
+566 verbose parsed url   query: null,
+566 verbose parsed url   pathname: '0.6.1',
+566 verbose parsed url   path: '0.6.1',
+566 verbose parsed url   href: '0.6.1' }
+567 verbose addNamed [ 'retry', '0.6.1' ]
+568 verbose addNamed [ '0.6.1', '0.6.1' ]
+569 silly lockFile 505aaa9f-retry-0-6-1 retry@0.6.1
+570 verbose lock retry@0.6.1 /home/nada/.npm/505aaa9f-retry-0-6-1.lock
+571 verbose cache add [ 'rimraf@^2.2.8', null ]
+572 verbose cache add name=undefined spec="rimraf@^2.2.8" args=["rimraf@^2.2.8",null]
+573 verbose parsed url { protocol: null,
+573 verbose parsed url   slashes: null,
+573 verbose parsed url   auth: null,
+573 verbose parsed url   host: null,
+573 verbose parsed url   port: null,
+573 verbose parsed url   hostname: null,
+573 verbose parsed url   hash: null,
+573 verbose parsed url   search: null,
+573 verbose parsed url   query: null,
+573 verbose parsed url   pathname: 'rimraf@^2.2.8',
+573 verbose parsed url   path: 'rimraf@^2.2.8',
+573 verbose parsed url   href: 'rimraf@^2.2.8' }
+574 verbose cache add name="rimraf" spec="^2.2.8" args=["rimraf","^2.2.8"]
+575 verbose parsed url { protocol: null,
+575 verbose parsed url   slashes: null,
+575 verbose parsed url   auth: null,
+575 verbose parsed url   host: null,
+575 verbose parsed url   port: null,
+575 verbose parsed url   hostname: null,
+575 verbose parsed url   hash: null,
+575 verbose parsed url   search: null,
+575 verbose parsed url   query: null,
+575 verbose parsed url   pathname: '^2.2.8',
+575 verbose parsed url   path: '^2.2.8',
+575 verbose parsed url   href: '^2.2.8' }
+576 verbose addNamed [ 'rimraf', '^2.2.8' ]
+577 verbose addNamed [ null, '>=2.2.8-0 <3.0.0-0' ]
+578 silly lockFile e7d3f915-rimraf-2-2-8 rimraf@^2.2.8
+579 verbose lock rimraf@^2.2.8 /home/nada/.npm/e7d3f915-rimraf-2-2-8.lock
+580 verbose cache add [ 'semver@^2.3.0', null ]
+581 verbose cache add name=undefined spec="semver@^2.3.0" args=["semver@^2.3.0",null]
+582 verbose parsed url { protocol: null,
+582 verbose parsed url   slashes: null,
+582 verbose parsed url   auth: null,
+582 verbose parsed url   host: null,
+582 verbose parsed url   port: null,
+582 verbose parsed url   hostname: null,
+582 verbose parsed url   hash: null,
+582 verbose parsed url   search: null,
+582 verbose parsed url   query: null,
+582 verbose parsed url   pathname: 'semver@^2.3.0',
+582 verbose parsed url   path: 'semver@^2.3.0',
+582 verbose parsed url   href: 'semver@^2.3.0' }
+583 verbose cache add name="semver" spec="^2.3.0" args=["semver","^2.3.0"]
+584 verbose parsed url { protocol: null,
+584 verbose parsed url   slashes: null,
+584 verbose parsed url   auth: null,
+584 verbose parsed url   host: null,
+584 verbose parsed url   port: null,
+584 verbose parsed url   hostname: null,
+584 verbose parsed url   hash: null,
+584 verbose parsed url   search: null,
+584 verbose parsed url   query: null,
+584 verbose parsed url   pathname: '^2.3.0',
+584 verbose parsed url   path: '^2.3.0',
+584 verbose parsed url   href: '^2.3.0' }
+585 verbose addNamed [ 'semver', '^2.3.0' ]
+586 verbose addNamed [ null, '>=2.3.0-0 <3.0.0-0' ]
+587 silly lockFile 85d2d02f-semver-2-3-0 semver@^2.3.0
+588 verbose lock semver@^2.3.0 /home/nada/.npm/85d2d02f-semver-2-3-0.lock
+589 verbose cache add [ 'shell-quote@^1.4.2', null ]
+590 verbose cache add name=undefined spec="shell-quote@^1.4.2" args=["shell-quote@^1.4.2",null]
+591 verbose parsed url { protocol: null,
+591 verbose parsed url   slashes: null,
+591 verbose parsed url   auth: null,
+591 verbose parsed url   host: null,
+591 verbose parsed url   port: null,
+591 verbose parsed url   hostname: null,
+591 verbose parsed url   hash: null,
+591 verbose parsed url   search: null,
+591 verbose parsed url   query: null,
+591 verbose parsed url   pathname: 'shell-quote@^1.4.2',
+591 verbose parsed url   path: 'shell-quote@^1.4.2',
+591 verbose parsed url   href: 'shell-quote@^1.4.2' }
+592 verbose cache add name="shell-quote" spec="^1.4.2" args=["shell-quote","^1.4.2"]
+593 verbose parsed url { protocol: null,
+593 verbose parsed url   slashes: null,
+593 verbose parsed url   auth: null,
+593 verbose parsed url   host: null,
+593 verbose parsed url   port: null,
+593 verbose parsed url   hostname: null,
+593 verbose parsed url   hash: null,
+593 verbose parsed url   search: null,
+593 verbose parsed url   query: null,
+593 verbose parsed url   pathname: '^1.4.2',
+593 verbose parsed url   path: '^1.4.2',
+593 verbose parsed url   href: '^1.4.2' }
+594 verbose addNamed [ 'shell-quote', '^1.4.2' ]
+595 verbose addNamed [ null, '>=1.4.2-0 <2.0.0-0' ]
+596 silly lockFile a486ed4c-shell-quote-1-4-2 shell-quote@^1.4.2
+597 verbose lock shell-quote@^1.4.2 /home/nada/.npm/a486ed4c-shell-quote-1-4-2.lock
+598 verbose cache add [ 'stringify-object@^1.0.0', null ]
+599 verbose cache add name=undefined spec="stringify-object@^1.0.0" args=["stringify-object@^1.0.0",null]
+600 verbose parsed url { protocol: null,
+600 verbose parsed url   slashes: null,
+600 verbose parsed url   auth: null,
+600 verbose parsed url   host: null,
+600 verbose parsed url   port: null,
+600 verbose parsed url   hostname: null,
+600 verbose parsed url   hash: null,
+600 verbose parsed url   search: null,
+600 verbose parsed url   query: null,
+600 verbose parsed url   pathname: 'stringify-object@^1.0.0',
+600 verbose parsed url   path: 'stringify-object@^1.0.0',
+600 verbose parsed url   href: 'stringify-object@^1.0.0' }
+601 verbose cache add name="stringify-object" spec="^1.0.0" args=["stringify-object","^1.0.0"]
+602 verbose parsed url { protocol: null,
+602 verbose parsed url   slashes: null,
+602 verbose parsed url   auth: null,
+602 verbose parsed url   host: null,
+602 verbose parsed url   port: null,
+602 verbose parsed url   hostname: null,
+602 verbose parsed url   hash: null,
+602 verbose parsed url   search: null,
+602 verbose parsed url   query: null,
+602 verbose parsed url   pathname: '^1.0.0',
+602 verbose parsed url   path: '^1.0.0',
+602 verbose parsed url   href: '^1.0.0' }
+603 verbose addNamed [ 'stringify-object', '^1.0.0' ]
+604 verbose addNamed [ null, '>=1.0.0-0 <2.0.0-0' ]
+605 silly lockFile d0fcee5b-stringify-object-1-0-0 stringify-object@^1.0.0
+606 verbose lock stringify-object@^1.0.0 /home/nada/.npm/d0fcee5b-stringify-object-1-0-0.lock
+607 verbose url raw bower-logger
+608 verbose url resolving [ 'https://registry.npmjs.org/', './bower-logger' ]
+609 verbose url resolved https://registry.npmjs.org/bower-logger
+610 info trying registry request attempt 1 at 17:12:03
+611 verbose etag "6ZH05P85GTSJBDBSODJ70LH4Z"
+612 http GET https://registry.npmjs.org/bower-logger
+613 silly addNameRange { name: 'nopt', range: '>=3.0.1-0 <4.0.0-0', hasData: false }
+614 silly addNameRange { name: 'opn', range: '>=1.0.1-0 <2.0.0-0', hasData: false }
+615 silly addNameRange { name: 'q', range: '>=1.1.2-0 <2.0.0-0', hasData: false }
+616 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+617 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+618 verbose cache add [ 'tar-fs@^1.4.1', null ]
+619 verbose cache add name=undefined spec="tar-fs@^1.4.1" args=["tar-fs@^1.4.1",null]
+620 verbose parsed url { protocol: null,
+620 verbose parsed url   slashes: null,
+620 verbose parsed url   auth: null,
+620 verbose parsed url   host: null,
+620 verbose parsed url   port: null,
+620 verbose parsed url   hostname: null,
+620 verbose parsed url   hash: null,
+620 verbose parsed url   search: null,
+620 verbose parsed url   query: null,
+620 verbose parsed url   pathname: 'tar-fs@^1.4.1',
+620 verbose parsed url   path: 'tar-fs@^1.4.1',
+620 verbose parsed url   href: 'tar-fs@^1.4.1' }
+621 verbose cache add name="tar-fs" spec="^1.4.1" args=["tar-fs","^1.4.1"]
+622 verbose parsed url { protocol: null,
+622 verbose parsed url   slashes: null,
+622 verbose parsed url   auth: null,
+622 verbose parsed url   host: null,
+622 verbose parsed url   port: null,
+622 verbose parsed url   hostname: null,
+622 verbose parsed url   hash: null,
+622 verbose parsed url   search: null,
+622 verbose parsed url   query: null,
+622 verbose parsed url   pathname: '^1.4.1',
+622 verbose parsed url   path: '^1.4.1',
+622 verbose parsed url   href: '^1.4.1' }
+623 verbose addNamed [ 'tar-fs', '^1.4.1' ]
+624 verbose addNamed [ null, '>=1.4.1-0 <2.0.0-0' ]
+625 silly lockFile a6971d78-tar-fs-1-4-1 tar-fs@^1.4.1
+626 verbose lock tar-fs@^1.4.1 /home/nada/.npm/a6971d78-tar-fs-1-4-1.lock
+627 verbose cache add [ 'tmp@0.0.24', null ]
+628 verbose cache add name=undefined spec="tmp@0.0.24" args=["tmp@0.0.24",null]
+629 verbose parsed url { protocol: null,
+629 verbose parsed url   slashes: null,
+629 verbose parsed url   auth: null,
+629 verbose parsed url   host: null,
+629 verbose parsed url   port: null,
+629 verbose parsed url   hostname: null,
+629 verbose parsed url   hash: null,
+629 verbose parsed url   search: null,
+629 verbose parsed url   query: null,
+629 verbose parsed url   pathname: 'tmp@0.0.24',
+629 verbose parsed url   path: 'tmp@0.0.24',
+629 verbose parsed url   href: 'tmp@0.0.24' }
+630 verbose cache add name="tmp" spec="0.0.24" args=["tmp","0.0.24"]
+631 verbose parsed url { protocol: null,
+631 verbose parsed url   slashes: null,
+631 verbose parsed url   auth: null,
+631 verbose parsed url   host: null,
+631 verbose parsed url   port: null,
+631 verbose parsed url   hostname: null,
+631 verbose parsed url   hash: null,
+631 verbose parsed url   search: null,
+631 verbose parsed url   query: null,
+631 verbose parsed url   pathname: '0.0.24',
+631 verbose parsed url   path: '0.0.24',
+631 verbose parsed url   href: '0.0.24' }
+632 verbose addNamed [ 'tmp', '0.0.24' ]
+633 verbose addNamed [ '0.0.24', '0.0.24' ]
+634 silly lockFile 386a10cd-tmp-0-0-24 tmp@0.0.24
+635 verbose lock tmp@0.0.24 /home/nada/.npm/386a10cd-tmp-0-0-24.lock
+636 verbose cache add [ 'update-notifier@^0.3.0', null ]
+637 verbose cache add name=undefined spec="update-notifier@^0.3.0" args=["update-notifier@^0.3.0",null]
+638 verbose parsed url { protocol: null,
+638 verbose parsed url   slashes: null,
+638 verbose parsed url   auth: null,
+638 verbose parsed url   host: null,
+638 verbose parsed url   port: null,
+638 verbose parsed url   hostname: null,
+638 verbose parsed url   hash: null,
+638 verbose parsed url   search: null,
+638 verbose parsed url   query: null,
+638 verbose parsed url   pathname: 'update-notifier@^0.3.0',
+638 verbose parsed url   path: 'update-notifier@^0.3.0',
+638 verbose parsed url   href: 'update-notifier@^0.3.0' }
+639 verbose cache add name="update-notifier" spec="^0.3.0" args=["update-notifier","^0.3.0"]
+640 verbose parsed url { protocol: null,
+640 verbose parsed url   slashes: null,
+640 verbose parsed url   auth: null,
+640 verbose parsed url   host: null,
+640 verbose parsed url   port: null,
+640 verbose parsed url   hostname: null,
+640 verbose parsed url   hash: null,
+640 verbose parsed url   search: null,
+640 verbose parsed url   query: null,
+640 verbose parsed url   pathname: '^0.3.0',
+640 verbose parsed url   path: '^0.3.0',
+640 verbose parsed url   href: '^0.3.0' }
+641 verbose addNamed [ 'update-notifier', '^0.3.0' ]
+642 verbose addNamed [ null, '>=0.3.0-0 <0.4.0-0' ]
+643 silly lockFile c2368604-update-notifier-0-3-0 update-notifier@^0.3.0
+644 verbose lock update-notifier@^0.3.0 /home/nada/.npm/c2368604-update-notifier-0-3-0.lock
+645 verbose cache add [ 'user-home@^1.1.0', null ]
+646 verbose cache add name=undefined spec="user-home@^1.1.0" args=["user-home@^1.1.0",null]
+647 verbose parsed url { protocol: null,
+647 verbose parsed url   slashes: null,
+647 verbose parsed url   auth: null,
+647 verbose parsed url   host: null,
+647 verbose parsed url   port: null,
+647 verbose parsed url   hostname: null,
+647 verbose parsed url   hash: null,
+647 verbose parsed url   search: null,
+647 verbose parsed url   query: null,
+647 verbose parsed url   pathname: 'user-home@^1.1.0',
+647 verbose parsed url   path: 'user-home@^1.1.0',
+647 verbose parsed url   href: 'user-home@^1.1.0' }
+648 verbose cache add name="user-home" spec="^1.1.0" args=["user-home","^1.1.0"]
+649 verbose parsed url { protocol: null,
+649 verbose parsed url   slashes: null,
+649 verbose parsed url   auth: null,
+649 verbose parsed url   host: null,
+649 verbose parsed url   port: null,
+649 verbose parsed url   hostname: null,
+649 verbose parsed url   hash: null,
+649 verbose parsed url   search: null,
+649 verbose parsed url   query: null,
+649 verbose parsed url   pathname: '^1.1.0',
+649 verbose parsed url   path: '^1.1.0',
+649 verbose parsed url   href: '^1.1.0' }
+650 verbose addNamed [ 'user-home', '^1.1.0' ]
+651 verbose addNamed [ null, '>=1.1.0-0 <2.0.0-0' ]
+652 silly lockFile e402538d-user-home-1-1-0 user-home@^1.1.0
+653 verbose lock user-home@^1.1.0 /home/nada/.npm/e402538d-user-home-1-1-0.lock
+654 verbose cache add [ 'which@^1.0.8', null ]
+655 verbose cache add name=undefined spec="which@^1.0.8" args=["which@^1.0.8",null]
+656 verbose parsed url { protocol: null,
+656 verbose parsed url   slashes: null,
+656 verbose parsed url   auth: null,
+656 verbose parsed url   host: null,
+656 verbose parsed url   port: null,
+656 verbose parsed url   hostname: null,
+656 verbose parsed url   hash: null,
+656 verbose parsed url   search: null,
+656 verbose parsed url   query: null,
+656 verbose parsed url   pathname: 'which@^1.0.8',
+656 verbose parsed url   path: 'which@^1.0.8',
+656 verbose parsed url   href: 'which@^1.0.8' }
+657 verbose cache add name="which" spec="^1.0.8" args=["which","^1.0.8"]
+658 verbose parsed url { protocol: null,
+658 verbose parsed url   slashes: null,
+658 verbose parsed url   auth: null,
+658 verbose parsed url   host: null,
+658 verbose parsed url   port: null,
+658 verbose parsed url   hostname: null,
+658 verbose parsed url   hash: null,
+658 verbose parsed url   search: null,
+658 verbose parsed url   query: null,
+658 verbose parsed url   pathname: '^1.0.8',
+658 verbose parsed url   path: '^1.0.8',
+658 verbose parsed url   href: '^1.0.8' }
+659 verbose addNamed [ 'which', '^1.0.8' ]
+660 verbose addNamed [ null, '>=1.0.8-0 <2.0.0-0' ]
+661 silly lockFile b4c07d78-which-1-0-8 which@^1.0.8
+662 verbose lock which@^1.0.8 /home/nada/.npm/b4c07d78-which-1-0-8.lock
+663 verbose url raw bower-registry-client
+664 verbose url resolving [ 'https://registry.npmjs.org/', './bower-registry-client' ]
+665 verbose url resolved https://registry.npmjs.org/bower-registry-client
+666 info trying registry request attempt 1 at 17:12:03
+667 verbose etag "ESQLHDBEHLJGVVYV811VO0SQC"
+668 http GET https://registry.npmjs.org/bower-registry-client
+669 verbose url raw cardinal/0.4.4
+670 verbose url resolving [ 'https://registry.npmjs.org/', './cardinal/0.4.4' ]
+671 verbose url resolved https://registry.npmjs.org/cardinal/0.4.4
+672 info trying registry request attempt 1 at 17:12:03
+673 verbose etag "J4FQHS50CJFKVCBYQB06IUM7"
+674 http GET https://registry.npmjs.org/cardinal/0.4.4
+675 verbose url raw chalk
+676 verbose url resolving [ 'https://registry.npmjs.org/', './chalk' ]
+677 verbose url resolved https://registry.npmjs.org/chalk
+678 info trying registry request attempt 1 at 17:12:03
+679 verbose etag "C5I5EFJ8JVIOVT9VO2CW914Y8"
+680 http GET https://registry.npmjs.org/chalk
+681 verbose url raw chmodr/0.1.0
+682 verbose url resolving [ 'https://registry.npmjs.org/', './chmodr/0.1.0' ]
+683 verbose url resolved https://registry.npmjs.org/chmodr/0.1.0
+684 info trying registry request attempt 1 at 17:12:03
+685 verbose etag "TIKIVSQ86JR105E7N00GQKCI"
+686 http GET https://registry.npmjs.org/chmodr/0.1.0
+687 verbose url raw configstore
+688 verbose url resolving [ 'https://registry.npmjs.org/', './configstore' ]
+689 verbose url resolved https://registry.npmjs.org/configstore
+690 info trying registry request attempt 1 at 17:12:03
+691 verbose etag "8KVA7QUTP7NG2DH3OH8FVHEJR"
+692 http GET https://registry.npmjs.org/configstore
+693 silly addNameRange { name: 'rimraf', range: '>=2.2.8-0 <3.0.0-0', hasData: false }
+694 silly addNameRange { name: 'semver', range: '>=2.3.0-0 <3.0.0-0', hasData: false }
+695 silly addNameRange { name: 'shell-quote',
+695 silly addNameRange   range: '>=1.4.2-0 <2.0.0-0',
+695 silly addNameRange   hasData: false }
+696 silly addNameRange { name: 'stringify-object',
+696 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+696 silly addNameRange   hasData: false }
+697 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+698 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+699 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+700 verbose url raw decompress-zip
+701 verbose url resolving [ 'https://registry.npmjs.org/', './decompress-zip' ]
+702 verbose url resolved https://registry.npmjs.org/decompress-zip
+703 info trying registry request attempt 1 at 17:12:03
+704 verbose etag "21ZY7CN5XQBWKGG6N55LJU4GM"
+705 http GET https://registry.npmjs.org/decompress-zip
+706 verbose url raw fstream
+707 verbose url resolving [ 'https://registry.npmjs.org/', './fstream' ]
+708 verbose url resolved https://registry.npmjs.org/fstream
+709 info trying registry request attempt 1 at 17:12:03
+710 verbose etag "1H7XIYNBE7JD1RXLLA8TO105N"
+711 http GET https://registry.npmjs.org/fstream
+712 verbose url raw fstream-ignore
+713 verbose url resolving [ 'https://registry.npmjs.org/', './fstream-ignore' ]
+714 verbose url resolved https://registry.npmjs.org/fstream-ignore
+715 info trying registry request attempt 1 at 17:12:03
+716 verbose etag "6O8QJ7N393JC7QUG8NS4M73WG"
+717 http GET https://registry.npmjs.org/fstream-ignore
+718 verbose url raw github
+719 verbose url resolving [ 'https://registry.npmjs.org/', './github' ]
+720 verbose url resolved https://registry.npmjs.org/github
+721 info trying registry request attempt 1 at 17:12:03
+722 verbose etag "C1ZMP4F4UU8DDIZCQ1529EEJ2"
+723 http GET https://registry.npmjs.org/github
+724 silly addNameRange { name: 'tar-fs', range: '>=1.4.1-0 <2.0.0-0', hasData: false }
+725 silly addNameRange { name: 'update-notifier',
+725 silly addNameRange   range: '>=0.3.0-0 <0.4.0-0',
+725 silly addNameRange   hasData: false }
+726 silly addNameRange { name: 'user-home',
+726 silly addNameRange   range: '>=1.1.0-0 <2.0.0-0',
+726 silly addNameRange   hasData: false }
+727 silly addNameRange { name: 'which', range: '>=1.0.8-0 <2.0.0-0', hasData: false }
+728 verbose url raw glob
+729 verbose url resolving [ 'https://registry.npmjs.org/', './glob' ]
+730 verbose url resolved https://registry.npmjs.org/glob
+731 info trying registry request attempt 1 at 17:12:03
+732 verbose etag "ARAFP8VBSZ78NEYFQ3MWCO9TT"
+733 http GET https://registry.npmjs.org/glob
+734 verbose url raw graceful-fs
+735 verbose url resolving [ 'https://registry.npmjs.org/', './graceful-fs' ]
+736 verbose url resolved https://registry.npmjs.org/graceful-fs
+737 info trying registry request attempt 1 at 17:12:03
+738 verbose etag "8PYCNJP4YJ2562I5BLSHXHX9W"
+739 http GET https://registry.npmjs.org/graceful-fs
+740 verbose url raw inquirer/0.8.0
+741 verbose url resolving [ 'https://registry.npmjs.org/', './inquirer/0.8.0' ]
+742 verbose url resolved https://registry.npmjs.org/inquirer/0.8.0
+743 info trying registry request attempt 1 at 17:12:03
+744 verbose etag "5WMY3SOQR68W78QW7ZA2P3358"
+745 http GET https://registry.npmjs.org/inquirer/0.8.0
+746 verbose url raw handlebars
+747 verbose url resolving [ 'https://registry.npmjs.org/', './handlebars' ]
+748 verbose url resolved https://registry.npmjs.org/handlebars
+749 info trying registry request attempt 1 at 17:12:03
+750 verbose etag "7252EIK8JRCJHDISWHKZ9FQ6R"
+751 http GET https://registry.npmjs.org/handlebars
+752 verbose url raw insight
+753 verbose url resolving [ 'https://registry.npmjs.org/', './insight' ]
+754 verbose url resolved https://registry.npmjs.org/insight
+755 info trying registry request attempt 1 at 17:12:03
+756 verbose etag "9LMNBO96SZTJUYEGKMPEZC1X4"
+757 http GET https://registry.npmjs.org/insight
+758 verbose url raw is-root
+759 verbose url resolving [ 'https://registry.npmjs.org/', './is-root' ]
+760 verbose url resolved https://registry.npmjs.org/is-root
+761 info trying registry request attempt 1 at 17:12:03
+762 verbose etag "CWOW548IXZ8XYVS8KMOI0A0QQ"
+763 http GET https://registry.npmjs.org/is-root
+764 verbose url raw junk
+765 verbose url resolving [ 'https://registry.npmjs.org/', './junk' ]
+766 verbose url resolved https://registry.npmjs.org/junk
+767 info trying registry request attempt 1 at 17:12:03
+768 verbose etag "1N1P5ACLMJ9F61AFHDD5MCAW4"
+769 http GET https://registry.npmjs.org/junk
+770 verbose url raw lockfile
+771 verbose url resolving [ 'https://registry.npmjs.org/', './lockfile' ]
+772 verbose url resolved https://registry.npmjs.org/lockfile
+773 info trying registry request attempt 1 at 17:12:03
+774 verbose etag "6OANXRY4M55YKWPXD4Z4RXFRL"
+775 http GET https://registry.npmjs.org/lockfile
+776 verbose url raw mkdirp/0.5.0
+777 verbose url resolving [ 'https://registry.npmjs.org/', './mkdirp/0.5.0' ]
+778 verbose url resolved https://registry.npmjs.org/mkdirp/0.5.0
+779 info trying registry request attempt 1 at 17:12:03
+780 verbose etag "80M27R96RJGPT9DVA3IDF7HS8"
+781 http GET https://registry.npmjs.org/mkdirp/0.5.0
+782 verbose url raw lru-cache
+783 verbose url resolving [ 'https://registry.npmjs.org/', './lru-cache' ]
+784 verbose url resolved https://registry.npmjs.org/lru-cache
+785 info trying registry request attempt 1 at 17:12:03
+786 verbose etag "5HRFKMDY0JLK5KU7FKM70ZDK9"
+787 http GET https://registry.npmjs.org/lru-cache
+788 verbose url raw mout
+789 verbose url resolving [ 'https://registry.npmjs.org/', './mout' ]
+790 verbose url resolved https://registry.npmjs.org/mout
+791 info trying registry request attempt 1 at 17:12:03
+792 verbose etag "CP1IYCDHLOOPRYA7OS7PR407G"
+793 http GET https://registry.npmjs.org/mout
+794 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+795 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+796 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+797 verbose url raw nopt
+798 verbose url resolving [ 'https://registry.npmjs.org/', './nopt' ]
+799 verbose url resolved https://registry.npmjs.org/nopt
+800 info trying registry request attempt 1 at 17:12:03
+801 verbose etag "4C3OKANQKKY6UCSQCU29FEZ6J"
+802 http GET https://registry.npmjs.org/nopt
+803 verbose url raw opn
+804 verbose url resolving [ 'https://registry.npmjs.org/', './opn' ]
+805 verbose url resolved https://registry.npmjs.org/opn
+806 info trying registry request attempt 1 at 17:12:03
+807 verbose etag "AY3XMZ0B3PVOVDK4XPSVSGZ8X"
+808 http GET https://registry.npmjs.org/opn
+809 verbose url raw p-throttler/0.1.1
+810 verbose url resolving [ 'https://registry.npmjs.org/', './p-throttler/0.1.1' ]
+811 verbose url resolved https://registry.npmjs.org/p-throttler/0.1.1
+812 info trying registry request attempt 1 at 17:12:03
+813 verbose etag "5W7GJZLV9F8IYDR8FXHW0ZNCZ"
+814 http GET https://registry.npmjs.org/p-throttler/0.1.1
+815 verbose url raw promptly/0.2.0
+816 verbose url resolving [ 'https://registry.npmjs.org/', './promptly/0.2.0' ]
+817 verbose url resolved https://registry.npmjs.org/promptly/0.2.0
+818 info trying registry request attempt 1 at 17:12:03
+819 verbose etag "40SC03GB6O1IVT6177XAQ22FY"
+820 http GET https://registry.npmjs.org/promptly/0.2.0
+821 verbose url raw q
+822 verbose url resolving [ 'https://registry.npmjs.org/', './q' ]
+823 verbose url resolved https://registry.npmjs.org/q
+824 info trying registry request attempt 1 at 17:12:03
+825 verbose etag "EX1UG4A1DI8A1N1IU1W3W4TR6"
+826 http GET https://registry.npmjs.org/q
+827 verbose url raw request/2.53.0
+828 verbose url resolving [ 'https://registry.npmjs.org/', './request/2.53.0' ]
+829 verbose url resolved https://registry.npmjs.org/request/2.53.0
+830 info trying registry request attempt 1 at 17:12:03
+831 verbose etag "DMXNSQL4BODZW4HZ8B26LZQ4R"
+832 http GET https://registry.npmjs.org/request/2.53.0
+833 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+834 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+835 verbose url raw request-progress/0.3.1
+836 verbose url resolving [ 'https://registry.npmjs.org/', './request-progress/0.3.1' ]
+837 verbose url resolved https://registry.npmjs.org/request-progress/0.3.1
+838 info trying registry request attempt 1 at 17:12:03
+839 verbose etag "71N141LK7KK976NSQYTGUGVOR"
+840 http GET https://registry.npmjs.org/request-progress/0.3.1
+841 verbose url raw retry/0.6.1
+842 verbose url resolving [ 'https://registry.npmjs.org/', './retry/0.6.1' ]
+843 verbose url resolved https://registry.npmjs.org/retry/0.6.1
+844 info trying registry request attempt 1 at 17:12:03
+845 verbose etag "9E8IFDN9W1BFA3G0NIW4E0BT6"
+846 http GET https://registry.npmjs.org/retry/0.6.1
+847 verbose url raw semver
+848 verbose url resolving [ 'https://registry.npmjs.org/', './semver' ]
+849 verbose url resolved https://registry.npmjs.org/semver
+850 info trying registry request attempt 1 at 17:12:03
+851 verbose etag "3769X09SAZVFUVS7S7SE2W518"
+852 http GET https://registry.npmjs.org/semver
+853 verbose url raw rimraf
+854 verbose url resolving [ 'https://registry.npmjs.org/', './rimraf' ]
+855 verbose url resolved https://registry.npmjs.org/rimraf
+856 info trying registry request attempt 1 at 17:12:03
+857 verbose etag "3Q4JZH6I4AM1WBR3WTW98PVYG"
+858 http GET https://registry.npmjs.org/rimraf
+859 verbose url raw shell-quote
+860 verbose url resolving [ 'https://registry.npmjs.org/', './shell-quote' ]
+861 verbose url resolved https://registry.npmjs.org/shell-quote
+862 info trying registry request attempt 1 at 17:12:03
+863 verbose etag "ENYWQ1GI2E6WH5E0XCHLH1RWK"
+864 http GET https://registry.npmjs.org/shell-quote
+865 verbose url raw stringify-object
+866 verbose url resolving [ 'https://registry.npmjs.org/', './stringify-object' ]
+867 verbose url resolved https://registry.npmjs.org/stringify-object
+868 info trying registry request attempt 1 at 17:12:03
+869 verbose etag "7S5QNQD1N31N9IAGQIHR3T262"
+870 http GET https://registry.npmjs.org/stringify-object
+871 verbose url raw tar-fs
+872 verbose url resolving [ 'https://registry.npmjs.org/', './tar-fs' ]
+873 verbose url resolved https://registry.npmjs.org/tar-fs
+874 info trying registry request attempt 1 at 17:12:03
+875 verbose etag "6VIDPXZ1LNEXO6WGU3U0TST62"
+876 http GET https://registry.npmjs.org/tar-fs
+877 verbose url raw tmp/0.0.24
+878 verbose url resolving [ 'https://registry.npmjs.org/', './tmp/0.0.24' ]
+879 verbose url resolved https://registry.npmjs.org/tmp/0.0.24
+880 info trying registry request attempt 1 at 17:12:03
+881 verbose etag "9WSW7ZAG0IV5ULD9IXICBJU4Q"
+882 http GET https://registry.npmjs.org/tmp/0.0.24
+883 verbose url raw update-notifier
+884 verbose url resolving [ 'https://registry.npmjs.org/', './update-notifier' ]
+885 verbose url resolved https://registry.npmjs.org/update-notifier
+886 info trying registry request attempt 1 at 17:12:03
+887 verbose etag "DXXCVGCXWFW1YTQ74IFOTDBO9"
+888 http GET https://registry.npmjs.org/update-notifier
+889 verbose url raw which
+890 verbose url resolving [ 'https://registry.npmjs.org/', './which' ]
+891 verbose url resolved https://registry.npmjs.org/which
+892 info trying registry request attempt 1 at 17:12:03
+893 verbose etag "7AHA3HQ2XLPQ3LYNYGLWHGSOH"
+894 http GET https://registry.npmjs.org/which
+895 verbose url raw user-home
+896 verbose url resolving [ 'https://registry.npmjs.org/', './user-home' ]
+897 verbose url resolved https://registry.npmjs.org/user-home
+898 info trying registry request attempt 1 at 17:12:03
+899 verbose etag "A2O9GA2AL0HW3K925MP10O2OB"
+900 http GET https://registry.npmjs.org/user-home
+901 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+902 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+903 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+904 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+905 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+906 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+907 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+908 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+909 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+910 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+911 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+912 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+913 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+914 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+915 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+916 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+917 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+918 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+919 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+920 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+921 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+922 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+923 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+924 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+925 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+926 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+927 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+928 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+929 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+930 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+931 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+932 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+933 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+934 info trying registry request attempt 2 at 17:12:13
+935 verbose etag "2B2D97J9PJFU5GDKGPRKHA7YD"
+936 http GET https://registry.npmjs.org/bower-config
+937 info trying registry request attempt 2 at 17:12:13
+938 verbose etag "AIK2XDX1GJIIYUUY93UDLGJV0"
+939 http GET https://registry.npmjs.org/abbrev
+940 info trying registry request attempt 2 at 17:12:13
+941 verbose etag "D7HMYH6YSGX3VN6DV6CTUIUSI"
+942 http GET https://registry.npmjs.org/archy/1.0.0
+943 info trying registry request attempt 2 at 17:12:13
+944 verbose etag "7AQXYZCXXMDJNPLNA62DDQU91"
+945 http GET https://registry.npmjs.org/bower-endpoint-parser
+946 info trying registry request attempt 2 at 17:12:13
+947 verbose etag "7671XOTQAKOQE9XSK89WX328C"
+948 http GET https://registry.npmjs.org/bower-json
+949 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+950 info trying registry request attempt 2 at 17:12:13
+951 verbose etag "6ZH05P85GTSJBDBSODJ70LH4Z"
+952 http GET https://registry.npmjs.org/bower-logger
+953 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+954 info trying registry request attempt 2 at 17:12:13
+955 verbose etag "ESQLHDBEHLJGVVYV811VO0SQC"
+956 http GET https://registry.npmjs.org/bower-registry-client
+957 info trying registry request attempt 2 at 17:12:13
+958 verbose etag "J4FQHS50CJFKVCBYQB06IUM7"
+959 http GET https://registry.npmjs.org/cardinal/0.4.4
+960 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+961 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+962 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+963 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+964 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+965 info trying registry request attempt 2 at 17:12:13
+966 verbose etag "C5I5EFJ8JVIOVT9VO2CW914Y8"
+967 http GET https://registry.npmjs.org/chalk
+968 info trying registry request attempt 2 at 17:12:13
+969 verbose etag "TIKIVSQ86JR105E7N00GQKCI"
+970 http GET https://registry.npmjs.org/chmodr/0.1.0
+971 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+972 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+973 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+974 info trying registry request attempt 2 at 17:12:13
+975 verbose etag "8KVA7QUTP7NG2DH3OH8FVHEJR"
+976 http GET https://registry.npmjs.org/configstore
+977 info trying registry request attempt 2 at 17:12:13
+978 verbose etag "21ZY7CN5XQBWKGG6N55LJU4GM"
+979 http GET https://registry.npmjs.org/decompress-zip
+980 info trying registry request attempt 2 at 17:12:13
+981 verbose etag "1H7XIYNBE7JD1RXLLA8TO105N"
+982 http GET https://registry.npmjs.org/fstream
+983 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+984 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+985 info trying registry request attempt 2 at 17:12:13
+986 verbose etag "6O8QJ7N393JC7QUG8NS4M73WG"
+987 http GET https://registry.npmjs.org/fstream-ignore
+988 info trying registry request attempt 2 at 17:12:13
+989 verbose etag "C1ZMP4F4UU8DDIZCQ1529EEJ2"
+990 http GET https://registry.npmjs.org/github
+991 info trying registry request attempt 2 at 17:12:13
+992 verbose etag "ARAFP8VBSZ78NEYFQ3MWCO9TT"
+993 http GET https://registry.npmjs.org/glob
+994 info trying registry request attempt 2 at 17:12:13
+995 verbose etag "8PYCNJP4YJ2562I5BLSHXHX9W"
+996 http GET https://registry.npmjs.org/graceful-fs
+997 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+998 info trying registry request attempt 2 at 17:12:13
+999 verbose etag "5WMY3SOQR68W78QW7ZA2P3358"
+1000 http GET https://registry.npmjs.org/inquirer/0.8.0
+1001 info trying registry request attempt 2 at 17:12:13
+1002 verbose etag "7252EIK8JRCJHDISWHKZ9FQ6R"
+1003 http GET https://registry.npmjs.org/handlebars
+1004 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1005 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1006 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1007 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1008 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1009 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1010 info trying registry request attempt 2 at 17:12:13
+1011 verbose etag "9LMNBO96SZTJUYEGKMPEZC1X4"
+1012 http GET https://registry.npmjs.org/insight
+1013 info trying registry request attempt 2 at 17:12:13
+1014 verbose etag "CWOW548IXZ8XYVS8KMOI0A0QQ"
+1015 http GET https://registry.npmjs.org/is-root
+1016 info trying registry request attempt 2 at 17:12:13
+1017 verbose etag "1N1P5ACLMJ9F61AFHDD5MCAW4"
+1018 http GET https://registry.npmjs.org/junk
+1019 info trying registry request attempt 2 at 17:12:13
+1020 verbose etag "6OANXRY4M55YKWPXD4Z4RXFRL"
+1021 http GET https://registry.npmjs.org/lockfile
+1022 info trying registry request attempt 2 at 17:12:13
+1023 verbose etag "80M27R96RJGPT9DVA3IDF7HS8"
+1024 http GET https://registry.npmjs.org/mkdirp/0.5.0
+1025 info trying registry request attempt 2 at 17:12:13
+1026 verbose etag "5HRFKMDY0JLK5KU7FKM70ZDK9"
+1027 http GET https://registry.npmjs.org/lru-cache
+1028 info trying registry request attempt 2 at 17:12:13
+1029 verbose etag "CP1IYCDHLOOPRYA7OS7PR407G"
+1030 http GET https://registry.npmjs.org/mout
+1031 info trying registry request attempt 2 at 17:12:13
+1032 verbose etag "4C3OKANQKKY6UCSQCU29FEZ6J"
+1033 http GET https://registry.npmjs.org/nopt
+1034 info trying registry request attempt 2 at 17:12:13
+1035 verbose etag "AY3XMZ0B3PVOVDK4XPSVSGZ8X"
+1036 http GET https://registry.npmjs.org/opn
+1037 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1038 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1039 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1040 info trying registry request attempt 2 at 17:12:13
+1041 verbose etag "5W7GJZLV9F8IYDR8FXHW0ZNCZ"
+1042 http GET https://registry.npmjs.org/p-throttler/0.1.1
+1043 info trying registry request attempt 2 at 17:12:13
+1044 verbose etag "EX1UG4A1DI8A1N1IU1W3W4TR6"
+1045 http GET https://registry.npmjs.org/q
+1046 info trying registry request attempt 2 at 17:12:13
+1047 verbose etag "40SC03GB6O1IVT6177XAQ22FY"
+1048 http GET https://registry.npmjs.org/promptly/0.2.0
+1049 info trying registry request attempt 2 at 17:12:13
+1050 verbose etag "DMXNSQL4BODZW4HZ8B26LZQ4R"
+1051 http GET https://registry.npmjs.org/request/2.53.0
+1052 info trying registry request attempt 2 at 17:12:13
+1053 verbose etag "71N141LK7KK976NSQYTGUGVOR"
+1054 http GET https://registry.npmjs.org/request-progress/0.3.1
+1055 info trying registry request attempt 2 at 17:12:13
+1056 verbose etag "9E8IFDN9W1BFA3G0NIW4E0BT6"
+1057 http GET https://registry.npmjs.org/retry/0.6.1
+1058 info trying registry request attempt 2 at 17:12:13
+1059 verbose etag "3769X09SAZVFUVS7S7SE2W518"
+1060 http GET https://registry.npmjs.org/semver
+1061 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1062 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1063 info trying registry request attempt 2 at 17:12:13
+1064 verbose etag "3Q4JZH6I4AM1WBR3WTW98PVYG"
+1065 http GET https://registry.npmjs.org/rimraf
+1066 info trying registry request attempt 2 at 17:12:13
+1067 verbose etag "ENYWQ1GI2E6WH5E0XCHLH1RWK"
+1068 http GET https://registry.npmjs.org/shell-quote
+1069 info trying registry request attempt 2 at 17:12:13
+1070 verbose etag "7S5QNQD1N31N9IAGQIHR3T262"
+1071 http GET https://registry.npmjs.org/stringify-object
+1072 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1073 info trying registry request attempt 2 at 17:12:13
+1074 verbose etag "6VIDPXZ1LNEXO6WGU3U0TST62"
+1075 http GET https://registry.npmjs.org/tar-fs
+1076 info trying registry request attempt 2 at 17:12:13
+1077 verbose etag "9WSW7ZAG0IV5ULD9IXICBJU4Q"
+1078 http GET https://registry.npmjs.org/tmp/0.0.24
+1079 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1080 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1081 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1082 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1083 info trying registry request attempt 2 at 17:12:13
+1084 verbose etag "DXXCVGCXWFW1YTQ74IFOTDBO9"
+1085 http GET https://registry.npmjs.org/update-notifier
+1086 info trying registry request attempt 2 at 17:12:13
+1087 verbose etag "7AHA3HQ2XLPQ3LYNYGLWHGSOH"
+1088 http GET https://registry.npmjs.org/which
+1089 info trying registry request attempt 2 at 17:12:13
+1090 verbose etag "A2O9GA2AL0HW3K925MP10O2OB"
+1091 http GET https://registry.npmjs.org/user-home
+1092 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1093 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1094 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1095 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1096 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1097 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1098 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1099 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1100 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1101 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1102 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1103 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1104 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1105 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1106 info trying registry request attempt 3 at 17:13:13
+1107 verbose etag "2B2D97J9PJFU5GDKGPRKHA7YD"
+1108 http GET https://registry.npmjs.org/bower-config
+1109 info trying registry request attempt 3 at 17:13:13
+1110 verbose etag "AIK2XDX1GJIIYUUY93UDLGJV0"
+1111 http GET https://registry.npmjs.org/abbrev
+1112 info trying registry request attempt 3 at 17:13:13
+1113 verbose etag "D7HMYH6YSGX3VN6DV6CTUIUSI"
+1114 http GET https://registry.npmjs.org/archy/1.0.0
+1115 info trying registry request attempt 3 at 17:13:13
+1116 verbose etag "7AQXYZCXXMDJNPLNA62DDQU91"
+1117 http GET https://registry.npmjs.org/bower-endpoint-parser
+1118 info trying registry request attempt 3 at 17:13:13
+1119 verbose etag "7671XOTQAKOQE9XSK89WX328C"
+1120 http GET https://registry.npmjs.org/bower-json
+1121 info trying registry request attempt 3 at 17:13:13
+1122 verbose etag "6ZH05P85GTSJBDBSODJ70LH4Z"
+1123 http GET https://registry.npmjs.org/bower-logger
+1124 info trying registry request attempt 3 at 17:13:13
+1125 verbose etag "ESQLHDBEHLJGVVYV811VO0SQC"
+1126 http GET https://registry.npmjs.org/bower-registry-client
+1127 info trying registry request attempt 3 at 17:13:13
+1128 verbose etag "J4FQHS50CJFKVCBYQB06IUM7"
+1129 http GET https://registry.npmjs.org/cardinal/0.4.4
+1130 info trying registry request attempt 3 at 17:13:13
+1131 verbose etag "C5I5EFJ8JVIOVT9VO2CW914Y8"
+1132 http GET https://registry.npmjs.org/chalk
+1133 info trying registry request attempt 3 at 17:13:13
+1134 verbose etag "TIKIVSQ86JR105E7N00GQKCI"
+1135 http GET https://registry.npmjs.org/chmodr/0.1.0
+1136 info trying registry request attempt 3 at 17:13:13
+1137 verbose etag "8KVA7QUTP7NG2DH3OH8FVHEJR"
+1138 http GET https://registry.npmjs.org/configstore
+1139 info trying registry request attempt 3 at 17:13:13
+1140 verbose etag "21ZY7CN5XQBWKGG6N55LJU4GM"
+1141 http GET https://registry.npmjs.org/decompress-zip
+1142 info trying registry request attempt 3 at 17:13:13
+1143 verbose etag "1H7XIYNBE7JD1RXLLA8TO105N"
+1144 http GET https://registry.npmjs.org/fstream
+1145 info trying registry request attempt 3 at 17:13:13
+1146 verbose etag "6O8QJ7N393JC7QUG8NS4M73WG"
+1147 http GET https://registry.npmjs.org/fstream-ignore
+1148 info trying registry request attempt 3 at 17:13:13
+1149 verbose etag "C1ZMP4F4UU8DDIZCQ1529EEJ2"
+1150 http GET https://registry.npmjs.org/github
+1151 info trying registry request attempt 3 at 17:13:13
+1152 verbose etag "ARAFP8VBSZ78NEYFQ3MWCO9TT"
+1153 http GET https://registry.npmjs.org/glob
+1154 info trying registry request attempt 3 at 17:13:13
+1155 verbose etag "8PYCNJP4YJ2562I5BLSHXHX9W"
+1156 http GET https://registry.npmjs.org/graceful-fs
+1157 info trying registry request attempt 3 at 17:13:13
+1158 verbose etag "5WMY3SOQR68W78QW7ZA2P3358"
+1159 http GET https://registry.npmjs.org/inquirer/0.8.0
+1160 info trying registry request attempt 3 at 17:13:13
+1161 verbose etag "7252EIK8JRCJHDISWHKZ9FQ6R"
+1162 http GET https://registry.npmjs.org/handlebars
+1163 info trying registry request attempt 3 at 17:13:13
+1164 verbose etag "9LMNBO96SZTJUYEGKMPEZC1X4"
+1165 http GET https://registry.npmjs.org/insight
+1166 info trying registry request attempt 3 at 17:13:13
+1167 verbose etag "CWOW548IXZ8XYVS8KMOI0A0QQ"
+1168 http GET https://registry.npmjs.org/is-root
+1169 info trying registry request attempt 3 at 17:13:13
+1170 verbose etag "1N1P5ACLMJ9F61AFHDD5MCAW4"
+1171 http GET https://registry.npmjs.org/junk
+1172 info trying registry request attempt 3 at 17:13:13
+1173 verbose etag "6OANXRY4M55YKWPXD4Z4RXFRL"
+1174 http GET https://registry.npmjs.org/lockfile
+1175 info trying registry request attempt 3 at 17:13:13
+1176 verbose etag "80M27R96RJGPT9DVA3IDF7HS8"
+1177 http GET https://registry.npmjs.org/mkdirp/0.5.0
+1178 info trying registry request attempt 3 at 17:13:13
+1179 verbose etag "5HRFKMDY0JLK5KU7FKM70ZDK9"
+1180 http GET https://registry.npmjs.org/lru-cache
+1181 info trying registry request attempt 3 at 17:13:13
+1182 verbose etag "CP1IYCDHLOOPRYA7OS7PR407G"
+1183 http GET https://registry.npmjs.org/mout
+1184 info trying registry request attempt 3 at 17:13:13
+1185 verbose etag "4C3OKANQKKY6UCSQCU29FEZ6J"
+1186 http GET https://registry.npmjs.org/nopt
+1187 info trying registry request attempt 3 at 17:13:13
+1188 verbose etag "5W7GJZLV9F8IYDR8FXHW0ZNCZ"
+1189 http GET https://registry.npmjs.org/p-throttler/0.1.1
+1190 info trying registry request attempt 3 at 17:13:13
+1191 verbose etag "AY3XMZ0B3PVOVDK4XPSVSGZ8X"
+1192 http GET https://registry.npmjs.org/opn
+1193 info trying registry request attempt 3 at 17:13:13
+1194 verbose etag "EX1UG4A1DI8A1N1IU1W3W4TR6"
+1195 http GET https://registry.npmjs.org/q
+1196 info trying registry request attempt 3 at 17:13:13
+1197 verbose etag "40SC03GB6O1IVT6177XAQ22FY"
+1198 http GET https://registry.npmjs.org/promptly/0.2.0
+1199 info trying registry request attempt 3 at 17:13:13
+1200 verbose etag "DMXNSQL4BODZW4HZ8B26LZQ4R"
+1201 http GET https://registry.npmjs.org/request/2.53.0
+1202 info trying registry request attempt 3 at 17:13:13
+1203 verbose etag "9E8IFDN9W1BFA3G0NIW4E0BT6"
+1204 http GET https://registry.npmjs.org/retry/0.6.1
+1205 info trying registry request attempt 3 at 17:13:13
+1206 verbose etag "71N141LK7KK976NSQYTGUGVOR"
+1207 http GET https://registry.npmjs.org/request-progress/0.3.1
+1208 info trying registry request attempt 3 at 17:13:13
+1209 verbose etag "3769X09SAZVFUVS7S7SE2W518"
+1210 http GET https://registry.npmjs.org/semver
+1211 info trying registry request attempt 3 at 17:13:13
+1212 verbose etag "3Q4JZH6I4AM1WBR3WTW98PVYG"
+1213 http GET https://registry.npmjs.org/rimraf
+1214 info trying registry request attempt 3 at 17:13:13
+1215 verbose etag "ENYWQ1GI2E6WH5E0XCHLH1RWK"
+1216 http GET https://registry.npmjs.org/shell-quote
+1217 info trying registry request attempt 3 at 17:13:13
+1218 verbose etag "7S5QNQD1N31N9IAGQIHR3T262"
+1219 http GET https://registry.npmjs.org/stringify-object
+1220 info trying registry request attempt 3 at 17:13:13
+1221 verbose etag "6VIDPXZ1LNEXO6WGU3U0TST62"
+1222 http GET https://registry.npmjs.org/tar-fs
+1223 info trying registry request attempt 3 at 17:13:13
+1224 verbose etag "DXXCVGCXWFW1YTQ74IFOTDBO9"
+1225 http GET https://registry.npmjs.org/update-notifier
+1226 info trying registry request attempt 3 at 17:13:13
+1227 verbose etag "9WSW7ZAG0IV5ULD9IXICBJU4Q"
+1228 http GET https://registry.npmjs.org/tmp/0.0.24
+1229 info trying registry request attempt 3 at 17:13:13
+1230 verbose etag "7AHA3HQ2XLPQ3LYNYGLWHGSOH"
+1231 http GET https://registry.npmjs.org/which
+1232 info trying registry request attempt 3 at 17:13:13
+1233 verbose etag "A2O9GA2AL0HW3K925MP10O2OB"
+1234 http GET https://registry.npmjs.org/user-home
+1235 silly registry.get cb [ 304, undefined ]
+1236 verbose etag bower-config from cache
+1237 silly registry.get cb [ 304, undefined ]
+1238 verbose etag bower-endpoint-parser from cache
+1239 silly registry.get cb [ 304, undefined ]
+1240 verbose etag abbrev from cache
+1241 silly registry.get cb [ 304, undefined ]
+1242 verbose etag archy/1.0.0 from cache
+1243 silly registry.get cb [ 304, undefined ]
+1244 verbose etag bower-json from cache
+1245 silly registry.get cb [ 304, undefined ]
+1246 verbose etag bower-logger from cache
+1247 silly registry.get cb [ 304, undefined ]
+1248 verbose etag bower-registry-client from cache
+1249 silly registry.get cb [ 304, undefined ]
+1250 verbose etag cardinal/0.4.4 from cache
+1251 silly registry.get cb [ 304, undefined ]
+1252 verbose etag chalk from cache
+1253 silly addNameRange number 2 { name: 'bower-config',
+1253 silly addNameRange   range: '>=0.6.1-0 <0.7.0-0',
+1253 silly addNameRange   hasData: true }
+1254 silly addNameRange versions [ 'bower-config',
+1254 silly addNameRange   [ '0.1.0-rc.1',
+1254 silly addNameRange     '0.1.0-rc.2',
+1254 silly addNameRange     '0.1.0-rc.3',
+1254 silly addNameRange     '0.1.0-rc.4',
+1254 silly addNameRange     '0.1.0-rc.5',
+1254 silly addNameRange     '0.2.0-rc.1',
+1254 silly addNameRange     '0.2.0-rc.2',
+1254 silly addNameRange     '0.3.0',
+1254 silly addNameRange     '0.3.1',
+1254 silly addNameRange     '0.3.3',
+1254 silly addNameRange     '0.3.4',
+1254 silly addNameRange     '0.3.5',
+1254 silly addNameRange     '0.4.0',
+1254 silly addNameRange     '0.4.1',
+1254 silly addNameRange     '0.4.2',
+1254 silly addNameRange     '0.4.3',
+1254 silly addNameRange     '0.4.4',
+1254 silly addNameRange     '0.4.5',
+1254 silly addNameRange     '0.5.0',
+1254 silly addNameRange     '0.5.1',
+1254 silly addNameRange     '0.5.2',
+1254 silly addNameRange     '0.6.0',
+1254 silly addNameRange     '0.6.1' ] ]
+1255 verbose addNamed [ 'bower-config', '0.6.1' ]
+1256 verbose addNamed [ '0.6.1', '0.6.1' ]
+1257 silly lockFile c015760b-bower-config-0-6-1 bower-config@0.6.1
+1258 verbose lock bower-config@0.6.1 /home/nada/.npm/c015760b-bower-config-0-6-1.lock
+1259 silly addNameRange number 2 { name: 'bower-endpoint-parser',
+1259 silly addNameRange   range: '>=0.2.2-0 <0.3.0-0',
+1259 silly addNameRange   hasData: true }
+1260 silly addNameRange versions [ 'bower-endpoint-parser',
+1260 silly addNameRange   [ '0.1.0-rc.1', '0.1.0', '0.2.0', '0.2.1', '0.2.2' ] ]
+1261 verbose addNamed [ 'bower-endpoint-parser', '0.2.2' ]
+1262 verbose addNamed [ '0.2.2', '0.2.2' ]
+1263 silly lockFile b3d72336-bower-endpoint-parser-0-2-2 bower-endpoint-parser@0.2.2
+1264 verbose lock bower-endpoint-parser@0.2.2 /home/nada/.npm/b3d72336-bower-endpoint-parser-0-2-2.lock
+1265 silly addNameRange number 2 { name: 'abbrev', range: '>=1.0.5-0 <2.0.0-0', hasData: true }
+1266 silly addNameRange versions [ 'abbrev', [ '1.0.3', '1.0.4', '1.0.5' ] ]
+1267 verbose addNamed [ 'abbrev', '1.0.5' ]
+1268 verbose addNamed [ '1.0.5', '1.0.5' ]
+1269 silly lockFile 55d90b2f-abbrev-1-0-5 abbrev@1.0.5
+1270 verbose lock abbrev@1.0.5 /home/nada/.npm/55d90b2f-abbrev-1-0-5.lock
+1271 silly registry.get cb [ 304, undefined ]
+1272 verbose etag chmodr/0.1.0 from cache
+1273 silly addNameRange number 2 { name: 'bower-json',
+1273 silly addNameRange   range: '>=0.4.0-0 <0.5.0-0',
+1273 silly addNameRange   hasData: true }
+1274 silly addNameRange versions [ 'bower-json', [ '0.1.0-rc.1', '0.2.0', '0.3.0', '0.4.0' ] ]
+1275 verbose addNamed [ 'bower-json', '0.4.0' ]
+1276 verbose addNamed [ '0.4.0', '0.4.0' ]
+1277 silly lockFile d39b341c-bower-json-0-4-0 bower-json@0.4.0
+1278 verbose lock bower-json@0.4.0 /home/nada/.npm/d39b341c-bower-json-0-4-0.lock
+1279 silly registry.get cb [ 304, undefined ]
+1280 verbose etag configstore from cache
+1281 silly addNameRange number 2 { name: 'bower-logger',
+1281 silly addNameRange   range: '>=0.2.2-0 <0.3.0-0',
+1281 silly addNameRange   hasData: true }
+1282 silly addNameRange versions [ 'bower-logger',
+1282 silly addNameRange   [ '0.1.0-rc.1', '0.1.0', '0.2.0', '0.2.1', '0.2.2' ] ]
+1283 verbose addNamed [ 'bower-logger', '0.2.2' ]
+1284 verbose addNamed [ '0.2.2', '0.2.2' ]
+1285 silly lockFile 4a38f198-bower-logger-0-2-2 bower-logger@0.2.2
+1286 verbose lock bower-logger@0.2.2 /home/nada/.npm/4a38f198-bower-logger-0-2-2.lock
+1287 silly addNameRange number 2 { name: 'bower-registry-client',
+1287 silly addNameRange   range: '>=0.3.0-0 <0.4.0-0',
+1287 silly addNameRange   hasData: true }
+1288 silly addNameRange versions [ 'bower-registry-client',
+1288 silly addNameRange   [ '0.1.0-rc.1',
+1288 silly addNameRange     '0.1.0-rc.2',
+1288 silly addNameRange     '0.1.0-rc.3',
+1288 silly addNameRange     '0.1.0-rc.4',
+1288 silly addNameRange     '0.1.0-rc.5',
+1288 silly addNameRange     '0.1.0',
+1288 silly addNameRange     '0.1.1',
+1288 silly addNameRange     '0.1.2',
+1288 silly addNameRange     '0.1.3',
+1288 silly addNameRange     '0.1.4',
+1288 silly addNameRange     '0.1.5',
+1288 silly addNameRange     '0.1.6',
+1288 silly addNameRange     '0.2.0',
+1288 silly addNameRange     '0.2.1',
+1288 silly addNameRange     '0.2.2',
+1288 silly addNameRange     '0.2.3',
+1288 silly addNameRange     '0.2.4',
+1288 silly addNameRange     '0.3.0' ] ]
+1289 verbose addNamed [ 'bower-registry-client', '0.3.0' ]
+1290 verbose addNamed [ '0.3.0', '0.3.0' ]
+1291 silly lockFile 7452696d-bower-registry-client-0-3-0 bower-registry-client@0.3.0
+1292 verbose lock bower-registry-client@0.3.0 /home/nada/.npm/7452696d-bower-registry-client-0-3-0.lock
+1293 silly registry.get cb [ 304, undefined ]
+1294 verbose etag decompress-zip from cache
+1295 silly registry.get cb [ 304, undefined ]
+1296 verbose etag fstream from cache
+1297 silly registry.get cb [ 304, undefined ]
+1298 verbose etag fstream-ignore from cache
+1299 silly addNameRange number 2 { name: 'chalk', range: '>=1.0.0-0 <2.0.0-0', hasData: true }
+1300 silly addNameRange versions [ 'chalk',
+1300 silly addNameRange   [ '0.1.0',
+1300 silly addNameRange     '0.1.1',
+1300 silly addNameRange     '0.2.0',
+1300 silly addNameRange     '0.2.1',
+1300 silly addNameRange     '0.3.0',
+1300 silly addNameRange     '0.4.0',
+1300 silly addNameRange     '0.5.0',
+1300 silly addNameRange     '0.5.1',
+1300 silly addNameRange     '1.0.0' ] ]
+1301 verbose addNamed [ 'chalk', '1.0.0' ]
+1302 verbose addNamed [ '1.0.0', '1.0.0' ]
+1303 silly lockFile 3c08535b-chalk-1-0-0 chalk@1.0.0
+1304 verbose lock chalk@1.0.0 /home/nada/.npm/3c08535b-chalk-1-0-0.lock
+1305 silly registry.get cb [ 304, undefined ]
+1306 verbose etag github from cache
+1307 silly registry.get cb [ 304, undefined ]
+1308 verbose etag glob from cache
+1309 silly registry.get cb [ 304, undefined ]
+1310 verbose etag graceful-fs from cache
+1311 silly addNameRange number 2 { name: 'configstore',
+1311 silly addNameRange   range: '>=0.3.2-0 <0.4.0-0',
+1311 silly addNameRange   hasData: true }
+1312 silly addNameRange versions [ 'configstore',
+1312 silly addNameRange   [ '0.1.0',
+1312 silly addNameRange     '0.1.1',
+1312 silly addNameRange     '0.1.2',
+1312 silly addNameRange     '0.1.3',
+1312 silly addNameRange     '0.1.4',
+1312 silly addNameRange     '0.1.5',
+1312 silly addNameRange     '0.1.6',
+1312 silly addNameRange     '0.1.7',
+1312 silly addNameRange     '0.2.0',
+1312 silly addNameRange     '0.2.1',
+1312 silly addNameRange     '0.2.2',
+1312 silly addNameRange     '0.2.3',
+1312 silly addNameRange     '0.3.0',
+1312 silly addNameRange     '0.3.1',
+1312 silly addNameRange     '0.3.2' ] ]
+1313 verbose addNamed [ 'configstore', '0.3.2' ]
+1314 verbose addNamed [ '0.3.2', '0.3.2' ]
+1315 silly lockFile 2ce7a540-configstore-0-3-2 configstore@0.3.2
+1316 verbose lock configstore@0.3.2 /home/nada/.npm/2ce7a540-configstore-0-3-2.lock
+1317 silly registry.get cb [ 304, undefined ]
+1318 verbose etag inquirer/0.8.0 from cache
+1319 silly registry.get cb [ 304, undefined ]
+1320 verbose etag handlebars from cache
+1321 silly addNameRange number 2 { name: 'decompress-zip',
+1321 silly addNameRange   range: '>=0.1.0-0 <0.2.0-0',
+1321 silly addNameRange   hasData: true }
+1322 silly addNameRange versions [ 'decompress-zip',
+1322 silly addNameRange   [ '0.0.1',
+1322 silly addNameRange     '0.0.2',
+1322 silly addNameRange     '0.0.3',
+1322 silly addNameRange     '0.0.4',
+1322 silly addNameRange     '0.0.5',
+1322 silly addNameRange     '0.0.6',
+1322 silly addNameRange     '0.0.7',
+1322 silly addNameRange     '0.0.8',
+1322 silly addNameRange     '0.1.0' ] ]
+1323 verbose addNamed [ 'decompress-zip', '0.1.0' ]
+1324 verbose addNamed [ '0.1.0', '0.1.0' ]
+1325 silly lockFile 94c62924-decompress-zip-0-1-0 decompress-zip@0.1.0
+1326 verbose lock decompress-zip@0.1.0 /home/nada/.npm/94c62924-decompress-zip-0-1-0.lock
+1327 silly registry.get cb [ 304, undefined ]
+1328 verbose etag insight from cache
+1329 silly addNameRange number 2 { name: 'fstream', range: '>=1.0.3-0 <2.0.0-0', hasData: true }
+1330 silly addNameRange versions [ 'fstream',
+1330 silly addNameRange   [ '0.0.0',
+1330 silly addNameRange     '0.0.1',
+1330 silly addNameRange     '0.1.0',
+1330 silly addNameRange     '0.1.1',
+1330 silly addNameRange     '0.1.2',
+1330 silly addNameRange     '0.1.3',
+1330 silly addNameRange     '0.1.5',
+1330 silly addNameRange     '0.1.6',
+1330 silly addNameRange     '0.1.7',
+1330 silly addNameRange     '0.1.8',
+1330 silly addNameRange     '0.1.9',
+1330 silly addNameRange     '0.1.10',
+1330 silly addNameRange     '0.1.11',
+1330 silly addNameRange     '0.1.12',
+1330 silly addNameRange     '0.1.13',
+1330 silly addNameRange     '0.1.14',
+1330 silly addNameRange     '0.1.15',
+1330 silly addNameRange     '0.1.16',
+1330 silly addNameRange     '0.1.17',
+1330 silly addNameRange     '0.1.18',
+1330 silly addNameRange     '0.1.19',
+1330 silly addNameRange     '0.1.20',
+1330 silly addNameRange     '0.1.21',
+1330 silly addNameRange     '0.1.22',
+1330 silly addNameRange     '0.1.23',
+1330 silly addNameRange     '0.1.24',
+1330 silly addNameRange     '0.1.25',
+1330 silly addNameRange     '0.1.26',
+1330 silly addNameRange     '0.1.27',
+1330 silly addNameRange     '0.1.28',
+1330 silly addNameRange     '0.1.29',
+1330 silly addNameRange     '0.1.30',
+1330 silly addNameRange     '1.0.0',
+1330 silly addNameRange     '1.0.1',
+1330 silly addNameRange     '0.1.31',
+1330 silly addNameRange     '1.0.2',
+1330 silly addNameRange     '1.0.3',
+1330 silly addNameRange     '1.0.4' ] ]
+1331 verbose addNamed [ 'fstream', '1.0.4' ]
+1332 verbose addNamed [ '1.0.4', '1.0.4' ]
+1333 silly lockFile ede035e6-fstream-1-0-4 fstream@1.0.4
+1334 verbose lock fstream@1.0.4 /home/nada/.npm/ede035e6-fstream-1-0-4.lock
+1335 silly lockFile 21c4cc2a-archy-1-0-0 archy@1.0.0
+1336 silly lockFile 21c4cc2a-archy-1-0-0 archy@1.0.0
+1337 silly addNameRange number 2 { name: 'fstream-ignore',
+1337 silly addNameRange   range: '>=1.0.2-0 <2.0.0-0',
+1337 silly addNameRange   hasData: true }
+1338 silly addNameRange versions [ 'fstream-ignore',
+1338 silly addNameRange   [ '0.0.1',
+1338 silly addNameRange     '0.0.2',
+1338 silly addNameRange     '0.0.3',
+1338 silly addNameRange     '0.0.4',
+1338 silly addNameRange     '0.0.5',
+1338 silly addNameRange     '0.0.6',
+1338 silly addNameRange     '0.0.7',
+1338 silly addNameRange     '0.0.8',
+1338 silly addNameRange     '0.0.9',
+1338 silly addNameRange     '0.0.10',
+1338 silly addNameRange     '1.0.0',
+1338 silly addNameRange     '1.0.1',
+1338 silly addNameRange     '1.0.2' ] ]
+1339 verbose addNamed [ 'fstream-ignore', '1.0.2' ]
+1340 verbose addNamed [ '1.0.2', '1.0.2' ]
+1341 silly lockFile 58191f1e-fstream-ignore-1-0-2 fstream-ignore@1.0.2
+1342 verbose lock fstream-ignore@1.0.2 /home/nada/.npm/58191f1e-fstream-ignore-1-0-2.lock
+1343 silly lockFile c015760b-bower-config-0-6-1 bower-config@0.6.1
+1344 silly lockFile c015760b-bower-config-0-6-1 bower-config@0.6.1
+1345 silly lockFile b3d72336-bower-endpoint-parser-0-2-2 bower-endpoint-parser@0.2.2
+1346 silly lockFile b3d72336-bower-endpoint-parser-0-2-2 bower-endpoint-parser@0.2.2
+1347 silly lockFile 55d90b2f-abbrev-1-0-5 abbrev@1.0.5
+1348 silly lockFile 55d90b2f-abbrev-1-0-5 abbrev@1.0.5
+1349 silly lockFile b1e84b7d-bower-config-0-6-1 bower-config@^0.6.1
+1350 silly lockFile b1e84b7d-bower-config-0-6-1 bower-config@^0.6.1
+1351 silly lockFile 5f551f4b-bower-endpoint-parser-0-2-2 bower-endpoint-parser@^0.2.2
+1352 silly lockFile 5f551f4b-bower-endpoint-parser-0-2-2 bower-endpoint-parser@^0.2.2
+1353 silly lockFile ec559f65-abbrev-1-0-5 abbrev@^1.0.5
+1354 silly lockFile ec559f65-abbrev-1-0-5 abbrev@^1.0.5
+1355 silly addNameRange number 2 { name: 'github', range: '>=0.2.3-0 <0.3.0-0', hasData: true }
+1356 silly addNameRange versions [ 'github',
+1356 silly addNameRange   [ '0.0.1',
+1356 silly addNameRange     '0.0.2',
+1356 silly addNameRange     '0.0.3',
+1356 silly addNameRange     '0.0.4',
+1356 silly addNameRange     '0.0.5',
+1356 silly addNameRange     '0.0.6',
+1356 silly addNameRange     '0.0.7',
+1356 silly addNameRange     '0.0.8',
+1356 silly addNameRange     '0.1.0',
+1356 silly addNameRange     '0.1.1',
+1356 silly addNameRange     '0.1.2',
+1356 silly addNameRange     '0.1.3',
+1356 silly addNameRange     '0.1.4',
+1356 silly addNameRange     '0.1.5',
+1356 silly addNameRange     '0.1.6',
+1356 silly addNameRange     '0.1.7',
+1356 silly addNameRange     '0.1.8',
+1356 silly addNameRange     '0.1.9',
+1356 silly addNameRange     '0.1.10',
+1356 silly addNameRange     '0.1.11',
+1356 silly addNameRange     '0.1.12',
+1356 silly addNameRange     '0.1.13',
+1356 silly addNameRange     '0.1.14',
+1356 silly addNameRange     '0.1.15',
+1356 silly addNameRange     '0.1.16',
+1356 silly addNameRange     '0.2.0',
+1356 silly addNameRange     '0.2.1',
+1356 silly addNameRange     '0.2.2',
+1356 silly addNameRange     '0.2.3' ] ]
+1357 verbose addNamed [ 'github', '0.2.3' ]
+1358 verbose addNamed [ '0.2.3', '0.2.3' ]
+1359 silly lockFile e9de4b42-github-0-2-3 github@0.2.3
+1360 verbose lock github@0.2.3 /home/nada/.npm/e9de4b42-github-0-2-3.lock
+1361 silly lockFile d39b341c-bower-json-0-4-0 bower-json@0.4.0
+1362 silly lockFile d39b341c-bower-json-0-4-0 bower-json@0.4.0
+1363 silly addNameRange number 2 { name: 'graceful-fs',
+1363 silly addNameRange   range: '>=3.0.5-0 <4.0.0-0',
+1363 silly addNameRange   hasData: true }
+1364 silly addNameRange versions [ 'graceful-fs',
+1364 silly addNameRange   [ '1.0.0',
+1364 silly addNameRange     '1.0.1',
+1364 silly addNameRange     '1.0.2',
+1364 silly addNameRange     '1.1.0',
+1364 silly addNameRange     '1.1.1',
+1364 silly addNameRange     '1.1.2',
+1364 silly addNameRange     '1.1.3',
+1364 silly addNameRange     '1.1.4',
+1364 silly addNameRange     '1.1.5',
+1364 silly addNameRange     '1.1.6',
+1364 silly addNameRange     '1.1.7',
+1364 silly addNameRange     '1.1.8',
+1364 silly addNameRange     '1.1.9',
+1364 silly addNameRange     '1.1.10',
+1364 silly addNameRange     '1.1.11',
+1364 silly addNameRange     '1.1.12',
+1364 silly addNameRange     '1.1.13',
+1364 silly addNameRange     '1.1.14',
+1364 silly addNameRange     '1.2.0',
+1364 silly addNameRange     '1.2.1',
+1364 silly addNameRange     '1.2.2',
+1364 silly addNameRange     '1.2.3',
+1364 silly addNameRange     '2.0.0',
+1364 silly addNameRange     '2.0.1',
+1364 silly addNameRange     '2.0.2',
+1364 silly addNameRange     '2.0.3',
+1364 silly addNameRange     '3.0.0',
+1364 silly addNameRange     '3.0.1',
+1364 silly addNameRange     '3.0.2',
+1364 silly addNameRange     '3.0.3',
+1364 silly addNameRange     '3.0.4',
+1364 silly addNameRange     '3.0.5',
+1364 silly addNameRange     '3.0.6' ] ]
+1365 verbose addNamed [ 'graceful-fs', '3.0.6' ]
+1366 verbose addNamed [ '3.0.6', '3.0.6' ]
+1367 silly lockFile 69a5c90f-graceful-fs-3-0-6 graceful-fs@3.0.6
+1368 verbose lock graceful-fs@3.0.6 /home/nada/.npm/69a5c90f-graceful-fs-3-0-6.lock
+1369 silly addNameRange number 2 { name: 'glob', range: '>=4.3.2-0 <5.0.0-0', hasData: true }
+1370 silly addNameRange versions [ 'glob',
+1370 silly addNameRange   [ '1.1.0',
+1370 silly addNameRange     '2.0.9',
+1370 silly addNameRange     '2.0.8',
+1370 silly addNameRange     '2.0.7',
+1370 silly addNameRange     '2.1.0',
+1370 silly addNameRange     '3.0.0',
+1370 silly addNameRange     '3.0.1',
+1370 silly addNameRange     '3.1.0',
+1370 silly addNameRange     '3.1.1',
+1370 silly addNameRange     '3.1.2',
+1370 silly addNameRange     '3.1.3',
+1370 silly addNameRange     '3.1.4',
+1370 silly addNameRange     '3.1.5',
+1370 silly addNameRange     '3.1.6',
+1370 silly addNameRange     '3.1.7',
+1370 silly addNameRange     '3.1.9',
+1370 silly addNameRange     '3.1.10',
+1370 silly addNameRange     '3.1.11',
+1370 silly addNameRange     '3.1.12',
+1370 silly addNameRange     '3.1.13',
+1370 silly addNameRange     '3.1.14',
+1370 silly addNameRange     '3.1.15',
+1370 silly addNameRange     '3.1.16',
+1370 silly addNameRange     '3.1.17',
+1370 silly addNameRange     '3.1.18',
+1370 silly addNameRange     '3.1.19',
+1370 silly addNameRange     '3.1.20',
+1370 silly addNameRange     '3.1.21',
+1370 silly addNameRange     '3.2.0',
+1370 silly addNameRange     '3.2.1',
+1370 silly addNameRange     '3.2.3',
+1370 silly addNameRange     '3.2.4',
+1370 silly addNameRange     '3.2.5',
+1370 silly addNameRange     '3.2.6',
+1370 silly addNameRange     '3.2.7',
+1370 silly addNameRange     '3.2.8',
+1370 silly addNameRange     '3.2.9',
+1370 silly addNameRange     '3.2.10',
+1370 silly addNameRange     '3.2.11',
+1370 silly addNameRange     '4.0.0',
+1370 silly addNameRange     '4.0.1',
+1370 silly addNameRange     '4.0.2',
+1370 silly addNameRange     '4.0.3',
+1370 silly addNameRange     '4.0.4',
+1370 silly addNameRange     '4.0.5',
+1370 silly addNameRange     '4.0.6',
+1370 silly addNameRange     '4.1.2-beta',
+1370 silly addNameRange     '4.1.2',
+1370 silly addNameRange     '4.1.3',
+1370 silly addNameRange     '4.1.4',
+1370 silly addNameRange     '4.1.5',
+1370 silly addNameRange     '4.1.6',
+1370 silly addNameRange     '4.2.0',
+1370 silly addNameRange     '4.2.1',
+1370 silly addNameRange     '4.2.2',
+1370 silly addNameRange     '4.3.0',
+1370 silly addNameRange     '4.3.1',
+1370 silly addNameRange     '4.3.2',
+1370 silly addNameRange     '4.3.3',
+1370 silly addNameRange     '4.3.4',
+1370 silly addNameRange     '4.3.5',
+1370 silly addNameRange     '4.4.0',
+1370 silly addNameRange     '4.4.2',
+1370 silly addNameRange     '4.5.0',
+1370 silly addNameRange     '5.0.0',
+1370 silly addNameRange     '4.5.1',
+1370 silly addNameRange     '5.0.1',
+1370 silly addNameRange     '4.5.2',
+1370 silly addNameRange     '5.0.2',
+1370 silly addNameRange     '4.5.3',
+1370 silly addNameRange     '5.0.3' ] ]
+1371 verbose addNamed [ 'glob', '4.5.3' ]
+1372 verbose addNamed [ '4.5.3', '4.5.3' ]
+1373 silly lockFile b74addcc-glob-4-5-3 glob@4.5.3
+1374 verbose lock glob@4.5.3 /home/nada/.npm/b74addcc-glob-4-5-3.lock
+1375 silly lockFile c093c21d-bower-json-0-4-0 bower-json@^0.4.0
+1376 silly lockFile c093c21d-bower-json-0-4-0 bower-json@^0.4.0
+1377 silly lockFile 4a38f198-bower-logger-0-2-2 bower-logger@0.2.2
+1378 silly lockFile 4a38f198-bower-logger-0-2-2 bower-logger@0.2.2
+1379 silly lockFile 7452696d-bower-registry-client-0-3-0 bower-registry-client@0.3.0
+1380 silly lockFile 7452696d-bower-registry-client-0-3-0 bower-registry-client@0.3.0
+1381 silly addNameRange number 2 { name: 'handlebars',
+1381 silly addNameRange   range: '>=2.0.0-0 <3.0.0-0',
+1381 silly addNameRange   hasData: true }
+1382 silly addNameRange versions [ 'handlebars',
+1382 silly addNameRange   [ '1.0.6',
+1382 silly addNameRange     '1.0.6-2',
+1382 silly addNameRange     '1.0.7',
+1382 silly addNameRange     '1.0.8',
+1382 silly addNameRange     '1.0.9',
+1382 silly addNameRange     '1.0.10',
+1382 silly addNameRange     '1.0.11',
+1382 silly addNameRange     '1.0.12',
+1382 silly addNameRange     '1.1.0',
+1382 silly addNameRange     '1.1.1',
+1382 silly addNameRange     '1.1.2',
+1382 silly addNameRange     '1.2.0',
+1382 silly addNameRange     '1.2.1',
+1382 silly addNameRange     '1.3.0',
+1382 silly addNameRange     '2.0.0-alpha.1',
+1382 silly addNameRange     '2.0.0-alpha.2',
+1382 silly addNameRange     '2.0.0-alpha.3',
+1382 silly addNameRange     '2.0.0-alpha.4',
+1382 silly addNameRange     '2.0.0-beta.1',
+1382 silly addNameRange     '2.0.0',
+1382 silly addNameRange     '3.0.0',
+1382 silly addNameRange     '3.0.1',
+1382 silly addNameRange     '1.0.2-beta',
+1382 silly addNameRange     '1.0.4-beta',
+1382 silly addNameRange     '1.0.5-beta' ] ]
+1383 verbose addNamed [ 'handlebars', '2.0.0' ]
+1384 verbose addNamed [ '2.0.0', '2.0.0' ]
+1385 silly lockFile a1e153af-handlebars-2-0-0 handlebars@2.0.0
+1386 verbose lock handlebars@2.0.0 /home/nada/.npm/a1e153af-handlebars-2-0-0.lock
+1387 silly lockFile 1b248943-bower-logger-0-2-2 bower-logger@^0.2.2
+1388 silly lockFile 1b248943-bower-logger-0-2-2 bower-logger@^0.2.2
+1389 silly lockFile 6295c634-cardinal-0-4-4 cardinal@0.4.4
+1390 silly lockFile 6295c634-cardinal-0-4-4 cardinal@0.4.4
+1391 silly lockFile 2ef9f29d-bower-registry-client-0-3-0 bower-registry-client@^0.3.0
+1392 silly lockFile 2ef9f29d-bower-registry-client-0-3-0 bower-registry-client@^0.3.0
+1393 silly addNameRange number 2 { name: 'insight', range: '>=0.5.0-0 <0.6.0-0', hasData: true }
+1394 silly addNameRange versions [ 'insight',
+1394 silly addNameRange   [ '0.1.0',
+1394 silly addNameRange     '0.1.1',
+1394 silly addNameRange     '0.1.2',
+1394 silly addNameRange     '0.1.3',
+1394 silly addNameRange     '0.2.0',
+1394 silly addNameRange     '0.3.0',
+1394 silly addNameRange     '0.3.1',
+1394 silly addNameRange     '0.4.0',
+1394 silly addNameRange     '0.4.1',
+1394 silly addNameRange     '0.4.2',
+1394 silly addNameRange     '0.4.3',
+1394 silly addNameRange     '0.5.0',
+1394 silly addNameRange     '0.5.1',
+1394 silly addNameRange     '0.5.2',
+1394 silly addNameRange     '0.5.3' ] ]
+1395 verbose addNamed [ 'insight', '0.5.3' ]
+1396 verbose addNamed [ '0.5.3', '0.5.3' ]
+1397 silly lockFile e66743af-insight-0-5-3 insight@0.5.3
+1398 verbose lock insight@0.5.3 /home/nada/.npm/e66743af-insight-0-5-3.lock
+1399 silly registry.get cb [ 304, undefined ]
+1400 verbose etag is-root from cache
+1401 silly registry.get cb [ 304, undefined ]
+1402 verbose etag junk from cache
+1403 silly registry.get cb [ 304, undefined ]
+1404 verbose etag lockfile from cache
+1405 silly lockFile 3c08535b-chalk-1-0-0 chalk@1.0.0
+1406 silly lockFile 3c08535b-chalk-1-0-0 chalk@1.0.0
+1407 silly lockFile 3c50e6b3-chmodr-0-1-0 chmodr@0.1.0
+1408 silly lockFile 3c50e6b3-chmodr-0-1-0 chmodr@0.1.0
+1409 silly registry.get cb [ 304, undefined ]
+1410 verbose etag mkdirp/0.5.0 from cache
+1411 silly registry.get cb [ 304, undefined ]
+1412 verbose etag lru-cache from cache
+1413 silly lockFile 2b6848f7-chalk-1-0-0 chalk@^1.0.0
+1414 silly lockFile 2b6848f7-chalk-1-0-0 chalk@^1.0.0
+1415 silly lockFile 2ce7a540-configstore-0-3-2 configstore@0.3.2
+1416 silly lockFile 2ce7a540-configstore-0-3-2 configstore@0.3.2
+1417 silly lockFile fa6a014c-configstore-0-3-2 configstore@^0.3.2
+1418 silly lockFile fa6a014c-configstore-0-3-2 configstore@^0.3.2
+1419 silly lockFile 94c62924-decompress-zip-0-1-0 decompress-zip@0.1.0
+1420 silly lockFile 94c62924-decompress-zip-0-1-0 decompress-zip@0.1.0
+1421 silly registry.get cb [ 304, undefined ]
+1422 verbose etag mout from cache
+1423 silly registry.get cb [ 304, undefined ]
+1424 verbose etag nopt from cache
+1425 silly lockFile ede035e6-fstream-1-0-4 fstream@1.0.4
+1426 silly lockFile ede035e6-fstream-1-0-4 fstream@1.0.4
+1427 silly lockFile eb420c69-decompress-zip-0-1-0 decompress-zip@^0.1.0
+1428 silly lockFile eb420c69-decompress-zip-0-1-0 decompress-zip@^0.1.0
+1429 silly registry.get cb [ 304, undefined ]
+1430 verbose etag p-throttler/0.1.1 from cache
+1431 silly registry.get cb [ 304, undefined ]
+1432 verbose etag opn from cache
+1433 silly lockFile 73ef0ca1-fstream-1-0-3 fstream@^1.0.3
+1434 silly lockFile 73ef0ca1-fstream-1-0-3 fstream@^1.0.3
+1435 silly lockFile 58191f1e-fstream-ignore-1-0-2 fstream-ignore@1.0.2
+1436 silly lockFile 58191f1e-fstream-ignore-1-0-2 fstream-ignore@1.0.2
+1437 silly addNameRange number 2 { name: 'is-root', range: '>=1.0.0-0 <2.0.0-0', hasData: true }
+1438 silly addNameRange versions [ 'is-root', [ '0.1.0', '1.0.0' ] ]
+1439 verbose addNamed [ 'is-root', '1.0.0' ]
+1440 verbose addNamed [ '1.0.0', '1.0.0' ]
+1441 silly lockFile 569ba987-is-root-1-0-0 is-root@1.0.0
+1442 verbose lock is-root@1.0.0 /home/nada/.npm/569ba987-is-root-1-0-0.lock
+1443 silly addNameRange number 2 { name: 'lockfile', range: '>=1.0.0-0 <2.0.0-0', hasData: true }
+1444 silly addNameRange versions [ 'lockfile',
+1444 silly addNameRange   [ '0.1.0',
+1444 silly addNameRange     '0.1.1',
+1444 silly addNameRange     '0.2.0',
+1444 silly addNameRange     '0.2.1',
+1444 silly addNameRange     '0.2.2',
+1444 silly addNameRange     '0.3.0',
+1444 silly addNameRange     '0.3.1',
+1444 silly addNameRange     '0.3.2',
+1444 silly addNameRange     '0.3.3',
+1444 silly addNameRange     '0.3.4',
+1444 silly addNameRange     '0.4.0',
+1444 silly addNameRange     '0.4.1',
+1444 silly addNameRange     '0.4.2',
+1444 silly addNameRange     '0.4.3',
+1444 silly addNameRange     '1.0.0' ] ]
+1445 verbose addNamed [ 'lockfile', '1.0.0' ]
+1446 verbose addNamed [ '1.0.0', '1.0.0' ]
+1447 silly lockFile e19f7586-lockfile-1-0-0 lockfile@1.0.0
+1448 verbose lock lockfile@1.0.0 /home/nada/.npm/e19f7586-lockfile-1-0-0.lock
+1449 silly registry.get cb [ 304, undefined ]
+1450 verbose etag q from cache
+1451 silly addNameRange number 2 { name: 'junk', range: '>=1.0.0-0 <2.0.0-0', hasData: true }
+1452 silly addNameRange versions [ 'junk',
+1452 silly addNameRange   [ '0.1.0', '0.2.0', '0.2.1', '0.2.2', '0.3.0', '1.0.0', '1.0.1' ] ]
+1453 verbose addNamed [ 'junk', '1.0.1' ]
+1454 verbose addNamed [ '1.0.1', '1.0.1' ]
+1455 silly lockFile a901138b-junk-1-0-1 junk@1.0.1
+1456 verbose lock junk@1.0.1 /home/nada/.npm/a901138b-junk-1-0-1.lock
+1457 silly lockFile 19e979a0-fstream-ignore-1-0-2 fstream-ignore@^1.0.2
+1458 silly lockFile 19e979a0-fstream-ignore-1-0-2 fstream-ignore@^1.0.2
+1459 silly addNameRange number 2 { name: 'lru-cache', range: '>=2.5.0-0 <3.0.0-0', hasData: true }
+1460 silly addNameRange versions [ 'lru-cache',
+1460 silly addNameRange   [ '1.0.1',
+1460 silly addNameRange     '1.0.2',
+1460 silly addNameRange     '1.0.3',
+1460 silly addNameRange     '1.0.4',
+1460 silly addNameRange     '1.0.5',
+1460 silly addNameRange     '1.0.6',
+1460 silly addNameRange     '1.1.0',
+1460 silly addNameRange     '1.1.1',
+1460 silly addNameRange     '2.0.0',
+1460 silly addNameRange     '2.0.1',
+1460 silly addNameRange     '2.0.2',
+1460 silly addNameRange     '2.0.3',
+1460 silly addNameRange     '2.0.4',
+1460 silly addNameRange     '2.1.0',
+1460 silly addNameRange     '2.2.0',
+1460 silly addNameRange     '2.2.1',
+1460 silly addNameRange     '2.2.2',
+1460 silly addNameRange     '2.2.4',
+1460 silly addNameRange     '2.3.0',
+1460 silly addNameRange     '2.3.1',
+1460 silly addNameRange     '2.5.0' ] ]
+1461 verbose addNamed [ 'lru-cache', '2.5.0' ]
+1462 verbose addNamed [ '2.5.0', '2.5.0' ]
+1463 silly lockFile 30aa630e-lru-cache-2-5-0 lru-cache@2.5.0
+1464 verbose lock lru-cache@2.5.0 /home/nada/.npm/30aa630e-lru-cache-2-5-0.lock
+1465 silly registry.get cb [ 304, undefined ]
+1466 verbose etag promptly/0.2.0 from cache
+1467 silly registry.get cb [ 304, undefined ]
+1468 verbose etag request/2.53.0 from cache
+1469 silly lockFile e9de4b42-github-0-2-3 github@0.2.3
+1470 silly lockFile e9de4b42-github-0-2-3 github@0.2.3
+1471 silly lockFile 200a5243-inquirer-0-8-0 inquirer@0.8.0
+1472 silly lockFile 200a5243-inquirer-0-8-0 inquirer@0.8.0
+1473 silly registry.get cb [ 304, undefined ]
+1474 verbose etag retry/0.6.1 from cache
+1475 silly registry.get cb [ 304, undefined ]
+1476 verbose etag request-progress/0.3.1 from cache
+1477 silly lockFile 69a5c90f-graceful-fs-3-0-6 graceful-fs@3.0.6
+1478 silly lockFile 69a5c90f-graceful-fs-3-0-6 graceful-fs@3.0.6
+1479 silly lockFile b74addcc-glob-4-5-3 glob@4.5.3
+1480 silly lockFile b74addcc-glob-4-5-3 glob@4.5.3
+1481 silly lockFile 24b6ccae-github-0-2-3 github@^0.2.3
+1482 silly lockFile 24b6ccae-github-0-2-3 github@^0.2.3
+1483 silly registry.get cb [ 304, undefined ]
+1484 verbose etag semver from cache
+1485 silly lockFile d9390ef3-graceful-fs-3-0-5 graceful-fs@^3.0.5
+1486 silly lockFile d9390ef3-graceful-fs-3-0-5 graceful-fs@^3.0.5
+1487 silly lockFile fecc13ff-glob-4-3-2 glob@^4.3.2
+1488 silly lockFile fecc13ff-glob-4-3-2 glob@^4.3.2
+1489 silly lockFile a1e153af-handlebars-2-0-0 handlebars@2.0.0
+1490 silly lockFile a1e153af-handlebars-2-0-0 handlebars@2.0.0
+1491 silly addNameRange number 2 { name: 'mout', range: '>=0.11.0-0 <0.12.0-0', hasData: true }
+1492 silly addNameRange versions [ 'mout',
+1492 silly addNameRange   [ '0.1.0',
+1492 silly addNameRange     '0.2.0',
+1492 silly addNameRange     '0.3.0',
+1492 silly addNameRange     '0.4.0',
+1492 silly addNameRange     '0.5.0',
+1492 silly addNameRange     '0.6.0',
+1492 silly addNameRange     '0.7.0',
+1492 silly addNameRange     '0.7.1',
+1492 silly addNameRange     '0.8.0',
+1492 silly addNameRange     '0.9.0',
+1492 silly addNameRange     '0.9.1',
+1492 silly addNameRange     '0.10.0',
+1492 silly addNameRange     '0.11.0' ] ]
+1493 verbose addNamed [ 'mout', '0.11.0' ]
+1494 verbose addNamed [ '0.11.0', '0.11.0' ]
+1495 silly lockFile 814a254b-mout-0-11-0 mout@0.11.0
+1496 verbose lock mout@0.11.0 /home/nada/.npm/814a254b-mout-0-11-0.lock
+1497 silly addNameRange number 2 { name: 'nopt', range: '>=3.0.1-0 <4.0.0-0', hasData: true }
+1498 silly addNameRange versions [ 'nopt',
+1498 silly addNameRange   [ '1.0.0',
+1498 silly addNameRange     '1.0.1',
+1498 silly addNameRange     '1.0.2',
+1498 silly addNameRange     '1.0.3',
+1498 silly addNameRange     '1.0.4',
+1498 silly addNameRange     '1.0.5',
+1498 silly addNameRange     '1.0.6',
+1498 silly addNameRange     '1.0.7',
+1498 silly addNameRange     '1.0.8',
+1498 silly addNameRange     '1.0.9',
+1498 silly addNameRange     '1.0.10',
+1498 silly addNameRange     '2.0.0',
+1498 silly addNameRange     '2.1.0',
+1498 silly addNameRange     '2.1.1',
+1498 silly addNameRange     '2.1.2',
+1498 silly addNameRange     '2.2.0',
+1498 silly addNameRange     '2.2.1',
+1498 silly addNameRange     '3.0.0',
+1498 silly addNameRange     '3.0.1' ] ]
+1499 verbose addNamed [ 'nopt', '3.0.1' ]
+1500 verbose addNamed [ '3.0.1', '3.0.1' ]
+1501 silly lockFile a15bc1c5-nopt-3-0-1 nopt@3.0.1
+1502 verbose lock nopt@3.0.1 /home/nada/.npm/a15bc1c5-nopt-3-0-1.lock
+1503 silly registry.get cb [ 304, undefined ]
+1504 verbose etag rimraf from cache
+1505 silly registry.get cb [ 304, undefined ]
+1506 verbose etag shell-quote from cache
+1507 silly lockFile e66743af-insight-0-5-3 insight@0.5.3
+1508 silly lockFile e66743af-insight-0-5-3 insight@0.5.3
+1509 silly lockFile 0eb14452-handlebars-2-0-0 handlebars@^2.0.0
+1510 silly lockFile 0eb14452-handlebars-2-0-0 handlebars@^2.0.0
+1511 silly addNameRange number 2 { name: 'opn', range: '>=1.0.1-0 <2.0.0-0', hasData: true }
+1512 silly addNameRange versions [ 'opn', [ '0.1.0', '0.1.1', '0.1.2', '1.0.0', '1.0.1' ] ]
+1513 verbose addNamed [ 'opn', '1.0.1' ]
+1514 verbose addNamed [ '1.0.1', '1.0.1' ]
+1515 silly lockFile 92e27783-opn-1-0-1 opn@1.0.1
+1516 verbose lock opn@1.0.1 /home/nada/.npm/92e27783-opn-1-0-1.lock
+1517 silly registry.get cb [ 304, undefined ]
+1518 verbose etag stringify-object from cache
+1519 silly registry.get cb [ 304, undefined ]
+1520 verbose etag tar-fs from cache
+1521 silly lockFile f953e2f0-insight-0-5-0 insight@^0.5.0
+1522 silly lockFile f953e2f0-insight-0-5-0 insight@^0.5.0
+1523 silly addNameRange number 2 { name: 'q', range: '>=1.1.2-0 <2.0.0-0', hasData: true }
+1524 silly addNameRange versions [ 'q',
+1524 silly addNameRange   [ '0.0.0',
+1524 silly addNameRange     '0.0.1',
+1524 silly addNameRange     '0.0.2',
+1524 silly addNameRange     '0.0.3',
+1524 silly addNameRange     '0.1.0',
+1524 silly addNameRange     '0.1.1',
+1524 silly addNameRange     '0.1.2',
+1524 silly addNameRange     '0.1.3',
+1524 silly addNameRange     '0.1.4',
+1524 silly addNameRange     '0.1.5',
+1524 silly addNameRange     '0.1.6',
+1524 silly addNameRange     '0.1.7',
+1524 silly addNameRange     '0.1.8',
+1524 silly addNameRange     '0.1.9',
+1524 silly addNameRange     '0.2.0-rc1',
+1524 silly addNameRange     '0.2.0',
+1524 silly addNameRange     '0.2.1',
+1524 silly addNameRange     '0.2.2',
+1524 silly addNameRange     '0.2.3',
+1524 silly addNameRange     '0.2.4',
+1524 silly addNameRange     '0.2.5',
+1524 silly addNameRange     '0.2.6',
+1524 silly addNameRange     '0.2.7',
+1524 silly addNameRange     '0.2.8',
+1524 silly addNameRange     '0.2.9',
+1524 silly addNameRange     '0.3.0',
+1524 silly addNameRange     '0.2.10',
+1524 silly addNameRange     '0.4.0',
+1524 silly addNameRange     '0.4.1',
+1524 silly addNameRange     '0.4.2',
+1524 silly addNameRange     '0.4.4',
+1524 silly addNameRange     '0.5.0',
+1524 silly addNameRange     '0.5.1',
+1524 silly addNameRange     '0.5.2',
+1524 silly addNameRange     '0.5.3',
+1524 silly addNameRange     '0.6.0',
+1524 silly addNameRange     '0.7.0',
+1524 silly addNameRange     '0.7.1',
+1524 silly addNameRange     '0.7.2',
+1524 silly addNameRange     '0.8.0',
+1524 silly addNameRange     '0.8.1',
+1524 silly addNameRange     '0.8.2',
+1524 silly addNameRange     '0.8.3',
+1524 silly addNameRange     '0.8.4',
+1524 silly addNameRange     '0.8.5',
+1524 silly addNameRange     '0.8.6',
+1524 silly addNameRange     '0.8.7',
+1524 silly addNameRange     '0.8.8',
+1524 silly addNameRange     '0.8.9',
+1524 silly addNameRange     '0.8.10',
+1524 silly addNameRange     '0.8.11',
+1524 silly addNameRange     '0.8.12',
+1524 silly addNameRange     '0.9.0',
+1524 silly addNameRange     '0.9.1',
+1524 silly addNameRange     '0.9.2',
+1524 silly addNameRange     '0.9.3',
+1524 silly addNameRange     '0.9.4',
+1524 silly addNameRange     '0.9.5',
+1524 silly addNameRange     '0.9.6',
+1524 silly addNameRange     '0.9.7',
+1524 silly addNameRange     '1.0.0',
+1524 silly addNameRange     '1.0.1',
+1524 silly addNameRange     '2.0.0',
+1524 silly addNameRange     '2.0.1',
+1524 silly addNameRange     '2.0.2',
+1524 silly addNameRange     '1.1.0',
+1524 silly addNameRange     '1.1.1',
+1524 silly addNameRange     '1.1.2',
+1524 silly addNameRange     '2.0.3',
+1524 silly addNameRange     '1.2.0' ] ]
+1525 verbose addNamed [ 'q', '1.2.0' ]
+1526 verbose addNamed [ '1.2.0', '1.2.0' ]
+1527 silly lockFile 0069ac1d-q-1-2-0 q@1.2.0
+1528 verbose lock q@1.2.0 /home/nada/.npm/0069ac1d-q-1-2-0.lock
+1529 silly registry.get cb [ 304, undefined ]
+1530 verbose etag update-notifier from cache
+1531 silly lockFile fb166aab-y-npmjs-org-mout-mout-0-11-0-tgz https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1532 verbose lock https://registry.npmjs.org/mout/-/mout-0.11.0.tgz /home/nada/.npm/fb166aab-y-npmjs-org-mout-mout-0-11-0-tgz.lock
+1533 silly registry.get cb [ 304, undefined ]
+1534 verbose etag tmp/0.0.24 from cache
+1535 silly registry.get cb [ 304, undefined ]
+1536 verbose etag which from cache
+1537 silly registry.get cb [ 304, undefined ]
+1538 verbose etag user-home from cache
+1539 verbose addRemoteTarball [ 'https://registry.npmjs.org/mout/-/mout-0.11.0.tgz',
+1539 verbose addRemoteTarball   '93cdf0791ac8a24873ceeb42a5b016b7c867abee' ]
+1540 silly addNameRange number 2 { name: 'semver', range: '>=2.3.0-0 <3.0.0-0', hasData: true }
+1541 silly addNameRange versions [ 'semver',
+1541 silly addNameRange   [ '1.0.0',
+1541 silly addNameRange     '1.0.1',
+1541 silly addNameRange     '1.0.2',
+1541 silly addNameRange     '1.0.3',
+1541 silly addNameRange     '1.0.4',
+1541 silly addNameRange     '1.0.5',
+1541 silly addNameRange     '1.0.6',
+1541 silly addNameRange     '1.0.7',
+1541 silly addNameRange     '1.0.8',
+1541 silly addNameRange     '1.0.9',
+1541 silly addNameRange     '1.0.10',
+1541 silly addNameRange     '1.0.11',
+1541 silly addNameRange     '1.0.12',
+1541 silly addNameRange     '1.0.13',
+1541 silly addNameRange     '1.0.14',
+1541 silly addNameRange     '1.1.0',
+1541 silly addNameRange     '1.1.1',
+1541 silly addNameRange     '1.1.2',
+1541 silly addNameRange     '1.1.3',
+1541 silly addNameRange     '1.1.4',
+1541 silly addNameRange     '2.0.0-alpha',
+1541 silly addNameRange     '2.0.0-beta',
+1541 silly addNameRange     '2.0.1',
+1541 silly addNameRange     '2.0.2',
+1541 silly addNameRange     '2.0.3',
+1541 silly addNameRange     '2.0.4',
+1541 silly addNameRange     '2.0.5',
+1541 silly addNameRange     '2.0.6',
+1541 silly addNameRange     '2.0.7',
+1541 silly addNameRange     '2.0.8',
+1541 silly addNameRange     '2.0.9',
+1541 silly addNameRange     '2.0.10',
+1541 silly addNameRange     '2.0.11',
+1541 silly addNameRange     '2.1.0',
+1541 silly addNameRange     '2.2.0',
+1541 silly addNameRange     '2.2.1',
+1541 silly addNameRange     '2.3.0',
+1541 silly addNameRange     '2.3.1',
+1541 silly addNameRange     '2.3.2',
+1541 silly addNameRange     '3.0.0',
+1541 silly addNameRange     '3.0.1',
+1541 silly addNameRange     '4.0.0',
+1541 silly addNameRange     '4.0.2',
+1541 silly addNameRange     '4.0.3',
+1541 silly addNameRange     '4.1.0',
+1541 silly addNameRange     '4.1.1',
+1541 silly addNameRange     '4.2.0',
+1541 silly addNameRange     '4.2.1',
+1541 silly addNameRange     '4.2.2',
+1541 silly addNameRange     '4.3.0',
+1541 silly addNameRange     '4.3.1',
+1541 silly addNameRange     '4.3.2',
+1541 silly addNameRange     '4.3.3' ] ]
+1542 verbose addNamed [ 'semver', '2.3.2' ]
+1543 verbose addNamed [ '2.3.2', '2.3.2' ]
+1544 silly lockFile 860f99cb-semver-2-3-2 semver@2.3.2
+1545 verbose lock semver@2.3.2 /home/nada/.npm/860f99cb-semver-2-3-2.lock
+1546 silly addNameRange number 2 { name: 'shell-quote',
+1546 silly addNameRange   range: '>=1.4.2-0 <2.0.0-0',
+1546 silly addNameRange   hasData: true }
+1547 silly addNameRange versions [ 'shell-quote',
+1547 silly addNameRange   [ '0.0.0',
+1547 silly addNameRange     '0.0.1',
+1547 silly addNameRange     '0.1.0',
+1547 silly addNameRange     '0.1.1',
+1547 silly addNameRange     '1.0.0',
+1547 silly addNameRange     '1.1.0',
+1547 silly addNameRange     '1.2.0',
+1547 silly addNameRange     '1.3.0',
+1547 silly addNameRange     '1.3.1',
+1547 silly addNameRange     '1.3.2',
+1547 silly addNameRange     '1.3.3',
+1547 silly addNameRange     '1.4.0',
+1547 silly addNameRange     '1.4.1',
+1547 silly addNameRange     '1.4.2',
+1547 silly addNameRange     '1.4.3' ] ]
+1548 verbose addNamed [ 'shell-quote', '1.4.3' ]
+1549 verbose addNamed [ '1.4.3', '1.4.3' ]
+1550 silly lockFile 7d81aa7e-shell-quote-1-4-3 shell-quote@1.4.3
+1551 verbose lock shell-quote@1.4.3 /home/nada/.npm/7d81aa7e-shell-quote-1-4-3.lock
+1552 silly addNameRange number 2 { name: 'rimraf', range: '>=2.2.8-0 <3.0.0-0', hasData: true }
+1553 silly addNameRange versions [ 'rimraf',
+1553 silly addNameRange   [ '1.0.0',
+1553 silly addNameRange     '1.0.1',
+1553 silly addNameRange     '1.0.2',
+1553 silly addNameRange     '1.0.4',
+1553 silly addNameRange     '1.0.5',
+1553 silly addNameRange     '1.0.6',
+1553 silly addNameRange     '1.0.7',
+1553 silly addNameRange     '1.0.8',
+1553 silly addNameRange     '1.0.9',
+1553 silly addNameRange     '2.0.0',
+1553 silly addNameRange     '2.0.1',
+1553 silly addNameRange     '2.0.2',
+1553 silly addNameRange     '2.0.3',
+1553 silly addNameRange     '2.1.0',
+1553 silly addNameRange     '2.1.1',
+1553 silly addNameRange     '2.1.2',
+1553 silly addNameRange     '2.1.3',
+1553 silly addNameRange     '2.1.4',
+1553 silly addNameRange     '2.2.0',
+1553 silly addNameRange     '2.2.1',
+1553 silly addNameRange     '2.2.2',
+1553 silly addNameRange     '2.2.3',
+1553 silly addNameRange     '2.2.4',
+1553 silly addNameRange     '2.2.5',
+1553 silly addNameRange     '2.2.6',
+1553 silly addNameRange     '2.2.8',
+1553 silly addNameRange     '2.3.0',
+1553 silly addNameRange     '2.3.1',
+1553 silly addNameRange     '2.3.2' ] ]
+1554 verbose addNamed [ 'rimraf', '2.3.2' ]
+1555 verbose addNamed [ '2.3.2', '2.3.2' ]
+1556 silly lockFile abb2e9cb-rimraf-2-3-2 rimraf@2.3.2
+1557 verbose lock rimraf@2.3.2 /home/nada/.npm/abb2e9cb-rimraf-2-3-2.lock
+1558 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+1559 silly lockFile bf9ae38d-mkdirp-0-5-0 mkdirp@0.5.0
+1560 silly lockFile 569ba987-is-root-1-0-0 is-root@1.0.0
+1561 silly lockFile 569ba987-is-root-1-0-0 is-root@1.0.0
+1562 silly lockFile e19f7586-lockfile-1-0-0 lockfile@1.0.0
+1563 silly lockFile e19f7586-lockfile-1-0-0 lockfile@1.0.0
+1564 info retry fetch attempt 1 at 17:13:13
+1565 verbose fetch to= /home/nada/tmp/npm-14074-khpKtMqy/1428419593674-0.839966110419482/tmp.tgz
+1566 silly addNameRange number 2 { name: 'stringify-object',
+1566 silly addNameRange   range: '>=1.0.0-0 <2.0.0-0',
+1566 silly addNameRange   hasData: true }
+1567 silly addNameRange versions [ 'stringify-object',
+1567 silly addNameRange   [ '0.1.0',
+1567 silly addNameRange     '0.1.1',
+1567 silly addNameRange     '0.1.2',
+1567 silly addNameRange     '0.1.3',
+1567 silly addNameRange     '0.1.4',
+1567 silly addNameRange     '0.1.5',
+1567 silly addNameRange     '0.1.6',
+1567 silly addNameRange     '0.1.7',
+1567 silly addNameRange     '0.1.8',
+1567 silly addNameRange     '0.2.0',
+1567 silly addNameRange     '0.2.1',
+1567 silly addNameRange     '1.0.0',
+1567 silly addNameRange     '1.0.1' ] ]
+1568 verbose addNamed [ 'stringify-object', '1.0.1' ]
+1569 verbose addNamed [ '1.0.1', '1.0.1' ]
+1570 silly lockFile 21cd2e90-stringify-object-1-0-1 stringify-object@1.0.1
+1571 verbose lock stringify-object@1.0.1 /home/nada/.npm/21cd2e90-stringify-object-1-0-1.lock
+1572 silly addNameRange number 2 { name: 'tar-fs', range: '>=1.4.1-0 <2.0.0-0', hasData: true }
+1573 silly addNameRange versions [ 'tar-fs',
+1573 silly addNameRange   [ '0.1.0',
+1573 silly addNameRange     '0.1.1',
+1573 silly addNameRange     '0.1.2',
+1573 silly addNameRange     '0.1.3',
+1573 silly addNameRange     '0.1.4',
+1573 silly addNameRange     '0.1.5',
+1573 silly addNameRange     '0.1.6',
+1573 silly addNameRange     '0.1.7',
+1573 silly addNameRange     '0.1.8',
+1573 silly addNameRange     '0.2.0',
+1573 silly addNameRange     '0.2.1',
+1573 silly addNameRange     '0.2.2',
+1573 silly addNameRange     '0.3.0',
+1573 silly addNameRange     '0.3.1',
+1573 silly addNameRange     '0.3.2',
+1573 silly addNameRange     '0.3.3',
+1573 silly addNameRange     '0.4.0',
+1573 silly addNameRange     '0.4.1',
+1573 silly addNameRange     '0.5.0',
+1573 silly addNameRange     '0.5.1',
+1573 silly addNameRange     '0.5.2',
+1573 silly addNameRange     '1.0.0',
+1573 silly addNameRange     '1.1.0',
+1573 silly addNameRange     '1.2.0',
+1573 silly addNameRange     '1.3.0',
+1573 silly addNameRange     '1.4.0',
+1573 silly addNameRange     '1.4.1',
+1573 silly addNameRange     '1.4.2',
+1573 silly addNameRange     '1.5.0' ] ]
+1574 verbose addNamed [ 'tar-fs', '1.5.0' ]
+1575 verbose addNamed [ '1.5.0', '1.5.0' ]
+1576 silly lockFile 15e2f854-tar-fs-1-5-0 tar-fs@1.5.0
+1577 verbose lock tar-fs@1.5.0 /home/nada/.npm/15e2f854-tar-fs-1-5-0.lock
+1578 silly lockFile a901138b-junk-1-0-1 junk@1.0.1
+1579 silly lockFile a901138b-junk-1-0-1 junk@1.0.1
+1580 silly lockFile 42ef8871-is-root-1-0-0 is-root@^1.0.0
+1581 silly lockFile 42ef8871-is-root-1-0-0 is-root@^1.0.0
+1582 silly lockFile 688d7dfe-lockfile-1-0-0 lockfile@^1.0.0
+1583 silly lockFile 688d7dfe-lockfile-1-0-0 lockfile@^1.0.0
+1584 silly addNameRange number 2 { name: 'update-notifier',
+1584 silly addNameRange   range: '>=0.3.0-0 <0.4.0-0',
+1584 silly addNameRange   hasData: true }
+1585 silly addNameRange versions [ 'update-notifier',
+1585 silly addNameRange   [ '0.1.0',
+1585 silly addNameRange     '0.1.1',
+1585 silly addNameRange     '0.1.2',
+1585 silly addNameRange     '0.1.3',
+1585 silly addNameRange     '0.1.4',
+1585 silly addNameRange     '0.1.5',
+1585 silly addNameRange     '0.1.6',
+1585 silly addNameRange     '0.1.7',
+1585 silly addNameRange     '0.1.8',
+1585 silly addNameRange     '0.1.9',
+1585 silly addNameRange     '0.1.10',
+1585 silly addNameRange     '0.2.0',
+1585 silly addNameRange     '0.2.1',
+1585 silly addNameRange     '0.2.2',
+1585 silly addNameRange     '0.3.0',
+1585 silly addNameRange     '0.3.1' ] ]
+1586 verbose addNamed [ 'update-notifier', '0.3.1' ]
+1587 verbose addNamed [ '0.3.1', '0.3.1' ]
+1588 silly lockFile 9f6343fd-update-notifier-0-3-1 update-notifier@0.3.1
+1589 verbose lock update-notifier@0.3.1 /home/nada/.npm/9f6343fd-update-notifier-0-3-1.lock
+1590 silly lockFile de101e8f-junk-1-0-0 junk@^1.0.0
+1591 silly lockFile de101e8f-junk-1-0-0 junk@^1.0.0
+1592 silly lockFile 30aa630e-lru-cache-2-5-0 lru-cache@2.5.0
+1593 silly lockFile 30aa630e-lru-cache-2-5-0 lru-cache@2.5.0
+1594 http GET https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1595 silly addNameRange number 2 { name: 'which', range: '>=1.0.8-0 <2.0.0-0', hasData: true }
+1596 silly addNameRange versions [ 'which',
+1596 silly addNameRange   [ '1.0.0',
+1596 silly addNameRange     '1.0.1',
+1596 silly addNameRange     '1.0.2',
+1596 silly addNameRange     '1.0.3',
+1596 silly addNameRange     '1.0.5',
+1596 silly addNameRange     '1.0.6',
+1596 silly addNameRange     '1.0.7',
+1596 silly addNameRange     '1.0.8',
+1596 silly addNameRange     '1.0.9' ] ]
+1597 verbose addNamed [ 'which', '1.0.9' ]
+1598 verbose addNamed [ '1.0.9', '1.0.9' ]
+1599 silly lockFile 83832c1c-which-1-0-9 which@1.0.9
+1600 verbose lock which@1.0.9 /home/nada/.npm/83832c1c-which-1-0-9.lock
+1601 silly lockFile f4c34f80-lru-cache-2-5-0 lru-cache@^2.5.0
+1602 silly lockFile f4c34f80-lru-cache-2-5-0 lru-cache@^2.5.0
+1603 silly addNameRange number 2 { name: 'user-home', range: '>=1.1.0-0 <2.0.0-0', hasData: true }
+1604 silly addNameRange versions [ 'user-home', [ '1.0.0', '1.1.0', '1.1.1' ] ]
+1605 verbose addNamed [ 'user-home', '1.1.1' ]
+1606 verbose addNamed [ '1.1.1', '1.1.1' ]
+1607 silly lockFile 8f7ecde5-user-home-1-1-1 user-home@1.1.1
+1608 verbose lock user-home@1.1.1 /home/nada/.npm/8f7ecde5-user-home-1-1-1.lock
+1609 silly lockFile 833f3def-p-throttler-0-1-1 p-throttler@0.1.1
+1610 silly lockFile 833f3def-p-throttler-0-1-1 p-throttler@0.1.1
+1611 silly lockFile a15bc1c5-nopt-3-0-1 nopt@3.0.1
+1612 silly lockFile a15bc1c5-nopt-3-0-1 nopt@3.0.1
+1613 silly lockFile a4366549-nopt-3-0-1 nopt@^3.0.1
+1614 silly lockFile a4366549-nopt-3-0-1 nopt@^3.0.1
+1615 silly lockFile 92e27783-opn-1-0-1 opn@1.0.1
+1616 silly lockFile 92e27783-opn-1-0-1 opn@1.0.1
+1617 silly lockFile aee8052e-request-2-53-0 request@2.53.0
+1618 silly lockFile aee8052e-request-2-53-0 request@2.53.0
+1619 silly lockFile c940dc36-promptly-0-2-0 promptly@0.2.0
+1620 silly lockFile c940dc36-promptly-0-2-0 promptly@0.2.0
+1621 silly lockFile b7106061-opn-1-0-1 opn@^1.0.1
+1622 silly lockFile b7106061-opn-1-0-1 opn@^1.0.1
+1623 silly lockFile 0069ac1d-q-1-2-0 q@1.2.0
+1624 silly lockFile 0069ac1d-q-1-2-0 q@1.2.0
+1625 silly lockFile b7624628-q-1-1-2 q@^1.1.2
+1626 silly lockFile b7624628-q-1-1-2 q@^1.1.2
+1627 silly lockFile a2b190cd-request-progress-0-3-1 request-progress@0.3.1
+1628 silly lockFile a2b190cd-request-progress-0-3-1 request-progress@0.3.1
+1629 silly lockFile 505aaa9f-retry-0-6-1 retry@0.6.1
+1630 silly lockFile 505aaa9f-retry-0-6-1 retry@0.6.1
+1631 silly lockFile 860f99cb-semver-2-3-2 semver@2.3.2
+1632 silly lockFile 860f99cb-semver-2-3-2 semver@2.3.2
+1633 error fetch failed https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1634 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1635 silly lockFile 85d2d02f-semver-2-3-0 semver@^2.3.0
+1636 silly lockFile 85d2d02f-semver-2-3-0 semver@^2.3.0
+1637 silly lockFile 7d81aa7e-shell-quote-1-4-3 shell-quote@1.4.3
+1638 silly lockFile 7d81aa7e-shell-quote-1-4-3 shell-quote@1.4.3
+1639 silly lockFile abb2e9cb-rimraf-2-3-2 rimraf@2.3.2
+1640 silly lockFile abb2e9cb-rimraf-2-3-2 rimraf@2.3.2
+1641 silly lockFile a486ed4c-shell-quote-1-4-2 shell-quote@^1.4.2
+1642 silly lockFile a486ed4c-shell-quote-1-4-2 shell-quote@^1.4.2
+1643 silly lockFile 21cd2e90-stringify-object-1-0-1 stringify-object@1.0.1
+1644 silly lockFile 21cd2e90-stringify-object-1-0-1 stringify-object@1.0.1
+1645 silly lockFile e7d3f915-rimraf-2-2-8 rimraf@^2.2.8
+1646 silly lockFile e7d3f915-rimraf-2-2-8 rimraf@^2.2.8
+1647 silly lockFile 15e2f854-tar-fs-1-5-0 tar-fs@1.5.0
+1648 silly lockFile 15e2f854-tar-fs-1-5-0 tar-fs@1.5.0
+1649 silly lockFile 386a10cd-tmp-0-0-24 tmp@0.0.24
+1650 silly lockFile 386a10cd-tmp-0-0-24 tmp@0.0.24
+1651 silly lockFile d0fcee5b-stringify-object-1-0-0 stringify-object@^1.0.0
+1652 silly lockFile d0fcee5b-stringify-object-1-0-0 stringify-object@^1.0.0
+1653 silly lockFile a6971d78-tar-fs-1-4-1 tar-fs@^1.4.1
+1654 silly lockFile a6971d78-tar-fs-1-4-1 tar-fs@^1.4.1
+1655 silly lockFile 9f6343fd-update-notifier-0-3-1 update-notifier@0.3.1
+1656 silly lockFile 9f6343fd-update-notifier-0-3-1 update-notifier@0.3.1
+1657 silly lockFile c2368604-update-notifier-0-3-0 update-notifier@^0.3.0
+1658 silly lockFile c2368604-update-notifier-0-3-0 update-notifier@^0.3.0
+1659 silly lockFile 83832c1c-which-1-0-9 which@1.0.9
+1660 silly lockFile 83832c1c-which-1-0-9 which@1.0.9
+1661 silly lockFile b4c07d78-which-1-0-8 which@^1.0.8
+1662 silly lockFile b4c07d78-which-1-0-8 which@^1.0.8
+1663 silly lockFile 8f7ecde5-user-home-1-1-1 user-home@1.1.1
+1664 silly lockFile 8f7ecde5-user-home-1-1-1 user-home@1.1.1
+1665 silly lockFile e402538d-user-home-1-1-0 user-home@^1.1.0
+1666 silly lockFile e402538d-user-home-1-1-0 user-home@^1.1.0
+1667 info retry fetch attempt 2 at 17:13:23
+1668 verbose fetch to= /home/nada/tmp/npm-14074-khpKtMqy/1428419593674-0.839966110419482/tmp.tgz
+1669 http GET https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1670 error fetch failed https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1671 info retry will retry, error on last attempt: Error: connect ECONNREFUSED
+1672 info retry fetch attempt 3 at 17:14:23
+1673 verbose fetch to= /home/nada/tmp/npm-14074-khpKtMqy/1428419593674-0.839966110419482/tmp.tgz
+1674 http GET https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1675 error fetch failed https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1676 silly lockFile fb166aab-y-npmjs-org-mout-mout-0-11-0-tgz https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1677 silly lockFile fb166aab-y-npmjs-org-mout-mout-0-11-0-tgz https://registry.npmjs.org/mout/-/mout-0.11.0.tgz
+1678 silly lockFile 814a254b-mout-0-11-0 mout@0.11.0
+1679 silly lockFile 814a254b-mout-0-11-0 mout@0.11.0
+1680 silly lockFile e28b7f80-mout-0-11-0 mout@^0.11.0
+1681 silly lockFile e28b7f80-mout-0-11-0 mout@^0.11.0
+1682 verbose about to build /usr/local/lib/node_modules/bower
+1683 info /usr/local/lib/node_modules/bower unbuild
+1684 info preuninstall bower@1.4.1
+1685 info uninstall bower@1.4.1
+1686 verbose true,/usr/local/lib/node_modules,/usr/local/lib/node_modules unbuild bower@1.4.1
+1687 verbose /usr/local/bin,[object Object] binRoot
+1688 info postuninstall bower@1.4.1
+1689 error Error: connect ECONNREFUSED
+1689 error     at errnoException (net.js:901:11)
+1689 error     at Object.afterConnect [as oncomplete] (net.js:892:19)
+1689 error  { [Error: connect ECONNREFUSED]
+1689 error   code: 'ECONNREFUSED',
+1689 error   errno: 'ECONNREFUSED',
+1689 error   syscall: 'connect' }
+1690 error If you are behind a proxy, please make sure that the
+1690 error 'proxy' config is set properly.  See: 'npm help config'
+1691 error System Linux 3.13.0-46-generic
+1692 error command "/usr/bin/nodejs" "/usr/bin/npm" "install" "-g" "bower"
+1693 error cwd /home/nada/Croma
+1694 error node -v v0.10.25
+1695 error npm -v 1.3.10
+1696 error syscall connect
+1697 error code ECONNREFUSED
+1698 error errno ECONNREFUSED
+1699 error stack Error: connect ECONNREFUSED
+1699 error stack     at errnoException (net.js:901:11)
+1699 error stack     at Object.afterConnect [as oncomplete] (net.js:892:19)
+1700 verbose exit [ 1, true ]

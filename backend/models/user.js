@@ -19,7 +19,8 @@ var UserSchema = new Schema({
     profilePhoto: { type: String },
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
-    admin: {type: Boolean}
+    admin: {type: Boolean},
+    read: [{type:ObjectId, ref: 'book'}]
 });
 
 UserSchema.pre('save', function(next) {

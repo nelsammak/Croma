@@ -8,8 +8,7 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'flow',
-  'bootstrap-tagsinput'
+  'flow'
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -68,6 +67,11 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/dashboard.html',
        // controller: 'ReaderController'
 
+      })
+      .when('/shelves',{
+        templateUrl: 'partials/myShelf.html',
+        controller: '',
+        css: 'partials/css/shelf.css'
       })
       .otherwise({
         redirectTo: '/'
