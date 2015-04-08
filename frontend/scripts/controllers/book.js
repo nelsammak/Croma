@@ -64,7 +64,7 @@ angular.module('angularPassportApp')
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
-          $scope.book.tobeRead=bool;
+          $scope.book.tobeRead=true;
           console.log("user added book" + bool);
         })
         })
