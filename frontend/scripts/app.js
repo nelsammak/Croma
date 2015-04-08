@@ -14,6 +14,7 @@ angular.module('angularPassportApp', [
 //choosing a specific partial HTML and a controller for any route
 
   .config(function ($routeProvider, $locationProvider,flowFactoryProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'partials/main.html',
@@ -30,10 +31,7 @@ angular.module('angularPassportApp', [
       .when('/books', {
         templateUrl: 'partials/books.html',
         controller: 'BooksCtrl'
-      })
-      .when('/books/:id', {
-        templateUrl: 'partials/book.html',
-        controller: 'BookCtrl'
+
       })
       .when('/newarrivals', {
         templateUrl: 'partials/books.html',
@@ -74,6 +72,7 @@ angular.module('angularPassportApp', [
         controller: 'ShelfCtrl'
         
       })
+
       .otherwise({
         redirectTo: '/'
       });
