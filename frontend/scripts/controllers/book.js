@@ -9,6 +9,7 @@ angular.module('angularPassportApp')
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
+      console.log("avg rating is" + rating);
       $scope.book.avgRating=rating;
       });
 
@@ -16,7 +17,7 @@ angular.module('angularPassportApp')
       $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
         .success(function(num) {
           $scope.book.userRating=num;
-          console.log(response);
+          console.log("user rating is " + num);
         })
         .error(function(data) {
           console.log('Error: ' + data);
@@ -26,7 +27,7 @@ angular.module('angularPassportApp')
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function(bool) {
           $scope.book.tobeRead=bool;
-          console.log(response);
+          console.log("user added book" + bool);
         })
         .error(function(data) {
           console.log('Error: ' + data);
@@ -42,8 +43,9 @@ angular.module('angularPassportApp')
       console.log('rating: ' +  $scope.rating);
       $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: $scope.rating})
         .success(function(response) {
+          $scope.book.userRating=$scope.rating;
           scope.book.avgRating=response;
-          console.log(response);
+          console.log("avg rating is" + rating);
         })
         .error(function(data) {
           console.log('Error: ' + data);
@@ -56,7 +58,7 @@ angular.module('angularPassportApp')
       console.log('book: ' +  ShareService.getValue());
       $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
         .success(function(bool) {
-          console.log(bool);
+          console.log("user added book" + bool);
           $scope.book.tobeRead=bool;
         })
         .error(function(data) {
