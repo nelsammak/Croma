@@ -1,10 +1,6 @@
 'use strict';
 
-angular.module('bookSearch', ['elasticsearch'],
-  ['$locationProvider', function($locationProvider) {
-    $locationProvider.html5Mode(true);
-  }]
-);
+
 angular.module('angularPassportApp', [
   'ngCookies',
   'ngResource',
@@ -13,7 +9,7 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'bookSearch'
+  'elasticsearch'
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -70,3 +66,15 @@ angular.module('angularPassportApp', [
       return false;
     });
   });
+angular.module('elasticsearch',[]).factory('esFactory',['$http','$q',function($http,$q){
+var factory=config || {};
+config.connectionClass= AngularConnector;
+config.$http=$http;
+config.defer()=function();
+return $q.defer();
+};
+return new client (config);
+}; ]);
+
+
+}
