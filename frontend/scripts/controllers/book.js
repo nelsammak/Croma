@@ -5,6 +5,27 @@ angular.module('angularPassportApp')
   .controller('BookCtrl', function ($scope, $http, ShareService) {
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
+
+      //get the rating of the current user of that book
+      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
+        .success(function(num) {
+          $scope.book.userRating=num;
+          console.log(response);
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+
+      //get the rating of the current user of that book
+      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
+        .success(function(bool) {
+          $scope.book.userRating=bool;
+          console.log(response);
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+
       $scope.book=response.book;
     });
 
@@ -17,7 +38,7 @@ angular.module('angularPassportApp')
       console.log('rating: ' +  $scope.rating);
       $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: $scope.rating})
         .success(function(response) {
-          //$scope.book=data.book;
+          scope.book.avgRating=response;
           console.log(response);
         })
         .error(function(data) {
