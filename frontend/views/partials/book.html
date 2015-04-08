@@ -33,36 +33,17 @@
 			{{book.bio}}
 			</p>	
 			
-			<button ng-show="!book.toberead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
-			<button ng-show="book.toberead" style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
+			<button ng-show="!book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
+			<button ng-show="book.tobeRead" style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
 
 		</div>
 		<div id="rate">
-
-			<div id="rating">
-				<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-			</div>
-
 			<input ng-model="rating"
                       type="number"
                       max="5"
                       min="0">
                <button  class="btn  btn-sm btn-link" type="button" 
 								ng-click="rate()">rate</button>
-
-			<span class="starRating">
-  <input id="rating5" type="radio" name="rating" value="5">
-  <label for="rating5">5</label>
-  <input id="rating4" type="radio" name="rating" value="4">
-  <label for="rating4">4</label>
-  <input id="rating3" type="radio" name="rating" value="3">
-  <label for="rating3">3</label>
-  <input id="rating2" type="radio" name="rating" value="2">
-  <label for="rating2">2</label>
-  <input id="rating1" type="radio" name="rating" value="1">
-  <label for="rating1">1</label>
-</span>
-
 		</div>
 
 
@@ -70,41 +51,6 @@
 	</body>
 
 <style>
-.starRating:not(old){
-  display        : inline-block;
-  width          : 7.5em;
-  height         : 1.5em;
-  overflow       : hidden;
-  vertical-align : bottom;
-}
-
-.starRating:not(old) > input{
-  margin-right : -100%;
-  opacity      : 0;
-}
-
-.starRating:not(old) > label{
-  display         : block;
-  float           : right;
-  position        : relative;
-  background-size : contain;
-}
-
-.starRating:not(old) > label:before{
-  content         : '';
-  display         : block;
-  width           : 1.5em;
-  height          : 1.5em;
-  background-size : contain;
-  opacity         : 0;
-  transition      : opacity 0.2s linear;
-}
-
-.starRating:not(old) > label:hover:before,
-.starRating:not(old) > label:hover ~ label:before,
-.starRating:not(:hover) > :checked ~ label:before{
-  opacity : 1;
-}
 #header {
     color:blue;
     text-align:center;
