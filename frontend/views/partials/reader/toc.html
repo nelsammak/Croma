@@ -3,7 +3,7 @@
 		<ul>
 				<li id="toc-{{item.id}}" 
 						ng-repeat="item in toc" 
-						ng-include="'views/toc-item.html'" 
+						ng-include="'views/partials/reader/toc-item.html'" 
 						ng-class="{currentChapter: active == item.id}"
 						data-parent="{item.parent}"
 						></li>
