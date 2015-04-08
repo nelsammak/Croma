@@ -16,10 +16,10 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
 
-      //get the rating of the current user of that book
-      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
+      //get a boolean value to determin whether the book is on the current user tobe read list or not
+      $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function(bool) {
-          $scope.book.userRating=bool;
+          $scope.book.tobeRead=bool;
           console.log(response);
         })
         .error(function(data) {
@@ -31,7 +31,7 @@ angular.module('angularPassportApp')
 
     $scope.rating = {}
 
-    //rate function's job is to send to the backend am object consisting of a user and his rating
+    //rate function's job is to send to the backend an object consisting of a user and his rating
     $scope.rate = function() {
       console.log('user: ' +  $scope.currentUser._id);
       console.log('book: ' +  ShareService.getValue());
@@ -53,6 +53,7 @@ angular.module('angularPassportApp')
       $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
         .success(function(response) {
           console.log(response);
+          $scope.book.tobeRead=bool;
         })
         .error(function(data) {
           console.log('Error: ' + data);
