@@ -4,6 +4,7 @@
 angular.module('angularPassportApp')
 .controller('BooksCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
+      $scope.page="All books";
 		$http.get('api/books').success(function(response) {
 			console.log("I received the DATA");
 		 	$scope.books=response;
@@ -15,6 +16,7 @@ angular.module('angularPassportApp')
 angular.module('angularPassportApp')
 .controller('NewArrivalsCtrl', ['$scope', '$http',
   function newArrivalsCollection ($scope, $http) {
+    $scope.page="New Arrivals";
     $http.get('api/newarrivals').success(function(response) {
       console.log("I received the new arrivals");
       $scope.books=response;
@@ -26,6 +28,7 @@ angular.module('angularPassportApp')
 angular.module('angularPassportApp')
   .controller('GenreDisplayCtrl', function ($scope, $http, ShareService2) {
    $http.get('api/genre/'+ShareService2.getValue()).success(function(response) {
+    $scope.page="All "+ShareService2.getValue()+ " Books";
       console.log("I received the genre");
       $scope.books=response;
     });
