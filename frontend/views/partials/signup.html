@@ -18,6 +18,7 @@
                            required
                            autofocus
                            on-focus
+                           unique-email
                            mongoose-error/>
                     <p class="help-block"
                        ng-show="form.email.$error.email && !form.email.$focused">
@@ -164,6 +165,13 @@
 
 
                 <br /><br />
+
+      
+    <div class="form-group">
+  <label><input type="checkbox" ng-model="user.admin" value="true">Admin</label>
+</div>
+                <br />
+
                 <button class="btn btn-lg btn-primary btn-block"
                         type="submit"
                         ng-disabled="form.$invalid">Sign up</button>

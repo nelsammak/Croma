@@ -12,7 +12,9 @@ angular.module('angularPassportApp')
           lastName: $scope.user.lastName,
           age: $scope.user.age,
           address: $scope.user.address,
-          gender: $scope.gender
+          gender: $scope.gender,
+          admin: $scope.user.admin
+
         },
         function(err) {
           $scope.errors = {};

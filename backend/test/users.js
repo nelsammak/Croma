@@ -32,7 +32,7 @@ describe('User', function() {
         .end(function (err, res) {
             console.log('All users ahom' ,res.body);
             should.not.exist(err);
-            res.status.should.be.eql(200);
+            res.status.should.be.eql(201);
             res.body.should.be.an.instanceOf(Array)
             .and.matchEach(function(it) {
                 return it.should.have.properties('username', 'email');

@@ -9,6 +9,7 @@ angular.module('angularPassportApp', [
   'ui.bootstrap',
   'ui.router'
 ])
+//choosing a specific partial HTML and a controller for any route
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
       .when('/', {
@@ -25,15 +26,37 @@ angular.module('angularPassportApp', [
       })
       .when('/books', {
         templateUrl: 'partials/books.html',
-        controller: 'AppCtrl'
+        controller: 'BooksCtrl'
       })
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
+      })
+      .when('/newarrivals', {
+        templateUrl: 'partials/books.html',
+        controller: 'NewArrivalsCtrl'
+      })
+      .when('/genre', {
+        templateUrl: 'partials/genre.html',
+        controller: 'GenreCtrl'
+      })
+      .when('/genre/:genre', {
+        templateUrl: 'partials/books.html',
+        controller: 'GenreDisplayCtrl'
+      })
+
+      .when('/books/:id', {
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl'
+      })
+      
       .when('/profile', {
         templateUrl: 'partials/userprofile.html',
         controller: 'ProfileController'
       })
       .when('/thebook', {
-        templateUrl: 'partials/index.html',
-        controller: 'ReaderController'
+        templateUrl: 'partials/index.html'
+      //  controller: 'ReaderController'
       })
       .otherwise({
         redirectTo: '/'
