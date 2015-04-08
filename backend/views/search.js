@@ -1,27 +1,28 @@
 
+var mongoose = require('mongoose');
+var passport = require('passport');
 var express = require('express');
+var  url = require('url');
 var router = express.Router();
-var moment = require('moment');
 var es = require('elasticsearch');
 var elastic = new es.Client({ host: 'localhost:9200' });
+var Book = require('../models/book.js');
 var search = {};
-var mongoose = require('mongoose');
-var Book= require('../models/book.js');
 
+    module.exports = function(router) {
 
-module.exports = function(router) {
-  
     router.route('/search')
-        //.post(function (req,res,next) {
-            // function (err, search) {
+       // .get(function (req,res,next) {
                // if (err) {
-                  //  next(err);
-               // } else {
-                   // res.status(201);
-                   // res.json(search);
+                   // next(err);
+               /// } else {
+                    //res.status(201);
+                   // res.json(post);
                // }
-           // });
-        }
+          //  });
+        };
+
+
 // Mapping for Elastic Search
 Book.createMapping(function(err, mapping){
 	  if(err){
@@ -32,15 +33,6 @@ Book.createMapping(function(err, mapping){
 	    console.log(mapping);
 	  }
 	});
-
-
-	function launchSearch (payload) {	
-			elastic.search(payload).then(function (response) { 
-			return res.send(response); 
-		}, function (err) {
-			console.log(err);
-		});
-	}
 
 var searchResultFactory = function (res) {
 	return function (err, post) {
@@ -54,7 +46,7 @@ var searchResultFactory = function (res) {
  * 
  * 		select *
  * 		from BOOK r
- * 		where search in r.name 
+ * 		where search isn r.name 
  * 
  */
 router.post('/', function(req, res, next) {
@@ -63,7 +55,7 @@ router.post('/', function(req, res, next) {
 		book.search(
 				{ 
 					query_string : {
-						fields : [ "title" ,  "author","publisher" ],
+						fields : [ "name" ,  "author" , "publisher" ],
 						query : value
 					
 				},
@@ -76,9 +68,13 @@ router.post('/', function(req, res, next) {
 	
 	});
 
+ router.get('/', function(app,passport, req, res, next) {
+      res.send('respond with a resource');
+    });
 
 
 
 
 
-//module.exports = router;
+
+// module.exports = router;
