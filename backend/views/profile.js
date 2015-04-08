@@ -22,8 +22,7 @@ module.exports = function(router) {
     var id = req.params.id;
     Profile.findOne({ '_id': id }, function(err, profile) {
       if (err) {
-        res.json(404, err);
-        next(err);
+       return next(err);
       } else {
         res.json({profile: profile});
       }
@@ -117,7 +116,7 @@ console.log(req.files);
 * @return {JSON} {exist: {TRUE OR FALSE}} 
 */
   var checkUserName = function checkUserName(req, res, next) {
-        User.findOne({username : req.params.username}
+        Profile.findOne({username : req.params.username}
           , function findUserCallback(err, user) {
               if (err) {
                   return next(new Error('Failed to load User' 
@@ -143,7 +142,7 @@ console.log(req.files);
 */
   var currentlyReadingBooks = function currentlyReadingBooks (req, res, next) {
     var userID = req.params.id;
-    User.findOne({'_id': userID}).populate('currentlyReading')
+    Profile.findOne({'_id': userID}).populate('currentlyReading')
           .exec(function userCurrentlyReadingBooks (err, user) {
             if (err) {
               return next(err);
@@ -155,7 +154,7 @@ console.log(req.files);
 
   var alreadyReadBooks = function alreadyReadBooks (req, res, next) {
     var userID = req.params.id;
-    User.findOne({'_id': userID}).populate('read')
+    Profile.findOne({'_id': userID}).populate('read')
           .exec(function userAlreadyReadBooks (err, user) {
             if (err) {
               return next(err);
@@ -167,7 +166,7 @@ console.log(req.files);
 
   var toBeReadBooks = function toBeReadBooks (req, res, next) {
     var userID = req.params.id;
-    User.findOne({'_id': userID}).populate('toBeRead')
+    Profile.findOne({'_id': userID}).populate('toBeRead')
           .exec(function userToBeReadBooks (err, user) {
             if (err) {
               return next(err);

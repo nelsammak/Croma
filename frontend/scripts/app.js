@@ -7,8 +7,7 @@ angular.module('angularPassportApp', [
   'ngRoute',
   'http-auth-interceptor',
   'ui.bootstrap',
-  'ui.router',
-  'angularModalService'
+  'ui.router'  
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
@@ -35,11 +34,11 @@ angular.module('angularPassportApp', [
       .when('/thebook', {
         templateUrl: 'partials/index.html',
         controller: 'ReaderController'
-      })
+      }) 
       .when('/shelves',{
         templateUrl: 'partials/myShelf.html',
-        controller: '',
-        css: 'partials/css/shelf.css'
+        controller: 'ShelfCtrl'
+        
       })
       .otherwise({
         redirectTo: '/'

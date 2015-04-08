@@ -52,61 +52,68 @@
     
 <nav class="navbar navbar-default navbar-fixed-top">
 
-        <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                 <li class="page-scroll">
-                <a class="navbar-brand" href="#pageTop">Croma</a>
-                  </li>
-            </div>
+  <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+          </button>
+           <li class="page-scroll">
+          <a class="navbar-brand" href="#pageTop">Croma</a>
+            </li>
+      </div>
 
-            <!-- these items when not logged in -->
-            <div ng-show = "!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul ng-show = "!currentUser" class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">Browse</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">About</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Contact</a>
-                    </li>
-                </ul>
- <!-- these items when logged in -->
-                  <ul ng-show = "currentUser" class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#portfolio">To be Read</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#about">Hot this week</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="#contact">Best Sellers</a>
-                    </li>
-                     <li class="page-scroll">
-                        <a href="#contact">Currently Reading</a>
-                    </li>
-                </ul>
+      <!-- these items when not logged in -->
+      <div ng-show = "!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul ng-show = "!currentUser" class="nav navbar-nav navbar-right">
+              <li class="hidden">
+                  <a href="#page-top"></a>
+              </li>
+              <li class="page-scroll">
+                  <a href="#portfolio">Browse</a>
+              </li>
+              <li class="page-scroll">
+                  <a href="#about">About</a>
+              </li>
+              <li class="page-scroll">
+                  <a href="#contact">Contact</a>
+              </li>
+          </ul>
+<!-- these items when logged in -->
+          <ul ng-show = "currentUser" class="nav navbar-nav navbar-right ng-scope modal-open">
+            <li class="hidden">
+                <a href="#page-top"></a>
+            </li>
+            <li class="page-scroll">
+                <a href="#portfolio">To be Read</a>
+            </li>
+            <li class="page-scroll">
+                <a href="#about">Hot this week</a>
+            </li>
+            <li class="page-scroll">
+                <a href="#contact">Best Sellers</a>
+            </li>
 
-            </div>
-        
-            <!-- /.navbar-collapse -->
-        </div>
+            <li class="page-scroll">
+              <a 
+                href="#portfolioModalbook"  
+                class="portfolio-link"
+                data-toggle="modal">Currently Reading</a>
+
+            </li>
+
+            
+            
+          </ul>
+      </div>
+  
+      <!-- /.navbar-collapse -->
+  </div>
         <!-- /.container-fluid -->
-    </nav>
+</nav>
  
 <br><br><br><br><br><br>
     <div ng-hide="currentUser" class="container" ng-view=""></div>
@@ -131,6 +138,9 @@
         </li>
         <li class="sidebar-list">
           <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-book"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -221,7 +231,9 @@
 
         <!-- Main Content -->
         <br><br>
-        <div class="container" ng-view=""></div>
+        <div class="container" ng-view="">
+          
+        </div>
 
       </div><!-- End Page Content -->
     </div><!-- End Content Wrapper -->
@@ -277,7 +289,7 @@
         <script src="scripts/directives/widget-footer.js"></script>
         <script src="scripts/directives/widget-header.js"></script>
         <script src="scripts/directives/widget.js"></script>
-        <script src="scripts/controllers/currentModal.js"></script>
+      
         <script src="scripts/controllers/currentRead.js"></script>
         <script src="scripts/controllers/myShelf.js"></script>
 
@@ -313,7 +325,7 @@
     <script src="js/freelancer.js"></script>
         <!-- endbuild -->
 
-  <script src="bower_components\angular-modal-service\dst\angular-modal-service.min.js"></script>  
+  
 
 </body>
 </html>
