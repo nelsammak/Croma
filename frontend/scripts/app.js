@@ -9,6 +9,7 @@ angular.module('angularPassportApp', [
   'ui.bootstrap',
   'ui.router',
   'flow'
+
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -70,8 +71,8 @@ angular.module('angularPassportApp', [
       })
       .when('/shelves',{
         templateUrl: 'partials/myShelf.html',
-        controller: '',
-        css: 'partials/css/shelf.css'
+        controller: 'ShelfCtrl'
+        
       })
       .otherwise({
         redirectTo: '/'

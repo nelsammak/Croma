@@ -104,12 +104,12 @@
                     </li>
                 </ul>
 
-            </div>
-        
-            <!-- /.navbar-collapse -->
-        </div>
+
+  
+      <!-- /.navbar-collapse -->
+  </div>
         <!-- /.container-fluid -->
-    </nav>
+</nav>
  
 <br><br><br><br><br><br>
     <div ng-hide="currentUser" class="container" ng-view=""></div>
@@ -134,6 +134,9 @@
         </li>
         <li class="sidebar-list" ng-show=  "!currentUser.admin">
           <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-book"></span></a>
         </li>
       </ul>
       <div class="sidebar-footer">
@@ -224,7 +227,9 @@
 
         <!-- Main Content -->
         <br><br>
-        <div class="container" ng-view=""></div>
+        <div class="container" ng-view="">
+          
+        </div>
 
       </div><!-- End Page Content -->
     </div><!-- End Content Wrapper -->
@@ -282,6 +287,7 @@
         <script src="scripts/directives/widget-footer.js"></script>
         <script src="scripts/directives/widget-header.js"></script>
         <script src="scripts/directives/widget.js"></script>
+
         <script src="scripts/controllers/myShelf.js"></script>
 
 

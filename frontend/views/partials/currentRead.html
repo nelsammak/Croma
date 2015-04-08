@@ -12,9 +12,10 @@
 		  	<div class="modal-body">
 				<table class="table">
 					<tbody>
-						<tr ng-repeat="book in currentRead">
+						<tr ng-repeat="book in currentBooks">
 							<td>
 							<img sng-src="{{book.coverLocation}}"
+								class="img-responsive" 
 								width="150" height="190"
 								ng-click="openReader()">
 							</td>

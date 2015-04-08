@@ -23,8 +23,7 @@ module.exports = function(router) {
     var id = req.params.id;
     Profile.findOne({ '_id': id }, function(err, profile) {
       if (err) {
-        res.json(404, err);
-        next(err);
+       return next(err);
       } else {
         console.log(profile);
         res.json({profile: profile});
