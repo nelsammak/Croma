@@ -10,7 +10,8 @@ var bookSchema = new schema({
 	author: { type: String, required: true },
 	coverLocation: { type: String, required: true },
 	bio: { type: String},
-	text: { type: String, required: true}
+	text: { type: String, required: true},
+	labels: [{ type: String }]
 });
 
 //include Mongoose virtual fields in toJSON by default
@@ -41,7 +42,8 @@ var book1 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.',
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []	
 });
 book1.save(function func (err, book1) {
   if (err) return console.error(err);
@@ -63,7 +65,8 @@ var book2 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.',
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book2.save(function func (err, book2) {
   if (err) return console.error(err);
@@ -85,7 +88,8 @@ var book3 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book3.save(function func (err, book3) {
   if (err) return console.error(err);
@@ -107,7 +111,8 @@ var book4 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book4.save(function func (err, book4) {
   if (err) return console.error(err);
@@ -129,7 +134,8 @@ var book5 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book5.save(function func (err, book5) {
   if (err) return console.error(err);
@@ -151,7 +157,8 @@ var book6 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-  text: 'books/bookEpub/orwell-animal-farm'
+  text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book6.save(function func (err, book6) {
   if (err) return console.error(err);
@@ -173,7 +180,8 @@ var book7 = new book({
 	   		Nulla a lectus volutpat, sagittis sem at, pharetra diam.\
 	   		Suspendisse interdum lorem lectus, in pulvinar quam congue eget.\
 	   		Vivamus elementum eu odio laoreet condimentum.', 
-	text: 'books/bookEpub/orwell-animal-farm'
+	text: 'books/bookEpub/orwell-animal-farm',
+	labels: []
 });
 book7.save(function func (err, book7) {
   if (err) return console.error(err);
