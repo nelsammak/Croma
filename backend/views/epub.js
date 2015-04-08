@@ -1,5 +1,4 @@
 var Epub = require('epub'),
-
 	fs = require('fs'),
 	flow = require('../config/flow-node.js')('../frontend/books/bookEpub'),
 	Book = require('../models/book.js'),

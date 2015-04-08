@@ -4,9 +4,11 @@
 angular.module('angularPassportApp')
 .controller('BooksCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
-		$http.get('/api/books').success(function(response) {
+
+      $scope.page="All books";
+		$http.get('api/books').success(function(response) {
+			console.log("I received the DATA");
 		 	$scope.books=response;
-		 	
 		});
 		$scope.sendReading = function(bookid){
 			$http.post('/api/books/'+ bookid +'/currentlyReading').success(function(response){
@@ -90,4 +92,5 @@ angular.module('angularPassportApp')
             }
         };
  
+
 });

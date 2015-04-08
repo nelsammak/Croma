@@ -20,6 +20,8 @@ var MongoStore = require('connect-mongo')(expressSession);
 //importing the book model
 var Books = require('./models/book.js');
 
+//inserting the books
+require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -54,12 +56,10 @@ app.use(expressSession({
 })
 )
 
-
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan('dev'));
-
 
 var router = express.Router(); 
 app.use('/api', router);
@@ -87,7 +87,9 @@ app.get('/', function(req, res) {
  	res.render('index.html');
 });
 
-var port = process.env.PORT || 8081;
+
+var port = process.env.PORT || 8081; 
+
 
 app.get('/error', function createError(req, res, next) {
   var err = new Error('Sample error');
@@ -99,8 +101,9 @@ app.use(function reportInternalServerError(err, req, res, next) {
   console.log(err.stack);
   res.status(500);
   res.json({err:err, message:"Internal Server Error"});
-
 });
+
+
 
 app.listen(port);
 console.log('Listening on port', port);
