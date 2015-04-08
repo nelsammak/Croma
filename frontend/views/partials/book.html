@@ -28,11 +28,9 @@
 		<div id="image">
 			<img  ng-src="{{book.coverLocation}}"/>
 		</div>
-		<div id="bio">
+		<div id = "bio">
 			<h1>Bio</h1>
-			<p>
-			{{book.bio}}
-			</p>
+			<p ng-bind-html="book.bio"></p>
 			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
 			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
 
