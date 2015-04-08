@@ -24,7 +24,8 @@ angular.module('angularPassportApp')
 				$scope.isReady = false;
 
 				var book = $scope.book = $rootScope.book = ePub({ restore: true, version: 0.12 });
-				
+				console.log("THIS IS THE BOOK IN EPIB VOEWER DIREVTIVE" , book)
+
 				$scope.metadata = book.getMetadata();
 				$scope.toc = book.getToc();
 				

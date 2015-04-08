@@ -9,6 +9,7 @@ var app = express();
 var mongoose = require('mongoose');
 var expressSession = require('express-session');
 var passport = require('passport');
+var modRewrite = require('connect-modrewrite');
 var cookieParser = require('cookie-parser');
 
 var MongoStore = require('connect-mongo')(expressSession);
@@ -54,16 +55,18 @@ app.use(passport.session());
 
 app.use(morgan('dev'));
 
+
 var router = express.Router(); 
 app.use('/api', router);
 
+app.use(modRewrite([
+'^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
 
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
-
 app.get('/partials/*', function(req, res) {
     var requestedView = path.join('./', req.url);
     res.render(requestedView);
