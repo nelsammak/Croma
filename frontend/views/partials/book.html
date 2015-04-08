@@ -21,7 +21,8 @@
 			<h3 id="info"> Author</h3>
 			<h6 id="info">{{book.author}}</h6><br>
 			<h3 id="info"> Ratings </h3>
-			<h6 id="info"> {{book.avgRating}}/5 </h6>
+			<h6 id="info" ng-hide="book.avgRating == 0"> {{book.avgRating}}/5 </h6>
+			<h6 id="info" ng-show="book.avgRating == 0"> Not rated yet </h6>
 		</div>
 
 		<div id="image">
@@ -40,7 +41,7 @@
 			<input ng-model="rating"
                       type="number"
                       max="5"
-                      min="0">
+                      min="1">
                <button  class="btn  btn-sm btn-link" type="button" 
 								ng-click="rate()">rate</button>
 		</div>
