@@ -125,13 +125,14 @@ module.exports = function(router) {
 				return next(err);
 			}
 			var labels = [];
-			books.forEach( function () {
-				for(var i = 0; i < book.labels.length; i++) {
-					if (labels.indexOf(book.labels[i]) === -1) {
-						labels.push(book.labels[i]);
+			console.log('BOOOKS', books);
+			 for (var j = 0; j < books.length; j++) {
+				for(var i = 0; i < books[j].labels.length; i++) {
+					if (labels.indexOf(books[j].labels[i]) === -1) {
+						labels.push(books[j].labels[i]);
 					}
 				}
-			}, book)
+			}
 			res.status(200).json(labels);
 		})
 	}
@@ -169,6 +170,6 @@ module.exports = function(router) {
 		});
 	}
 	router.route('/books/:id/labels').get(getLabels).post(addLabels);
-	router.route('/books/labels').get(getAllLabels);
+	router.route('/labels').get(getAllLabels);
 
 }
