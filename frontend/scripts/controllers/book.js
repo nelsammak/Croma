@@ -16,7 +16,8 @@ angular.module('angularPassportApp')
       //get the rating of the current user of that book
       $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
         .success(function(num) {
-          $scope.book.userRating=num;
+          $scope.rating = {}
+          $scope.rating=num;
           console.log("user rating is " + num);
         })
         .error(function(data) {
@@ -34,7 +35,7 @@ angular.module('angularPassportApp')
         });
     });
 
-    $scope.rating = {}
+    
 
     //rate function's job is to send to the backend an object consisting of a user and his rating
     $scope.rate = function() {
@@ -43,7 +44,6 @@ angular.module('angularPassportApp')
       console.log('rating: ' +  $scope.rating);
       $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: $scope.rating})
         .success(function(response) {
-          $scope.book.userRating=$scope.rating;
           //function to get the avg rating of a book
           $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
            console.log("avg rating is" + rating);
