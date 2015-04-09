@@ -19,7 +19,7 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
-    toBeRead: { type: Array, default: [] }
+    toBeRead: [{type:ObjectId, ref: 'book'}]
 });
 
 UserSchema.pre('save', function(next) {

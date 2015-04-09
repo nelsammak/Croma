@@ -35,7 +35,11 @@
 			<h1>Bio</h1>
 			<p ng-bind-html="book.bio"></p>
 			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
+			
+			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
+			</button>
 			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
+
 
 		</div>
 		<div id="rate">
