@@ -8,7 +8,6 @@
       ng-controller="flowCtrl">
       <h1> Welcome, {{currentUser.username}} </h1>
 <div class="container">
-  <h1>flow basic example</h1>
   <hr class="soften"/>
 
   <div class="row">
@@ -21,8 +20,8 @@
     <div class="span6">
       <h2>Buttons:</h2>
 
-      <span class="btn" flow-btn><i class="icon icon-file"></i>Upload File</span>
-      <span class="btn" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
+      <span class="btn btn-primary" flow-btn><i class="icon icon-file"></i>Upload File</span>
+      <span class="btn btn-primary" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
         Upload Folder
       </span>
     </div>

@@ -4,6 +4,7 @@ var Epub = require('epub'),
 	Book = require('../models/book.js'),
 	fileBase = '../frontend/',
 	imageDirectory = '../frontend/books/bookCovers/',
+	imageDirectoryStatic = 'books/bookCovers/',
 	linkDirectory = '../frontend/books/bookLinks/';
 
 module.exports = function(router) {
@@ -14,23 +15,23 @@ var saveEpubData = function (req, res, next) {
 
 	flow.post(req, function(status, filename, original_filename, identifier) {
           console.log('POST', status, original_filename, identifier);
-          /*res.send(200, {
-              // NOTE: Uncomment this funciton to enable cross-domain request.
-              'Access-Control-Allow-Origin': '*'
-          });*/
+          
     console.log(status, ' - ', filename, ' - ', original_filename, ' - ', identifier )  
 	if (status == 'done') {
 		
-		var stream = fs.createWriteStream(filename);
-		flow.write(identifier, stream);
-		
+		var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
+		flow.write(identifier, stream, {onDone: function () {
+
+		flow.clean;
 		console.log('FILE NAME', filename);
 		var epubTitle = filename;
 		var epubPath = 'books/bookEpub/' + epubTitle;
 		var imagePath = '';
 		var epub = new Epub( fileBase + epubPath , imageDirectory, linkDirectory);
+		
+		
 		epub.on('end', function() {
-			imagePath = imageDirectory + epub.metadata.title + '.jpg';
+			imagePath = imageDirectory + identifier + '.jpg';
 			console.log(epub.metadata);
 			epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
 				if (err) {
@@ -42,16 +43,15 @@ var saveEpubData = function (req, res, next) {
 					  	return next(err);
 						}
 						console.log(mimetype);
-						console.log(epub.metadata.title + '.jpg' + ' Saved');
+						console.log(identifier + '.jpg' + ' Saved');
 					});
 			})
-		});
 
-			epub.on('end', function() {
+			console.log('IMAGE PATH', imagePath);
 			var book = new Book({
 				name: epub.metadata.title,
 				author: epub.metadata.creator,
-				coverLocation: imagePath,
+				coverLocation: imageDirectoryStatic + identifier + '.jpg',
 				text: epubPath
 				// bio:
 			})
@@ -61,12 +61,11 @@ var saveEpubData = function (req, res, next) {
 				}
 				res.json(newBook).status(201);
 			})
-
 		});
-
 		epub.parse();
+	}});
 
-}
+	}
       });
 
 }
