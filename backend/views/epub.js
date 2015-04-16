@@ -13,10 +13,11 @@ module.exports = function(router) {
 
 var saveEpubData = function (req, res, next) {
 
-	flow.post(req, function(status, filename, original_filename, identifier) {      
-		console.log('REQUEST IS', req.body);
+	console.log('REQUEST IS', req.body);
 
-		if (status == 'done') {
+	flow.post(req, function(status, filename, original_filename, identifier) {      
+		console.log('Chunck number', req.body.flowChunkNumber, ', status' , status);
+		if (status == 'done' && req.body.flowTotalChunks == req.body.flowChunkNumber) {
 			
 			var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
 			flow.write(identifier, stream, {onDone: function () {
@@ -74,7 +75,10 @@ var saveEpubData = function (req, res, next) {
 					epub.parse();
 		}});
 
+		} else if (status == 'partly_done') {
+			res.json({}).status(200);
 		}
+
       });
 
 }
