@@ -85,7 +85,8 @@ angular.module('angularPassportApp')
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
-       $scope.book.tobeRead=false;
+      $scope.bookID = response.book._id
+      $scope.book.tobeRead=false;
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
@@ -151,5 +152,13 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
       };
+
+      $scope.sendReading = function(bookid){
+      $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
+        console.log(response);
+      });
+    }
+
+    
 
   });
