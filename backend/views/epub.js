@@ -14,9 +14,9 @@ module.exports = function(router) {
 var saveEpubData = function (req, res, next) {
 
 	flow.post(req, function(status, filename, original_filename, identifier) {      
-		console.log('REQUEST IS', req.body);
 
-		if (status == 'done') {
+
+		if (status == 'done' && req.flowTotalChunks == req.flowChunkNumber) {
 			
 			var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
 			flow.write(identifier, stream, {onDone: function () {
@@ -33,7 +33,6 @@ var saveEpubData = function (req, res, next) {
 				 											imageDirectory, linkDirectory);
 				
 				epub.on('end', function() {
-					console.log('EPUB METADATA' , epub.metadata);
 					
 					if (epub.metadata.cover) {
 						imagePath = imageDirectory + identifier + '.jpg';
@@ -46,7 +45,6 @@ var saveEpubData = function (req, res, next) {
 									{
 								  	return next(err);
 									}
-									console.log(mimetype);
 									console.log(identifier + '.jpg' + ' Saved');
 								});
 						})
@@ -60,7 +58,8 @@ var saveEpubData = function (req, res, next) {
 						name: epub.metadata.title,
 						author: epub.metadata.creator,
 						coverLocation: imagePathStatic,
-						text: epubPath
+						text: epubPath,
+						bio: epub.metadata.description
 					})
 					book.save(function saveBook(err, newBook) {
 						if (err) {
@@ -74,6 +73,9 @@ var saveEpubData = function (req, res, next) {
 					epub.parse();
 		}});
 
+		} else if (status = 'partly_done') {
+			res.json({}).status(200);
+			return;
 		}
       });
 
