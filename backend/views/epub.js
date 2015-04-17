@@ -56,12 +56,15 @@ var saveEpubData = function (req, res, next) {
 					else {
 						imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 					}
-
+					var subjects = [];
+					subjects.push(epub.metadata.subject);
 					var book = new Book({
 						name: epub.metadata.title,
 						author: epub.metadata.creator,
 						coverLocation: imagePathStatic,
-						text: epubPath
+						text: epubPath,
+						genres: subjects,
+						bio: epub.metadata.description
 					})
 					book.save(function saveBook(err, newBook) {
 						if (err) {
