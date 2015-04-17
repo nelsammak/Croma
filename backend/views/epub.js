@@ -13,59 +13,75 @@ module.exports = function(router) {
 
 var saveEpubData = function (req, res, next) {
 
-	flow.post(req, function(status, filename, original_filename, identifier) {
-          console.log('POST', status, original_filename, identifier);
-          
-    console.log(status, ' - ', filename, ' - ', original_filename, ' - ', identifier )  
-	if (status == 'done') {
-		
-		var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
-		flow.write(identifier, stream, {onDone: function () {
+	console.log('REQUEST IS', req.body);
 
-		flow.clean;
-		console.log('FILE NAME', filename);
-		var epubTitle = filename;
-		var epubPath = 'books/bookEpub/' + epubTitle;
-		var imagePath = '';
-		var epub = new Epub( fileBase + epubPath , imageDirectory, linkDirectory);
-		
-		
-		epub.on('end', function() {
-			imagePath = imageDirectory + identifier + '.jpg';
-			console.log(epub.metadata);
-			epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
-				if (err) {
-					return next(err);
-				}
-					fs.writeFile(imagePath, img, function (err) {
-						if (err)
-						{
-					  	return next(err);
+	flow.post(req, function(status, filename, original_filename, identifier) {      
+		console.log('Chunck number', req.body.flowChunkNumber, ', status' , status);
+		if (status == 'done' && req.body.flowTotalChunks == req.body.flowChunkNumber) {
+			
+			var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
+			flow.write(identifier, stream, {onDone: function () {
+				
+				flow.clean(identifier);
+
+				var epubTitle = filename;
+				var epubPath = 'books/bookEpub/' + epubTitle;
+				var imagePath = '';
+				var imagePathStatic = '';
+				
+			 
+				var epub = new Epub(fileBase + epubPath,
+				 											imageDirectory, linkDirectory);
+				
+				epub.on('end', function() {
+					console.log('EPUB METADATA' , epub.metadata);
+					
+					if (epub.metadata.cover) {
+						imagePath = imageDirectory + identifier + '.jpg';
+						epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
+							if (err) {
+								return next(err);
+							}
+								fs.writeFile(imagePath, img, function (err) {
+									if (err)
+									{
+								  	return next(err);
+									}
+									console.log(mimetype);
+									console.log(identifier + '.jpg' + ' Saved');
+								});
+						})
+						imagePathStatic = imageDirectoryStatic + identifier + '.jpg';
+					}
+					else {
+						imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
+					}
+					var subjects = [];
+					subjects.push(epub.metadata.subject);
+					var book = new Book({
+						name: epub.metadata.title,
+						author: epub.metadata.creator,
+						coverLocation: imagePathStatic,
+						text: epubPath,
+						genres: subjects,
+						bio: epub.metadata.description
+					})
+					book.save(function saveBook(err, newBook) {
+						if (err) {
+							return next(err);
 						}
-						console.log(mimetype);
-						console.log(identifier + '.jpg' + ' Saved');
-					});
-			})
+						res.json(newBook).status(201);
+					})
+				});
+					
 
-			console.log('IMAGE PATH', imagePath);
-			var book = new Book({
-				name: epub.metadata.title,
-				author: epub.metadata.creator,
-				coverLocation: imageDirectoryStatic + identifier + '.jpg',
-				text: epubPath
-				// bio:
-			})
-			book.save(function saveBook(err, newBook) {
-				if (err) {
-					return next(err);
-				}
-				res.json(newBook).status(201);
-			})
-		});
-		epub.parse();
-	}});
+					epub.parse();
+		}});
 
-	}
+		} else if (status == 'partly_done') {
+			res.json({}).status(200);
+		}
+
       });
 
 }

@@ -55,7 +55,7 @@
       <td>{{file.relativePath}}</td>
       <td>{{file.uniqueIdentifier}}</td>
       <td>{{file.chunks.length}}</td>
-      <td>{{file.progress()}}</td>
+      <td>{{file.progress() * 100}} %</td>
       <td>{{file.paused}}</td>
       <td>{{file.isUploading()}}</td>
       <td>{{file.isComplete()}}</td>
@@ -83,7 +83,7 @@
 
   <div class="alert" flow-drop flow-drag-enter="class='alert-success'" flow-drag-leave="class=''"
           ng-class="class">
-    Drag And Drop your file here
+          <div class="well well-lg"> Drag And Drop your file here </div>
   </div>
 </div>
 </div>

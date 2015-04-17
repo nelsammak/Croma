@@ -40,7 +40,6 @@ module.exports = function(router) {
 					return next(err);
 				}	
 				res.json({user: newUser});
-				console.log(newUser);
 			})
 		})
 	})
@@ -76,7 +75,6 @@ module.exports = function(router) {
 					return next(err);
 				}	
 				res.json({user: newUser, book: {text: book.text}});
-				console.log(newUser);
 			})
 		})
 
@@ -110,8 +108,6 @@ module.exports = function(router) {
 	*/
 	router.route('/books').get(function getBooksCollection (req, res, next) {
 	  Books.find(function findAllBooks(err, books) {
-	    console.log(req.user);
-	    console.log('Current Cookies', req.cookies);
 	    if (err) {
 	      next(err);
 	    }
@@ -156,7 +152,6 @@ module.exports = function(router) {
 	*/
 	var getLabels = function (req, res, next) {
 		var id = req.params.id;
-		console.log('ID' , id);
 		Book.findOne({'_id': id}, function (err, book) {
 			if (err) {
 				console.log('ERROR', err);

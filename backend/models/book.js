@@ -11,7 +11,7 @@ var bookSchema = new Schema({
 	labels: [{ type: String }],
 	genres: [String],
 	ratings: { type: [Schema.Types.Mixed], default: []},
-	arrivalTime: { type: Date, default: Date.now }
+	arrivalTime: { type: Date, default: Date.now}
 });
 
 //include Mongoose virtual fields in toJSON by default
