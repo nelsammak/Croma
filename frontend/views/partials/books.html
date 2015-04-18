@@ -28,10 +28,10 @@
                 <h1 class="page-header">Browse {{page}}</h1>
         </div>
 
-        <div class="row" >
+        <div class="row">
             <div ng-repeat="book in books" class="col-lg-3 col-md-3 col-xs-6 thumb">
-                <a class="thumbnail" style="cursor: pointer;">
-                    <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" alt="" >
+                <a class="thumbnail" style="cursor: pointer; height: 350px;" >
+                    <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="max-height: 100%; width: auto;">
                 </a>
             </div>
         </div>
