@@ -12,76 +12,85 @@ module.exports = function(router) {
 }
 
 var saveEpubData = function (req, res, next) {
-
-	console.log('REQUEST IS', req.body);
-
-	flow.post(req, function(status, filename, original_filename, identifier) {      
-		console.log('Chunck number', req.body.flowChunkNumber, ', status' , status);
-		if (status == 'done' && req.body.flowTotalChunks == req.body.flowChunkNumber) {
-			
-			var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
-			flow.write(identifier, stream, {onDone: function () {
+	try {
+		console.log('REQUEST IS', req.body);
+	
+		flow.post(req, function(status, filename, original_filename, identifier) {      
+			console.log('Chunck number', req.body.flowChunkNumber, ', status' , status);
+			if (status == 'done' && req.body.flowTotalChunks == req.body.flowChunkNumber) {
 				
-				flow.clean(identifier);
-
-				var epubTitle = filename;
-				var epubPath = 'books/bookEpub/' + epubTitle;
-				var imagePath = '';
-				var imagePathStatic = '';
-				
-			 
-				var epub = new Epub(fileBase + epubPath,
-				 											imageDirectory, linkDirectory);
-				
-				epub.on('end', function() {
-					console.log('EPUB METADATA' , epub.metadata);
+				var stream = fs.createWriteStream('../frontend/books/bookEpub/' + filename);
+				flow.write(identifier, stream, {onDone: function () {
 					
-					if (epub.metadata.cover) {
-						imagePath = imageDirectory + identifier + '.jpg';
-						epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
+					flow.clean(identifier);
+					console.log('file: ', filename, 'succesfully saved.');
+					var epubTitle = filename;
+					var epubPath = 'books/bookEpub/' + epubTitle;
+					var imagePath = '';
+					var imagePathStatic = '';
+					
+				 	try {
+					var epub = new Epub(fileBase + epubPath,
+					 											imageDirectory, linkDirectory);
+				} catch (err) {
+					return next(err);
+				}
+					
+					epub.on('end', function() {
+						console.log('EPUB METADATA' , epub.metadata);
+						
+						if (epub.metadata.cover) {
+							imagePath = imageDirectory + identifier + '.jpg';
+							epub.getImage(epub.metadata.cover, function (err, img, mimetype) {
+								if (err) {
+									return next(err);
+								}
+									fs.writeFile(imagePath, img, function (err) {
+										if (err)
+										{
+									  	return next(err);
+										}
+										console.log(mimetype);
+										console.log(identifier + '.jpg' + ' Saved');
+									});
+							})
+							imagePathStatic = imageDirectoryStatic + identifier + '.jpg';
+						}
+						else {
+							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
+						}
+						var subjects = [];
+						subjects.push(epub.metadata.subject);
+						var book = new Book({
+							name: epub.metadata.title,
+							author: epub.metadata.creator,
+							coverLocation: imagePathStatic,
+							text: epubPath,
+							genres: subjects,
+							bio: epub.metadata.description
+						})
+						book.save(function saveBook(err, newBook) {
 							if (err) {
 								return next(err);
 							}
-								fs.writeFile(imagePath, img, function (err) {
-									if (err)
-									{
-								  	return next(err);
-									}
-									console.log(mimetype);
-									console.log(identifier + '.jpg' + ' Saved');
-								});
+							res.json(newBook).status(201);
 						})
-						imagePathStatic = imageDirectoryStatic + identifier + '.jpg';
+					});
+						
+						try {
+						epub.parse(); 
 					}
-					else {
-						imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
-					}
-					var subjects = [];
-					subjects.push(epub.metadata.subject);
-					var book = new Book({
-						name: epub.metadata.title,
-						author: epub.metadata.creator,
-						coverLocation: imagePathStatic,
-						text: epubPath,
-						genres: subjects,
-						bio: epub.metadata.description
-					})
-					book.save(function saveBook(err, newBook) {
-						if (err) {
-							return next(err);
+						catch (err) {
+							next(err);
 						}
-						res.json(newBook).status(201);
-					})
-				});
-					
-
-					epub.parse();
-		}});
-
-		} else if (status == 'partly_done') {
-			res.json({}).status(200);
-		}
-
-      });
-
+			}});
+	
+			} else if (status == 'partly_done') {
+				res.json({}).status(200);
+			}
+	
+	      });
+	} catch (err) {
+		next(err);
+	}
 }
