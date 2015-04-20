@@ -45,5 +45,8 @@ module.exports = function(router) {
 						});
 					})(req, res, next);
 				})
+				.get(function getLoggedInUser(req, res, next) {
+					res.json(req.user);
+				})
 			 
 };
