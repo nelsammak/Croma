@@ -81,7 +81,6 @@ angular.module('angularPassportApp', [
 
       
 
-    $locationProvider.html5Mode(true);
 
     flowFactoryProvider.defaults = {
     target: '/api/admin/addBook',
