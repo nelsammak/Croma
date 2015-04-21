@@ -73,6 +73,10 @@ angular.module('angularPassportApp', [
         controller: 'ShelfCtrl'
         
       })
+      .when('/searchResults', { 
+        templateUrl: 'partials/searchResult.html',
+        controller: 'searchCtrl'
+      })
 
 
       .otherwise({
