@@ -7,11 +7,11 @@ var mongoose = require('mongoose');
     _= require('lodash');
 
 var UserSchema = new Schema({
-    email: { type: String, index: {unique: true}, required: true },
-    username: { type: String, required: true, unique: true},
+    email: { type: String, index: {unique: true}, required: true},
+    username: { type: String, required: true, unique: true, index: true},
     password: { type: String, required: true },
-    firstName: { type: String },
-    lastName: { type: String },
+    firstName: { type: String, index:true },
+    lastName: { type: String,  index:true },
     age: { type: Number },
     admin: {type: Boolean },
     address: { type: String },
