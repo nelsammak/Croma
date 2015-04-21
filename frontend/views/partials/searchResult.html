@@ -1,0 +1,8 @@
+<H1> {{$scope.books}} </H1>
+<div class="row">
+            <div ng-repeat="book in books" class="col-lg-3 col-md-3 col-xs-6 thumb">
+                <a class="thumbnail" style="cursor: pointer; height: 350px;" >
+                    <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 100%; width: auto;">
+                </a>
+            </div>
+</div>
