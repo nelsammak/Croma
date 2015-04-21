@@ -46,7 +46,11 @@ module.exports = function(router) {
 					})(req, res, next);
 				})
 				.get(function getLoggedInUser(req, res, next) {
+					if (!req.user) {
+						return next('User not logged in');
+					}
 					res.json(req.user);
+
 				})
 			 
 };
