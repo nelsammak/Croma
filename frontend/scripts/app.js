@@ -75,7 +75,7 @@ angular.module('angularPassportApp', [
       })
       .when('/searchResults', { 
         templateUrl: 'partials/searchResult.html',
-        controller: 'searchCtrl'
+        controller: 'searchResultCtrl'
       })
 
 

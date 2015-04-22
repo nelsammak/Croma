@@ -1,8 +1,13 @@
-<H1> {{$scope.books}} </H1>
+<H1> Search Result Page </H1>
 <div class="row">
             <div ng-repeat="book in books" class="col-lg-3 col-md-3 col-xs-6 thumb">
                 <a class="thumbnail" style="cursor: pointer; height: 350px;" >
                     <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 100%; width: auto;">
                 </a>
+                <p> {{book.name}} by <i>{{book.author}}</i> </p>
+            </div>
+
+            <div ng-repeat="user in users">
+            	<h2> {{user.username}} </h2>
             </div>
 </div>
