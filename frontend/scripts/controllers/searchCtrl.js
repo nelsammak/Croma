@@ -2,7 +2,7 @@
  * Create a controller to interact with the UI.
  */
 angular.module('angularPassportApp')
-.controller('searchCtrl', function($scope,$location, $http, $cookieStore, searchService) {
+.controller('searchCtrl', function($scope,$location, $http, $cookieStore) {
     console.log('LOCATION ', $location)
      $scope.$watch('searchTerm', function (tmpStr)
     {
@@ -13,7 +13,13 @@ angular.module('angularPassportApp')
         // if searchTerm is still the same retrieve data
         if (tmpStr === $scope.searchTerm)
         {
-           searchService.search($scope.searchTerm);
+            $http.get('/api/search', {
+                params: {searchTerm: $scope.searchTerm} 
+            }).success(function (response) {
+                $scope.users = response.users;
+                $scope.books = response.books;
+                $location.path('/searchResults')
+            });
         }
     });
 
