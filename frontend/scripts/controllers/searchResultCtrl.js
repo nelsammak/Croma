@@ -5,8 +5,9 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
   
     $scope.books = [];
     $scope.users = [];
-    $scope.itemsPerPage = 12
-    $scope.currentPage = 1;
+    $scope.itemsPerPage = 12;
+    $scope.currentBookPage = 1;
+    $scope.currentUserPage = 1;
     $scope.totalItems = 0;
 
 
@@ -15,25 +16,36 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
       $scope.users = searchService.getUsers();
       $scope.books = searchService.getBooks();
       $scope.totalItems = $scope.books.length;
-      $scope.filteredBooks = $scope.books.slice(0, $scope.itemsPerPage)
+      $scope.filteredBooks = $scope.books.slice(0, $scope.itemsPerPage);
+      $scope.filteredUsers = $scope.users.slice(0, $scope.itemsPerPage);
     }
 
   }, 500);
 
 
-  $scope.pageCount = function () {
-    return Math.ceil($scope.books.length / $scope.itemsPerPage);
-  };
   
-  $scope.pageChanged = function(page) {
-    $scope.currentPage = page;
+  $scope.bookPageChanged = function(page) {
+    $scope.currentBookPage = page;
   }
 
-  $scope.$watch('currentPage + itemsPerPage', function() {
-      var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
+  $scope.userPageChanged = function(page) {
+    $scope.currentUserPage = page;
+  }
+
+  $scope.$watch('currentBookPage + itemsPerPage', function() {
+      var begin = (($scope.currentBookPage - 1) * $scope.itemsPerPage);
       var end = begin + $scope.itemsPerPage;
 
       $scope.filteredBooks = $scope.books.slice(begin, end);
     });
+
+  $scope.$watch('currentUserPage + itemsPerPage', function() {
+      var begin = (($scope.currentUserPage - 1) * $scope.itemsPerPage);
+      var end = begin + $scope.itemsPerPage;
+
+      $scope.filteredUsers = $scope.users.slice(begin, end);
+    });
   
 });
+
+  
