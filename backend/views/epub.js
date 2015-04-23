@@ -60,8 +60,8 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
+						subjects = epub.metadata.subject.split(/,|&/);
 						
-						subjects.push(epub.metadata.subject);
 						var book = new Book({
 							name: epub.metadata.title,
 							author: epub.metadata.creator,
@@ -69,26 +69,27 @@ var saveEpubData = function (req, res, next) {
 							text: epubPath,
 							genres: subjects,
 							bio: epub.metadata.description
-						})
-
-							
+						})	
 						book.save(function saveBook(err, newBook) {
 							if (err) {
 								return next(err);
 							}
 							res.json(newBook).status(201);
 						})
-						Genre.findOneAndRemove({"name": epub.metadata.subject}, function(err, person) {
-  							if (err) {
-   								 console.log('got an error');
-  							}
-						});
-						var genre = new Genre({
- 						name: epub.metadata.subject
-						});
-						genre.save(function func (err, genre) {
-  							if (err) return console.error(err);
-						});
+						console.log(subjects);
+						for(var i=0;i<subjects.length;i++){
+							Genre.findOneAndRemove({"name": subjects[i]}, function(err, person) {
+	  							if (err) {
+	   								 console.log('got an error');
+	  							}
+							});
+							var genre = new Genre({
+	 						name: subjects[i]
+							});
+							genre.save(function func (err, genre) {
+	  							if (err) return console.error(err);
+							});
+						}
 					});
 						try {
 						epub.parse(); 
