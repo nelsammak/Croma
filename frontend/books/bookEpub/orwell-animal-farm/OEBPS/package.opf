@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<package xmlns="http://www.idpf.org/2007/opf" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" version="3.0" xml:lang="en" unique-identifier="pub-identifier">
+  <metadata>
+    <dc:identifier id="pub-identifier">_simple_book</dc:identifier>
+    <meta id="meta-identifier" property="dcterms:identifier">_simple_book</meta>
+    <dc:title id="pub-title">Animal Farm</dc:title>
+    <meta property="dcterms:title" id="meta-title">Animal Farm</meta>
+    <dc:language id="pub-language">en</dc:language>
+    <meta property="dcterms:language" id="meta-language">en</meta>
+    <meta property="dcterms:modified">2014-06-05T22:56:40Z</meta>
+    <!--The preceding date value is actually local time (not UTC) in UTC format because there is no function in XSLT 1.0 to generate a correct UTC time-->
+    <meta content="cover-image" name="cover"/>
+    <meta id="meta-creator2" property="dcterms:creator">George Orwell</meta>
+    <dc:creator id="pub-creator2">George Orwell</dc:creator>
+    <meta property="dcterms:date">2014-06-05</meta>
+    <dc:date>2014-06-05</dc:date>
+    <meta property="dcterms:publisher">epubBooks Classics</meta>
+    <dc:publisher>epubBooks Classics</dc:publisher>
+    <meta property="dcterms:rights">Copyright © 2014 epubBooks</meta>
+    <dc:rights>Copyright © 2014 epubBooks</dc:rights>
+    <meta property="dcterms:rightsHolder">epubBooks</meta>
+    <meta property="dcterms:subject">Science Fiction</meta>
+    <dc:subject>Science Fiction</dc:subject>
+  </metadata>
+  <manifest>
+    <item id="ncx" href="toc.ncx" media-type="application/x-dtbncx+xml"/>
+    <item id="htmltoc" properties="nav" media-type="application/xhtml+xml" href="bk01-toc.xhtml"/>
+    <item media-type="text/css" id="html-css" href="epubbooks.css"/>
+    <item media-type="text/css" id="docbook-css" href="docbook-epub.css"/>
+    <item id="cover" href="cover.xhtml" media-type="application/xhtml+xml"/>
+    <item id="cover-image" properties="cover-image" href="bookcover-generated.jpg" media-type="image/jpeg"/>
+    <item id="id-idp140263385854672" href="index.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263419754704" href="ch01.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406227456" href="ch02.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406234784" href="ch03.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406210016" href="ch04.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406175744" href="ch05.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406091200" href="ch06.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263420707776" href="ch07.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263417771648" href="ch08.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263385375984" href="ch09.xhtml" media-type="application/xhtml+xml"/>
+    <item id="id-idp140263406560672" href="ch10.xhtml" media-type="application/xhtml+xml"/>
+  </manifest>
+  <spine toc="ncx">
+    <itemref idref="cover" linear="no"/>
+    <itemref idref="htmltoc" linear="yes"/>
+    <itemref idref="id-idp140263385854672"/>
+    <itemref idref="id-idp140263419754704"/>
+    <itemref idref="id-idp140263406227456"/>
+    <itemref idref="id-idp140263406234784"/>
+    <itemref idref="id-idp140263406210016"/>
+    <itemref idref="id-idp140263406175744"/>
+    <itemref idref="id-idp140263406091200"/>
+    <itemref idref="id-idp140263420707776"/>
+    <itemref idref="id-idp140263417771648"/>
+    <itemref idref="id-idp140263385375984"/>
+    <itemref idref="id-idp140263406560672"/>
+  </spine>
+  <guide>
+    <reference href="cover.xhtml" type="cover" title="Cover"/>
+    <reference href="bk01-toc.xhtml" type="toc" title="Table of Contents"/>
+  </guide>
+</package>

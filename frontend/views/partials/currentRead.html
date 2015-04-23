@@ -1,0 +1,40 @@
+<div class="modal fade">
+	<div class="modal-dialog">
+		<div class="modal-content">
+		  	<div class="modal-header">
+           		<button type="button" 
+           				class="close" 
+           				ng-click="close('Cancel')" data-dismiss="modal" 
+           				aria-hidden="true">&times;
+           		</button>
+			  	<h4 class="modal-title">I'm currently reading:</h4>
+			</div>
+		  	<div class="modal-body">
+				<table class="table">
+					<tbody>
+						<tr ng-repeat="book in currentBooks">
+							<td>
+							<img sng-src="{{book.coverLocation}}"
+								class="img-responsive" 
+								width="150" height="190"
+								ng-click="openReader()">
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			 </div>
+			<div class="modal-footer">
+                <button type="button" ng-click="close('closed')" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+		</div>
+	</div>
+</div>
+							<!-- <td>
+								<div><h1>{{book.name}}</h1></div>
+								<div><h3>{{book.author}}</h3></div>
+								<div><h3>Bio</h3></div>
+								<button type="button" class="btn btn-default" aria-label="Left Align" ng-click="showBio = ! showBio">
+		  						<span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
+								</button>
+								<div ng-show="showBio">{{book.bio}}</div>
+							</td> -->

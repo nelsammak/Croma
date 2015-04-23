@@ -1,0 +1,103 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<title> View Bio </title>
+
+		<!-- Bootstrap Core CSS -->
+    	<link href="css/bootstrap.min.css" rel="stylesheet">
+
+	</head>
+
+	<body>
+		<div id="header">
+			<h1>{{book.name}}</h1>
+		</div>
+
+		<div id="nav">
+			<h3 id="info"> Genre</h3>
+			<div ng-repeat="genre in book.genres">
+
+				<h6 id="info">{{genre}}</h6>
+			</div>
+			<h3 id="info"> Author</h3>
+			<h6 id="info">{{book.author}}</h6><br>
+			<h3 id="info"> Ratings </h3>
+
+			<h6 id="info" ng-hide="book.avgRating == 0"> {{book.avgRating}}/5 </h6>
+			<h6 id="info" ng-show="book.avgRating == 0"> Not rated yet </h6>
+		</div>
+
+		<div id="image">
+			<img  ng-src="{{book.coverLocation}}"/>
+		</div>
+
+		<div id = "bio">
+			<h1>Bio</h1>
+			<p ng-bind-html="book.bio"></p>
+			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
+			
+			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
+
+			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
+			</button>
+
+		</div>
+		<div id="rate">
+			<input ng-model="rating"
+                      type="number"
+                      max="5"
+
+                      min="1">
+               <button  class="btn  btn-sm btn-link" type="button" 
+								ng-click="rate()">rate</button>
+		</div>
+
+
+
+
+	</body>
+
+<!-- <style>
+#header {
+
+    color:blue;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    background-color:#eeeeee;
+    height:300px;
+    width:100px;
+    float:left;
+    padding:5px; 
+}
+#image {
+    width:300px;
+    float:left;
+    padding:10px; 
+}
+#bio {
+    width:300px;
+    float:right;
+    margin-right:400px;
+    text-align:center; 
+    padding:10px; 
+}
+#rate {
+	float: right;
+	margin-right: 500px;
+}
+
+#rating > span:hover:before {
+   content: "\2605";
+   position: absolute;
+}{
+
+}
+
+#info{
+	text-align: center;
+}
+</style>  -->
+</html>

@@ -1,9 +1,6 @@
 var mongoose = require('mongoose'),
-    LocalStrategy = require('passport-local').Strategy,
-    passport = require('passport');
-
-
-
+LocalStrategy = require('passport-local').Strategy,
+passport = require('passport');
 
 module.exports = function () {
 
@@ -11,7 +8,6 @@ module.exports = function () {
 
       // Serialize sessions
       passport.serializeUser(function(user, done) {
-        console.log('Serialize this user ', user);
         done(null, user._id);
       });
        
@@ -27,12 +23,9 @@ module.exports = function () {
           passwordField: 'password'
         },
           function(email, password, done) {
-            console.log('User email before searching for it in database', email)
             User.find({} ,function (err, users) {
-          console.log('DATABASE' , users);
          })
             User.findOne({ email: email }, function (err, user) {
-                console.log('This is the user Found ', user);
                 if (err) {
                 return done(err);
                 }

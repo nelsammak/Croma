@@ -1,4 +1,0 @@
-<div ng-app="angularPassportApp" ng-controller="searchCtrl">
- 
-  
-<a href = "/#/thebook">link to book</a>

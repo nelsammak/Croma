@@ -8,6 +8,7 @@ angular.module('angularPassportApp')
 			console.log(response);
 		 	$scope.userInfo=response;
 
+
 $scope.editedInfo=$scope.userInfo;
 $scope.editorEnabled = false;
 
@@ -43,8 +44,11 @@ $scope.userInfo=$scope.editedInfo;
 
 //});
 
+<<<<<<< HEAD
     });
 	}
 ]);
 
 
+=======
+>>>>>>> 417945f6a5b37b6868006f1670a8f5de1d826a6f
