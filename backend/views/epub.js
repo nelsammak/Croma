@@ -6,10 +6,11 @@ var Epub = require('epub'),
 	imageDirectory = '../frontend/books/bookCovers/',
 	imageDirectoryStatic = 'books/bookCovers/',
 	linkDirectory = '../frontend/books/bookLinks/';
-
+var Genre = require('../models/genres.js');
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
+
 
 var saveEpubData = function (req, res, next) {
 	try {
@@ -23,6 +24,7 @@ var saveEpubData = function (req, res, next) {
 				flow.write(identifier, stream, {onDone: function () {
 					
 					flow.clean(identifier);
+
 					console.log('file: ', filename, 'succesfully saved.');
 					var epubTitle = filename;
 					var epubPath = 'books/bookEpub/' + epubTitle;
@@ -69,22 +71,20 @@ var saveEpubData = function (req, res, next) {
 							genres: subjects,
 							bio: epub.metadata.description
 						})
+
+							
 						book.save(function saveBook(err, newBook) {
 							if (err) {
 								return next(err);
 							}
 							res.json(newBook).status(201);
 						})
-						for (var i=0; i < subjects.length; i++){
-							var genre = new Genres({
- 								name: subjects[i];
-
-							});
-							genre.save(function func (err, genre) {
-  								if (err) return console.error(err);
-  								console.log(genre);
-							});
-						}
+						var genre = new Genre({
+ 							name: epub.metadata.subject
+						});
+						genre.save(function func (err, genre) {
+  							if (err) return console.error(err);
+						});
 					});
 						
 						try {

@@ -3,7 +3,7 @@ var Schema = mongoose.Schema;
 
 //Creating the Genre Schema, the schema takes a JSON of the attributes of the Genres Schema
 var genresSchema = new Schema({
-	genre: { type: String, required: true }
+	name: { type: String, required: true }
 });
 
 //include Mongoose virtual fields in toJSON by default
