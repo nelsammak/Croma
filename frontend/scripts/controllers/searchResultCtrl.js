@@ -12,13 +12,13 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
 
 
   $interval(function () {
-    if (searchService.getUsers() != $scope.users || $scope.books != searchService.getBooks()) {
-      $scope.users = searchService.getUsers();
-      $scope.books = searchService.getBooks();
-      $scope.totalItems = $scope.books.length;
-      $scope.filteredBooks = $scope.books.slice(0, $scope.itemsPerPage);
-      $scope.filteredUsers = $scope.users.slice(0, $scope.itemsPerPage);
-    }
+      if (searchService.getUsers() != $scope.users || $scope.books != searchService.getBooks()) {
+        $scope.users = searchService.getUsers();
+        $scope.books = searchService.getBooks();
+        $scope.totalItems = $scope.books.length;
+        $scope.filteredBooks = $scope.books.slice(0, $scope.itemsPerPage);
+        $scope.filteredUsers = $scope.users.slice(0, $scope.itemsPerPage);
+      }
 
   }, 500);
 

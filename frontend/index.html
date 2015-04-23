@@ -93,28 +93,32 @@
                     </li>
                 </ul>
  <!-- these items when logged in -->
-                <div class="container" ng-show = "currentUser">
+                <div class="container" ng-show = "currentUser" >
                   
-                    <ul class="nav navbar-nav navbar-right">
-                        <li class="hidden">
-                            <a href="#page-top"></a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="/#/shelves">To be Read</a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="/#/genre">Browse genre</a>
-                        </li>
-                        <li class="page-scroll">
-                            <a href="/#/newarrivals">New Arrivals</a>
-                        </li>
-                         <li class="page-scroll">
-                            <a href="/#/shelves">Currently Reading</a>
-                        </li>
-                    </ul>
+                    <div class="row">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li class="hidden">
+                                <a href="#page-top"></a>
+                            </li>
+                            <li class="page-scroll">
+                                <a href="/#/genre">Browse genre</a>
+                            </li>
+                            <li class="page-scroll">
+                                <a href="/#/newarrivals">New Arrivals</a>
+                            </li>
+                             <li class="page-scroll">
+                                <a href="/#/shelves">Currently Reading</a>
+                            </li>
+                        </ul>
 
-                    <div class="col-sm-3 col-md-3 pull-left" margin="auto"  role="search">
-                        <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}"> 
+                        <div class="container" style="display:inline-flex">
+                            <span class="pull-left" margin="auto"  role="search">
+                                <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}">
+                            </span>
+                            <button type="button" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"> </span>
+                            </button>
+                        </div>
                     </div>
                 
   

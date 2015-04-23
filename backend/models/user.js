@@ -27,11 +27,11 @@ UserSchema.pre('save', function(next) {
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 
-     || this.profilePhoto === 'male_avatar.png' 
-     || this.profilePhoto === 'female_avatar.png' 
-     || this.profilePhoto === 'default_avatar.png') {
+     || this.profilePhoto === '/img/male_avatar.png' 
+     || this.profilePhoto === '/img/female_avatar.png' 
+     || this.profilePhoto === '/image/avatar.png') {
         if (_.isUndefined(this.gender)) {
-        this.profilePhoto = 'default_avatar.png';
+        this.profilePhoto = '/image/avatar.png';
         }
         if (this.gender === 'male') {
         this.profilePhoto = 'male_avatar.png';
