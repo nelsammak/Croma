@@ -11,7 +11,6 @@ module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
 
-
 var saveEpubData = function (req, res, next) {
 	try {
 		console.log('REQUEST IS', req.body);
@@ -83,8 +82,7 @@ var saveEpubData = function (req, res, next) {
   							if (err) {
    								 console.log('got an error');
   							}
-					});
-
+						});
 						var genre = new Genre({
  						name: epub.metadata.subject
 						});
@@ -92,7 +90,6 @@ var saveEpubData = function (req, res, next) {
   							if (err) return console.error(err);
 						});
 					});
-						
 						try {
 						epub.parse(); 
 					}

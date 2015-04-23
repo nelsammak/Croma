@@ -21,14 +21,14 @@
             </div>
             <div class="row" >
                 <div class="col-sm-4 portfolio-item" ng-repeat="genre in genres">
-                    <a ng-click="showGenre(genre)" id="link" class="portfolio-link" data-toggle="modal">
+                    <a ng-click="showGenre(genre.name)" id="link" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <h2 style="margin-top:-20px">{{genre}}</h2>
+                                <h2 style="margin-top:-20px">{{genre.name}}</h2>
                             </div>
                         </div>
                         <div class="imageContainer">
-                        	<h1 id="genre">{{genre}}</h1>
+                        	<h1 id="genre">{{genre.name}}</h1>
                         </div>
                     </a>
                 </div>
