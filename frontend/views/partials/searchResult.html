@@ -5,7 +5,7 @@
 	
 	<tab heading="Books">
 		<div class="row" >
-        	<div  ng-hide="books.length == 0" ng-repeat="book in filteredBooks" class="col-lg-3 col-md-3 col-xs-6 thumb">
+        	<div  ng-hide="books.length == 0"ng-repeat="book in filteredBooks" class="col-lg-3 col-md-3 col-xs-6 thumb">
 
                 <div class="thumbnail" style="height: 400px" >
                     <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 75%; width: auto;">

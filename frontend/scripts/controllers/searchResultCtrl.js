@@ -19,7 +19,6 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
         $scope.filteredBooks = $scope.books.slice(0, $scope.itemsPerPage);
         $scope.filteredUsers = $scope.users.slice(0, $scope.itemsPerPage);
       }
-
   }, 500);
 
 
