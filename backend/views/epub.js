@@ -79,12 +79,16 @@ var saveEpubData = function (req, res, next) {
 							}
 							res.json(newBook).status(201);
 						})
-						var genre = new Genre({
- 							name: epub.metadata.subject
+						Genre.findOneOrCreate({name: epub.metadata.subject},function(err, person) {
+   						 console.log(Genre);
 						});
-						genre.save(function func (err, genre) {
-  							if (err) return console.error(err);
-						});
+
+						//var genre = new Genre({
+ 						//	name: epub.metadata.subject
+						//});
+						//genre.save(function func (err, genre) {
+  						//	if (err) return console.error(err);
+						//});
 					});
 						
 						try {
