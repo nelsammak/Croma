@@ -45,6 +45,11 @@ angular.module('angularPassportApp')
 //genre controller's job is  to  take the genre specified from html by click of user and request that genre from backend then route to it 
 angular.module('angularPassportApp')
   .controller('GenreCtrl', function ($scope, $http, $routeParams, $location,$window, ShareService2) {
+    $scope.genres=["Romance",
+    "Crime",
+    "Thriller",
+    "Religous"
+    ]
     $scope.showGenre = function(genre) {
     ShareService2.setValue(genre);
     $location.path ('genre/'+genre);
