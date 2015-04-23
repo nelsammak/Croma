@@ -7,8 +7,6 @@ var Epub = require('epub'),
 	imageDirectoryStatic = 'books/bookCovers/',
 	linkDirectory = '../frontend/books/bookLinks/';
 var Genre = require('../models/genres.js');
-Genre.remove({}, function error (err) {
-});
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
@@ -81,6 +79,12 @@ var saveEpubData = function (req, res, next) {
 							}
 							res.json(newBook).status(201);
 						})
+						Genre.findOneAndRemove({"name": epub.metadata.subject}, function(err, person) {
+  							if (err) {
+   								 console.log('got an error');
+  							}
+					});
+
 						var genre = new Genre({
  						name: epub.metadata.subject
 						});
