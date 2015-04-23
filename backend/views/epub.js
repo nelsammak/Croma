@@ -11,9 +11,9 @@ module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
 //code to remove books from DB if we want to
-Book.remove({}, function error (err) {});
+//Book.remove({}, function error (err) {});
 //code to remove genres from DB if we want to
-Genre.remove({}, function error (err) {});
+//Genre.remove({}, function error (err) {});
 
 var saveEpubData = function (req, res, next) {
 	try {
