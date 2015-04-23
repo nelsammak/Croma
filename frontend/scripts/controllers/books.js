@@ -43,8 +43,22 @@ angular.module('angularPassportApp')
 
 
 //genre controller's job is  to  take the genre specified from html by click of user and request that genre from backend then route to it 
+/**
+
+  * @function getGenres Called on GET "/genre" 
+  * gets All genres
+  * @params {Object} $scope - service
+  * @params {Object} $http - service
+  * @params {Object} $routeParams - service
+  * @params {Object} $location - service
+  * @params {Object} $window - service
+  * @params {Object} $shareService2 - service
+
+  * @function showGenre Called on GET "/genre/:genre"
+  * @params {String} genre - genre
+  */
 angular.module('angularPassportApp')
-  .controller('GenreCtrl', function ($scope, $http, $routeParams, $location,$window, ShareService2) {
+  .controller('GenreCtrl', function getGenres($scope, $http, $routeParams, $location,$window, ShareService2) {
     $http.get('api/genre').success(function(response) {
       $scope.genres=response;
     });

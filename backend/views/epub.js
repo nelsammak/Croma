@@ -60,6 +60,7 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
+						
 						subjects.push(epub.metadata.subject);
 						var book = new Book({
 							name: epub.metadata.title,
