@@ -306,13 +306,20 @@ module.exports = function(router) {
 
 		})
 	});
-	//Route to get all genres available on our DB
+	/**
+	* @function getGenres Called on GET "/api/genre" 
+	* Returns All genres
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @return {JSON} { [{GENRES}] } 
+	*/
 	router.route('/genre').get(function getGenres(req, res, next) {
 		Genres.find(function findAllGenres(err, genres) {
 	    	if (err) {
 	      		next(err);
 	    	}
-	    res.json(genres);
+	    	res.json(genres);
 	  	});
 	});
 	//Route to get the books of the specified genre
