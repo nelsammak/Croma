@@ -4,7 +4,7 @@
 <tabset justified="true" type="tabs">
 	
 	<tab>
-    <tab-heading>
+    <tab-heading style="cursor: pointer;">
         <i class="fa fa-book"></i>
           <b>Books {{booksNotify}} </b>
     </tab-heading>
@@ -21,14 +21,14 @@
             </div>
             	<br><br>
             <div class="text-center" ng-show="books.length == 0" > 
-            	<p> Movie Creators stole those books too !</p>
+            	<h4> Movie Creators stole those books too !</h4>
             </div>
         </div>
         <pagination total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(	currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
 	</tab>
 
 	<tab>
-    <tab-heading> 
+    <tab-heading style="cursor: pointer;"> 
         <i class="fa fa-users"></i>
         <b> Users {{usersNotify}} </b>
     </tab-heading>
@@ -47,7 +47,7 @@
 
 		<br><br>
         <div class="text-center" ng-show="users.length == 0"> 
-        	<p> No Bookworms found... :'( </p>
+        	<h4> No Bookworms found... :'( </h4>
         </div>
 	</tab>
 
