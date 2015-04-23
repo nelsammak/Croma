@@ -2,7 +2,7 @@
   <div ng-app>
     <div ng-controller="ProfileController">
       <div style="width:100%; text-align:center">
-        <img ng-src="/img/avatar.jpg" width="200" height="200" >
+        <img ng-src="/img/{{userInfo.profile.profilePhoto}}" width="200" height="200" >
         <h1 >{{userInfo.profile.username}}</h1>
       </div>
 
@@ -20,6 +20,8 @@
         Age:</b> </span><span style="size:3">{{userInfo.profile.age}}</span></p>
         <p><span style="color:CadetBlue;size:7"><b>
         Address:</b> </span><span style="size:3">{{userInfo.profile.address}}</span></p>
+        <p><span style="color:CadetBlue;size:7"><b>
+        Gender:</b> </span><span style="size:3">{{userInfo.profile.gender}}</span></p>
       </div>
   
 

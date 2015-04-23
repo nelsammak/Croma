@@ -4,7 +4,7 @@ angular.module('angularPassportApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.gender='male';
 
-
+    //$scope.profilePhoto="/img/avatar.jpg";
     $scope.register = function(form) {
 
       if($scope.user.admin != true){
@@ -21,7 +21,7 @@ angular.module('angularPassportApp')
           address: $scope.user.address,
           gender: $scope.gender,
           admin: $scope.user.admin
-
+          //profilePhoto: 
 
         },
         function(err) {

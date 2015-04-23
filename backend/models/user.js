@@ -27,17 +27,17 @@ UserSchema.pre('save', function(next) {
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 
-     || this.profilePhoto === 'male_avatar.png' 
-     || this.profilePhoto === 'female_avatar.png' 
+     || this.profilePhoto === 'avatar.jpg' 
+     || this.profilePhoto === 'female_avatar.jpeg' 
      || this.profilePhoto === 'default_avatar.png') {
         if (_.isUndefined(this.gender)) {
         this.profilePhoto = 'default_avatar.png';
         }
         if (this.gender === 'male') {
-        this.profilePhoto = 'male_avatar.png';
+        this.profilePhoto = 'avatar.jpg';
         }
         if (this.gender === 'female') {
-        this.profilePhoto = 'female_avatar.png';
+        this.profilePhoto = 'female_avatar.jpeg';
         }
      }
     if(!user.isModified('password')) {

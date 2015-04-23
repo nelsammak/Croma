@@ -7,7 +7,6 @@ angular.module('angularPassportApp')
         console.log('scope current user', $scope.currentUser._id);
         console.log(response);
         $scope.userInfo=response;
-
       });
   },
 
