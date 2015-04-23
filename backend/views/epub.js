@@ -10,7 +10,6 @@ var Genre = require('../models/genres.js');
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
-
 var saveEpubData = function (req, res, next) {
 	try {
 		console.log('REQUEST IS', req.body);
