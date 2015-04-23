@@ -1,64 +1,28 @@
 <div class="container">
+  <div ng-app>
+    <div ng-controller="ProfileController">
+      <div style="width:100%; text-align:center">
+        <img ng-src="/img/avatar.jpg" width="200" height="200" >
+        <h1 >{{userInfo.profile.username}}</h1>
+      </div>
 
-<div ng-app>
-  <div ng-controller="ProfileController">
-    <div ng-hide="editorEnabled">
-     <h1> {{editedInfo.profile.username}}</h1>
-      <a href="/#/profile"  ng-click="enableEditor()">Edit User Name</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="/#/profile"  ng-click="save()">Save</a>
-      or
-      <a href="/#/profile"  ng-click="disableEditor()">cancel</a>.
+      <div style=" text-align:right">
+        <a href="/#/editpage"><i class="fa fa-pencil-square-o" style="color:CadetBlue;font-sizesize:3.0em">Edit</i></a>
+  
+      </div>
+
+      <div>
+        <p><span style="size:7;color:CadetBlue"><b>
+        First Name:</b> </span><span style="size:3">{{userInfo.profile.firstName}}</span></p>
+        <p><span style="color:CadetBlue;size:7"><b>
+        Last Name:</b> </span><span style="size:3">{{userInfo.profile.lastName}}</span></p>
+        <p><span style="color:CadetBlue;size:7"><b>
+        Age:</b> </span><span style="size:3">{{userInfo.profile.age}}</span></p>
+        <p><span style="color:CadetBlue;size:7"><b>
+        Address:</b> </span><span style="size:3">{{userInfo.profile.address}}</span></p>
+      </div>
+  
+
     </div>
   </div>
 </div>
-
-
- <div ng-controller="ProfileController">
- <h3> First Name:</h3> 
-    <div ng-hide="editorEnabled">
-    {{editedInfo.profile.firstName}}
-      <a href="/#/profile"  ng-click="enableEditor()">Edit First Name</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="/#/profile"  ng-click="save()">Save</a>
-      or
-      <a href="/#/profile"  ng-click="disableEditor()">cancel</a>.
-    </div>
-
-<div ng-controller="ProfileController">
-   <h3>  Last Name:</h3> 
-    <div ng-hide="editorEnabled">
-    {{editedInfo.profile.lastName}}
-      <a href="/#/profile"  ng-click="enableEditor()">Edit last Name</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="/#/profile"  ng-click="save()">Save</a>
-      or
-      <a href="/#/profile"  ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
-
-<div ng-controller="ProfileController">
-   <h3>Age:</h3>
-    <div ng-hide="editorEnabled">
-     {{editedInfo.profile.age}}
-      <a href="/#/profile"  ng-click="enableEditor()">Edit Age</a>
-    </div>
-    <div ng-show="editorEnabled">
-      <input ng-model="editableTitle" ng-show="editorEnabled">
-      <a href="/#/profile"  ng-click="save()">Save</a>
-      or
-      <a href="/#/profile"  ng-click="disableEditor()">cancel</a>.
-    </div>
-  </div>
-  </div>
-
-
-
-
-
