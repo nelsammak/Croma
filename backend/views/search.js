@@ -3,6 +3,17 @@ var Book = require('../models/book.js'),
 		User = require('../models/user.js');
 
 
+/**
+	* @function searchQuery Called on get "/api/search" 
+	* Takes a query string with parameter searchTerm  
+	* Search the term in Users username, first name, last name
+	* and in Books name, author, genre.
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @params {String} searchTerm:term to be search
+	* @return {Object} {users: [users that matched], books: [books that matched]} 
+	*/
 module.exports = function(router) {
 	router.route('/search')
 	.get(function searchQuery(req, res, next) {

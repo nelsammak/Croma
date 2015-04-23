@@ -1,9 +1,13 @@
 <H1> Search Result </H1>
 
 
-<tabset justified="true">
+<tabset justified="true" type="tabs">
 	
-	<tab heading="Books {{booksNotify}}">
+	<tab>
+    <tab-heading>
+        <i class="fa fa-book"></i>
+          <b>Books {{booksNotify}} </b>
+    </tab-heading>
 		<div class="row" >
         	<div  ng-hide="books.length == 0"ng-repeat="book in filteredBooks" class="col-lg-3 col-md-3 col-xs-6 thumb">
 
@@ -17,13 +21,17 @@
             </div>
             	<br><br>
             <div class="text-center" ng-show="books.length == 0" > 
-            	<p> No Books found </p>
+            	<p> Movie Creators stole those books too !</p>
             </div>
         </div>
         <pagination total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(	currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
 	</tab>
 
-	<tab heading="Users {{usersNotify}}">
+	<tab>
+    <tab-heading> 
+        <i class="fa fa-users"></i>
+        <b> Users {{usersNotify}} </b>
+    </tab-heading>
 		<div class="row" >
  			<div ng-hide="users.length == 0" ng-repeat="user in users" class="col-lg-3 col-md-3 col-xs-6 thumb">
 	        	<div class="thumbnail" style="cursor: pointer; height: 400px" >
@@ -39,7 +47,7 @@
 
 		<br><br>
         <div class="text-center" ng-show="users.length == 0"> 
-        	<p> No Users found </p>
+        	<p> No Bookworms found... :'( </p>
         </div>
 	</tab>
 
