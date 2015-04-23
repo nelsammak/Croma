@@ -10,6 +10,11 @@ var Genre = require('../models/genres.js');
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
+//code to remove books from DB if we want to
+Book.remove({}, function error (err) {});
+//code to remove genres from DB if we want to
+Genre.remove({}, function error (err) {});
+
 var saveEpubData = function (req, res, next) {
 	try {
 		console.log('REQUEST IS', req.body);
@@ -60,7 +65,7 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
-						subjects = epub.metadata.subject.split(/,|&/);
+						subjects = epub.metadata.subject.split(/, | & /);
 						
 						var book = new Book({
 							name: epub.metadata.title,
