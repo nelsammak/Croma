@@ -3,11 +3,11 @@
 
 <tabset justified="true">
 	
-	<tab heading="Books">
+	<tab heading="Books {{booksNotify}}">
 		<div class="row" >
         	<div  ng-hide="books.length == 0"ng-repeat="book in filteredBooks" class="col-lg-3 col-md-3 col-xs-6 thumb">
 
-                <div class="thumbnail" style="height: 400px" >
+                <div class="thumbnail" style="cursor: pointer; height: 400px" >
                     <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 75%; width: auto;">
                     <div class="caption">
                     	<h5> {{book.name}} </h5>
@@ -15,19 +15,18 @@
                     </div>
                 </div>
             </div>
-            <div ng-show="books.length == 0"> 
             	<br><br>
+            <div class="text-center" ng-show="books.length == 0" > 
             	<p> No Books found </p>
             </div>
         </div>
-            
-       <pagination total-items="totalItems" ng-model="currentBookPage" ng-change="bookPageChanged(currentBookPage)" ng-hide="books.length == 0"></pagination>
+        <pagination total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(	currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
 	</tab>
 
-	<tab heading="Users">
+	<tab heading="Users {{usersNotify}}">
 		<div class="row" >
  			<div ng-hide="users.length == 0" ng-repeat="user in users" class="col-lg-3 col-md-3 col-xs-6 thumb">
-	        	<div class="thumbnail" height: "400px" >
+	        	<div class="thumbnail" style="cursor: pointer; height: 400px" >
 	        		<img class="ImageBorder" ng-src="{{user.profilePhoto}}" style="height: 75%; width: auto">
 	        		<div class="caption">
 	        			<p style="font-style: italic"><b> {{user.username}} </b></p>
@@ -36,14 +35,11 @@
 	        	</div>
 	        </div>	
         </div>
-	 	<pagination total-items="totalItems" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0"></pagination>
+	 	<pagination total-items="totalUser" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0"></pagination>
 
-        <div ng-show="users.length == 0"> 
-            	<br><br>
-        	<div ng-show="users.length == 0"> 
-            	<br><br>
-            	<p> No Users found </p>
-            </div>
+		<br><br>
+        <div class="text-center" ng-show="users.length == 0"> 
+        	<p> No Users found </p>
         </div>
 	</tab>
 
