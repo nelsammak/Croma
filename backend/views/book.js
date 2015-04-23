@@ -1,6 +1,7 @@
 'use strict';
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
+var Genres = require('../models/genres.js');
 var cookieParser = require('cookie-parser');
 // var path = require('path');
 /**
@@ -305,7 +306,11 @@ module.exports = function(router) {
 
 		})
 	});
-
+	//Route to get all genres available on our DB
+	router.route('/genre').get(function getGenres(req, res, next) {
+		var genres = req.params.genres;
+			res.json(genres);
+	});
 	//Route to get the books of the specified genre
 	router.route('/genre/:genre').get(function getBookText(req, res, next) {
 		console.log("yeskarim123");
