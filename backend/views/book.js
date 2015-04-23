@@ -308,8 +308,12 @@ module.exports = function(router) {
 	});
 	//Route to get all genres available on our DB
 	router.route('/genre').get(function getGenres(req, res, next) {
-		var genres = req.params.genres;
-			res.json(genres);
+		Genres.find(function findAllGenres(err, genres) {
+	    	if (err) {
+	      		next(err);
+	    	}
+	    res.json(genres);
+	  	});
 	});
 	//Route to get the books of the specified genre
 	router.route('/genre/:genre').get(function getBookText(req, res, next) {
