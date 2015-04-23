@@ -159,6 +159,11 @@ angular.module('angularPassportApp')
       });
     }
 
+    //writeReview sends the review along with the user and the book associated with that review
+    $scope.writeReview = function(){
+      
+    }
+
     
 
   });
