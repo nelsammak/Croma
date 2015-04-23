@@ -93,10 +93,12 @@
                     </li>
                 </ul>
  <!-- these items when logged in -->
-                <div class="container" ng-show = "currentUser" >
+                <div class="container" ng-show = "currentUser" style="display:block">
                   
                     <div class="row">
                         <ul class="nav navbar-nav navbar-right">
+                            <li class="page-scroll">
+                            </li>
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>
@@ -110,15 +112,11 @@
                                 <a href="/#/shelves">Currently Reading</a>
                             </li>
                         </ul>
+                        <div class="nav navbar-form navbar-left">
+                        <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}"> 
+                        <i class="fa fa-search"> </i> 
+                        </div>                               
 
-                        <div class="container" style="display:inline-flex">
-                            <span class="pull-left" margin="auto"  role="search">
-                                <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}">
-                            </span>
-                            <button type="button" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"> </span>
-                            </button>
-                        </div>
                     </div>
                 
   
@@ -231,7 +229,6 @@
             </div>
             <div class="meta">
               <div class="page">
-                Dashboard
               </div>
               <div class="breadcrumb-links">
                 <!-- Home / Dashboard -->
