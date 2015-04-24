@@ -12,13 +12,17 @@
 </head>
 <body class="page-top" class="index">
    <section id="portfolio" >
+   <!--Container of genres starts here-->
         <div clas="container" style="margin-top:-130px">
+            <!--Choose genre header-->
             <div class="row">
                 <div class="col-lg-12 text-center">
                     <h1>Choose your favorite Genre</h1>
                     <hr class="star-primary">
                 </div>
             </div>
+            <!--end of header-->
+            <!--repeating of every icon containinig text of genre-->
             <div class="row" >
                 <div class="col-sm-4 portfolio-item" ng-repeat="genre in genres">
                     <a ng-click="showGenre(genre.name)" id="link" class="portfolio-link" data-toggle="modal">
@@ -31,24 +35,14 @@
                         	<h1 id="genre">{{genre.name}}</h1>
                         </div>
                     </a>
-                </div>
-                
-                
+                </div>  
             </div>
+            <!--ending of icon and it repeats again if other genres is not displayed ye-->
         </div>
+    <!--Container of genres ends here-->
     </section>
-
-<!--
-
-	<div align="center">
-		<button type="button" class="btn btn-default" ng-click="showGenre('Romance')"> Romance </button>
-		<button type="button" class="btn btn-primary" ng-click="showGenre('Crime')">   Crime   </button>
-		<button type="button" class="btn btn-success" ng-click="showGenre('Religous')">Religous</button>
-		<button type="button" class="btn btn-warning" ng-click="showGenre('Sci-fi')">  Sci-fi  </button>
-		<button type="button" class="btn btn-danger"  ng-click="showGenre('Horror')">  Horror  </button>
-	</div>
--->
 </body>
+
 <style>
 .imageContainer {
        width:350px; 
