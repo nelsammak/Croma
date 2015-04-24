@@ -24,7 +24,9 @@
             	<h4> Movie Creators stole those books too !</h4>
             </div>
         </div>
-        <pagination total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(	currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
+        <div class="text-center">
+        <pagination style="margin: auto auto;" total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
+        </div>
 	</tab>
 
 	<tab>
@@ -43,8 +45,9 @@
 	        	</div>
 	        </div>	
         </div>
+        <div class="text-center">
 	 	<pagination total-items="totalUser" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0"></pagination>
-
+        </div>
 		<br><br>
         <div class="text-center" ng-show="users.length == 0"> 
         	<h4> No Bookworms found... :'( </h4>

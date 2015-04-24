@@ -1,11 +1,15 @@
-/**
- * Create a controller to interact with the UI.
- */
 angular.module('angularPassportApp')
 .controller('searchCtrl', function($scope ,$location, $http, searchService) {
-     $scope.$watch('searchTerm', function (tmpStr)
+     
+  /**
+  * @function watchSearchTerm 
+  * watches searchTerm every 500 ms then calls Search from searchService with term
+  * @params {String} tmpString - Temporary String 
+  */
+     $scope.$watch('searchTerm', function watchSearchTerm (tmpStr)
     {
       if (!tmpStr || tmpStr.length == 0) {
+            $location.path('/');
             return 0; 
       }
         // if searchTerm is still the same retrieve data

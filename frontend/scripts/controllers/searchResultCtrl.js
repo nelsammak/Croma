@@ -17,8 +17,11 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
 
 
 
-
-  $interval(function () {
+  /**
+  * @function upDateSearchResults
+  * Updates search results from service every 500 ms
+  */
+  $interval(function upDateSearchResults() {
       if (searchService.getUsers() != $scope.users || $scope.books != searchService.getBooks()) {
         $scope.users = searchService.getUsers();
         $scope.books = searchService.getBooks();
@@ -34,11 +37,19 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
   }, 500);
 
 
-  
+  /**
+  * @function bookPageChanged
+  * changes the current page to the selected page
+  * @params {int} page - selected page 
+  */
   $scope.bookPageChanged = function bookPageChanged(page) {
     $scope.currentBookPage = page;
   }
 
+  /**
+  * @function booksNotifyAdjust
+  * changes the total number of books to display
+  */
   $scope.booksNotifyAdjust = function booksNotifyAdjust() {
     if ($scope.totalBooks == 0) {
       $scope.booksNotify = '';
@@ -48,6 +59,10 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
     }
   }
 
+  /**
+  * @function usersNotifyAdjust
+  * changes the total number of users to display
+  */
   $scope.usersNotifyAdjust = function usersNotifyAdjust() {
     if ($scope.totalUsers == 0) {
       $scope.usersNotify = '';
@@ -57,26 +72,47 @@ app.controller('searchResultCtrl', function($scope,$location, $interval, searchS
     }
   }
 
-  $scope.numberOfBookPages = function() {
+  /**
+  * @function numberOfBookPages
+  * calculates total number of books pages to display
+  */
+  $scope.numberOfBookPages = function numberOfBookPages() {
     $scope.totalBookPages = Math.ceil($scope.totalBooks / $scope.itemsPerPage);
   }
 
-  $scope.numberOfUserPages = function() {
+  /**
+  * @function numberOfUserPages
+  * calculates total number of users pages to display
+  */
+  $scope.numberOfUserPages = function numberOfUserPages() {
     $scope.totalUserPages = Math.ceil($scope.totalUsers / $scope.itemsPerPage);
   }
 
-  $scope.userPageChanged = function(page) {
+  /**
+  * @function userPageChanged
+  * changes the current page to the selected page
+  * @params {int} page - selected page 
+  */
+  $scope.userPageChanged = function userPageChanged(page) {
     $scope.currentUserPage = page;
   }
 
-  $scope.$watch('currentBookPage + itemsPerPage', function() {
+  /**
+  * @function filterBooks
+  * filter the books to be shown in pages
+  */
+  $scope.$watch('currentBookPage + itemsPerPage', function filterBooks() {
       var begin = (($scope.currentBookPage - 1) * $scope.itemsPerPage);
       var end = begin + $scope.itemsPerPage;
 
       $scope.filteredBooks = $scope.books.slice(begin, end);
     });
 
-  $scope.$watch('currentUserPage + itemsPerPage', function() {
+  /**
+  * @function filterUsers
+  * filter the users to be shown in pages
+  */
+  $scope.$watch('currentUserPage + itemsPerPage', function filterUsers() {
       var begin = (($scope.currentUserPage - 1) * $scope.itemsPerPage);
       var end = begin + $scope.itemsPerPage;
 
