@@ -24,6 +24,24 @@
 </head>
 
 <body id="page-top" class="index">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '448740468623491',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
 
     <!-- Navigation -->
     
@@ -37,9 +55,22 @@
             <button class="btn btn-lg btn-primary" type="button" ng-click="loginGo()">Login</button>
             &nbsp;
              <button class="btn btn-lg btn-primary"  type="button" ng-click="signupGo()">Sign Up</button>
+
+        
+             <h2 style="font-size:20px;">sign up using</h2>
+              <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+             <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
             </div>
+<div class="container">
+
+            <div
+  class="fb-like"
+  data-share="true"
+  data-width="450"
+  data-show-faces="true">
+</div>
             
-        <div class="container">
+        
 
 
             <div class="row">

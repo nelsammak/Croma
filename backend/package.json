@@ -51,6 +51,7 @@
     "morgan": "^1.5.1",
     "multer": "^0.1.8",
     "passport": "~0.2.1",
+    "passport-facebook": "^2.0.0",
     "passport-local": "~1.0.0",
     "should": "~5.2.0",
     "supertest": "~0.15.0"
