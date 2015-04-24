@@ -97,6 +97,12 @@
                   
                     <div class="row">
                         <ul class="nav navbar-nav navbar-right">
+                            <li> <div class="nav navbar-form navbar-left">
+                        <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}"> 
+                        <i class="fa fa-search"> </i> 
+                        </div>   
+                        </li>                            
+
                             <li class="page-scroll">
                             </li>
                             <li class="hidden">
@@ -112,11 +118,7 @@
                                 <a href="/#/shelves">Currently Reading</a>
                             </li>
                         </ul>
-                        <div class="nav navbar-form navbar-left">
-                        <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}"> 
-                        <i class="fa fa-search"> </i> 
-                        </div>                               
-
+              
                     </div>
                 
   
