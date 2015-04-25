@@ -3738,7 +3738,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
-    border-bottom: 1px solid #ecf0f1;
+    border-bottom: 2px solid #18bc9c;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs.nav-justified > .active > a,
@@ -6560,7 +6560,10 @@ a.list-group-item-danger.active:focus {
   color: #2c3e50;
 }
 #searchInput {
-  font-family: 'FontAwesome';
+  font-family: 'FontAwesome', Montserrat;
   border-radius: 20px;
-  padding: 15px;
+  padding: 10px;
+}
+#searchInput:focus {
+  border-color: #18bc9c;
 }
