@@ -141,27 +141,30 @@ angular.module('angularPassportApp')
       console.log('user: ' +  $scope.currentUser._id);
       console.log('book: ' +  ShareService.getValue());
       $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
-        .success(function(response) {
+        .success(function (response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
           $scope.book.tobeRead=true;
           console.log("user added book" + bool);
         })
         })
-        .error(function(data) {
+        .error(function (data) {
           console.log('Error: ' + data);
         });
       };
 
-      $scope.sendReading = function(bookid){
+      $scope.sendReading = function (bookid){
       $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
         console.log(response);
       });
     }
 
     //writeReview sends the review along with the user and the book associated with that review
-    $scope.writeReview = function(){
-      
+    $scope.writeReview = function (){
+      $http.post('api/users/' + $scope.currentUser._id + '/addReview', {bookId: ShareService.getValue()})
+      .success(function (response) {
+        $http.post()
+      })
     }
 
     

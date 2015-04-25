@@ -2,6 +2,7 @@
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
 var cookieParser = require('cookie-parser');
+var bReviews = require('../models/book_review.js');
 // var path = require('path');
 /**
 * A module to export /books routes
@@ -320,7 +321,63 @@ module.exports = function(router) {
 	});
 	router.route('/books/:id/labels').get(getLabels).post(addLabels);
 	router.route('/labels').get(getAllLabels);
+	rouer.route('/books/:id/review')
+		.get(getReviews)
+		.post(postReview)
 
+	/**
+	*	@function getReviews Called on GET "/api/books/:id/review"
+	*	Returns the reviews on the current book
+	*	@params {Object} req - Http request
+	*	@params {Object} res - Http response
+	* 	@params {Object} next - Next middleware
+	* 	@params {Number} :id - book ID of the currently selected book
+	* 	@params {Object} :user - the author of the review (user)	
+	*	@returns {JSON} All reviews on the book
+	*/
+	var getReviews = function getReviews(req, res, next){
+		var bookId = req.params.id;
+		var userId = req.body.userId;
+		bReviews.find({bookId: '_id'}).populate('userId bookId')
+				.exec(function (err, book){
+			        	if (err) {
+				            res.status(404).json(err);
+				            return next(err);
+				        }
+				        
+				        res.json(reviews);
+				        res.status(201);
+				});
+
+	}
+
+	/**
+	*	@function postReview Called on POST "/api/books/:id/review"
+	*	@params {Object} req - Http request
+	*	@params {Object} res - Http response
+	* 	@params {Object} next - Next middleware
+	* 	@params {Number} :id - book ID of the currently selected book
+	* 	@params {Object} :user - the current user who is the author of the review	
+	*	@returns {JSON} Created review on the current book with the ID of the current user as JSON and returns that new record
+	*/
+	var postReview = function postReview(req, res,next){
+		var bookId = req.params.id;
+		if (!req.user) {
+			return next('User not logged in');
+		}
+		var user = req.user;
+		bReviews.find({bookId: '_id'}).populate('userId bookId')
+				.exec(function (err, book){
+			        	if (err) {
+				            res.status(404).json(err);
+				            return next(err);
+				        }
+
+				        res.json(review);
+				        res.status(201);
+			       
+				});
+	}
 }
 
 
