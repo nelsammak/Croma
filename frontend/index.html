@@ -71,9 +71,7 @@
                     <span class="icon-bar"></span>
                 </button>
 
-                 <li class="page-scroll">
                 <a class="navbar-brand" href="/#/">Croma</a>
-                  </li>
             </div>
 
             <!-- these items when not logged in -->
@@ -97,14 +95,11 @@
                   
                     <div class="row">
                         <ul class="nav navbar-nav navbar-right">
-                            <li> <div class="nav navbar-form navbar-left">
-                        <input ng-controller="searchCtrl" type="text" class="form-control" placeholder="Search" ng-model="searchTerm" ng-model-options="{debounce: 500}"> 
-                        <i class="fa fa-search"> </i> 
-                        </div>   
-                        </li>                            
-
-                            <li class="page-scroll">
-                            </li>
+                            <li> 
+                            <div class="nav navbar-form">
+                              <input id="searchInput" ng-controller="searchCtrl" class="form-control nav" placeholder="&#xF002; Search" ng-model="searchTerm" ng-model-options="{debounce: 500}" title="Search" onfocus="this.placeholder=''" onblur="this.placeholder='&#xF002; Search'"> 
+                            </div>
+                            </li>                            
                             <li class="hidden">
                                 <a href="#page-top"></a>
                             </li>

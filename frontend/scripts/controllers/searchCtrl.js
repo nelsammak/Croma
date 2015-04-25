@@ -8,9 +8,12 @@ angular.module('angularPassportApp')
   */
      $scope.$watch('searchTerm', function watchSearchTerm (tmpStr)
     {
-      if (!tmpStr || tmpStr.length == 0) {
+      if (tmpStr.length == 0) {
             $location.path('/');
             return 0; 
+      }
+      if (!tmpStr) {
+        return 0;
       }
         // if searchTerm is still the same retrieve data
         if (tmpStr === $scope.searchTerm)
