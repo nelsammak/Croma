@@ -1,46 +1,65 @@
 
 <div class="container">
   <div ng-app>
-    <div ng-controller="ProfileController" >
-      
-  <h1>Edit here</h1>
-  <div style="margin-left: 150px;margin-right: 150px">
-<form action="demo_form.asp">
-<h6>User name: </h6>
- <input type="text" name="UserName" value="{{userInfo.profile.username}}"><br>
- <h6>First name: </h6>
- <input type="text" name="FirstName" value="{{userInfo.profile.firstName}}"><br>
- <h6>Last name: </h6>
- <input type="text" name="LastName" value="{{userInfo.profile.lastName}}"><br>
- <h6>Age: </h6>	
- <input type="text" name="Age" value="{{userInfo.profile.age}}"><br>
- <h6>Address: </h6>
- <input type="text" name="Address" value="{{userInfo.profile.address}}"><br>
-<input type="submit" value="Submit">
-</form>
-</div>
+  <!-- <div ng-controller="ProfileController" > -->
+     <div ng-controller="EditCtrl">  
+  <h1>Edit</h1>
+  <br/>
+ 		 <div style="margin-left: 150px;margin-right: 150px">
+  			<form class="form" name="form" ng-submit="edit(form)" >
+
+				<div class="form-group">
+                    <input class="form-control"
+                            placeholder="First Name"
+                            type="text"
+                            name="firstName"
+                            ng-model="user.firstName"/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Last Name"
+                            type="text"
+                            name="lastName"
+                            ng-model="user.lastName"/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Age"
+                            type="number"
+                            name="age"
+                            ng-model="user.age"
+                            min = 10
+                            max = 109/>
+                </div>
+
+                <div class="form-group">
+                    <input class="form-control"
+                            placeholder="Address"
+                            type="text"
+                            name="address"
+                            ng-model="user.address"
+                            mongoose-error/>
+                </div>
+                <!-- <input type="submit" value="Submit"> -->
+                <a href="/#/profile"><button class="btn btn-lg btn-primary btn-block"
+                        type="submit">Submit</button></a>
+            </form>
+		</div>
 
 
-<!-- <div style="float: right;position: relative;text-align: middle;
-            width: 80px;margin-right: 300px">
-<form action="demo_form.asp">
- <input type="text" name="UserName" value="{{userInfo.profile.username}}"><br>
- <input type="text" name="FirstName" value="{{userInfo.profile.firstName}}"><br>
- <input type="text" name="LastName" value="{{userInfo.profile.lastName}}"><br>
- <input type="text" name="Age" value="{{userInfo.profile.age}}"><br>
- <input type="text" name="Address" value="{{userInfo.profile.address}}"><br>
-<input type="submit" value="Submit">
-</form>
-</div>
-<div >
-<h6>User name: </h6>
-<h6>First name: </h6>
-<h6>Last name: </h6>
-<h6>Age: </h6>	
-<h6>Address: </h6>
-</div> -->
 
-
-    </div>
+      </div>
+    <!-- </div> -->
   </div>
 </div>
+<script>
+  var btns = ['btn-one', 'btn-two'];
+  var input = document.getElementById('btn-input');
+  for(var i = 0; i < btns.length; i++) {
+    document.getElementById(btns[i]).addEventListener('click', function() {
+      input.value = this.value;
+    });
+  }
+</script>
