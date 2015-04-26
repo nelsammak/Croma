@@ -66,6 +66,7 @@ var saveEpubData = function (req, res, next) {
 						}
 						var subjects = [];
 						subjects = epub.metadata.subject.split(/, | & /);
+						subjects[0]="PsychologicalCriticism";
 						
 						var book = new Book({
 							name: epub.metadata.title,
