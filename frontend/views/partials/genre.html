@@ -22,8 +22,8 @@
                 </div>
             </div>
             <!--end of header-->
-            <!--repeating of every icon containinig text of genre-->
             <div class="row" >
+                 <!--repeating of every icon containinig text of genre-->
                 <div class="col-sm-4 portfolio-item" ng-repeat="genre in genres">
                     <a ng-click="showGenre(genre.name)" id="link" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
@@ -35,9 +35,10 @@
                         	<h1 id="genre">{{genre.name}}</h1>
                         </div>
                     </a>
-                </div>  
+                </div>
+                 <!--ending of icon and it repeats again if other genres is not displayed ye-->
             </div>
-            <!--ending of icon and it repeats again if other genres is not displayed ye-->
+           
         </div>
     <!--Container of genres ends here-->
     </section>
