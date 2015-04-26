@@ -8,7 +8,7 @@ angular.module('angularPassportApp')
 
       
       var info= {
-        
+        id:$scope.currentUser._id,
         firstName:$scope.user.firstName,
         lastName: $scope.user.lastName,
         age:$scope.user.age,
