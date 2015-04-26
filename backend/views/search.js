@@ -8,10 +8,10 @@ var Book = require('../models/book.js'),
 	* Takes a query string with parameter searchTerm  
 	* Search the term in Users username, first name, last name
 	* and in Books name, author, genre.
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {String} searchTerm:term to be search
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {String} searchTerm:term to be search
 	* @return {Object} {users: [users that matched], books: [books that matched]} 
 	*/
 module.exports = function(router) {
