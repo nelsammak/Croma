@@ -47,12 +47,12 @@ angular.module('angularPassportApp')
 /**
   * @function Genre Called on "/genre" 
   * Genre controller
-  * @params {Object} $scope - service
-  * @params {Object} $http - service
-  * @params {Object} $routeParams - service
-  * @params {Object} $location - service
-  * @params {Object} $window - service
-  * @params {Object} $shareService2 - service
+  * @param {Object} $scope - service
+  * @param {Object} $http - service
+  * @param {Object} $routeParams - service
+  * @param {Object} $location - service
+  * @param {Object} $window - service
+  * @param {Object} $shareService2 - service
   */
 angular.module('angularPassportApp')
   .controller('GenreCtrl',
