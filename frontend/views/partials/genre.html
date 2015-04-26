@@ -28,7 +28,9 @@
                     <a ng-click="showGenre(genre.name)" id="link" class="portfolio-link" data-toggle="modal">
                         <div class="caption">
                             <div class="caption-content">
-                                <h2 style="margin-top:-20px">{{genre.name}}</h2>
+                                
+                                <h2 id="genrehover" >{{genre.name}}</h2>
+
                             </div>
                         </div>
                         <div class="imageContainer">
@@ -47,16 +49,27 @@
 <style>
 .imageContainer {
        width:350px; 
-       height:70px; 
+       height:100px; 
        background-image: url("img/genres/3.png");
        margin-top: -20px;
 }
 #genre{
 	text-align: center;
-	padding-top: 2px;
+	padding-top: 7px;
 	color: #000000;
-	font-size: 60px;
+	font-size: 39px;
+    word-wrap: break-word;
 }
+#genrehover{
+    margin-top:-33px;
+    font-size: 39px;
+    word-wrap: break-word;
+}
+span {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 #link:hover{
     cursor: url("img/genres/hover.cur"), auto;
     text-decoration: none;

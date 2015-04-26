@@ -65,8 +65,16 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
-						subjects = epub.metadata.subject.split(/, | & /);
-						subjects[0]="PsychologicalCriticism";
+						if(!epub.metadata.subject==null){
+							subjects = epub.metadata.subject.split(/, | & /);
+							if(subjects.length==0){
+								subjects=["Unspecified"];
+							}
+						}
+						else{
+								subjects=["Unspecified"];
+						}
+						
 						
 						var book = new Book({
 							name: epub.metadata.title,
