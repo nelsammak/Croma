@@ -1,6 +1,7 @@
 var app = angular.module('angularPassportApp');
 
 /** 
+ * @function searchResultCtrl
  * Search result page controller
  * @param  {Object} $scope         
  * @param  {Object} $location      
