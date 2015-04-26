@@ -98,6 +98,24 @@ module.exports = function(router) {
 			res.json({book: book});
 		});
 	}); 
+
+	/**
+	* @function deleteBook Called on DELETE "/api/books/:id"  
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @params {Number} :id - ID of the book
+	*/
+	router.route('/books/:id').delete(function deleteBook (req,res,next){
+		var id = req.params.id;
+		Books.remove({'_id': id}, function removeBook(err, book) {
+			if (err) {
+				return next(err);
+			}
+			res.status(200);
+			res.json({book: book});
+		});
+	}); 
 	/**
 	* @function getBookCollection Called on GET "/api/books" 
 	* Returns All books
