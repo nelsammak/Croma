@@ -4,7 +4,7 @@ angular.module('angularPassportApp')
   /**
   * @function watchSearchTerm 
   * watches searchTerm every 500 ms then calls Search from searchService with term
-  * @params {String} tmpString - Temporary String 
+  * @param {String} tmpString - Temporary String 
   */
      $scope.$watch('searchTerm', function watchSearchTerm (tmpStr)
     {
