@@ -11,9 +11,9 @@ module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
 //code to remove books from DB if we want to
-//Book.remove({}, function error (err) {});
+Book.remove({}, function error (err) {});
 //code to remove genres from DB if we want to
-//Genre.remove({}, function error (err) {});
+Genre.remove({}, function error (err) {});
 
 var saveEpubData = function (req, res, next) {
 	try {
@@ -65,12 +65,8 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
-						if(!epub.metadata.subject==null){
-							subjects = epub.metadata.subject.split(/, | & /);
-							if(subjects.length==0){
-								subjects=["Unspecified"];
-							}
-						}
+						if(epub.metadata.subject){
+							subjects = epub.metadata.subject.split(/, | & /);						}
 						else{
 								subjects=["Unspecified"];
 						}
