@@ -3641,7 +3641,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 .nav > li {
   position: relative;
-  display: block;
+  display: inline;
 }
 .nav > li > a {
   position: relative;
@@ -3738,13 +3738,14 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 }
 @media (min-width: 768px) {
   .nav-tabs.nav-justified > li > a {
-    border-bottom: 2px solid #18bc9c;
+    border-bottom: 1px solid #ecf0f1;
     border-radius: 4px 4px 0 0;
   }
   .nav-tabs.nav-justified > .active > a,
   .nav-tabs.nav-justified > .active > a:hover,
   .nav-tabs.nav-justified > .active > a:focus {
     border-bottom-color: #ffffff;
+    border-top:  2px solid #18bc9c;
   }
 }
 .nav-pills > li {

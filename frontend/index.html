@@ -58,24 +58,19 @@
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
-                <button ng-show = "!currentUser" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <button  type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <button ng-show = "currentUser" type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
-                <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                
 
                 <a class="navbar-brand" href="/#/">Croma</a>
             </div>
 
             <!-- these items when not logged in -->
-            <div ng-show = "!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show = "!currentUser" class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -91,14 +86,13 @@
                     </li>
                 </ul>
  <!-- these items when logged in -->
-                <div class="container" ng-show = "currentUser" style="display:block">
+                <div class="container" ng-show = "currentUser" style="display:fluid;">
                   
-                    <div class="row">
                         <ul class="nav navbar-nav navbar-right">
                             <li> 
-                            <div class="nav navbar-form">
-                              <input id="searchInput" ng-controller="searchCtrl" class="form-control nav" placeholder="&#xF002; Search" ng-model="searchTerm" ng-model-options="{debounce: 500}" title="Search" onfocus="this.placeholder=''" onblur="this.placeholder='&#xF002; Search'"> 
-                            </div>
+                              <div class="nav navbar-form">
+                                <input id="searchInput" ng-controller="searchCtrl" class="form-control nav" placeholder="&#xF002; Search" ng-model="searchTerm" ng-model-options="{debounce: 500}" title="Search" onfocus="this.placeholder=''" onblur="this.placeholder='&#xF002; Search'"> 
+                              </div>
                             </li>                            
                             <li class="hidden">
                                 <a href="#page-top"></a>
@@ -113,12 +107,10 @@
                                 <a href="/#/shelves">Currently Reading</a>
                             </li>
                         </ul>
-              
-                    </div>
+              </div>
                 
   
       <!-- /.navbar-collapse -->
-  </div>
         <!-- /.container-fluid -->
 </nav>
  
@@ -179,7 +171,7 @@
             <div class="user pull-right">
               <div class="item dropdown">
                 <a href="#" class="dropdown-toggle">
-                  <img src="img/avatar.jpg">
+                  <img src="{{currentUser.profilePhoto}}">
                 </a>
                 <ul class="dropdown-menu dropdown-menu-right">
                   <li class="dropdown-header">
@@ -189,16 +181,6 @@
                   <li class="link">
                     <a href="/#/profile">
                       Profile
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
                     </a>
                   </li>
                   <li class="divider"></li>
@@ -237,12 +219,15 @@
 
         <!-- Main Content -->
         <br><br>
+
         <div class="container" ng-view="">
           
         </div>
 
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
+      </div>
+      <!-- End Page Content -->
+    </div>
+    <!-- End Content Wrapper -->
 
   </div>
 
