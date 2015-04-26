@@ -309,9 +309,9 @@ module.exports = function(router) {
 	/**
 	* @function getGenres Called on GET "/api/genre" 
 	* Returns All genres
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { [{GENRES}] } 
 	*/
 	router.route('/genre').get(function getGenres(req, res, next) {
