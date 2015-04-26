@@ -6,10 +6,11 @@ angular.module('angularPassportApp')
     /**
   * @function search
   * send searchTerm to be search for in database
-  * @params {String} searchTerm - search term
+  * @param {String} searchTerm - search term
   * @return {Object} {user: 'users matched with search term', books: 'books matched
   *   search term'  
   */
+ 
     this.search = function search(searchTerm) {
     	 $http.get('/api/search', {
                 params: {searchTerm: searchTerm} 
@@ -19,9 +20,17 @@ angular.module('angularPassportApp')
                 $location.path('/searchResults')
             });
     }
+    /**
+     * get users from service
+     * @return {Array} Users saved in service
+     */
     this.getUsers = function getUsers() {
     	return users;
     }
+    /** 
+     * get Books from service
+     * @return {Array} Books saved in service
+     */
     this.getBooks = function getBooks() {
     	return books;
     }

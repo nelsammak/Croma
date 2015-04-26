@@ -1,7 +1,13 @@
 var app = angular.module('angularPassportApp');
 
-
-app.controller('searchResultCtrl', function($scope,$location, $interval, searchService) {
+/** 
+ * Search result page controller
+ * @param  {Object} $scope         
+ * @param  {Object} $location      
+ * @param  {Object} $interval     
+ * @param  {Array}  searchService) 
+ */
+app.controller('searchResultCtrl', function searchResultCtrl($scope,$location, $interval, searchService) {
   
     $scope.books = [];
     $scope.users = [];
