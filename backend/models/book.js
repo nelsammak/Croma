@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 var User = require('../models/user.js');
-async = require('async');
+var async = require('async');
 var Schema = mongoose.Schema;
 
 //Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
@@ -16,15 +16,17 @@ var bookSchema = new Schema({
 	arrivalTime: { type: Date, default: Date.now}
 });
 
-bookSchema.pre('remove', function pullFromShelves () {
-	console.log('POSTREMOVE HOOOK');
-	/*User.findOneAndUpdate({currentlyReading: {$elemMatch: this._id}},
-	 {$pull: {currentlyReading: this._id}}, function currentlyReadingCallBack(err, user) {
+bookSchema.pre('remove', function pullFromShelves (next) {
+	console.log('POSTREMOVE HOOOK', this._id);
+
+	User.findOneAndUpdate({'currentlyReading': this._id},
+	 {$pull: {'currentlyReading': this._id}}, function currentlyReadingCallBack(err, user) {
 		if (err) {
 			next(err);
 		}
-		console.log('USER AFTER DELETION OF BOOK WITH ID ' , this._id, ':', user.currentlyReading);
-	})*/
+		console.log('USER AFTER DELETION OF BOOK WITH ID ' , this._id, ':', user);
+	});
+	
 })
 
 //include Mongoose virtual fields in toJSON by default
