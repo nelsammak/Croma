@@ -41,7 +41,7 @@
 
 
 </head>
-  <body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
+  <body ng-app="angularPassportApp" >
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -53,7 +53,7 @@
 
     <!-- Add your site or application content here -->
     
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav ng-controller="NavbarCtrl" class="navbar navbar-default navbar-fixed-top">
 
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -249,6 +249,7 @@
        ga('create', 'UA-XXXXX-X');
        ga('send', 'pageview');
     </script>
+    <script src="js/jquery.js"></script>
 
     <script src="bower_components/angular/angular.js"></script>
 
@@ -265,6 +266,8 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
         <!-- endbuild -->
 
+        <script src="/js/epub.min.js"></script>
+       
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
@@ -291,11 +294,12 @@
 
         <script src="scripts/controllers/myShelf.js"></script>
         <script src="scripts/controllers/book.js"></script>
+        <script src="scripts/controllers/reader.js"></script>
+
 
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
 
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
@@ -313,61 +317,6 @@
     <script src="js/freelancer.js"></script>
         <!-- endbuild -->
 
-
-
-         <!-- Libs -->
-   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> -->
-    
-    <!-- <script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.10.2.min.js"><\/script>')</script> -->
-        
-    <!-- Hypothes.is 
-
- <!--   <script src="https://static.hypothes.is/lib/d3.min.js"></script>
-    <script src="https://static.hypothes.is/lib/dom_text.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.scrollintoview.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.core.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-blind.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-highlight.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.widget.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.menu.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jschannel.min.js"></script>
-    <script src="https://static.hypothes.is/lib/gettext.min.js"></script>
-    <script src="https://static.hypothes.is/locale/data.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.min.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.document.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/bridge.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/heatmap.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/toolbar.js"></script>
-    <script src="https://static.hypothes.is/js/inject.min.js"></script> -->
-    
-    -->
-    <!-- build:js({.tmp,src}) scripts/scripts.js -->
-    
-    <script src="scripts/libs/epubjs/epub.min.js"></script>
-    
-    <!-- Render -->
-    <script src="scripts/libs/jquery/jquery.highlight.js"></script>
-    
-    <!-- Hooks -->
-    <script async src="scripts/libs/epubjs/hooks.min.js"></script>
-    <script async src="scripts/libs/epubjs/base.js"></script>
-    <script async src="scripts/libs/epubjs/hypothesis.js"></script>
-    <script async src="scripts/libs/epubjs/pageturns.js"></script>
-    <script async src="scripts/libs/epubjs/highlight.js"></script>
-    
-    <!-- <script src="scripts/libs/angular/angular.min.js"></script> -->
-    <script src="scripts/libs/angular/angular-touch.min.js"></script>
-    
-    <script src="scripts/factories/ga_factory.js"></script>
-    <script src="scripts/directives/epub-reader.js"></script>
-    <script src="scripts/directives/epub-viewer.js"></script>
-    <script src="scripts/directives/epub-toc.js"></script>
-    <script src="scripts/directives/hypothesis.js"></script>
-    <!-- endbuild -->
-
-
       <script src="scripts/directives/btn.js"></script>
     <script src="scripts/directives/drag-events.js"></script>
     <script src="scripts/directives/drop.js"></script>
@@ -381,6 +330,9 @@
     <script src="bower_components/flow.js/dist/flow.js"></script>
     <script src="bower_components/flow.js/dist/flow.min.js"></script>
    <!--  <script src="dist/ng-flow-standalone.js"></script> -->
+
+
+
 
 </body>
 </html>

@@ -18,58 +18,58 @@ angular.module('angularPassportApp', [
 
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main.html',
+        templateUrl: '/partials/main.html',
         controller: 'MainCtrl'
       })
       .when('/login', {
-        templateUrl: 'partials/login.html',
+        templateUrl: '/partials/login.html',
         controller: 'LoginCtrl'
       })
       .when('/signup', {
-        templateUrl: 'partials/signup.html',
+        templateUrl: '/partials/signup.html',
         controller: 'SignupCtrl'
       })
       .when('/books', {
-        templateUrl: 'partials/books.html',
+        templateUrl: '/partials/books.html',
         controller: 'BooksCtrl'
 
       })
       .when('/newarrivals', {
-        templateUrl: 'partials/books.html',
+        templateUrl: '/partials/books.html',
         controller: 'NewArrivalsCtrl'
       })
       .when('/genre', {
-        templateUrl: 'partials/genre.html',
+        templateUrl: '/partials/genre.html',
         controller: 'GenreCtrl'
       })
       .when('/genre/:genre', {
-        templateUrl: 'partials/books.html',
+        templateUrl: '/partials/books.html',
         controller: 'GenreDisplayCtrl'
       })
 
       .when('/books/:id', {
-        templateUrl: 'partials/book.html',
+        templateUrl: '/partials/book.html',
         controller: 'BookCtrl'
       })
       
       .when('/profile', {
-        templateUrl: 'partials/userprofile.html',
+        templateUrl: '/partials/userprofile.html',
         controller: 'ProfileController'
       })
       .when('/thebook', {
 
-        templateUrl: 'partials/index.html',
-       // controller: 'ReaderController'
+        templateUrl: '/partials/index.html',
+        controller: 'ReaderController'
 
       })
       .when('/dashboard', {
 
-        templateUrl: 'partials/dashboard.html',
+        templateUrl: '/partials/dashboard.html',
        // controller: 'ReaderController'
 
       })
       .when('/shelves',{
-        templateUrl: 'partials/myShelf.html',
+        templateUrl: '/partials/myShelf.html',
         controller: 'ShelfCtrl'
         
       })
