@@ -92,6 +92,10 @@ angular.module('angularPassportApp')
       });
     }
 
+    /**
+     * @function removeBook
+     * Sends delete request
+     */
     $scope.removeBook = function() {
 
       swal({

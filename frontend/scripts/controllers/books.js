@@ -14,6 +14,12 @@ angular.module('angularPassportApp')
         $http.post('/api/books/' + bookid + '/currentlyReading').success(function(response) {});
       }
 
+      /**
+       * @function removeBook
+       * Send Delete request
+       * @param  {int} id - ID of the book to be deleted
+       * 
+       */
       $scope.removeBook = function(id) {
 
         swal({
