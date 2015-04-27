@@ -60,13 +60,14 @@ angular.module('angularPassportApp')
   /**
   * @function getAllGenres
   * @gets all genres
+  * @param {JSON} response - genres
   */
     $http.get('api/genre').success(function getAllGenres(response) {
       $scope.genres=response;
     });
     /**
   * @function showGenre Called on GET "/genre/:genre"
-  * @params {String} genre - genre
+  * @param {String} genre - genre
   */
     $scope.showGenre = function showGenre(genre) {
     ShareService2.setValue(genre);
