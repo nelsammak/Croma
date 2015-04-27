@@ -1,89 +1,17 @@
 'use strict';
 
-angular.module('angularPassportApp', [
-  'ngCookies',
-  'ngResource',
-  'ngSanitize',
-  'ngRoute',
-  'http-auth-interceptor',
-  'ui.bootstrap',
-  'ui.router'
-])
-//choosing a specific partial HTML and a controller for any route
-  .config(function ($routeProvider, $locationProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'partials/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/login', {
-        templateUrl: 'partials/login.html',
-        controller: 'LoginCtrl'
-      })
-      .when('/signup', {
-        templateUrl: 'partials/signup.html',
-        controller: 'SignupCtrl'
-      })
-      .when('/books', {
-        templateUrl: 'partials/books.html',
-        controller: 'BooksCtrl'
-      })
-      .when('/books/:id', {
-        templateUrl: 'partials/book.html',
-        controller: 'BookCtrl'
-      })
-      .when('/newarrivals', {
-        templateUrl: 'partials/books.html',
-        controller: 'NewArrivalsCtrl'
-      })
-      .when('/genre', {
-        templateUrl: 'partials/genre.html',
-        controller: 'GenreCtrl'
-      })
-      .when('/genre/:genre', {
-        templateUrl: 'partials/books.html',
-        controller: 'GenreDisplayCtrl'
-      })
+// fileStorage.filePath = EPUBJS.filePath;
 
-      .when('/books/:id', {
-        templateUrl: 'partials/book.html',
-        controller: 'BookCtrl'
-      })
-      
-      .when('/profile', {
-        templateUrl: 'partials/userprofile.html',
-        controller: 'ProfileController'
-      })
-      .when('/thebook', {
-        templateUrl: 'partials/index.html'
-      //  controller: 'ReaderController'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-
-      
+angular.module('Reader', ['ngTouch'])
+  .config(function ($locationProvider) {
+    
     $locationProvider.html5Mode(true);
+      
   })
-
-  .run(function ($rootScope, $location, Auth) {
- 
- $rootScope.contentsPath = '';
+  .run(function($rootScope) {
+    
+    $rootScope.contentsPath = '';
     
     $rootScope.metadata = {bookTitle: 'TDO'};
-
-    //watching the value of the currentUser variable.
-    $rootScope.$watch('currentUser', function(currentUser) {
-      // if no currentUser and on a page that requires authorization then try to update it
-      // will trigger 401s if user does not have a valid session
-      if (!currentUser && (['/', '/login', '/logout', '/signup'].indexOf($location.path()) == -1 )) {
-        Auth.currentUser();
-      }
-    });
-
-    // On catching 401 errors, redirect to the login page.
-    $rootScope.$on('event:auth-loginRequired', function() {
-      $location.path('/login');
-      return false;
-    });
+    
   });

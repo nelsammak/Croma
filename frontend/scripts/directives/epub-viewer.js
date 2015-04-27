@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('Reader')
 	.directive('epubviewer', function() {
 		return {
 			restrict: "E",
@@ -15,7 +15,7 @@ angular.module('angularPassportApp')
 				onReady: "&"	,
 				onRendered: '&'	
 			},
-			templateUrl: 'views/partials/reader/viewer.html',
+			templateUrl: 'views/viewer.html',
 			
 			controller: function($scope, $rootScope, $location, $q, gAnalytics){
 				
@@ -24,8 +24,7 @@ angular.module('angularPassportApp')
 				$scope.isReady = false;
 
 				var book = $scope.book = $rootScope.book = ePub({ restore: true, version: 0.12 });
-				console.log("THIS IS THE BOOK IN EPIB VOEWER DIREVTIVE" , book)
-
+				
 				$scope.metadata = book.getMetadata();
 				$scope.toc = book.getToc();
 				
@@ -34,7 +33,7 @@ angular.module('angularPassportApp')
 				book.ready.all.then(function() {
 					$scope.isReady = true;	
 					$scope.$apply();
-					$scope.onReady({book: book});
+					$scope.onReady({epub: book});
 				});
 								
 				
@@ -98,12 +97,12 @@ angular.module('angularPassportApp')
 				attrs.$observe('src', function(value) {
 					//TODO: destroy previous
 					var opened = book.open(attrs.src);
-					var rendered = book.renderTo(element.find('#area')[0]);
-					
+					console.log('OPENED BOOK', book);
+					console.log('ELEMENTS ABL MA YERENDER', element);
+					var rendered = book.renderTo(element.find('#area')[0]);					
 					rendered.then(function(){
 							// $scope.onRendered();
-					});
-										
+					});					
 				});
 				
 				attrs.$observe('path', function(value) {

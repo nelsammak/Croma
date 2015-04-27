@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('Reader')
 	.directive('epubtoc', function() {
 		return {
 			restrict: "E",
@@ -8,7 +8,7 @@ angular.module('angularPassportApp')
 				toc: '='	,
 				current: '@'	
 			},
-			templateUrl: 'views/partials/reader/toc.html',
+			templateUrl: 'views/toc.html',
 
 			controller: function($scope, $rootScope){
 				$scope.bookPath = $rootScope.bookPath;
@@ -81,7 +81,7 @@ angular.module('angularPassportApp')
 		}
 	});
 
-angular.module('angularPassportApp')
+angular.module('Reader')
 	.directive('postClick', function() {
 			return function(scope, element, attrs) {
 					var $el = $(element);

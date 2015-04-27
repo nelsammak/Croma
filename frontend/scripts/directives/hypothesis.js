@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('Reader')
 	.directive('hypothesis', [ '$window', function($window) {
 		return {
 			restrict: "E",

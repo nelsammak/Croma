@@ -1,19 +1,20 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('Reader')
 	.directive('epubreader', function() {
 		return {
 			restrict: "E",
 			scope: {
 				src: '@'
 			},
-			templateUrl: 'views/partials/reader/reader.html',
+			templateUrl: 'views/reader.html',
 
 			controller: function($scope, $rootScope, $location, $q, gAnalytics){
 				
 				var silent = true;
 				
 				var isDocument = function(path) {
+					console.log('isDocument', path.search(".xhtml") != -1 || path.search(".html") != -1)
 					return (path.search(".xhtml") != -1 || path.search(".html") != -1);
 				}
 				

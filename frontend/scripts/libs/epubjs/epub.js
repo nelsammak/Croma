@@ -1143,7 +1143,6 @@ EPUBJS.Book.prototype.removeSavedContents = function() {
 EPUBJS.Book.prototype.renderTo = function(elem){
 	var book = this,
 		rendered;
-	
 	if(_.isElement(elem)) {
 		this.element = elem;
 	} else if (typeof elem == "string") {
@@ -1152,10 +1151,11 @@ EPUBJS.Book.prototype.renderTo = function(elem){
 		console.error("Not an Element");
 		return;
 	}
-	
+	console.log('Open book fe epubJS', this.opened);
 	rendered = this.opened.
 				then(function(){
-					book.render = new EPUBJS.Renderer(book);
+					 console.log('Open book fe epubJS gowa then', this.opened);
+          book.render = new EPUBJS.Renderer(book);
 					book._rendered();
 					return book.startDisplay();
 				}, function(error) { console.error(error); });

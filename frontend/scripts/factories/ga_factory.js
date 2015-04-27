@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('Reader')
     .factory('gAnalytics', function(){
         
         var getPathname = function(href) {
