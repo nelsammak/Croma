@@ -54,5 +54,20 @@ module.exports = function(router) {
             res.json("Added the book successfully");
         });
     });
+    router.route('/users/:id/addToBeRead').delete(function(req, res, next) {
+        var userId = req.params.id;
+        var bookId = req.body.bookId;
+        User.findById(userId, function (err, user) {
+            if (err) {
+                res.status(404).json(err);
+                return next(err);
+            }
+            var index = user.toBeRead.indexOf(bookID);
+            if (index > -1) {
+                user.toBeRead.splice(index, 1);
+            } 
+            res.json("Removed the book successfully");
+        });
+    });
     
 };
