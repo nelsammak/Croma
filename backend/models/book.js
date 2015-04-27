@@ -29,7 +29,6 @@ bookSchema.pre('remove', function removeFromCurrentlyReading (next) {
 		if (err) {
 			next(err);
 		}
-		console.log('USER AFTER currently reading DELETION OF BOOK WITH ID ' , this._id, ':', user);
 		next();
 	});	
 })
@@ -45,7 +44,6 @@ bookSchema.pre('remove', function removeFromToBeRead (next) {
 		if (err) {
 			next(err);
 		}
-		console.log('USER AFTER to be read DELETION OF BOOK WITH ID ' , this._id, ':', user);
 		next();
 	});
 })
@@ -61,11 +59,15 @@ bookSchema.pre('remove', function removeFromRead (next) {
 		if (err) {
 			next(err);
 		}
-		console.log('USER AFTER read DELETION OF BOOK WITH ID ' , this._id, ':', user);
 		next();
 	});
 })
 
+/**
+ * @function removeCoverAndEpub
+ * Removes cover image and epub file from file system after removing a book
+ * @param  {function} next - next middleware
+ */
 bookSchema.pre('remove', function removeCoverAndEpub (next) {
 	var coverLocation = path.join(__dirname, '../../frontend', this.coverLocation),
 	text = path.join(__dirname, '../../frontend', this.text);
@@ -73,11 +75,9 @@ bookSchema.pre('remove', function removeCoverAndEpub (next) {
 	async.parallel ({
 		cover: function (cb) {
 			fs.unlink(coverLocation, cb);
-			console.log('COVER LOCATION', coverLocation);
 		},
 		text : function (cb) {
 			fs.unlink(text, cb)
-			console.log('Epub Location', text);			
 		}
 	}, function(err) {
 		if (err) {

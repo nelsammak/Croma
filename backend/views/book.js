@@ -113,8 +113,13 @@ module.exports = function(router) {
 				return next(err);
 			}
 			book.remove();
-			res.status(200);
-			res.json({book: book});
+
+			Books.find({}, function(err,books) {	
+				res.status(200);
+				res.json({books: books});
+			})
+			
+			
 		});
 	}); 
 	/**

@@ -5,16 +5,22 @@ angular.module('angularPassportApp')
 .controller('BooksCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
 
-      $scope.page="All books";
+    $scope.page="All books";
 		$http.get('api/books').success(function(response) {
 			console.log("I received the DATA");
 		 	$scope.books=response;
 		});
 		$scope.sendReading = function(bookid){
 			$http.post('/api/books/'+ bookid +'/currentlyReading').success(function(response){
-				console.log(response);
 			});
 		}
+
+    $scope.removeBook = function (id) {
+      
+     $http.delete('/api/books/' + id).success(function bookRemoved(response) {
+          $scope.books = response.books;
+      })          
+    }
 	}
 ]);
 
@@ -58,7 +64,6 @@ angular.module('angularPassportApp')
     $location.path ('books/'+id);
     ShareService.setValue(id);
     $scope.id = ShareService.getValue();
-    console.log($scope.id);
    };
   });
 
