@@ -106,10 +106,9 @@ angular.module('angularPassportApp')
         });
       /**
       * @function getIsTobeRead
-      * @gets all genres
+      * @determines whether the book is on the current user tobe read list or not
       * @param {boolean} bool - is Book on to-be read list
       */
-      //get a boolean value to determin whether the book is on the current user tobe read list or not
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function getIsTobeRead(bool) {
           $scope.book.tobeRead=bool;
