@@ -82,9 +82,16 @@ angular.module('angularPassportApp')
     }
 
     $scope.removeBook = function () {
+     
+     swal({   title: "Are you sure?",
+      text: "You will not be able to recover this imaginary file!",
+      type: "warning",   showCancelButton: true,
+      confirmButtonColor: "#DD6B55",   confirmButtonText: "Yes, delete it!",
+      closeOnConfirm: false }, function() {    
      $http.delete('/api/books/' + $scope.book._id).success(function bookRemoved(response) {
           $location.path('/books');
       })          
+       });
     }
 
     
