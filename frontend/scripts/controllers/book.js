@@ -155,6 +155,10 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
       };
+    /**
+      * @function removeTobeRead
+      * @deletes a book from user's to be read list
+      */
     $scope.removeTobeRead = function() {
       console.log('user: ' +  $scope.currentUser._id);
       console.log('book: ' +  ShareService.getValue());
