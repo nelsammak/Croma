@@ -16,18 +16,55 @@ var bookSchema = new Schema({
 	arrivalTime: { type: Date, default: Date.now}
 });
 
-bookSchema.pre('remove', function pullFromShelves (next) {
-	console.log('POSTREMOVE HOOOK', this._id);
-
+/**
+ * @function removeFromCurrentlyReading
+ * Removes from currently reading of users after removing a book
+ * @param  {function} next - next middleware
+ */
+bookSchema.pre('remove', function removeFromCurrentlyReading (next) {
 	User.findOneAndUpdate({'currentlyReading': this._id},
 	 {$pull: {'currentlyReading': this._id}}, function currentlyReadingCallBack(err, user) {
 		if (err) {
 			next(err);
 		}
-		console.log('USER AFTER DELETION OF BOOK WITH ID ' , this._id, ':', user);
-	});
-	
+		console.log('USER AFTER currently reading DELETION OF BOOK WITH ID ' , this._id, ':', user);
+		next();
+	});	
 })
+
+/**
+ * @function removeFromToBeRead
+ * Removes from to be read of users after removing a book
+ * @param  {function} next - next middleware
+ */
+bookSchema.pre('remove', function removeFromToBeRead (next) {
+	User.findOneAndUpdate({'toBeRead': this._id},
+	 {$pull: {'toBeRead': this._id}}, function toBeReadCallBack(err, user) {
+		if (err) {
+			next(err);
+		}
+		console.log('USER AFTER to be read DELETION OF BOOK WITH ID ' , this._id, ':', user);
+		next();
+	});
+})
+
+/**
+ * @function removeFromRead
+ * Removes from already read of users after removing a book
+ * @param  {function} next - next middleware
+ */
+bookSchema.pre('remove', function removeFromRead (next) {
+	User.findOneAndUpdate({'read': this._id},
+	 {$pull: {'read': this._id}}, function readCallBack(err, user) {
+		if (err) {
+			next(err);
+		}
+		console.log('USER AFTER read DELETION OF BOOK WITH ID ' , this._id, ':', user);
+		next();
+	});
+})
+
+
 
 //include Mongoose virtual fields in toJSON by default
 bookSchema.set('toJSON', { virtuals: true });
