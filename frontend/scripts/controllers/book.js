@@ -156,6 +156,22 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
       };
+    $scope.removeTobeRead = function() {
+      console.log('user: ' +  $scope.currentUser._id);
+      console.log('book: ' +  ShareService.getValue());
+      $http.delete('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
+        .success(function(response) {
+          $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
+          .success(function(bool) {
+          $scope.book.tobeRead=false;
+          console.log("user added book" + bool);
+        })
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+      };
+
 
       $scope.sendReading = function(bookid){
       $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
