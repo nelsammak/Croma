@@ -81,7 +81,7 @@ angular.module('angularPassportApp')
 
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
-  .controller('BookCtrl', function ($scope, $http, ShareService) {
+  .controller('BookCtrl', function ($scope, $http, $location,  ShareService) {
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
@@ -157,6 +157,14 @@ angular.module('angularPassportApp')
       $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
         console.log(response);
       });
+    }
+
+    $scope.removeBook = function () {
+      $http.delete('/api/books/' + $scope.book._id).success(function bookRemoved(response) {
+        $scope.book = response.book;
+        $location.path ('/books');
+
+      })
     }
 
     

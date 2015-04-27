@@ -1,6 +1,8 @@
 var mongoose = require('mongoose');
 var User = require('../models/user.js');
 var async = require('async');
+var fs = require('fs');
+var path = require('path');
 var Schema = mongoose.Schema;
 
 //Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
@@ -62,6 +64,27 @@ bookSchema.pre('remove', function removeFromRead (next) {
 		console.log('USER AFTER read DELETION OF BOOK WITH ID ' , this._id, ':', user);
 		next();
 	});
+})
+
+bookSchema.pre('remove', function removeCoverAndEpub (next) {
+	var coverLocation = path.join(__dirname, '../../frontend', this.coverLocation),
+	text = path.join(__dirname, '../../frontend', this.text);
+
+	async.parallel ({
+		cover: function (cb) {
+			fs.unlink(coverLocation, cb);
+			console.log('COVER LOCATION', coverLocation);
+		},
+		text : function (cb) {
+			fs.unlink(text, cb)
+			console.log('Epub Location', text);			
+		}
+	}, function(err) {
+		if (err) {
+			next(err)
+		}
+		console.log('Removed cover and epub successfully');
+	})
 })
 
 

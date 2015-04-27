@@ -1,18 +1,11 @@
-<!DOCTYPE>
-<html>
-	<head>
-		<title> View Bio </title>
-
-		<!-- Bootstrap Core CSS -->
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	</head>
-
-	<body>
 		<div id="header">
 			<h1>{{book.name}}</h1>
 		</div>
 
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ng-click="removeBook()" ng-show="currentUser.admin"> Remove Book</button>
+		</div>
+		
 		<div id="nav">
 			<h3 id="info"> Genre</h3>
 			<div ng-repeat="genre in book.genres">
@@ -100,4 +93,3 @@
 	text-align: center;
 }
 </style>  -->
-</html>
