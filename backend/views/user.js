@@ -55,7 +55,7 @@ module.exports = function(router) {
 		});
 
 
-		router.route('/users/:id/addToBeRead').post(function(req, res, next) {
+	router.route('/users/:id/addToBeRead').post(function(req, res, next) {
         var userId = req.params.id;
         var bookId = req.body.bookId;
         User.findById(userId, function (err, user) {
@@ -72,7 +72,24 @@ module.exports = function(router) {
           user.save();
           res.json("Added the book successfully");
         });
-    	});
+    	})
+	router.route('/users/:id/removeToBeRead/:bookId').delete(function(req, res, next) {
+	        var userId = req.params.id;
+	        var bookId = req.params.bookId;
+	        console.log(bookId);
+	        User.findById(userId, function (err, user) {
+	            if (err) {
+	                res.status(404).json(err);
+	                return next(err);
+	            }
+	            var index = user.toBeRead.indexOf(bookId);
+	            console.log(index);
+	            if (index > -1) {
+	                user.toBeRead.splice(index, 1);
+	            } 
+	            res.json("Removed the book successfully");
+	        });
+	    });
 
 
 };
