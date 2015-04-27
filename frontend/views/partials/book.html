@@ -63,12 +63,21 @@
         					border-radius: 10px;"></textarea>
 				</div>
    				<br></br>
-        		<br></br>
+        			<br></br>
         		<div>
         			<span class="input-group-btn">
-        				<button class="btn btn-default" type="button">Post</button>
+        				<button class="btn btn-default" type="button"
+        				ng-click= "writeReview()">
+        				Post</button>
      				</span>
           		</div>
+			</div>
+			<div id="reviewList">
+				<row ng-repeat="review in bReviews">
+					<h6 id="uInfo">{{bReviews.userId}}</h6>
+					<br>
+					<h6 id="rInfo">{{bReviews.review}}</h6>
+				</row>
 			</div>
 		</div>
 

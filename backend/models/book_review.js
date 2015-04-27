@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
-var ObjectId = Schema.types.ObjectId;
+var mongoose = require('mongoose'),
+Schema = mongoose.Schema,
+ObjectId = mongoose.Schema.Types.ObjectId;
 
 var book_reviewSchema = new Schema({
 	userId: { type: ObjectId, ref: 'user' },

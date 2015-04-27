@@ -114,6 +114,13 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
+        //gets all reviews along with the user associated with that book
+      $http.get('api/books/' + ShareService.getValue() + '/review')
+      .success(function (response) {
+        $scope.reviews = response;
+      }).error(function(data) {
+          console.log('Error: ' + data);
+        });
     });
 
     
@@ -157,15 +164,21 @@ angular.module('angularPassportApp')
       $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
         console.log(response);
       });
-    }
+    };
 
     //writeReview sends the review along with the user and the book associated with that review
     $scope.writeReview = function (){
-      $http.post('api/users/' + $scope.currentUser._id + '/addReview', {bookId: ShareService.getValue()})
+      $http.post('api/books/' + ShareService.getValue() + '/review')
       .success(function (response) {
         $http.post()
+        $scope.review = response;
       })
-    }
+      $scope.book_review = '';
+    };
+
+    
+    
+
 
     
 
