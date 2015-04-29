@@ -73,7 +73,15 @@ module.exports = function(router) {
           res.json("Added the book successfully");
         });
     	})
-	router.route('/users/:id/removeToBeRead/:bookId').delete(function(req, res, next) {
+	/**
+	* @function removeToBeRead -  Post "/api/users"	
+	* removes a book from user's tobe read list
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @returns {JSON} string "Removed the book successfully" as JSON
+ 	*/
+	router.route('/users/:id/removeToBeRead/:bookId').delete(function removeToBeRead(req, res, next) {
 	        var userId = req.params.id;
 	        var bookId = req.params.bookId;
 	        User.findById(userId, function (err, user) {
