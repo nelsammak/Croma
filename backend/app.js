@@ -21,7 +21,7 @@ var MongoStore = require('connect-mongo')(expressSession);
 var Books = require('./models/book.js');
 
 //inserting the books
-require('./inserts/book');
+// require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -67,6 +67,7 @@ app.use('/api', router);
 app.use(modRewrite([
 '^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
 
+require('./views/search.js')(router);
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
