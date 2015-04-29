@@ -8,9 +8,8 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'flow'
-
-
+  'flow',
+  'door3.css'
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -59,7 +58,8 @@ angular.module('angularPassportApp', [
       .when('/thebook', {
 
         templateUrl: '/partials/index.html',
-        controller: 'ReaderController'
+        controller: 'ReaderController',
+        css: '/bower_components/epubjs/css/main.css'
 
       })
       .when('/dashboard', {

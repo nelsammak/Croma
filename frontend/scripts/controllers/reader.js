@@ -1,7 +1,9 @@
 angular.module('angularPassportApp')
     .controller('ReaderController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+        
+        $scope.bookPath =  "/books/bookEpub/Inferno_ A Novel - Dan Brown.epub";  
+        var Book = ePub($scope.bookPath, { restore: true ,  spreads: true});
 
-        var Book = ePub("/books/bookEpub/J R R Tolkien - The Lord of the Rings - 50th Anniversary, One Vol. Edition (epub).epub");
         $scope.$on('$viewContentLoaded', function(event) {
             $timeout(function() {
                 var are = $('#area')[0];
@@ -34,6 +36,12 @@ angular.module('angularPassportApp')
 
                 });
 
+
+                Book.getMetadata().then(function(metadata) {
+                    var title = document.getElementById("book-title");
+                    title.textContent = metadata.bookTitle + ' - ' + metadata.creator;
+                })
+
                 Book.ready.all.then(function() {
                     document.getElementById("loader").style.display = "none";
                 });
@@ -51,7 +59,6 @@ angular.module('angularPassportApp')
         $scope.prevPage = function() {
             Book.prevPage();
         }
-
 
 
     }]);
