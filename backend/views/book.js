@@ -363,8 +363,10 @@ module.exports = function(router) {
 			return next('User not logged in');
 		}
 		var user = req.user;
-		bReviews.find({'_id': bookId}).populate('userId bookId')
-				.exec(function (err, reviews){
+		bReviews.create({userId: user, 
+						bookId: bookId,
+						review: req.body.reviews
+						},function (err, reviews){
 			        	if (err) {
 				            res.status(404).json(err);
 				            return next(err);

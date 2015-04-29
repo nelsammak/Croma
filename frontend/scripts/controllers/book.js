@@ -170,8 +170,7 @@ angular.module('angularPassportApp')
     $scope.writeReview = function (){
       $http.post('api/books/' + ShareService.getValue() + '/review')
       .success(function (response) {
-        $http.post()
-        $scope.review = response;
+        $scope.reviews = response;
       })
       $scope.book_review = '';
     };
