@@ -1,4 +1,6 @@
 var mongoose = require('mongoose'),
+Book = require('./book.js'),
+User = require('./user.js'),
 Schema = mongoose.Schema,
 ObjectId = mongoose.Schema.Types.ObjectId;
 

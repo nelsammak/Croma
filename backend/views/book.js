@@ -325,11 +325,11 @@ module.exports = function(router) {
 	/**
 	*	@function getReviews Called on GET "/api/books/:id/review"
 	*	Returns the reviews on the current book
-	*	@params {Object} req - Http request
-	*	@params {Object} res - Http response
-	* 	@params {Object} next - Next middleware
-	* 	@params {Number} :id - book ID of the currently selected book
-	* 	@params {Object} :user - the author of the review (user)	
+	*	@param {Object} req - Http request
+	*	@param {Object} res - Http response
+	* 	@param {Object} next - Next middleware
+	* 	@param {Number} :id - book ID of the currently selected book
+	* 	@param {Object} :user - the author of the review (user)	
 	*	@returns {JSON} All reviews on the book
 	*/
 	router.route('/books/:id/review')
@@ -337,24 +337,24 @@ module.exports = function(router) {
 			console.log("here yo")
 			var bookId = req.params.id;
 			/*var userId = req.body.userId;*/
-			bReviews.findById({bookId: '_id'}).populate('bookId userId')
-					.exec(function (err, book){
+			bReviews.find({'_id': bookId }).populate('bookId userId')
+					.exec(function (err, reviews){
 				        	if (err) {
 					            res.status(404).json(err);
 					            return next(err);
 					        }
+					        res.status(200);
 					        res.json(reviews);
-					        res.status(201);
 					});
 		})
 
 	/**
 	*	@function postReview Called on POST "/api/books/:id/review"
-	*	@params {Object} req - Http request
-	*	@params {Object} res - Http response
-	* 	@params {Object} next - Next middleware
-	* 	@params {Number} :id - book ID of the currently selected book
-	* 	@params {Object} :user - the current user who is the author of the review	
+	*	@param {Object} req - Http request
+	*	@param {Object} res - Http response
+	* 	@param {Object} next - Next middleware
+	* 	@param {Number} :id - book ID of the currently selected book
+	* 	@param {Object} :user - the current user who is the author of the review	
 	*	@returns {JSON} Created review on the current book with the ID of the current user as JSON and returns that new record
 	*/
 	.post(function postReview(req, res,next){
@@ -363,14 +363,14 @@ module.exports = function(router) {
 			return next('User not logged in');
 		}
 		var user = req.user;
-		bReviews.findById({bookId: '_id'}).populate('userId bookId')
-				.exec(function (err, book){
+		bReviews.find({'_id': bookId}).populate('userId bookId')
+				.exec(function (err, reviews){
 			        	if (err) {
 				            res.status(404).json(err);
 				            return next(err);
 				        }
-				        res.json(review);
 				        res.status(201);
+				        res.json(reviews);
 				});
 	});
 }
