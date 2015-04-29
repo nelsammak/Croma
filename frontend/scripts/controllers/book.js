@@ -141,14 +141,11 @@ angular.module('angularPassportApp')
 
    //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
     $scope.addTobeRead = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
       $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
           $scope.book.tobeRead=bool;
-          console.log("user added book" + bool);
         })
         })
         .error(function(data) {
@@ -160,8 +157,6 @@ angular.module('angularPassportApp')
       * @deletes a book from user's to be read list
     */
     $scope.removeTobeRead = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
       $http.delete('api/users/'+$scope.currentUser._id+'/removeToBeRead/'+ShareService.getValue())
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
