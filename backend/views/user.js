@@ -54,8 +54,17 @@ module.exports = function(router) {
 							});
 		});
 
-
-	router.route('/users/:id/addToBeRead').post(function(req, res, next) {
+	
+	router.route('/users/:id/addToBeRead')
+	/**
+	* @function addToBeRead -  called on Post "/users/:id/addToBeRead"	
+	* adds a book from user's tobe read list
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @returns {JSON} string "Added the book successfully" as JSON
+ 	*/
+	.post(function addToBeRead(req, res, next) {
         var userId = req.params.id;
         var bookId = req.body.bookId;
         User.findById(userId, function (err, user) {
@@ -74,7 +83,7 @@ module.exports = function(router) {
         });
     	})
 	/**
-	* @function removeToBeRead -  Post "/api/users"	
+	* @function removeToBeRead -  called on Delete "/users/:id/removeToBeRead/:bookId"	
 	* removes a book from user's tobe read list
 	* @params {Object} req - Http request
 	* @params {Object} res - Http response
