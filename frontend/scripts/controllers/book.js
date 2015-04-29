@@ -147,7 +147,7 @@ angular.module('angularPassportApp')
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
-          $scope.book.tobeRead=true;
+          $scope.book.tobeRead=bool;
           console.log("user added book" + bool);
         })
         })
@@ -158,7 +158,7 @@ angular.module('angularPassportApp')
     /**
       * @function removeTobeRead
       * @deletes a book from user's to be read list
-      */
+    */
     $scope.removeTobeRead = function() {
       console.log('user: ' +  $scope.currentUser._id);
       console.log('book: ' +  ShareService.getValue());
@@ -166,7 +166,7 @@ angular.module('angularPassportApp')
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
-          $scope.book.tobeRead=true;
+          $scope.book.tobeRead=bool;
         })
         })
         .error(function(data) {
