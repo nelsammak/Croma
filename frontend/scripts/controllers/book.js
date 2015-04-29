@@ -139,7 +139,10 @@ angular.module('angularPassportApp')
         });
     };
 
-   //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
+    /**
+      * @function aadTobeRead
+      * @adds a book to user's to be read list
+    */
     $scope.addTobeRead = function() {
       $http.post('api/books/'+ShareService.getValue()+'/ToBeRead')
         .success(function(response) {
