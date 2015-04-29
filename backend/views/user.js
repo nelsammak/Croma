@@ -55,57 +55,6 @@ module.exports = function(router) {
 		});
 
 	
-	router.route('/users/:id/addToBeRead')
-	/**
-	* @function addToBeRead -  called on Post "/users/:id/addToBeRead"	
-	* adds a book from user's tobe read list
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @returns {JSON} string "Added the book successfully" as JSON
- 	*/
-	.post(function addToBeRead(req, res, next) {
-        var userId = req.params.id;
-        var bookId = req.body.bookId;
-        User.findById(userId, function (err, user) {
-          if (err) {
-            res.status(404).json(err);
-            return next(err);
-          }
-          if (user.toBeRead.indexOf(bookId) > -1) { //Already has the book in his Currently Reading List
-            return res.json("Already has the book");
-          }
-          else {
-            user.toBeRead.push(bookId);
-          }
-          user.save();
-          res.json("Added the book successfully");
-        });
-    	})
-	/**
-	* @function removeToBeRead -  called on Delete "/users/:id/removeToBeRead/:bookId"	
-	* removes a book from user's tobe read list
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @returns {JSON} string "Removed the book successfully" as JSON
- 	*/
-	router.route('/users/:id/removeToBeRead/:bookId').delete(function removeToBeRead(req, res, next) {
-	        var userId = req.params.id;
-	        var bookId = req.params.bookId;
-	        User.findById(userId, function (err, user) {
-	            if (err) {
-	                res.status(404).json(err);
-	                return next(err);
-	            }
-	            var index = user.toBeRead.indexOf(bookId);
-	            if (index > -1) {
-	                user.toBeRead.splice(index, 1);
-	            }
-	            user.save();
-	            res.json("Removed the book successfully");
-	        });
-	    });
-
+	
 
 };
