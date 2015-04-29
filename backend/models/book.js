@@ -1,9 +1,9 @@
-var mongoose = require('mongoose');
-var User = require('../models/user.js');
-var async = require('async');
-var fs = require('fs');
-var path = require('path');
-var Schema = mongoose.Schema;
+var mongoose = require('mongoose'),
+	 User = require('../models/user.js'),
+	 async = require('async'),
+	 fs = require('fs'),
+	 path = require('path'),
+	 Schema = mongoose.Schema;
 
 //Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
 var bookSchema = new Schema({

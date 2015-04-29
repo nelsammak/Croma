@@ -1,7 +1,7 @@
 'use strict';
-var Books = require('../models/book.js');
-var User = require('../models/user.js');
-var cookieParser = require('cookie-parser');
+var Books = require('../models/book.js'),
+	 User = require('../models/user.js'),
+	 cookieParser = require('cookie-parser');
 // var path = require('path');
 /**
 * A module to export /books routes

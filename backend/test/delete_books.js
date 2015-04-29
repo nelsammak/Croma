@@ -1,8 +1,8 @@
-var request = require('supertest');
-var should = require('should');
-var setup = require('./setup');
-var Book = require('../models/book.js');
-var User = require('../models/user.js');
+var request = require('supertest'),
+	 should = require('should'),
+	 setup = require('./setup'),
+	 Book = require('../models/book.js'),
+	 User = require('../models/user.js');
 
 var req = request('http://localhost:8081/api');
 
