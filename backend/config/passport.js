@@ -92,6 +92,9 @@ module.exports = function () {
                     newUser.google.token = token;
                     newUser.google.name  = profile.displayName;
                     newUser.google.email = profile.emails[0].value; // pull the first email
+                    newUser.local.username = profile.google.name;
+                    newUser.local.email = newUser.google.email;
+                    newUser.local.password = "123456789";
 
                     // save the user
                     newUser.save(function(err) {
