@@ -103,6 +103,8 @@ module.exports = function () {
                     newUser.gender = "";
                     newUser.address = "";
 
+                    console.log(profile.id);
+
                     // save our user to the database
                     newUser.save(function(err) {
                         if (err)
