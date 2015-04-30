@@ -98,7 +98,7 @@ module.exports = function () {
                     newUser.firstName      = "";
                     newUser.lastName       = "";  
                     newUser.age            = "";
-                    newUser.gender         = "";
+                   // newUser.gender         = "";
                     newUser.address        = "";
 
 
