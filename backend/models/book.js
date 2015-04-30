@@ -7,13 +7,13 @@ var mongoose = require('mongoose'),
 
 //Creating the Book Schema, the schema takes a JSON of the attributes of the Book Schema
 var bookSchema = new Schema({
-	name: { type: String, required: true },
-	author: { type: String, required: true },
+	name: { type: String, required: true, index: true },
+	author: { type: String, required: true, index: true },
 	coverLocation: { type: String, required: true },
-	bio: { type: String},
+	bio: { type: String },
 	text: { type: String, required: true},
 	labels: [{ type: String }],
-	genres: [String],
+	genres: [{type: String, index: true }],
 	ratings: { type: [Schema.Types.Mixed], default: []},
 	arrivalTime: { type: Date, default: Date.now}
 });
@@ -91,6 +91,7 @@ bookSchema.pre('remove', function removeCoverAndEpub (next) {
 
 //include Mongoose virtual fields in toJSON by default
 bookSchema.set('toJSON', { virtuals: true });
+
 
 
 //exporting the Book model to use it in app.js

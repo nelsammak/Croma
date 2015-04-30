@@ -24,7 +24,7 @@
     <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
     <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
     <!-- Custom Fonts -->
@@ -53,12 +53,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <li class="page-scroll">
-                    <a class="navbar-brand" href="/#/">Croma</a>
-                </li>
+                <a class="navbar-brand" href="/#/">Croma</a>
             </div>
             <!-- these items when not logged in -->
-            <div ng-show="!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul ng-show="!currentUser" class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
@@ -74,26 +72,29 @@
                     </li>
                 </ul>
                 <!-- these items when logged in -->
-                <ul ng-show="currentUser" class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/shelves">To be Read</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/genre">Browse genre</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/newarrivals">New Arrivals</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/shelves">Currently Reading</a>
-                    </li>
-                </ul>
+                <div class="container" ng-show="currentUser" style="display:fluid;">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="nav navbar-form">
+                                <input id="searchInput" ng-controller="searchCtrl" class="form-control nav" placeholder="&#xF002; Search" ng-model="searchTerm" ng-model-options="{debounce: 500}" title="Search" onfocus="this.placeholder=''" onblur="this.placeholder='&#xF002; Search'">
+                            </div>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/genre">Browse genre</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/newarrivals">New Arrivals</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/shelves">Currently Reading</a>
+                        </li>
+                    </ul>
+                </div>
                 <!-- /.navbar-collapse -->
-            </div>
-            <!-- /.container-fluid -->
+                <!-- /.container-fluid -->
     </nav>
     <br>
     <br>
@@ -101,10 +102,9 @@
     <br>
     <br>
     <br>
-    <div ng-hide="currentUser" class="container" ng-view=""></div>
-    <div ng-hide="!currentUser" ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
+    <div ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}">
         <!-- Sidebar -->
-        <div id="sidebar-wrapper">
+        <div ng-hide="!currentUser" id="sidebar-wrapper">
             <ul class="sidebar">
                 <li class="sidebar-main">
                     <a ng-click="toggleSidebar()">
@@ -141,80 +141,70 @@
                 </div>
             </div>
         </div>
-        <!-- End Sidebar -->
-        <div id="content-wrapper">
-            <div class="page-content">
-                <!-- Header Bar -->
-                <div class="row header">
-                    <div class="col-xs-12">
-                        <div class="user pull-right">
-                            <div class="item dropdown">
-                                <a href="#" class="dropdown-toggle">
-                                    <img src="img/avatar.jpg">
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-header">
-                                        {{currentUser.username}}
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="link">
-                                        <a href="/#/profile">
+    <!-- End Sidebar -->
+    <div id="content-wrapper">
+        <div class="page-content">
+            <!-- Header Bar -->
+            <div ng-show="currentUser" class="row header">
+                <div class="col-xs-12">
+                    <div class="user pull-right">
+                        <div class="item dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <img src="{{currentUser.profilePhoto}}">
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">
+                                    {{currentUser.username}}
+                                </li>
+                                <li class="divider"></li>
+                                <li class="link">
+                                    <a href="/#/profile">
                       Profile
                     </a>
-                                    </li>
-                                    <li class="link">
-                                        <a href="#">
-                      Menu Item
-                    </a>
-                                    </li>
-                                    <li class="link">
-                                        <a href="#">
-                      Menu Item
-                    </a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="link">
-                                        <a ng-click="logout()">
+                                </li>
+                                <li class="divider"></li>
+                                <li class="link">
+                                    <a ng-click="logout()">
                       Logout
                     </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item dropdown">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="fa fa-bell-o"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-header">
-                                        Notifications
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">Server Down!</a>
-                                    </li>
-                                </ul>
-                            </div>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="meta">
-                            <div class="page">
-                                Dashboard
-                            </div>
-                            <div class="breadcrumb-links">
-                                <!-- Home / Dashboard -->
-                            </div>
+                        <div class="item dropdown">
+                            <a href="#" class="dropdown-toggle">
+                                <i class="fa fa-bell-o"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-right">
+                                <li class="dropdown-header">
+                                    Notifications
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="#">Server Down!</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="meta">
+                        <div class="page">
+                        </div>
+                        <div class="breadcrumb-links">
+                            <!-- Home / Dashboard -->
                         </div>
                     </div>
                 </div>
-                <!-- End Header Bar -->
-                <!-- Main Content -->
-                <br>
-                <br>
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" ng-view="">
-                </div>
             </div>
-            <!-- End Page Content -->
+            <!-- End Header Bar -->
+            <!-- Main Content -->
+            <br>
+            <br>
+            <div class="container" ng-view="">
+            </div>
         </div>
-        <!-- End Content Wrapper -->
+        </div>
+        <!-- End Page Content -->
+    </div>
+    <!-- End Content Wrapper -->
     </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
@@ -266,12 +256,16 @@
     <script src="scripts/directives/widget.js"></script>
     <script src="scripts/controllers/myShelf.js"></script>
     <script src="scripts/controllers/book.js"></script>
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/services/searchService.js"></script>
+    <script src="scripts/controllers/searchResultCtrl.js"></script>
+    <script src="scripts/controllers/searchCtrl.js"></script>
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
     <!-- Contact Form JavaScript -->
