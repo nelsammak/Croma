@@ -4,8 +4,8 @@
 angular.module('angularPassportApp')
 .controller('BooksCtrl', ['$scope', '$http',
 	function sendBookCollection ($scope, $http) {
-
-      $scope.page="All books";
+    $scope.page="All books";
+    $scope.orderByRating = false;
 		$http.get('api/books').success(function(response) {
 			console.log("I received the DATA");
 		 	$scope.books=response;
@@ -14,9 +14,45 @@ angular.module('angularPassportApp')
 			$http.post('/api/books/'+ bookid +'/currentlyReading').success(function(response){
 				console.log(response);
 			});
-		}
+		};
+    $scope.orderByRatingF = function() {
+      $scope.orderByRating = !$scope.orderByRating;
+      if(!$scope.orderByRating) {
+        $scope.page="All books";
+        $http.get('api/books').success(function(response) {
+          console.log("I received the DATA");
+          $scope.books=response;
+        });
+      }
+      else {
+        $scope.page="All books ordered by rating";
+        $http.get('api/booksbyrating').success(function(response) {
+          console.log("I received the DATA");
+          $scope.books=response;
+        });
+      }
+    };
 	}
 ]);
+
+
+
+angular.module('angularPassportApp')
+  .controller('BooksByRatingCtrl', ['$scope', '$http',
+    function sendBookCollection ($scope, $http) {
+
+      $scope.page="All books ordered by rating";
+      $http.get('api/booksbyrating').success(function(response) {
+        console.log("I received the DATA");
+        $scope.books=response;
+      });
+      $scope.sendReading = function(bookid){
+        $http.post('/api/books/'+ bookid +'/currentlyReading').success(function(response){
+          console.log(response);
+        });
+      }
+    }
+  ]);
 
 //New arrivals controller's job it to request new arrivals from backend and add it to the front end
 angular.module('angularPassportApp')

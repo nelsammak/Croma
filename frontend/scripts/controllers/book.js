@@ -8,6 +8,7 @@ angular.module('angularPassportApp')
       $scope.book=response.book;
       $scope.bookID = response.book._id
       $scope.book.tobeRead=false;
+      $scope.orderedByRating = false;
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
@@ -36,8 +37,6 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
     });
-
-    
 
     //rate function's job is to send to the backend an object consisting of a user and his rating
     $scope.rate = function() {

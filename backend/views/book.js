@@ -277,6 +277,25 @@ module.exports = function(router) {
 	});
 
 	/**
+	 * @function getBooksByRating Called on Get "/api/booksbyrating"
+	 * Returns the all the books ordered by the rating
+	 * @params {Object} req - Http request
+	 * @params {Object} res - Http response
+	 * @params {Object} next - Next middleware
+	 * @return {JSON} { 'books' }
+	 */
+	router.route('/booksbyrating').get(function getBooksByRating(req, res, next) {
+		var id = req.params.id;
+		Books.find({}).sort('-avgRating').exec(function (err, books) {
+			if (err) {
+				res.status(404).json(err);
+				return next(err);
+			}
+			res.status(200).json(books);
+		});
+	});
+
+	/**
 	 * @function rateBook Called on Get "/api/books/:id/rate"
 	 * Rates the Book
 	 * @params {Object} req - Http request
