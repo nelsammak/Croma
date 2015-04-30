@@ -6,12 +6,13 @@ var mongoose = require('mongoose');
     Book = require('./book.js'),
     _= require('lodash');
 
-var UserSchema = new Schema({
-    email: { type: String, index: {unique: true}, required: true},
-    username: { type: String, required: true, unique: true, index: true},
+ar UserSchema = new Schema({
+    local : {
+    email: { type: String, index: {unique: true}, required: true },
+    username: { type: String, required: true, unique: true},
     password: { type: String, required: true },
-    firstName: { type: String, index:true },
-    lastName: { type: String,  index:true },
+    firstName: { type: String },
+    lastName: { type: String },
     age: { type: Number },
     admin: {type: Boolean },
     address: { type: String },
@@ -20,6 +21,13 @@ var UserSchema = new Schema({
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
     toBeRead: [{type:ObjectId, ref: 'book'}]
+},
+ google       : {
+        id           : String,
+        token        : String,
+        email        : String,
+        name         : String
+    }
 });
 
 UserSchema.pre('save', function(next) {
