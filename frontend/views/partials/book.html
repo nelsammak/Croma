@@ -1,16 +1,6 @@
-<!DOCTYPE>
-<html>
-	<head>
-		<title> View Bio </title>
-
-		<!-- Bootstrap Core CSS -->
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	</head>
-
-	<body>
+<body>
 	<div id="bookbox">
-			<h1>{{book.name}}</h1>
+		<h1 id="title">{{book.name}}</h1>
 		</div>
 
 		<div id="nav">
@@ -51,11 +41,8 @@
                <button  class="btn  btn-sm btn-link" type="button" 
 								ng-click="rate()">rate</button>
 		</div>
-
-
-
-</div>
-	</body>
+	</div>
+</body>
 
 <style>
 #bookbox {
@@ -65,10 +52,8 @@
     padding:5px;
 }
 #title {
-	color: #000080;
+	color: #000050;
     text-align:center;
-    font-size: 45px;
-    text-decoration: bold;
 }
 #nav {
 	margin-top: 30px;
@@ -156,4 +141,3 @@
 	text-align: center;
 }
 </style>  
-</html>
