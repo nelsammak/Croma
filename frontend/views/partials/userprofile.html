@@ -1,15 +1,50 @@
+
+<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
+rel="stylesheet"/>
 <div class="container">
   <div ng-app>
     <div ng-controller="ProfileController">
       <div style="width:100%; text-align:center">
-        <img ng-src="/img/{{userInfo.profile.profilePhoto}}" width="200" height="200" >
-        <h1 >{{userInfo.profile.username}}</h1>
-      </div>
+       
+ <img ng-src="/img/{{userInfo.profile.profilePhoto}}" width="150" height="150" >
+ <div flow-init
+    flow-prevent-drop
+      flow-drag-enter="style={border: '5px solid green'}"
+      flow-drag-leave="style={}"
+      ng-style="style"
+      ng-controller="flowCtrl">
 
-      <div style=" text-align:right">
+    <div class="container">
+      <hr class="soften"/>
+
+      <div class="row">
+        <div class="span6">
+
+
+          <span class="btn btn-primary" flow-btn><i class="icon icon-file"></i>Select image</span>
+          <span class="btn btn-primary" flow-btn flow-directory ng-show="$flow.supportDirectory"><i class="icon icon-folder-open"></i>
+          Upload Folder
+          </span>
+        </div>
+      </div>
+        <hr class="soften">
+        <p>
+          <a class="btn btn-small btn-success" ng-click="$flow.resume()">Upload</a>
+          <a class="btn btn-small btn-danger" ng-click="$flow.pause()">Pause</a>
+          <a class="btn btn-small btn-info" ng-click="$flow.cancel()">Cancel</a>
+        </p>
+
+    </div>
+ </div>
+
+        <h1 >{{userInfo.profile.username}}</h1>
+        <div style=" text-align:right">
         <a href="/#/editpage"><i class="fa fa-pencil-square-o" style="color:CadetBlue;font-sizesize:3.0em">Edit</i></a>
   
       </div>
+      </div>
+
+      
 
       <div>
         <p><span style="size:7;color:CadetBlue"><b>
@@ -28,3 +63,8 @@
     </div>
   </div>
 </div>
+
+
+
+
+

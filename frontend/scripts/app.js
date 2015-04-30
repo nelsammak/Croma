@@ -76,7 +76,7 @@ angular.module('angularPassportApp', [
 
       .when('/editpage',{
         templateUrl: 'partials/editpage.html',
-        controller: 'ProfileController'
+        controller: 'EditCtrl'
         
       })
       .otherwise({
