@@ -285,7 +285,7 @@ module.exports = function(router) {
 	 * @return {JSON} { 'message' }
 	 */
 	router.route('/books/:id/rate').post(function rateBook(req, res, next) {
-		var bookId = req.params.id;
+		var bookId = mongoose.Types.ObjectId(req.params.id);
 		Books.findOne({'_id': bookId}, function findBook(err, book) {
 			if (err) {
 				res.status(404).json(err);
