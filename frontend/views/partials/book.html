@@ -27,6 +27,14 @@
 			<h6 id="info" ng-show="book.avgRating == 0"> Not rated yet </h6>
 		</div>
 
+		<div ng-controller = "LabelsCtrl"  ng-init = "bookId = book.id" >
+
+ <tags-input ng-model="tags" add-on-space = "true" onTagAdded = "addTag($tag,book.id)">
+      <auto-complete source="loadTags($query)"></auto-complete>
+    </tags-input>
+<br><br><br><br>
+</div>
+
 		<div id="image">
 			<img  ng-src="{{book.coverLocation}}"/>
 		</div>

@@ -13,20 +13,21 @@
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" ui-sref="styles/main.css">
-        <!-- endbuild -->
+<!--         <link rel="stylesheet" ui-sref="styles/main.css">
+ -->        <!-- endbuild -->
 
 
 
 
         <!-- STYLES -->
+       <!--  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css">  -->
   <!-- build:css lib/css/main.min.css -->
-  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
+<!--   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css"> -->
+<!--   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css"> -->
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
 
-<link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
-
+<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
+ -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
@@ -34,8 +35,8 @@
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">  <!-- endbuild -->
+   <!--  <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">  --> <!-- endbuild -->
 
 
 
@@ -263,6 +264,13 @@
         <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
         <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <!-- ng tags script -->
+
+         <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+
+ <!-- css angular script -->
+  <script src="bower_components/angular-css/angular-css.min.js"></script>
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
@@ -282,6 +290,8 @@
 
         <script src="scripts/controllers/alert-ctrl.js"></script>
         <script src="scripts/controllers/master-ctrl.js"></script>
+
+        <script src="scripts/controllers/labels.js"></script>
 
         <script src="scripts/directives/loading.js"></script>
         <script src="scripts/directives/widget-body.js"></script>
@@ -323,26 +333,7 @@
         
     <!-- Hypothes.is 
 
- <!--   <script src="https://static.hypothes.is/lib/d3.min.js"></script>
-    <script src="https://static.hypothes.is/lib/dom_text.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.scrollintoview.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.core.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-blind.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-highlight.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.widget.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.menu.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jschannel.min.js"></script>
-    <script src="https://static.hypothes.is/lib/gettext.min.js"></script>
-    <script src="https://static.hypothes.is/locale/data.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.min.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.document.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/bridge.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/heatmap.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/toolbar.js"></script>
-    <script src="https://static.hypothes.is/js/inject.min.js"></script> -->
-    
-    -->
+
     <!-- build:js({.tmp,src}) scripts/scripts.js -->
     
     <script src="scripts/libs/epubjs/epub.min.js"></script>

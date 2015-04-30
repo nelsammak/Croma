@@ -8,7 +8,9 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'flow'
+  'flow',
+  'ngTagsInput',
+  'door3.css'
 
 
 ])
@@ -49,7 +51,8 @@ angular.module('angularPassportApp', [
 
       .when('/books/:id', {
         templateUrl: 'partials/book.html',
-        controller: 'BookCtrl'
+        controller: 'BookCtrl',
+        css:'bower_components/ng-tags-input/ng-tags-input.bootstrap.css'
       })
       
       .when('/profile', {
