@@ -16,34 +16,39 @@ module.exports = function(router) {
   router.route('/users/:id/toBeReadBooks').get(toBeReadBooks);
   router.route('/users/:id').get(profile).put(editProfile);
   router.route('/check_username/:username').get(checkUserName);
-  router.route('/users/:id/uploadimg').post(uploadimg);
+  //router.route('/users/:id/uploadimg').post(uploadimg);
 };
- var uploadimg = function (req, res, next) {
-  flow.post(req, function(status, filename, original_filename, identifier, currentTestChunk, numberOfChunks) {
-        console.log('POST', status, original_filename, identifier);
-        res.send(200);
-        if (status === 'done' && currentTestChunk > numberOfChunks) {
-            var stream = fs.createWriteStream('../frontend/img/' + filename);
-            flow.write(identifier, stream, { onDone: flow.clean });   
-            // get a user with ID of 1
-            var id = req.params.id;
-        Profile.findById(id, function(err, Profile) {
-        if (err) throw err;
 
-          // change the users location
-          Profile.profilePhoto = filename;
+/*
+uploadimg is used to upload an img and 
+then update user's profile with the uploaded one
+*/
+//  var uploadimg = function (req, res, next) {
+//   flow.post(req, function(status, filename, original_filename, identifier, currentTestChunk, numberOfChunks) {
+//         console.log('POST', status, original_filename, identifier);
+//         res.send(200);
+//         if (status === 'done' && currentTestChunk > numberOfChunks) {
+//             var stream = fs.createWriteStream('../frontend/img/' + filename);
+//             flow.write(identifier, stream, { onDone: flow.clean });   
+      
+//             var id = req.params.id;
+//         Profile.findById(id, function(err, Profile) {
+//         if (err) throw err;
 
-          // save the user
-          Profile.save(function(err) {
-            if (err) throw err;
+//           // change the users profilePhoto
+//           Profile.profilePhoto = filename;
 
-            console.log('User successfully updated!');
-          });
+//           // save the user
+//           Profile.save(function(err) {
+//             if (err) throw err;
 
-          });         
-        }            
-    })
-}
+//             console.log('User successfully updated!');
+//           });
+
+//           });         
+//         }            
+//     })
+// }
 
 // GET
   var profile = function (req, res, next) {

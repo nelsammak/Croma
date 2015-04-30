@@ -9,8 +9,30 @@ var Epub = require('epub'),
 
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
+	router.route('/uploadimg').post(uploadimg);
+}
+var uploadimg = function (req, res, next) {
+	try{
+	console.log('REQUEST IS', req.body);
+  flow.post(req, function(status, filename, original_filename, identifier, currentTestChunk, numberOfChunks) {
+        console.log('POST', status, 'org:' , original_filename,'ide :', identifier ,'file:',filename);
+        res.send(200);
+        if (status === 'done'  && req.body.flowTotalChunks == req.body.flowChunkNumber) {
+            var stream = fs.createWriteStream('../frontend/img/' + filename);
+            flow.write(identifier, stream, {onDone: function () {
+					
+					flow.clean(identifier);
+					console.log('file: ', filename, 'succesfully saved.');
+					 }});   
+             
+        }            
+    })
 }
 
+catch (err) {
+		next(err);
+	}
+}
 var saveEpubData = function (req, res, next) {
 	try {
 		console.log('REQUEST IS', req.body);

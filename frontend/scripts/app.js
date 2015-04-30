@@ -84,10 +84,10 @@ angular.module('angularPassportApp', [
       });
 
       
-
-
+//'api/users/uploadimg'
+//api/admin/addBook'
     flowFactoryProvider.defaults = {
-    target: '/api/admin/addBook',
+     target: 'api/uploadimg',
     testChunks: false,
     permanentErrors: [404, 500, 501],
     maxChunkRetries: 1,
