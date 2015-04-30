@@ -52,7 +52,7 @@ angular.module('angularPassportApp', [
       .when('/books/:id', {
         templateUrl: 'partials/book.html',
         controller: 'BookCtrl',
-        css:'bower_components/ng-tags-input/ng-tags-input.bootstrap.css'
+        css:'bower_components/ng-tags-input/ng-tags-input.css'
       })
       
       .when('/profile', {

@@ -25,14 +25,21 @@
 
 			<h6 id="info" ng-hide="book.avgRating == 0"> {{book.avgRating}}/5 </h6>
 			<h6 id="info" ng-show="book.avgRating == 0"> Not rated yet </h6>
-		</div>
+		
 
-		<div ng-controller = "LabelsCtrl"  ng-init = "bookId = book.id" >
 
- <tags-input ng-model="tags" add-on-space = "true" onTagAdded = "addTag($tag,book.id)">
-      <auto-complete source="loadTags($query)"></auto-complete>
-    </tags-input>
+		<!-- Labels section, only viewed to admin -->
+<div ng-show = "currentUser.admin">
+<br><br>
+<h6 id="info" > Labels </h6>
+ <tags-input ng-model="tags" add-on-space = "true" on-tag-added = "editTags()" 
+ on-tag-removed="addTag()">
+<!--       <auto-complete source="loadTags($query)"></auto-complete>
+ -->    </tags-input>
+ </div>
 <br><br><br><br>
+
+		<!-- End labels -->
 </div>
 
 		<div id="image">

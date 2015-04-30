@@ -182,7 +182,7 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
 
 	/**
 	* @function addLabels Called on Post "/api/books/:id/labels" 
-	* Returns Book after old labels are removed and new ones added
+	* Changes labels after a label is added or removed
 	* @params {Object} req - Http request
 	* @params {Object} res - Http response
 	* @params {Object} next - Next middleware
@@ -196,7 +196,7 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
 			if (err) {
 					return next(err);
 				}
-			if(book) {
+			
 				console.log('Book LABELS', book.labels);
 				book.labels = req.body.labels;
 				book.save(function (err, newBook){
@@ -205,7 +205,7 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
 					}
 					res.status(201).json({book: newBook});
 				});
-			}
+			
 		});
 	}
 	//Route to get the specific book's average Rating

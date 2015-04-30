@@ -21,8 +21,8 @@ var MongoStore = require('connect-mongo')(expressSession);
 var Books = require('./models/book.js');
 
 //inserting the books
-require('./inserts/book');
-
+/*require('./inserts/book');
+*/
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
 var config = require('./config/config.json')[process.env.NODE_ENV];
