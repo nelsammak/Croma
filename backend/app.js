@@ -61,6 +61,15 @@ app.use(passport.session());
 
 app.use(morgan('dev'));
 
+ app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+    app.get('/auth/facebook/callback',
+        passport.authenticate('facebook', {
+            successRedirect : '/profile',
+            failureRedirect : '/'
+        }));
+
 var router = express.Router(); 
 app.use('/api', router);
 
@@ -86,14 +95,7 @@ app.get('/views/*', function(req, res) {
 app.get('/', function(req, res) {
  	res.render('index.html');
 });
-  app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
-
-    // handle the callback after facebook has authenticated the user
-    app.get('/auth/facebook/callback',
-        passport.authenticate('facebook', {
-            successRedirect : '/profile',
-            failureRedirect : '/'
-        }));
+ 
 
 
 var port = process.env.PORT || 8081; 
