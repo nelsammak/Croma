@@ -9,18 +9,15 @@
 	</head>
 
 	<body>
-		<div id="header">
-			<h1>{{book.name}}</h1>
-		</div>
-
+	<div id="bookbox">
+		<h2 id="title"><strong>{{book.name}}</strong></h2>
 		<div id="nav">
 			<h3 id="info"> Genre</h3>
 			<div ng-repeat="genre in book.genres">
-
 				<h6 id="info">{{genre}}</h6>
 			</div>
 			<h3 id="info"> Author</h3>
-			<h6 id="info">{{book.author}}</h6><br>
+			<h6 id="info">{{book.author}}</h6>
 			<h3 id="info"> Ratings </h3>
 
 			<h6 id="info" ng-hide="book.avgRating == 0"> {{book.avgRating}}/5 </h6>
@@ -40,7 +37,10 @@
 
 			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
 			</button>
-
+		</div>
+		
+		<div class="rating">
+			<h4>Your rating </h4><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
 		</div>
 		<div id="rate">
 			<input ng-model="rating"
@@ -54,21 +54,28 @@
 
 
 
-
+	</div>
 	</body>
 
-<!-- <style>
-#header {
-
-    color:blue;
+<style>
+#bookbox {
+	margin-top: -80px;
     text-align:center;
     padding:5px;
 }
+#title {
+	color: #000080;
+    text-align:center;
+    font-size: 45px;
+    text-decoration: bold;
+}
 #nav {
-    line-height:30px;
+	margin-left: -37px;
+	margin-top: 30px;
+    line-height:50px;
     background-color:#eeeeee;
-    height:300px;
-    width:100px;
+    height:370px;
+    width:150px;
     float:left;
     padding:5px; 
 }
@@ -78,9 +85,9 @@
     padding:10px; 
 }
 #bio {
-    width:300px;
+    width:600px;
     float:right;
-    margin-right:400px;
+    margin-right:93px;
     text-align:center; 
     padding:10px; 
 }
@@ -88,16 +95,26 @@
 	float: right;
 	margin-right: 500px;
 }
+.rating {
+  float: right;
+  margin-right: 270px;
+  unicode-bidi: bidi-override;
+  direction: rtl;
+  width: 300px;
 
-#rating > span:hover:before {
+}
+.rating > span {
+  display: inline-block;
+  position: relative;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
    content: "\2605";
    position: absolute;
-}{
-
 }
 
 #info{
 	text-align: center;
 }
-</style>  -->
+</style>  
 </html>
