@@ -205,7 +205,7 @@ module.exports = function(router) {
 	 */
 	router.route('/books/:id/avgRating').get(function getBookAvgRating(req, res, next) {
 		var id = req.params.id;
-		Books.findOne({'_id': id}, function findBookText(err, book) {
+		Books.findOne({'_id': id}, function (err, book) {
 			if (err) {
 				res.status(404).json(err);
 				return next(err);
