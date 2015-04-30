@@ -98,6 +98,9 @@ module.exports = function () {
                     newUser.username = newUser.google.name;
                     newUser.email = newUser.google.email;
                     newUser.password = "123456789";
+                    newUser.age =" ";
+                    newUser.gender = "";
+                    newUser.address = "";
 
                     // save the user
                     newUser.save(function(err) {

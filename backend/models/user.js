@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
     _= require('lodash');
 
 var UserSchema = new Schema({
-    local : {
+    //local : {
     email: { type: String, index: {unique: true}, required: true },
     username: { type: String, required: true, unique: true},
     password: { type: String, required: true },
@@ -20,8 +20,8 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
-    toBeRead: [{type:ObjectId, ref: 'book'}]
-},
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+//},
  google       : {
         id           : String,
         token        : String,
