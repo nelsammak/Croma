@@ -38,9 +38,13 @@ angular.module('angularPassportApp')
     });
 
     
-
+   /**
+   * @function rate  
+   * sends user rating to backend
+   * @param {int} userRating - user rating
+   */
     //rate function's job is to send to the backend an object consisting of a user and his rating
-    $scope.rate = function(userRating) {
+    $scope.rate = function rate(userRating) {
       console.log("user rated "+ userRating);
       $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: userRating})
         .success(function(response) {
