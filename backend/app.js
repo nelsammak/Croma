@@ -89,6 +89,18 @@ app.get('/', function(req, res) {
 });
 
 
+ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/#/main',
+                    failureRedirect : '/'
+            }));
+
+};
+
+
 var port = process.env.PORT || 8081; 
 
 

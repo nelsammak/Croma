@@ -1,6 +1,8 @@
 var mongoose = require('mongoose'),
-LocalStrategy = require('passport-local').Strategy,
-passport = require('passport');
+    LocalStrategy = require('passport-local').Strategy,
+    GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
+    passport = require('passport'),
+    configAuth = require('./auth');
 
 module.exports = function () {
 
