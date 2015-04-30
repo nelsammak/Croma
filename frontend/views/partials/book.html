@@ -10,7 +10,7 @@
 				<h6 id="info">{{genre}}</h6>
 			</div>
 			<h3 id="info"> Author</h3>
-			<h6 id="info">{{book.author}}</h6><br>
+			<h6 id="info">{{book.author}}</h6>
 			<h3 id="info"> Ratings </h3>
 
 			<h6 id="info" ng-hide="book.avgRating == 0"> {{book.avgRating}}/5 </h6>
@@ -32,14 +32,15 @@
 			</button>
 
 		</div>
-		<div id="rate">
-			<input ng-model="rating"
-                      type="number"
-                      max="5"
-
-                      min="1">
-               <button  class="btn  btn-sm btn-link" type="button" 
-								ng-click="rate()">rate</button>
+		<div class="starRate">
+		<div><b></b></div>
+			<ul>
+			<li><a ng-click="rate(5)"><span>Give it 5 stars</span></a></li>
+			<li><a ng-click="rate(4)"><span>Give it 4 stars</span></a></li>
+			<li><a ng-click="rate(3)"><span>Give it 3 stars</span><b></b></a></li>
+			<li><a ng-click="rate(2)"><span>Give it 2 stars</span></a></li>
+			<li><a ng-click="rate(1)"><span>Give it 1 star</span></a></li>
+			</ul>
 		</div>
 	</div>
 </body>
@@ -80,64 +81,27 @@
 	float: right;
 	margin-right: 500px;
 }
-.rating {
-    float:left;
-    margin-left: 150px;
-}
-
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-   follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
-.rating:not(:checked) > input {
-    position:absolute;
-    top:-9999px;
-    clip:rect(0,0,0,0);
-}
-
-.rating:not(:checked) > label {
-    float:right;
-    width:1.1em;
-    padding:0 .1em;
-    overflow:hidden;
-    white-space:nowrap;
-    cursor:pointer;
-    font-size:200%;
-    line-height:1.2;
-    color:#ddd;
-    text-shadow:1px 1px #bbb, 2px 2px #666, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating:not(:checked) > label:before {
-    content: '★ ';
-}
-
-.rating > input:checked ~ label {
-    color: #f70;
-    text-shadow:1px 1px #c60, 2px 2px #940, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: gold;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: #ea0;
-    text-shadow:1px 1px goldenrod, 2px 2px #B57340, .1em .1em .2em rgba(0,0,0,.5);
-}
-
-.rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
-}
 
 #info{
 	text-align: center;
 }
+/* 'star-rating' component */
+.starRate {
+	position:relative; 
+	margin:20px; 
+	overflow:hidden; 
+	zoom:1;
+	margin-top: 500px;
+	margin-left: 280px;
+}
+.starRate ul {width:160px; margin:0; padding:0;}
+.starRate li {display:inline; list-style:none;}
+.starRate a, .starRate b {background:url(img/star_rate.gif) left top repeat-x;}
+.starRate a {float:right; margin:0 80px 0 -144px; width:80px; height:16px; background-position:left 16px; color:#000; text-decoration:none;}
+.starRate a:hover {background-position:left -32px;}
+.starRate b {position:absolute; z-index:-1; width:80px; height:16px; background-position:left -16px;}
+.starRate div b {left:0px; bottom:0px; background-position:left top;}
+.starRate a span {position:absolute; left:-300px;}
+.starRate a:hover span {left:90px; width:100%;}
+
 </style>  
