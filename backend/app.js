@@ -90,8 +90,9 @@ app.get('/', function(req, res) {
  	res.render('index.html');
 });
 var port = process.env.PORT || 8081; 
-
 app.use('/api', router);
+
+//facebook routes
 app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
     // handle the callback after facebook has authenticated the user
