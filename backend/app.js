@@ -64,6 +64,10 @@ app.use(morgan('dev'));
 var router = express.Router(); 
 app.use('/api', router);
 
+
+
+
+
 app.use(modRewrite([
 '^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
 
@@ -88,6 +92,8 @@ app.get('/', function(req, res) {
  	res.render('index.html');
 });
 
+var port = process.env.PORT || 8081;
+
 
  app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
 
@@ -98,10 +104,7 @@ app.get('/', function(req, res) {
                     failureRedirect : '/'
             }));
 
-};
-
-
-var port = process.env.PORT || 8081; 
+ 
 
 
 app.get('/error', function createError(req, res, next) {

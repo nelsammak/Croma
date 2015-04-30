@@ -2,11 +2,12 @@ var mongoose = require('mongoose'),
     LocalStrategy = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
     passport = require('passport'),
-    configAuth = require('./auth');
+    configAuth = require('./auth'),
+    User = require('../models/user');
 
 module.exports = function () {
 
-      var User = require('../models/user');
+    
 
       // Serialize sessions
       passport.serializeUser(function(user, done) {
@@ -94,9 +95,9 @@ module.exports = function () {
                     newUser.google.token = token;
                     newUser.google.name  = profile.displayName;
                     newUser.google.email = profile.emails[0].value; // pull the first email
-                    newUser.local.username = profile.google.name;
-                    newUser.local.email = newUser.google.email;
-                    newUser.local.password = "123456789";
+                    newUser.username = newUser.google.name;
+                    newUser.email = newUser.google.email;
+                    newUser.password = "123456789";
 
                     // save the user
                     newUser.save(function(err) {
