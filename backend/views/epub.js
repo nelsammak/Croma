@@ -2,6 +2,7 @@ var Epub = require('epub'),
 	fs = require('fs'),
 	flow = require('../config/flow-node.js')('../frontend/books/bookEpub'),
 	Book = require('../models/book.js'),
+	User = require('../models/user.js'),
 	fileBase = '../frontend/',
 	imageDirectory = '../frontend/books/bookCovers/',
 	imageDirectoryStatic = 'books/bookCovers/',
@@ -11,9 +12,16 @@ module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 	router.route('/uploadimg').post(uploadimg);
 }
+/**
+* A module to export users profile related routes
+* @module Profile
+*/
 var uploadimg = function (req, res, next) {
 	try{
+		var user=req.user;
+    console.log('user',user);
 	console.log('REQUEST IS', req.body);
+
   flow.post(req, function(status, filename, original_filename, identifier, currentTestChunk, numberOfChunks) {
         console.log('POST', status, 'org:' , original_filename,'ide :', identifier ,'file:',filename);
         res.send(200);
@@ -23,7 +31,26 @@ var uploadimg = function (req, res, next) {
 					
 					flow.clean(identifier);
 					console.log('file: ', filename, 'succesfully saved.');
-					 }});   
+					var id = user.id;
+        User.findById(id, function(err, User) {
+        if (err) throw err;
+
+          // change the users profilePhoto
+          User.profilePhoto = filename;
+
+          // save the user
+          User.save(function(err) {
+            if (err) throw err;
+
+            console.log('User successfully updated!');
+          });
+
+          });   
+					 }
+
+					     
+					});
+			   
              
         }            
     })
