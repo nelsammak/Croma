@@ -321,7 +321,7 @@ module.exports = function(router) {
 
 	router.route('/books/:id/ToBeRead')
 	/**
-	* @function addToBeRead -  called on Post "/users/:id/addToBeRead"	
+	* @function addToBeRead -  called on Post "/books/:id/ToBeRead"	
 	* adds a book from user's tobe read list
 	* @params {Object} req - Http request
 	* @params {Object} res - Http response
@@ -347,7 +347,7 @@ module.exports = function(router) {
 	        });
 	    })
 	/**
-	* @function removeToBeRead -  called on Delete "/users/:id/removeToBeRead/:bookId"	
+	* @function removeToBeRead -  called on Delete "/books/:id/ToBeRead"	
 	* removes a book from user's tobe read list
 	* @params {Object} req - Http request
 	* @params {Object} res - Http response
