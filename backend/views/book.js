@@ -384,7 +384,7 @@ module.exports = function(router) {
             /*var userId = req.body.userId;*/
             bReviews.find({
                     'bookId': bookId
-                }).populate('bookId userId')
+                }).populate('bookId userId upVotes downVotes')
                 .exec(function(err, reviews) {
                     if (err) {
                         res.status(404).json(err);
@@ -422,6 +422,20 @@ module.exports = function(router) {
                     }
                 });
         } else {
+        	if (req.body.vote){
+        		bReviews.findOne({_id: req.body.reviewId},
+        			function(err, reviews) {
+                    if (err) {
+                        return next(err);
+                    } else {
+                    		reviews.upVotes = req.body.upV;
+                    		reviews.downVotes = req.body.downV;
+                    		reviews.markModified();
+                    		reviews.save();
+                        res.status(201).json(reviews);
+                    }
+                });
+        	}
             bReviews.create({
                     userId: user,
                     bookId: bookId,
@@ -434,6 +448,6 @@ module.exports = function(router) {
                         res.status(201).json(reviews);
                     }
                   });
-          }
-    });
+        	}
+        });
 }

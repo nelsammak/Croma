@@ -180,6 +180,10 @@ angular.module('angularPassportApp')
       })
       $scope.review = '';
     };
+    /*deleteReview 
+    checks the index of the review to be deleted and removes it from the list of reviews.
+    sends a boolean delete to be checked in the backend whether the review is to be deleted. It also sends the user id of the author of the review as well as the review id int he body.
+    */
     $scope.deleteReview = function(rev){
       console.log('reviewId' , rev._id);
       console.log('reviewnafso' , rev.review);
@@ -189,6 +193,23 @@ angular.module('angularPassportApp')
         console.log('userId', rev.userId._id );
         $scope.reviews.splice($scope.reviews.indexOf(rev),1);
       })
-    }
+    };
+    $scope.voteReview = function(rev, vote){
+       if ($scope.reviews.includes(rev.userId._id)){
+
+        }
+        else{ if (updown == "up"){
+              rev.upVotes.push(rev.userId);          
+              }
+              else{
+                rev.downVotes.push(rev.userId);
+              }
+        }
+      $http.post('api/books/' + $scope.book._id + '/review',{vote: true, 'reviewId' : rev._id, 'userId': rev.userId._id, 'upV': rev.upVotes, 'downV': rev.downVotes})
+      .success(function (response) {
+        console.log('userId', rev.userId._id );
+       
+      });
+    };
 
   });
