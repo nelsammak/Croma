@@ -1,6 +1,7 @@
 'use strict';
 var User = require('../models/user.js'),
-  BookClubs = require('../models/bookclub.js');
+  BookClubs = require('../models/bookclub.js'),
+  Posts = require('../models/post.js');
 
 module.exports = function(router) {
   router.route('/bookclubs/createbookclub').post(function createBookClub(req, res, next) {
@@ -36,4 +37,36 @@ module.exports = function(router) {
       });
     });
   });
+
+  router.route('/bookclubs/:id').get(function getBookClub(req, res, next) {
+    BookClubs.findById(req.params.id, function (err, bookClub) {
+      if (err) {
+        res.status(404).json(err);
+        return next(err);
+      }
+      res.status(200).json(bookClub);
+    });
+  });
+
+  router.route('/addpost/:id').post(function addPost(req, res, next) {
+    BookClubs.findById(req.params.id, function (err, bookClub) {
+      if (err) {
+        res.status(404).json(err);
+        return next(err);
+      }
+      var userId = req.body.userId;
+      var title = req.body.title;
+      var post = new Posts ({
+        poster: userId,
+        title: title,
+        comments: [{commenter: userId, text: req.body.text}]
+      });
+      post.save();
+
+      bookClub.posts.push({title: title, id: post._id});
+      bookClub.markModified('posts');
+      bookClub.save();
+      res.status(200).json("Added the Post Successfully");
+      });
+    });
 };

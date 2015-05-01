@@ -50,16 +50,16 @@
 <body>
 
   <div class="col-lg-12">
-    <h1 class="page-header">Book Clubs</h1>
+    <h1 class="page-header">{{name}}</h1>
   </div>
-  <div id="related_links" style ="margin-top: 100px">
+  <br>
+  <h2> Posts </h2>
+  <button type="button" class="btn btn-success" ng-click="addPost(id)">Add Post</button>
+  <div id="related_links" style="margin-top:20px">
   <ul>
-    <div ng-repeat="bookClub in bookClubs">
-      <li ng-controller="BookClubsCtrl3" ng-click="viewBookClub(bookClub._id)">
-          {{bookClub.name}}
-      </li>
-      <br>
+    <div ng-repeat="post in posts">
+      <li> {{post.title}} </li>
     </div>
-    </ul>
-  </div>
+  </ul>
+    </div>
 </body>

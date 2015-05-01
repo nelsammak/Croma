@@ -37,7 +37,14 @@ angular.module('angularPassportApp', [
       .when('/bookclubs', {
         templateUrl: 'partials/bookclubs.html',
         controller: 'BookClubsCtrl'
-
+      })
+      .when('/bookclubs/:id', {
+        templateUrl: 'partials/bookclub.html',
+        controller: 'BookClubsCtrl4'
+      })
+      .when('/addpost/:id', {
+        templateUrl: 'partials/addpost.html'
+        //controller: 'BookClubsCtrl5'
       })
       .when('/newarrivals', {
         templateUrl: 'partials/books.html',

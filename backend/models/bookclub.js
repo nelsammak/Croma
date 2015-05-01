@@ -8,4 +8,4 @@ var BookClubsSchema = new Schema({
   users: {type: Array, default: []}
 });
 
-module.exports = mongoose.model('bookClub', BookClubsSchema)
+module.exports = mongoose.model('bookClub', BookClubsSchema);
