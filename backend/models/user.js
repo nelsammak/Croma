@@ -19,7 +19,6 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
-    ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
 });
 
