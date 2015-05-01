@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
     Schema = mongoose.Schema,
     ObjectId = Schema.Types.ObjectId,
     Book = require('./book.js'),
+    Alert = require('./alert.js'),
     _= require('lodash');
 
 var UserSchema = new Schema({
@@ -19,7 +20,9 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
-    toBeRead: [{type:ObjectId, ref: 'book'}]
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+    alerts: [{type: ObjectId, ref:'alert'}]
+
 });
 
 UserSchema.pre('save', function(next) {

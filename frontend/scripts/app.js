@@ -73,6 +73,11 @@ angular.module('angularPassportApp', [
         controller: 'ShelfCtrl'
         
       })
+      .when('/announcments',{
+        templateUrl: 'partials/announcments.html',
+        controller: 'AnnounceCtrl'
+        
+      })
 
 
       .otherwise({

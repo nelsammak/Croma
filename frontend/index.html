@@ -132,6 +132,9 @@
         <li class="sidebar-list" ng-show=  "currentUser.admin">
           <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
         </li>
+         <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/announcments">System Panel <span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
         <li class="sidebar-list">
           <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
         </li>
@@ -215,7 +218,7 @@
             </div>
             <div class="meta">
               <div class="page">
-                Dashboard
+                
               </div>
               <div class="breadcrumb-links">
                 <!-- Home / Dashboard -->
@@ -282,7 +285,7 @@
 
         <script src="scripts/controllers/alert-ctrl.js"></script>
         <script src="scripts/controllers/master-ctrl.js"></script>
-
+         <script src="scripts/controllers/AnnounceCtrl.js"></script>
         <script src="scripts/directives/loading.js"></script>
         <script src="scripts/directives/widget-body.js"></script>
         <script src="scripts/directives/widget-footer.js"></script>
@@ -321,29 +324,7 @@
     
     <!-- <script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.10.2.min.js"><\/script>')</script> -->
         
-    <!-- Hypothes.is 
-
- <!--   <script src="https://static.hypothes.is/lib/d3.min.js"></script>
-    <script src="https://static.hypothes.is/lib/dom_text.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.scrollintoview.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.core.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-blind.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.effect-highlight.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.widget.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jquery.ui.menu.min.js"></script>
-    <script src="https://static.hypothes.is/lib/jschannel.min.js"></script>
-    <script src="https://static.hypothes.is/lib/gettext.min.js"></script>
-    <script src="https://static.hypothes.is/locale/data.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.min.js"></script>
-    <script src="https://static.hypothes.is/lib/annotator.document.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/bridge.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/heatmap.js"></script>
-    <script src="https://static.hypothes.is/js/plugin/toolbar.js"></script>
-    <script src="https://static.hypothes.is/js/inject.min.js"></script> -->
-    
-    -->
-    <!-- build:js({.tmp,src}) scripts/scripts.js -->
+   
     
     <script src="scripts/libs/epubjs/epub.min.js"></script>
     
