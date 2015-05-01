@@ -28,7 +28,6 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
-<<<<<<< HEAD
       /**
       * @function getIsTobeRead
       * @determines whether the book is on the current user tobe read list or not
@@ -37,15 +36,7 @@ angular.module('angularPassportApp')
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function getIsTobeRead(bool) {
           $scope.book.tobeRead=bool;
-=======
 
-      //get a boolean value to determin whether the book is on the current user tobe read list or not
-      $http.post('api/books/' + ShareService.getValue() + '/istoberead', {
-          userId: $scope.currentUser._id
-        })
-        .success(function(bool) {
-          $scope.book.tobeRead = bool;
->>>>>>> origin/Development
           console.log("user added book " + bool);
         })
         .error(function(data) {
@@ -76,7 +67,7 @@ angular.module('angularPassportApp')
         });
     };
 
-<<<<<<< HEAD
+
     /**
       * @function aadTobeRead
       * @adds a book to user's to be read list
@@ -103,28 +94,7 @@ angular.module('angularPassportApp')
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
           $scope.book.tobeRead=bool;
-=======
-    //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
-    $scope.addTobeRead = function() {
-      console.log('user: ' + $scope.currentUser._id);
-      console.log('book: ' + ShareService.getValue());
-      $http.post('api/users/' + $scope.currentUser._id + '/addToBeRead', {
-          bookId: ShareService.getValue()
->>>>>>> origin/Development
-        })
-        .success(function(response) {
-          $http.post('api/books/' + ShareService.getValue() + '/istoberead', {
-              userId: $scope.currentUser._id
-            })
-            .success(function(bool) {
-              $scope.book.tobeRead = true;
-              console.log("user added book" + bool);
-            })
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-    };
+
 
     $scope.sendReading = function(bookid) {
       $http.post('/api/books/' + $scope.bookID + '/currentlyReading').success(function(response) {
