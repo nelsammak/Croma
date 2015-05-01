@@ -44,7 +44,6 @@ angular.module('angularPassportApp')
    * @param {int} userRating - user rating
    */
     $scope.rate = function rate(userRating) {
-      console.log("user rated "+ userRating);
       $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: userRating})
         .success(function(response) {
           //function to get the avg rating of a book
@@ -52,6 +51,14 @@ angular.module('angularPassportApp')
            console.log("avg rating is" + rating);
             $scope.book.avgRating=rating;
           });
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
+        .success(function(num) {
+          $scope.rating = {}
+          $scope.rating=num;
         })
         .error(function(data) {
           console.log('Error: ' + data);
