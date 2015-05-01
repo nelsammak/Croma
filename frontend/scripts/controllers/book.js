@@ -2,7 +2,7 @@
 var app = angular.module('angularPassportApp');
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
-  .controller('BookCtrl', function($scope, $http, $location, $modal, ShareService) {
+  .controller('BookCtrl', function($scope, $http, $location, $modal, ShareService, EpubService) {
 
     $http.get('api/books/' + ShareService.getValue()).success(function(response) {
       console.log("I received the book");
@@ -96,7 +96,7 @@ angular.module('angularPassportApp')
      * @function removeBook
      * Sends delete request
      */
-    $scope.removeBook = function() {
+    $scope.removeBook = function removeBook() {
 
       swal({
         title: "Are you sure?",
@@ -112,6 +112,16 @@ angular.module('angularPassportApp')
         })
       });
     }
+
+    /**
+     * @function broadCastEpub
+     * Saves the book in epubService
+     */
+    $scope.broadCastEpub = function broadCastEpub() {
+            console.log('SCOPE BOOK', $scope.book);
+            EpubService.setValue($scope.book);
+            $location.path('/bookreader');
+        }
 
 
 
