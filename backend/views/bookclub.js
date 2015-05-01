@@ -4,7 +4,14 @@ var User = require('../models/user.js'),
   Posts = require('../models/post.js');
 var mongoose = require('mongoose');
 
-//Post route to create a Book Club
+/**
+ * @function createBookClub Called on POST "/api/bookclubs/createbookclub"
+ * create a Book Club
+ * @param {Object} req - Http request
+ * @param {Object} res - Http response
+ * @param {Object} next - Next middleware
+ * @return {JSON} {'message'}
+	*/
 module.exports = function(router) {
   router.route('/bookclubs/createbookclub').post(function createBookClub(req, res, next) {
     User.findById(req.body.userId, function (err, user) {
@@ -23,7 +30,14 @@ module.exports = function(router) {
     });
   });
 
-  //Post route to view the Book Clubs  the user is in
+  /**
+   * @function getBookClubs Called on POST "/api/bookclubs"
+   * View the Book Clubs  the user is in
+   * @param {Object} req - Http request
+   * @param {Object} res - Http response
+   * @param {Object} next - Next middleware
+   * @return {JSON} {'Book Clubs'}
+	*/
   router.route('/bookclubs').post(function getBookClubs(req, res, next) {
     User.findById(req.body.userId, function (err, user) {
       if (err) {
@@ -39,7 +53,15 @@ module.exports = function(router) {
     });
   });
 
-  //Get route to view a Book Club
+  /**
+   * @function getBookClub Called on Get "/api/bookclubs/:id
+   * View the Book Club
+   * @param {Object} req - Http request
+   * @param {Object} res - Http response
+   * @param {Object} next - Next middleware
+   * @param {Number} :id - ID of the book club
+   * @return {JSON} {'Book Club'}
+	*/
   router.route('/bookclubs/:id').get(function getBookClub(req, res, next) {
     BookClubs.findById(req.params.id, function (err, bookClub) {
       if (err) {
@@ -50,7 +72,15 @@ module.exports = function(router) {
     });
   });
 
-  //Post route to add a Post
+  /**
+   * @function addPost Called on Post "/api/addpost/:id
+   * Add a Post
+   * @param {Object} req - Http request
+   * @param {Object} res - Http response
+   * @param {Object} next - Next middleware
+   * @param {Number} :id - ID of the book club
+   * @return {JSON} {'post'}
+	*/
   router.route('/addpost/:id').post(function addPost(req, res, next) {
     BookClubs.findById(req.params.id, function (err, bookClub) {
       if (err) {
@@ -88,7 +118,17 @@ module.exports = function(router) {
       }
       });
     });
-  router.route('/invitetobookclub/:id').post(function addPost(req, res, next) {
+
+  /**
+   * @function inviteToBookClub Called on Post "/api/invitetobookclub/:id
+   * Invite a user to the book club
+   * @param {Object} req - Http request
+   * @param {Object} res - Http response
+   * @param {Object} next - Next middleware
+   * @param {Number} :id - ID of the book club
+   * @return {JSON} {'message'}
+	*/
+  router.route('/invitetobookclub/:id').post(function inviteToBookClub(req, res, next) {
     BookClubs.findById(req.params.id, function (err, bookClub) {
       if (err) {
         res.status(404).json(err);
