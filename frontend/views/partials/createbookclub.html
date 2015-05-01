@@ -11,6 +11,9 @@
   &nbsp;
   <input type="text" name="input" ng-model="title" ng-minlength = "5" ng-maxlength = "50">
   <input type="submit" id="submit" value="Submit"/>
+  <div ng-show ="success">
+    <font face="verdana" color="green">Submitted Successfully!</font>
+  </div>
   <div role="alert">
       <span class="error" ng-show="myForm.input.$error.minlength">
         The name should be at least 5 characters long</span>

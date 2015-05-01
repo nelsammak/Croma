@@ -1,3 +1,4 @@
+//Controller to get the Book Clubs the user is in
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl', function($scope, $http, $location, $modal, ShareService) {
 
@@ -8,22 +9,25 @@ angular.module('angularPassportApp')
 
   });
 
+//Controller for the form to create a Book Club
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl2', function($scope, $http, $location, $modal, ShareService) {
+    $scope.success = false;
     $scope.submit = function() {
-      if ($scope.myForm.input.$valid) {
+      if (!$scope.success && $scope.myForm.input.$valid) {
         $http.post('api/bookclubs/createbookclub', {
           title: $scope.title,
           userId: $scope.currentUser._id
         })
-          .success(function (bool) {
-            console.log("Added the new book club");
-          })
-      }
-      ;
+        .success(function (response) {
+            $scope.success = true;
+            console.log("Added the Book Club");
+        })
+      };
     }
   });
 
+//Controller to view a specific Book Club
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl3', function($scope, $http, $location, $modal, ShareService) {
     $scope.viewBookClub = function(id) {
@@ -33,6 +37,7 @@ angular.module('angularPassportApp')
     }
   });
 
+//Controller to get the Book Club's name and posts
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl4', function($scope, $http, $location, $modal, ShareService) {
       $http.get('api/bookclubs/' + ShareService.getValue()).success(function(response) {
@@ -49,6 +54,7 @@ angular.module('angularPassportApp')
     }
   });
 
+//Controller for the form to add a Book Club Post
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl5', function($scope, $http, $location, $modal, ShareService) {
     var id = ShareService.getValue();

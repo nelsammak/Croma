@@ -14,10 +14,6 @@ module.exports = function(router) {
         name: req.body.title,
         users: [mongoose.Types.ObjectId(req.body.userId)]});
       bookClub.save();
-      console.log("hi");
-      var config = require('../config/config.json')[process.env.NODE_ENV];
-      console.log(config.db.url);
-      console.log(req.body.userId);
       user.bookClubs.push(mongoose.Types.ObjectId(bookClub._id));
       user.markModified('bookClubs');
       user.save();
