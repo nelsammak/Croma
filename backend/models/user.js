@@ -7,9 +7,8 @@ var mongoose = require('mongoose');
     _= require('lodash');
 
 var UserSchema = new Schema({
-   
-    email: { type: String, index: {unique: true}, required: true },
-    username: { type: String, required: true, unique: true},
+    email: { type: String, index: {unique: true}, required: true},
+    username: { type: String, required: true, unique: true, index: true},
     password: { type: String, required: true },
     firstName: { type: String, index:true },
     lastName: { type: String,  index:true },
@@ -36,17 +35,17 @@ UserSchema.pre('save', function(next) {
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 
-     || this.profilePhoto === 'male_avatar.png' 
-     || this.profilePhoto === 'female_avatar.png' 
-     || this.profilePhoto === 'default_avatar.png') {
+     || this.profilePhoto === '/img/male_avatar.png' 
+     || this.profilePhoto === '/img/female_avatar.png' 
+     || this.profilePhoto === '/image/avatar.png') {
         if (_.isUndefined(this.gender)) {
-        this.profilePhoto = 'default_avatar.png';
+        this.profilePhoto = '/image/avatar.png';
         }
         if (this.gender === 'male') {
-        this.profilePhoto = 'male_avatar.png';
+        this.profilePhoto = '/img/male_avatar.png';
         }
         if (this.gender === 'female') {
-        this.profilePhoto = 'female_avatar.png';
+        this.profilePhoto = '/img/female_avatar.png';
         }
      }
     if(!user.isModified('password')) {

@@ -1,7 +1,7 @@
 'use strict';
-var Books = require('../models/book.js');
-var User = require('../models/user.js');
-var cookieParser = require('cookie-parser');
+var Books = require('../models/book.js'),
+	 User = require('../models/user.js'),
+	 cookieParser = require('cookie-parser');
 // var path = require('path');
 /**
 * A module to export /books routes
@@ -12,10 +12,10 @@ module.exports = function(router) {
 	/**
 	* @function addToCurrentlyReading Called on POST "/api/books/:id/currentlyReading" 
 	* Adds book to currently reading of the current user
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
 	* @return {String} {user: 'new User with currently reading updated' 
 	*/
 	router.route('/books/:id/currentlyReading')
@@ -47,10 +47,10 @@ module.exports = function(router) {
 	/**
 	* @function getBookText Called on GET "/api/books/:id/text" 
 	* Returns books text and Adds book to currently reading of the current user
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
 	* @return {String} {user: 'new User with currently reading updated', 
 	* book: {text: 'Path of the epub book' }} 
 	*/
@@ -83,10 +83,10 @@ module.exports = function(router) {
 	/**
 	* @function getBook Called on GET "/api/books/:id" 
 	* Returns book info 
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
 	* @return {JSON} {book: {BOOK} } 
 	*/
 	router.route('/books/:id').get(function getBook (req,res,next){
@@ -98,12 +98,36 @@ module.exports = function(router) {
 			res.json({book: book});
 		});
 	}); 
+
+	/**
+	* @function deleteBook Called on DELETE "/api/books/:id"  
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
+	*/
+	router.route('/books/:id').delete(function deleteBook (req,res,next){
+		var id = req.params.id;
+		Books.findOneAndRemove({'_id': id}, function removeBook(err, book) {
+			if (err) {
+				return next(err);
+			}
+			book.remove();
+
+			Books.find({}, function(err,books) {	
+				res.status(200);
+				res.json({books: books});
+			})
+			
+			
+		});
+	}); 
 	/**
 	* @function getBookCollection Called on GET "/api/books" 
 	* Returns All books
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { [{BOOKS}] } 
 	*/
 	router.route('/books').get(function getBooksCollection (req, res, next) {
@@ -118,9 +142,9 @@ module.exports = function(router) {
 	/**
 	* @function getAllLabels Called on GET "/api/labels" 
 	* Returns All books
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { [[{'each book labels'}]] } 
 	*/
 	var getAllLabels = function (req, res, next) {
@@ -145,9 +169,9 @@ module.exports = function(router) {
 	/**
 	* @function getLabels Called on GET "/api/books/:id/labels" 
 	* Returns All labels of a book
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} {book: {labels: ['book labels']}} 
 	*/
 	var getLabels = function (req, res, next) {
@@ -169,9 +193,9 @@ module.exports = function(router) {
 	/**
 	* @function addLabels Called on Post "/api/books/:id/labels" 
 	* Returns Book after old labels are removed and new ones added
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { book: {'book'} } 
 	*/
 	var addLabels = function (req, res, next) {
