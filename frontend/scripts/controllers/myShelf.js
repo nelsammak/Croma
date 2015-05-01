@@ -22,7 +22,7 @@ angular.module('angularPassportApp')
       $http.delete('api/books/'+bookId+'/currentlyReading')
         .success(function(response){
 		        $http.get('/api/users/' + $scope.currentUser._id + '/currentlyReading').success(function(response){
-				$scope.toBeRead = response;
+				$scope.currentBooks = response;
 			});
         })
         .error(function(data) {
