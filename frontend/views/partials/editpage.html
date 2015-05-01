@@ -1,20 +1,19 @@
 <div class="container">
   <div ng-app>
-  <!-- <div ng-controller="ProfileController" > -->
+ 
      <div ng-controller="EditCtrl">  
   <h1>Edit</h1>
   <br/>
      <div style="margin-left: 150px;margin-right: 150px">
-        <!-- <form class="form" name="form" ng-submit="edit()" > -->
-
-        <div class="form-group">
+                <!-- input firstname -->
+                <div class="form-group">
                     <input class="form-control"
                             placeholder="First Name"
                             type="text"
                             name="firstName"
                             ng-model="user.firstName"/>
                 </div>
-
+                <!-- input lastname -->
                 <div class="form-group">
                     <input class="form-control"
                             placeholder="Last Name"
@@ -22,7 +21,7 @@
                             name="lastName"
                             ng-model="user.lastName"/>
                 </div>
-
+                <!-- input age -->  
                 <div class="form-group">
                     <input class="form-control"
                             placeholder="Age"
@@ -32,7 +31,7 @@
                             min = 10
                             max = 109/>
                 </div>
-
+                <!-- input address -->
                 <div class="form-group">
                     <input class="form-control"
                             placeholder="Address"
@@ -41,16 +40,16 @@
                             ng-model="user.address"
                             mongoose-error/>
                 </div>
-                <!-- <input type="submit" value="Submit"> -->
+               
               <button class="btn btn-lg btn-primary btn-block" ng-Click="edit()"
                         type="submit">Submit</button>
-           <!--  </form> -->
+         
     </div>
 
 
 
       </div>
-    <!-- </div> -->
+   
   </div>
 </div>
 <script>

@@ -2,7 +2,10 @@
 
 angular.module('angularPassportApp')
   .controller('EditCtrl', function ($scope,$http,$location) {
-   
+   /**
+  * function edit 
+  * take info of user from edit form and post it to the backend
+  */
     $scope.edit = function() {
       console.log('hii');
       $http.post('api/users/'+ $scope.currentUser._id, 

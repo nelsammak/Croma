@@ -101,7 +101,11 @@ exports.deletePhoto = function(profilePhoto) {
 
  
 
-  // PUT
+  /*
+ function editProfile get called on post "api/users/:id"
+it takes info to be edited from frontend and edit then 
+save it in database for the current user
+*/
     var editProfile = function (req, res, next) {
     //console.log('response is',req.body);
     console.log('info gat');
