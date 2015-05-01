@@ -3,6 +3,8 @@ var Books = require('../models/book.js');
 var User = require('../models/user.js');
 var cookieParser = require('cookie-parser');
 var bReviews = require('../models/book_review.js');
+var mongoose = require('mongoose');
+
 // var path = require('path');
 /**
  * A module to export /books routes
@@ -411,32 +413,41 @@ module.exports = function(router) {
         }
         var user = req.user;
         console.log(req.body.delete);
-        console.log(req.body.userId);        
-        if (req.body.delete && user._id==req.body.userId) {
-            bReviews.findOneAndRemove({_id: req.body.reviewId},function(err, reviews) {
-                    if (err) {
-                        // res.status(404).json(err);
-                        return next(err);
-                    } else {
-                        res.status(201).json(reviews);
-                    }
-                });
+        console.log(req.body.userId);
+        if (req.body.delete && (user._id == req.body.userId || user.admin)) {
+            bReviews.findOneAndRemove({
+                _id: req.body.reviewId
+            }, function(err, reviews) {
+                if (err) {
+                    // res.status(404).json(err);
+                    return next(err);
+                } else {
+                    res.status(201).json(reviews);
+                }
+            });
         } else {
-        	if (req.body.vote){
-        		bReviews.findOne({_id: req.body.reviewId},
-        			function(err, reviews) {
-                    if (err) {
-                        return next(err);
-                    } else {
-                    		reviews.upVotes = req.body.upV;
-                    		reviews.downVotes = req.body.downV;
-                    		reviews.markModified();
-                    		reviews.save();
-                        res.status(201).json(reviews);
-                    }
-                });
-        	}
-            bReviews.create({
+            if (req.body.vote) {
+                console.log('review vote', req.body.reviewId);
+                bReviews.findOne({
+                        _id: req.body.reviewId
+                    },
+                    function(err, review) {
+                        if (err) {
+                            return next(err);
+                        } else {
+                            console.log(review);
+                            console.log('up:', req.body.upV);
+                            console.log('down: ', req.body.downV);
+                            review.downVotes = req.body.downV;
+                            review.upVotes = req.body.upV;
+                            review.markModified('upVotes');
+                            review.markModified('downVotes');
+                            review.save();
+                            res.status(201).json(review);
+                        }
+                    });
+            } else {
+                bReviews.create({
                     userId: user,
                     bookId: bookId,
                     review: req.body.review
@@ -447,7 +458,8 @@ module.exports = function(router) {
                     } else {
                         res.status(201).json(reviews);
                     }
-                  });
-        	}
-        });
+                });
+            }
+        }
+    });
 }

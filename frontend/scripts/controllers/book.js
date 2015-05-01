@@ -194,20 +194,29 @@ angular.module('angularPassportApp')
         $scope.reviews.splice($scope.reviews.indexOf(rev),1);
       })
     };
+    /*voteReview 
+    checks that user havent voted neither up nor down on the review yet.
+    puts the user id who voted on the review into the corresponding array of user ids of whether up or down
+    sends:
+      -a boolean vote to be checked in the backend whether the review is to be voted; 
+      -the review id
+      -both arrays of up and down votes
+    */
     $scope.voteReview = function(rev, vote){
-       if ($scope.reviews.includes(rev.userId._id)){
+       if ((rev.upVotes.indexOf($scope.currentUser._id)!=-1 )||(rev.downVotes.indexOf($scope.currentUser._id)!=-1)){
 
         }
-        else{ if (updown == "up"){
-              rev.upVotes.push(rev.userId);          
+        else{ if (vote == "up"){
+              rev.upVotes.push(rev.userId._id);          
               }
               else{
-                rev.downVotes.push(rev.userId);
+                rev.downVotes.push(rev.userId._id);
               }
         }
-      $http.post('api/books/' + $scope.book._id + '/review',{vote: true, 'reviewId' : rev._id, 'userId': rev.userId._id, 'upV': rev.upVotes, 'downV': rev.downVotes})
+      $http.post('api/books/' + $scope.book._id + '/review',{vote: true, 'reviewId' : rev._id, 'userId': $scope.currentUser._id, 'upV': rev.upVotes, 'downV': rev.downVotes})
       .success(function (response) {
         console.log('userId', rev.userId._id );
+        /*var currentRev = $scope.reviews.find(rev);*/
        
       });
     };

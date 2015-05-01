@@ -8,8 +8,8 @@ var book_reviewSchema = new Schema({
 	userId: { type: ObjectId, ref: 'user' },
 	bookId: { type: ObjectId, ref: 'book'},
 	review: { type: String, required: true },
-	upVotes: { type: ObjectId, ref: 'user' },
-	downVotes: { type: ObjectId, ref: 'user'}
+	upVotes: [{ type: ObjectId, ref: 'user' ,  default: []}],
+	downVotes: [{ type: ObjectId, ref: 'user', default: []}]
 });
 
 book_reviewSchema.index({userId:1, bookId:1});
