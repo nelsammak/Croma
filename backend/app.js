@@ -20,8 +20,11 @@ var MongoStore = require('connect-mongo')(expressSession);
 //importing the book model
 var Books = require('./models/book.js');
 
+
 //inserting the books
-require('./inserts/book');
+
+/*require('./inserts/book');
+*/
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -67,6 +70,7 @@ app.use('/api', router);
 app.use(modRewrite([
 '^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
 
+require('./views/search.js')(router);
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/user.js')(router);
@@ -90,12 +94,6 @@ app.get('/', function(req, res) {
 
 var port = process.env.PORT || 8081; 
 
-
-app.get('/error', function createError(req, res, next) {
-  var err = new Error('Sample error');
-  err.status = 500;
-  next(err);
-});
 
 app.use(function reportInternalServerError(err, req, res, next) {
   console.log(err.stack);

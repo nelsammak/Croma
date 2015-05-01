@@ -2,59 +2,61 @@
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-  <head>
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <base href="/"/>
+    <base href="/" />
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
+
         <!-- build:css(.tmp) styles/main.css -->
-        <link rel="stylesheet" ui-sref="styles/main.css">
-        <!-- endbuild -->
+<!--         <link rel="stylesheet" ui-sref="styles/main.css">
+ -->        <!-- endbuild -->
 
 <link rel="stylesheet" type="text/css" href="bower_components/sweetalert/lib/sweet-alert.css">
 
 
         <!-- STYLES -->
+       <!--  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css">  -->
   <!-- build:css lib/css/main.min.css -->
-  <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
+<!--   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css"> -->
+<!--   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css"> -->
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
 
-<link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
-
+<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
+ -->
 <link href="css/bootstrap.min.css" rel="stylesheet">
 
+
+    <link href="/bower_components/sweetalert/lib/sweet-alert.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
-
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
-    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">  <!-- endbuild -->
-
-
-
+    <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <!-- endbuild -->
 
 </head>
-  <body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
+
+<body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.min.js"></script>
     <![endif]-->
-
     <!-- Add your site or application content here -->
-    
-<nav class="navbar navbar-default navbar-fixed-top">
-
+    <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
@@ -64,14 +66,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                 <li class="page-scroll">
                 <a class="navbar-brand" href="/#/">Croma</a>
-                  </li>
             </div>
-
             <!-- these items when not logged in -->
-            <div ng-show = "!currentUser" class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul ng-show = "!currentUser" class="nav navbar-nav navbar-right">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul ng-show="!currentUser" class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -85,45 +84,43 @@
                         <a href="/#/#contact">Contact</a>
                     </li>
                 </ul>
- <!-- these items when logged in -->
-                  <ul ng-show = "currentUser" class="nav navbar-nav navbar-right">
-                    <li class="hidden">
-                        <a href="#page-top"></a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/shelves">To be Read</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/genre">Browse genre</a>
-                    </li>
-                    <li class="page-scroll">
-                        <a href="/#/newarrivals">New Arrivals</a>
-                    </li>
-                     <li class="page-scroll">
-                        <a href="/#/shelves">Currently Reading</a>
-                    </li>
-                </ul>
-
-
-  
-      <!-- /.navbar-collapse -->
-  </div>
-        <!-- /.container-fluid -->
-</nav>
- 
-<br><br><br><br><br><br>
-    <div ng-hide="currentUser" class="container" ng-view=""></div>
- 
-<div ng-hide="!currentUser" ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}" ng-cloak>
-
-
-
-    <!-- Sidebar -->
-    <div id="sidebar-wrapper">
-
-      <ul class="sidebar">
-        <li class="sidebar-main">
-          <a ng-click="toggleSidebar()">
+                <!-- these items when logged in -->
+                <div class="container" ng-show="currentUser" style="display:fluid;">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <div class="nav navbar-form">
+                                <input id="searchInput" ng-controller="searchCtrl" class="form-control nav" placeholder="&#xF002; Search" ng-model="searchTerm" ng-model-options="{debounce: 500}" title="Search" onfocus="this.placeholder=''" onblur="this.placeholder='&#xF002; Search'">
+                            </div>
+                        </li>
+                        <li class="hidden">
+                            <a href="#page-top"></a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/genre">Browse genre</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/newarrivals">New Arrivals</a>
+                        </li>
+                        <li class="page-scroll">
+                            <a href="/#/shelves">Currently Reading</a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+    </nav>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}">
+        <!-- Sidebar -->
+        <div ng-hide="!currentUser" id="sidebar-wrapper">
+            <ul class="sidebar">
+                <li class="sidebar-main">
+                    <a ng-click="toggleSidebar()">
             Dashboard
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
@@ -145,57 +142,46 @@
       <div class="sidebar-footer">
         <div class="col-xs-4">
           <a href="https://github.com/rdash/rdash-angular" target="_blank">
+
             Github
           </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
+                </div>
+                <div class="col-xs-4">
+                    <a href="https://github.com/rdash/rdash-angular/README.md" target="_blank">
             About
           </a>
-        </div>
-        <div class="col-xs-4">
-          <a href="#">
+                </div>
+                <div class="col-xs-4">
+                    <a href="#">
             Support
           </a>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-    <!-- End Sidebar -->
-
-    <div id="content-wrapper">
-      <div class="page-content">
-
-        <!-- Header Bar -->
-        <div class="row header">
-          <div class="col-xs-12">
-            <div class="user pull-right">
-              <div class="item dropdown">
-                <a href="#" class="dropdown-toggle">
-                  <img src="img/avatar.jpg">
-                </a>
-                <ul class="dropdown-menu dropdown-menu-right">
-                  <li class="dropdown-header">
-                    {{currentUser.username}}
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a href="/#/profile">
+        <!-- End Sidebar -->
+        <div id="content-wrapper">
+            <div class="page-content">
+                <!-- Header Bar -->
+                <div ng-show="currentUser" class="row header">
+                    <div class="col-xs-12">
+                        <div class="user pull-right">
+                            <div class="item dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <img src="{{currentUser.profilePhoto}}">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-header">
+                                        {{currentUser.username}}
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="link">
+                                        <a href="/#/profile">
                       Profile
                     </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="link">
-                    <a href="#">
-                      Menu Item
-                    </a>
-                  </li>
-                  <li class="divider"></li>
-                  <li class="link">
-                    <a ng-click="logout()">
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="link">
+                                        <a ng-click="logout()">
                       Logout
                     </a>
                   </li>
@@ -226,34 +212,39 @@
               </div>
             </div>
           </div>
+
+                </div>
+                <!-- End Header Bar -->
+                <!-- Main Content -->
+                <br>
+                <br>
+                <div class="container" ng-view="">
+                </div>
+            </div>
+
         </div>
-        <!-- End Header Bar -->
-
-        <!-- Main Content -->
-        <br><br>
-        <div class="container" ng-view="">
-          
-        </div>
-
-      </div><!-- End Page Content -->
-    </div><!-- End Content Wrapper -->
-
-  </div>
-
-
-
-
+        <!-- End Page Content -->
+    </div>
+    <!-- End Content Wrapper -->
+    </div>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-       m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-       })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+    (function(i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function() {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
     </script>
-
+    <script src="js/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
 
         <!-- build:js(app) scripts/modules.js -->
@@ -268,8 +259,13 @@
         <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+
         <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
-        <!-- endbuild -->
+
+        <!-- ng tags script -->
+
+         <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -285,10 +281,16 @@
         <script src="scripts/directives/onFocus.js"></script>
         <script src="scripts/directives/mongooseError.js"></script>
         <script src="scripts/services/Session.js"></script>
+         <script src="scripts/services/Books.js"></script>
+
 
         <script src="scripts/controllers/alert-ctrl.js"></script>
         <script src="scripts/controllers/master-ctrl.js"></script>
+
          <script src="scripts/controllers/AnnounceCtrl.js"></script>
+
+
+
         <script src="scripts/directives/loading.js"></script>
         <script src="scripts/directives/widget-body.js"></script>
         <script src="scripts/directives/widget-footer.js"></script>
@@ -298,25 +300,27 @@
         <script src="scripts/controllers/myShelf.js"></script>
         <script src="scripts/controllers/book.js"></script>
 
+  <script src="scripts/controllers/reader.js"></script>
+    <script src="scripts/services/Epub.js"></script>
 
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
-
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/services/searchService.js"></script>
+    <script src="scripts/controllers/searchResultCtrl.js"></script>
+    <script src="scripts/controllers/searchCtrl.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
-
     <!-- Plugin JavaScript -->
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
-
     <!-- Contact Form JavaScript -->
     <script src="js/jqBootstrapValidation.js"></script>
     <script src="js/contact_me.js"></script>
-
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
         <!-- endbuild -->
 
 
@@ -327,7 +331,7 @@
     
     <!-- <script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.10.2.min.js"><\/script>')</script> -->
         
-   
+
     
     <script src="scripts/libs/epubjs/epub.min.js"></script>
     
@@ -350,21 +354,21 @@
     <script src="scripts/directives/epub-toc.js"></script>
     <script src="scripts/directives/hypothesis.js"></script>
     <!-- endbuild -->
-
-
-      <script src="scripts/directives/btn.js"></script>
+    <script src="scripts/directives/btn.js"></script>
     <script src="scripts/directives/drag-events.js"></script>
     <script src="scripts/directives/drop.js"></script>
     <script src="scripts/directives/events.js"></script>
     <script src="scripts/directives/img.js"></script>
     <script src="scripts/directives/init.js"></script>
     <script src="scripts/directives/transfers.js"></script>
-     
-     <script src="scripts/angular-flow.js"></script>
+    <script src="scripts/angular-flow.js"></script>
     <script src="scripts/provider.js"></script>
     <script src="bower_components/flow.js/dist/flow.js"></script>
     <script src="bower_components/flow.js/dist/flow.min.js"></script>
-   <!--  <script src="dist/ng-flow-standalone.js"></script> -->
-
+    <script src="bower_components/angular-css/angular-css.min.js"></script>
+    <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="components/epubjs/epub.min.js"></script>
+    <script src="components/epubjs/libs/zip.min.js"></script>
 </body>
+
 </html>
