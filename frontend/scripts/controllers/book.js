@@ -39,7 +39,7 @@ angular.module('angularPassportApp')
         })
         .error(function(data) {
           console.log('Error: ' + data);
-        })
+        });
 
 
       /**
@@ -55,6 +55,7 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
+    });
     
    /**
    * @function rate  
@@ -79,7 +80,7 @@ angular.module('angularPassportApp')
           $scope.rating = {}
           $scope.rating=num;
       }
-  }
+  
 
     /**
       * @function aadTobeRead
