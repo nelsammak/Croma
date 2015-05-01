@@ -1,4 +1,5 @@
 var User = require('../models/user.js');
+var Alert = require('../models/alert.js')
 
 /**
 * A module to export Signing up routes
@@ -56,5 +57,76 @@ module.exports = function(router) {
 
 	
 	
+
+
+/**
+	*	@function PostAlert - Adds alert to all users on Post "/api/alert"	
+	*	@params {Object} req - Http request
+	* @params {Object} res - Http response
+	*	@params {Object} next - Next middleware
+	*	@returns {JSON} "added alert successfully"
+ 	*/
+    	router.route('/alert')
+		.post(function PostAlert(req, res, next) {
+			var alert = Alert.create({
+					message: req.body.message,
+					type: req.body.type
+					},  function createAlert(err, alert) {
+								if (err) {
+									console.log(err);
+									res.status(400).json(err);
+								} else {
+
+									User.find({}, function (err, users) {
+									if (err) {
+												next(err);
+								} else {
+									users.forEach(function (user){
+						
+									user.alerts.push(alert.id);
+									user.save();
+										});
+								res.status(201);
+							res.json("Sent Alert successfully");
+				}
+			});
+								}
+							});
+					
+		});
+
+
+		router.route('/alert/:id')
+		.get(function getAlerts(req,res,next) {
+			var id = req.params.id;
+		User.findOne({'_id': id}).populate('alerts').exec(function getUser(err, user) {
+			if (err) {
+				return next(err);
+			}
+			else {
+
+					res.json(user.alerts);
+				
+			}})
+
+		})
+
+		.post(function SendAlerts(req,res,next) {
+			var id = req.params.id;
+			var alerts = req.body.alrts;
+		User.findOne({'_id': id}).populate('alerts').exec(function getUser(err, user) {
+			if (err) {
+				return next(err);
+			}
+			else {
+
+				user.alerts = alerts;
+				user.save();
+				res.status(201);
+				res.json("deleted Alert successfully");
+				
+			}})
+
+		})
 
 };

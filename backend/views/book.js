@@ -222,7 +222,7 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
 		var id = req.params.id;
 		var labels = req.body.labels;
 		console.log('LABELS' , req.body);
-		Book.findOne({'_id': id}, function (err, book) {
+		Books.findOne({'_id': id}, function (err, book) {
 			if (err) {
 
 					return next(err);

@@ -20,7 +20,7 @@
 <!--         <link rel="stylesheet" ui-sref="styles/main.css">
  -->        <!-- endbuild -->
 
-
+<link rel="stylesheet" type="text/css" href="bower_components/sweetalert/lib/sweet-alert.css">
 
 
         <!-- STYLES -->
@@ -124,21 +124,25 @@
             Dashboard
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
-                </li>
-                <li class="sidebar-title"><span>NAVIGATION</span></li>
-                <li class="sidebar-list" ng-show="currentUser.admin">
-                    <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
-                </li>
-                <li class="sidebar-list">
-                    <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
-                </li>
-                <li class="sidebar-list">
-                    <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-bars"></span></a>
-                </li>
-            </ul>
-            <div class="sidebar-footer">
-                <div class="col-xs-4">
-                    <a href="https://github.com/rdash/rdash-angular" target="_blank">
+        </li>
+        <li class="sidebar-title"><span>NAVIGATION</span></li>
+        <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+         <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/announcments">System Panel <span class="menu-icon fa fa-bell-o"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-bars"></span></a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="col-xs-4">
+          <a href="https://github.com/rdash/rdash-angular" target="_blank">
+
             Github
           </a>
                 </div>
@@ -180,32 +184,35 @@
                                         <a ng-click="logout()">
                       Logout
                     </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="item dropdown">
-                                <a href="#" class="dropdown-toggle">
-                                    <i class="fa fa-bell-o"></i>
-                                </a>
-                                <ul class="dropdown-menu dropdown-menu-right">
-                                    <li class="dropdown-header">
-                                        Notifications
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li>
-                                        <a href="#">Server Down!</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="meta">
-                            <div class="page">
-                            </div>
-                            <div class="breadcrumb-links">
-                                <!-- Home / Dashboard -->
-                            </div>
-                        </div>
-                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="item dropdown">
+               <a href="#" class="dropdown-toggle">
+                  <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">
+                    Notifications
+                  </li>
+                  <li class="divider"></li>
+                  <li> 
+                  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
+                   </li>
+                 
+                </ul>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">
+                
+              </div>
+              <div class="breadcrumb-links">
+                <!-- Home / Dashboard -->
+              </div>
+            </div>
+          </div>
+
                 </div>
                 <!-- End Header Bar -->
                 <!-- Main Content -->
@@ -214,6 +221,7 @@
                 <div class="container" ng-view="">
                 </div>
             </div>
+
         </div>
         <!-- End Page Content -->
     </div>
@@ -251,13 +259,13 @@
         <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
+
+        <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+
         <!-- ng tags script -->
 
          <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
 
- <!-- css angular script -->
-  <script src="bower_components/angular-css/angular-css.min.js"></script>
-        <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
@@ -273,11 +281,15 @@
         <script src="scripts/directives/onFocus.js"></script>
         <script src="scripts/directives/mongooseError.js"></script>
         <script src="scripts/services/Session.js"></script>
+         <script src="scripts/services/Books.js"></script>
+
 
         <script src="scripts/controllers/alert-ctrl.js"></script>
         <script src="scripts/controllers/master-ctrl.js"></script>
 
-        <script src="scripts/controllers/labels.js"></script>
+         <script src="scripts/controllers/AnnounceCtrl.js"></script>
+
+
 
         <script src="scripts/directives/loading.js"></script>
         <script src="scripts/directives/widget-body.js"></script>

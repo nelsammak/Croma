@@ -77,6 +77,11 @@ angular.module('angularPassportApp', [
         controller: 'ShelfCtrl'
         
       })
+      .when('/announcments',{
+        templateUrl: 'partials/announcments.html',
+        controller: 'AnnounceCtrl'
+        
+        })
       .when('/searchResults', { 
         templateUrl: 'partials/searchResult.html',
         controller: 'searchResultCtrl'
@@ -86,7 +91,6 @@ angular.module('angularPassportApp', [
       .otherwise({
         redirectTo: '/'
       });
-
       
 
 

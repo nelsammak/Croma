@@ -4,6 +4,7 @@ var mongoose = require('mongoose');
     Schema = mongoose.Schema,
     ObjectId = Schema.Types.ObjectId,
     Book = require('./book.js'),
+    Alert = require('./alert.js'),
     _= require('lodash');
 
 var UserSchema = new Schema({
@@ -19,6 +20,7 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
+    alerts: [{type:ObjectId, ref:'alert'}],
     toBeRead: [{type:ObjectId, ref: 'book'}],
 
  facebook         : {                   //facebok requirements
@@ -27,8 +29,7 @@ var UserSchema = new Schema({
         email     : String,
         name      : String
    },
-  
-    ratings: { type: [Schema.Types.Mixed], default: []},
+      ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
 
 });
