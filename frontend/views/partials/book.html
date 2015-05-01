@@ -3,8 +3,8 @@
 	<div id="bookbox">
 		<h1 id="title">{{book.name}}</h1>
 	</div>
-		<button style="margin-top: 10px" class="btn btn-default" type="button" ng-click="broadCastEpub()" >Read the Book</button>
-		<div class="pull-right">
+		
+	<div class="pull-right">
 		<button type="button" class="btn btn-danger" ng-click="removeBook()" ng-show="currentUser.admin"> 
 		<i class="fa fa-trash"> 
 			Remove Book
@@ -53,6 +53,7 @@
 			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-danger" type="button" ng-click="removeTobeRead()" >Remove from to-be read list</button>
 			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
 			</button>
+      <button style="margin-top: 10px" class="btn btn-default" type="button" ng-click="broadCastEpub()" >Read the Book</button>
 
 			<!-- star rating section starts here-->
 			<div id="star">
