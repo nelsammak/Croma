@@ -2,6 +2,7 @@
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
 var cookieParser = require('cookie-parser');
+var mongoose = require('mongoose');
 // var path = require('path');
 /**
  * A module to export /books routes
@@ -237,7 +238,7 @@ module.exports = function(router) {
 				return next(err);
 			}
 			for(var i = 0; i < book.ratings.length; i++) {
-				if(book.ratings[i].id==userId) {
+				if(book.ratings[i].id==mongoose.Types.ObjectId(userId)) {
 					return res.json(book.ratings[i].rating);
 				}
 			}
@@ -302,7 +303,7 @@ module.exports = function(router) {
 			console.log('book ratings length: ' + book.ratings.length);
 
 			for (var i = 0; i < book.ratings.length; i++) {
-				if (book.ratings[i].id == userId) {
+				if (book.ratings[i].id.equals(mongoose.Types.ObjectId(userId))) {
 					alreadyRatedByThisUser = true;
 					book.ratingsSum -= book.ratings[i]['rating'];
 					book.ratings[i]['rating'] = rating;	//Update the rating if already have rated
@@ -312,7 +313,7 @@ module.exports = function(router) {
 
 			if (!alreadyRatedByThisUser) {
 				book.ratingsSum += rating;
-				book.ratings.push({id: userId, rating: rating});
+				book.ratings.push({id: mongoose.Types.ObjectId(userId), rating: rating});
 				book.markModified('ratings');
 				book.avgRating = book.ratingsSum / book.ratings.length;
 				book.save();
@@ -331,7 +332,7 @@ module.exports = function(router) {
 				}
 				alreadyRatedByThisUser = false;
 				for (var i = 0; i < user.ratings.length; i++) {
-					if (user.ratings[i].id == bookId) {
+					if (user.ratings[i].id.equals(mongoose.Types.ObjectId(bookId))) {
 						alreadyRatedByThisUser = true;
 						user.ratings[i]['rating'] = rating;	//Update the rating if already have rated
 						break;
@@ -339,7 +340,7 @@ module.exports = function(router) {
 				}
 
 				if (!alreadyRatedByThisUser) {
-					user.ratings.push({id: bookId, rating: rating});
+					user.ratings.push({id: mongoose.Types.ObjectId(bookId), rating: rating});
 					user.markModified('ratings');
 					user.save();
 					res.json("Rated the book successfully");
