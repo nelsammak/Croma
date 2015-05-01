@@ -1,18 +1,20 @@
-<!DOCTYPE>
-<html>
-	<head>
-		<title> View Bio </title>
-
-		<!-- Bootstrap Core CSS -->
-    	<link href="css/bootstrap.min.css" rel="stylesheet">
-
-	</head>
-
-	<body>
 		<div id="header">
 			<h1>{{book.name}}</h1>
 		</div>
 
+
+			
+			<button style="margin-top: 10px" class="btn btn-default" type="button" ng-click="broadCastEpub()" >Read the Book</button>
+
+
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ng-click="removeBook()" ng-show="currentUser.admin"> 
+			<i class="fa fa-trash"> 
+			Remove Book
+			</i>
+			</button>
+		</div>
+		
 		<div id="nav">
 			<h3 id="info"> Genre</h3>
 			<div ng-repeat="genre in book.genres">
@@ -49,13 +51,12 @@
 		<div id = "bio">
 			<h1>Bio</h1>
 			<p ng-bind-html="book.bio"></p>
-			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
-			
-			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
-
+			<!-- section of buttons for user to choose if he want to add a book to any list of his -->
+			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Will Read it Later</button>
+			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-danger" type="button" ng-click="removeTobeRead()" >Remove from to-be read list</button>
 			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
 			</button>
-
+			<!-- end of buttons section -->
 		</div>
 		<div id="rate">
 			<input ng-model="rating"
@@ -66,53 +67,3 @@
                <button  class="btn  btn-sm btn-link" type="button" 
 								ng-click="rate()">rate</button>
 		</div>
-
-
-
-
-	</body>
-
-<!-- <style>
-#header {
-
-    color:blue;
-    text-align:center;
-    padding:5px;
-}
-#nav {
-    line-height:30px;
-    background-color:#eeeeee;
-    height:300px;
-    width:100px;
-    float:left;
-    padding:5px; 
-}
-#image {
-    width:300px;
-    float:left;
-    padding:10px; 
-}
-#bio {
-    width:300px;
-    float:right;
-    margin-right:400px;
-    text-align:center; 
-    padding:10px; 
-}
-#rate {
-	float: right;
-	margin-right: 500px;
-}
-
-#rating > span:hover:before {
-   content: "\2605";
-   position: absolute;
-}{
-
-}
-
-#info{
-	text-align: center;
-}
-</style>  -->
-</html>
