@@ -103,10 +103,10 @@ exports.deletePhoto = function(profilePhoto) {
 
 /**
 * @function editProfile - Called on GET "/api/users/:id"
-* @params {Object} req - Http request
-* @params {Object} res - Http response
-* @params {Object} next - Next middleware
 * edit user info in the database and save
+* @param {Object} req - Http request
+* @param {Object} res - Http response
+* @param {Object} next - Next middleware
 */
     var editProfile = function (req, res, next) {
     //console.log('response is',req.body);
