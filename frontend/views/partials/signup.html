@@ -6,7 +6,7 @@
             <form class="form" name="form" ng-submit="register(form)" novalidate>
                 <div class="form-group"
                      ng-class="{
-                     'has-warning': form.email.$dirty,
+       s              'has-warning': form.email.$dirty,
                      'has-success': form.email.$valid && form.email.$dirty && !form.email.$error.mongoose,
                      'has-error': form.email.$invalid && form.email.$dirty || form.email.$error.mongoose
                      }">

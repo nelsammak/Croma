@@ -1,34 +1,46 @@
+
+
+
+
 'use strict';
 
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
-  .controller('BookCtrl', function($scope, $http, $location, $modal, ShareService, EpubService) {
+  .controller('BookCtrl', function ($scope, $http, ShareService) {
+     /*$scope.tags = [
+            { text: 'jusst' },
+            { text: 'some' },
+            { text: 'cool' },
+            { text: 'tags' } 
+          ];*/
 
-    $http.get('api/books/' + ShareService.getValue()).success(function(response) {
+          $scope.tags;
+    $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
-
       $scope.book=response.book;
-      $scope.bookID = response.book._id
-      });
+      $scope.bookID = response.book._id;
+      $scope.book.tobeRead=false;
+      console.log(response.book.labels);
+      $scope.tags = response.book.labels;
 
       //function to get the avg rating of a book
-      $http.get('api/books/' + ShareService.getValue() + '/avgRating').success(function(rating) {
-        console.log("avg rating is " + rating);
-        $scope.book.avgRating = rating;
+      $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
+      console.log("avg rating is " + rating);
+      $scope.book.avgRating=rating;
       });
 
       //get the rating of the current user of that book
-      $http.post('api/books/' + ShareService.getValue() + '/getrate', {
-          userId: $scope.currentUser._id
-        })
+      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
         .success(function(num) {
           $scope.rating = {}
-          $scope.rating = num;
+          $scope.rating=num;
+
           console.log("user rating is " + num);
         })
         .error(function(data) {
           console.log('Error: ' + data);
         })
+
 
       /**
       * @function getIsTobeRead
@@ -79,6 +91,7 @@ angular.module('angularPassportApp')
         .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
+
           $scope.book.tobeRead=bool;
         })
         })
@@ -109,6 +122,23 @@ angular.module('angularPassportApp')
         console.log(response);
       });
     }
+
+
+     /**
+  * @function editTags Called on tag-added or tag-removed
+  * Changes labels after a label is added or removed
+  */
+      $scope.editTags = function() {
+       var ss = $scope.tags;
+       console.log(ss);
+        $http.post('/api/books/' + $scope.bookID + '/labels', {labels: ss}).success(function(response){
+        console.log(response);
+      }).error(function(data) {
+          console.log('Errorlabel: ' + data);
+        });
+          };
+
+
 
     /**
      * @function removeBook

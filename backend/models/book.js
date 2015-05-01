@@ -12,7 +12,7 @@ var bookSchema = new Schema({
 	coverLocation: { type: String, required: true },
 	bio: { type: String },
 	text: { type: String, required: true},
-	labels: [{ type: String }],
+	labels: [{ type: Schema.Types.Mixed }],
 	genres: [{type: String, index: true }],
 	ratings: { type: [Schema.Types.Mixed], default: []},
 	ratingsSum: { type: Number, default: 0},

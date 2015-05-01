@@ -150,8 +150,8 @@ module.exports = function(router) {
 	* @return {JSON} { [[{'each book labels'}]] } 
 	*/
 	var getAllLabels = function (req, res, next) {
-		Book.find({}, function (err, books) {
-			if (err) {
+		/*Book.find({}, function (err, books) {*/
+			/*if (err) {
 				return next(err);
 			}
 			var labels = [];
@@ -164,6 +164,20 @@ module.exports = function(router) {
 				}
 			}
 			res.status(200).json(labels);
+		})*/
+
+var searchTerm = new RegExp(req.query.searchTerm, "i");
+		
+		
+				/*Book.find()
+				.or([{'labels' : {$regex :searchTerm} }}])
+				.exec(cb);*/
+				
+		Books.find({'labels' : {$regex :searchTerm} }, function (err, book) {
+			if (err) {
+				return next(err);
+			}
+			
 		})
 	}
 
@@ -171,9 +185,11 @@ module.exports = function(router) {
 	/**
 	* @function getLabels Called on GET "/api/books/:id/labels" 
 	* Returns All labels of a book
-	* @param {Object} req - Http request
-	* @param {Object} res - Http response
-	* @param {Object} next - Next middleware
+
+	* @params {Object} req - Http request
+		* @params {Object} res - Http response
+		* @params {Object} next - Next middleware
+
 	* @return {JSON} {book: {labels: ['book labels']}} 
 	*/
 	var getLabels = function (req, res, next) {
@@ -194,10 +210,12 @@ module.exports = function(router) {
 
 	/**
 	* @function addLabels Called on Post "/api/books/:id/labels" 
-	* Returns Book after old labels are removed and new ones added
-	* @param {Object} req - Http request
-	* @param {Object} res - Http response
-	* @param {Object} next - Next middleware
+
+	* Changes labels after a label is added or removed
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+
 	* @return {JSON} { book: {'book'} } 
 	*/
 	var addLabels = function (req, res, next) {
@@ -206,9 +224,11 @@ module.exports = function(router) {
 		console.log('LABELS' , req.body);
 		Book.findOne({'_id': id}, function (err, book) {
 			if (err) {
-				return next(err);
-			}
-			if(book) {
+
+					return next(err);
+				}
+			
+
 				console.log('Book LABELS', book.labels);
 				book.labels = req.body.labels;
 				book.save(function (err, newBook){
@@ -217,7 +237,7 @@ module.exports = function(router) {
 					}
 					res.status(201).json({book: newBook});
 				});
-			}
+			
 		});
 	}
 

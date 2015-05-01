@@ -9,6 +9,7 @@ angular.module('angularPassportApp', [
   'ui.bootstrap',
   'ui.router',
   'flow',
+  'ngTagsInput',
   'door3.css'
 ])
 //choosing a specific partial HTML and a controller for any route
@@ -47,8 +48,11 @@ angular.module('angularPassportApp', [
       })
 
       .when('/books/:id', {
-        templateUrl: '/partials/book.html',
-        controller: 'BookCtrl'
+
+        templateUrl: 'partials/book.html',
+        controller: 'BookCtrl',
+        css:'bower_components/ng-tags-input/ng-tags-input.css'
+
       })
       
       .when('/profile', {

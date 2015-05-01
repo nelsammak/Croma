@@ -19,8 +19,18 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+
+ facebook         : {                   //facebok requirements
+        id        : String,
+        token     : String,
+        email     : String,
+        name      : String
+   },
+  
     ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
+
 });
 
 UserSchema.pre('save', function(next) {
