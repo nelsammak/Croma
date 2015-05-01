@@ -113,4 +113,38 @@ module.exports = function(router) {
 					
 		});
 
+
+		router.route('/alert/:id')
+		.get(function getAlerts(req,res,next) {
+			var id = req.params.id;
+		User.findOne({'_id': id}).populate('alerts').exec(function getUser(err, user) {
+			if (err) {
+				return next(err);
+			}
+			else {
+
+					res.json(user.alerts);
+				
+			}})
+
+		})
+
+		.post(function SendAlerts(req,res,next) {
+			var id = req.params.id;
+			var alerts = req.body.alrts;
+		User.findOne({'_id': id}).populate('alerts').exec(function getUser(err, user) {
+			if (err) {
+				return next(err);
+			}
+			else {
+
+				user.alerts = alerts;
+				user.save();
+				res.status(201);
+				res.json("deleted Alert successfully");
+				
+			}})
+
+		})
+
 };

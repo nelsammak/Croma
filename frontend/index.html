@@ -210,9 +210,10 @@
                     Notifications
                   </li>
                   <li class="divider"></li>
-                  <li>
-                    <a href="#" >Server Down!</a>
-                  </li>
+                  <li> 
+                  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
+                   </li>
+                 
                 </ul>
               </div>
             </div>
