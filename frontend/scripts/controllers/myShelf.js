@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('angularPassportApp')
-.controller('ShelfCtrl', ['$scope', '$http',
-	function getShelves ($scope, $http){
+.controller('ShelfCtrl', function getShelves ($scope, $http){
 
 		$http.get('/api/users/' + $scope.currentUser._id + '/currentlyReading').success(function(response){
 			$scope.currentBooks = response;
@@ -14,5 +13,5 @@ angular.module('angularPassportApp')
 			$scope.Read = response;
 		});
 
-	}]
+	}
 );
