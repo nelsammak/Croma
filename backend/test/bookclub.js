@@ -11,7 +11,7 @@ describe('Routing', function() {
   before(function(done) {
     User.remove({}, function error (err) {
     });
-     user1 = new User ({
+    user1 = new User ({
       email: "supermimi@gmail.com",
       username: "mimi",
       password: "$2a$10$/jR0tK67zTM0xUYg6vjhDOBN2iqfRjSW5vHDk0czhfwwrErfRbcwm",
@@ -22,7 +22,7 @@ describe('Routing', function() {
       profilePhoto: "default_avatar.png",
       gender: "male",
       toBeRead: [],
-       bookClubs: []
+      bookClubs: []
     });
     user1.save();
 
@@ -51,64 +51,13 @@ describe('Routing', function() {
   // to specify when our test is completed, and that's what makes easy
   // to perform async test!
   describe('Books', function() {
-    it('should return all books', function(done) {
-      request(url)
-        .get('/api/books')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end(function(err, res) {
-          if (err) {
-            throw err;
-          }
-          res.body.length.should.equal(7);
-          books = res.body;
-          done();
-        });
-    });
-    it('should return the new arrivals', function(done) {
-      request(url)
-        .get('/api/newarrivals')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end(function(err, res) {
-          if (err) {
-            throw err;
-          }
-          res.body.length.should.equal(5);
-          res.body[0].name.should.equal("Harry Potter and the Deathly Hallows");
-          res.body[1].name.should.equal("Harry Potter and the Half-Blood Prince");
-          res.body[2].name.should.equal("Harry Potter and the Order of the Phoenix");
-          done();
-        });
-    });
-    it('should return the books of the genre Crime', function(done) {
-      request(url)
-        .get('/api/genre/Crime')
-        .expect('Content-Type', /json/)
-        .expect(200)
-        .end(function(err, res) {
-          if (err) {
-            throw err;
-          }
-          var areAllBooksOfCrimeGenre = true;
-          for (var i = 0; i < res.body.length; i++) {
-            if (res.body[i].genres.indexOf('Crime') < 0) {
-              areAllBooksOfCrimeGenre = false;
-              break;
-            }
-          }
-          res.body.length.should.equal(2);
-          areAllBooksOfCrimeGenre.should.equal(true);
-          done();
-        });
-    });
-    it('should rate the book', function(done) {
+    it('should create a book club', function(done) {
       var body = {
         userId: user1._id.toString(),
-        rating: 4
+        title: 'Test Book Club'
       };
       request(url)
-        .post('/api/books/' + books[0]._id + '/rate')
+        .post('/api/bookclubs/createbookclub')
         .send(body)
         .expect('Content-Type', /json/)
         .expect(200)
@@ -116,18 +65,25 @@ describe('Routing', function() {
           if (err) {
             throw err;
           }
+          res.body.should.equal("Created the Book Club Successfully");
           done();
         });
     });
-    it('the rating should be updated', function(done) {
-      request(url).get('/api/books')
+    it('should view the book club', function(done) {
+      var body = {
+        userId: user1._id.toString()
+      };
+      request(url)
+        .post('/api/bookclubs')
+        .send(body)
+        .expect('Content-Type', /json/)
+        .expect(200)
         .end(function(err, res) {
           if (err) {
             throw err;
           }
-          books = res.body;
-          books[0].ratings[0].id.should.equal(user1._id.toString());
-          books[0].ratings[0]['rating'].should.equal(String(4));
+          res.body[0].name.should.equal('Test Book Club');
+          res.body[0].creator.should.equal(userId);
           done();
         });
     });
