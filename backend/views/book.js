@@ -146,8 +146,8 @@ module.exports = function(router) {
 	* @param {Object} next - Next middleware
 	* @return {JSON} { [{BOOKS}] } - best sellers
 	*/
-	router.route('/books/bestsellers').get(function getBestSellers (req, res, next) {
-		Books.find({labels : {text:'New Arrival'}}, function findBooksByBestSellers (err, books) {
+	router.route('/bestsellers').get(function getBestSellers (req, res, next) {
+		Books.find({'labels.text' : 'Best_Seller'}, function findBooksByBestSellers (err, books) {
 			if (err) {
 				next(err);
 			}

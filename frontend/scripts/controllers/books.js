@@ -62,7 +62,6 @@ angular.module('angularPassportApp')
     function bestSellersCollection($scope, $http) {
       $scope.page = "Best Sellers";
       $http.get('api/bestsellers').success(function(response) {
-        console.log("I received best sellers");
         $scope.books = response;
       });
     }
