@@ -59,7 +59,7 @@ angular.module('angularPassportApp', [
 
         templateUrl: '/partials/index.html',
         controller: 'ReaderController',
-        css: '/bower_components/epubjs/css/basic.css'
+        css: 'components/epubjs/css/main.css'
 
       })
       .when('/dashboard', {
