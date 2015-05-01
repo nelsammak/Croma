@@ -108,7 +108,7 @@ save it in database for the current user
 */
     var editProfile = function (req, res, next) {
     //console.log('response is',req.body);
-    console.log('info gat');
+    console.log('info ',req.body);
     var id = req.params.id;
      // var id = user.id;
         Profile.findById(id, function(err, Profile) {
