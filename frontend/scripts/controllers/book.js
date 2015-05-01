@@ -28,7 +28,7 @@ angular.module('angularPassportApp')
         })
         .error(function(data) {
           console.log('Error: ' + data);
-        });
+        })
 
       /**
       * @function getIsTobeRead
@@ -43,8 +43,7 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
-    });
-
+    
    /**
    * @function rate  
    * sends user rating to backend
