@@ -4,7 +4,7 @@ var User = require('../models/user.js'),
 
 module.exports = function(router) {
   router.route('/bookclubs/createbookclub').post(function createBookClub(req, res, next) {
-    User.find({'_id': req.body.userId}, function (err, user) {
+    User.findById(req.body.userId, function (err, user) {
       if (err) {
         res.status(404).json(err);
         return next(err);
@@ -12,7 +12,9 @@ module.exports = function(router) {
       var bookClub = new BookClubs({creator: req.body.userId, name: req.body.title, users: [req.body.userId]});
       bookClub.save();
       console.log("hi");
-      console.log(user);
+      var config = require('../config/config.json')[process.env.NODE_ENV];
+      console.log(config.db.url);
+      console.log(req.body.userId);
       user.bookClubs.push(bookClub._id);
       user.markModified('bookClubs');
       user.save();
@@ -21,7 +23,7 @@ module.exports = function(router) {
   });
 
   router.route('/bookclubs').post(function getBookClubs(req, res, next) {
-    User.find({'_id': req.body.userId}, function (err, user) {
+    User.findById(req.body.userId, function (err, user) {
       if (err) {
         res.status(404).json(err);
         return next(err);

@@ -6,16 +6,16 @@
 </head>
 <body>
 <h2>Create Book Club</h2>
-<form name="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl2">
-  Title: &nbsp;
+<form name="myForm" ng-model="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl2">
+  Name: &nbsp;
   &nbsp;
   <input type="text" name="input" ng-model="title" ng-minlength = "5" ng-maxlength = "50">
   <input type="submit" id="submit" value="Submit"/>
   <div role="alert">
       <span class="error" ng-show="myForm.input.$error.minlength">
-        The title should be at least 5 characters long</span>
+        The name should be at least 5 characters long</span>
       <span class="error" ng-show="myForm.input.$error.maxlength">
-        The title should not exceed 50 characters</span>
+        The name should not exceed 50 characters</span>
   </div>
 </form>
 </body>
