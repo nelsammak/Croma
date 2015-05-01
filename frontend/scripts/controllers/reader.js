@@ -12,9 +12,12 @@ angular.module('angularPassportApp')
 
 
 
-
+        /**
+        * @function renderBook
+        * Renders the book
+        */
         $scope.$on('$viewContentLoaded', function(event) {
-            $timeout(function() {
+            $timeout(function renderBook() {
                 var are = $('#area')[0];
 
                 console.log(are);
@@ -60,12 +63,19 @@ angular.module('angularPassportApp')
                 });
             }, 0);
         });
-
-        $scope.nextPage = function() {
+        
+        /**
+        * @function nextPage
+        * renders next page in book
+        */
+        $scope.nextPage = function nextPage() {
             Book.nextPage();
         }
-
-        $scope.prevPage = function() {
+        /**
+        * @function prevPage
+        * renders previous page in book
+        */
+        $scope.prevPage = function prevPage() {
             Book.prevPage();
         }
 

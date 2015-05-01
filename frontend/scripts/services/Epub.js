@@ -1,9 +1,8 @@
-
 angular.module('angularPassportApp')
- .service('EpubService', function($cookieStore){
-    var book = {};
-    return {
-            getValue: function () {
+    .service('EpubService', function($cookieStore) {
+        var book = {};
+        return {
+            getValue: function() {
                 return book;
             },
             setValue: function(value) {
@@ -11,5 +10,5 @@ angular.module('angularPassportApp')
                 book = value;
             }
         };
- 
-});
+
+    });
