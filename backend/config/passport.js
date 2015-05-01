@@ -59,6 +59,14 @@ module.exports = function () {
       ));
 // use Facebook Strategy
 
+/*
+    *@function getUsers - Called on GET "/api/users"
+    *@params {Object} req - Http request
+    *@params {Object} res - Http response
+    *@params {facebookId} next - Next middleware
+    *@returns {JSON} All users in Database as JSON 
+*/
+
  passport.use(new FacebookStrategy({
 
         // pull in our app id and secret from our auth.js file
