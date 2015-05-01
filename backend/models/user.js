@@ -26,8 +26,11 @@ var UserSchema = new Schema({
         token     : String,
         email     : String,
         name      : String
-   }
+   },
   
+    ratings: { type: [Schema.Types.Mixed], default: []},
+    toBeRead: [{type:ObjectId, ref: 'book'}]
+
 });
 
 UserSchema.pre('save', function(next) {

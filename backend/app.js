@@ -19,7 +19,9 @@ var MongoStore = require('connect-mongo')(expressSession);
 
 //importing the book model
 var Books = require('./models/book.js');
-// require('./inserts/book');
+
+//inserting the books
+//require('./inserts/book');
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
