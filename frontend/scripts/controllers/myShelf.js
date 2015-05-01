@@ -14,6 +14,23 @@ angular.module('angularPassportApp')
 	});
 
 	/**
+      * @function removeCurrentlyReading
+      * @param {int} bookId - id of the book clicked on
+      * @deletes a book from user's currently reading list
+    */
+	$scope.removeCurrentlyReading = function(bookId) {
+      $http.delete('api/books/'+bookId+'/currentlyReading')
+        .success(function(response){
+		        $http.get('/api/users/' + $scope.currentUser._id + '/currentlyReading').success(function(response){
+				$scope.toBeRead = response;
+			});
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+    };
+
+	/**
       * @function removeTobeRead
       * @param {int} bookId - id of the book clicked on
       * @deletes a book from user's to be read list

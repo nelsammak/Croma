@@ -43,6 +43,30 @@ module.exports = function(router) {
 				})
 			})
 		})
+		/**
+		* @function removeCurrentlyReading -  called on Delete "/books/:id/currentlyReading"	
+		* removes a book from user's currently reading list
+		* @params {Object} req - Http request
+		* @params {Object} res - Http response
+		* @params {Object} next - Next middleware
+		* @returns {JSON} string "Removed the book successfully" as JSON
+	 	*/
+ 		.delete(function removeToBeRead(req, res, next) {
+	        var bookId = req.params.id;
+	        var userId = req.user.id;
+	        User.findById(userId, function (err, user) {
+	            if (err) {
+	                res.status(404).json(err);
+	                return next(err);
+	            }
+	            var index = user.currentlyReading.indexOf(bookId);
+	            if (index > -1) {
+	                user.toBeRead.splice(index, 1);
+	            }
+	            user.save();
+	            res.json("Removed the book successfully");
+	        });
+	    });
 
 	/**
 	* @function getBookText Called on GET "/api/books/:id/text" 
