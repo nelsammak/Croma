@@ -8,7 +8,7 @@
 				<div class="row">	
 					<div class="col-xs-4 col-md-2">
 						<td>
-							<div class="thumbnail" style="cursor: pointer; height: 400px">
+							<div class="thumbnail" style="cursor: pointer; height: 350px">
 		                        <img class="ImageBorder" ng-controller="BioCtrl" ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
 		                        <div class="caption" height="35%">
 		                            <h6> {{book.name}} </h6>
@@ -41,8 +41,8 @@
 				<div class="row">
 					<div class="col-xs-4 col-md-2">
 						<td>
-							<div class="thumbnail" style="cursor: pointer; height: 400px">
-		                        <img class="ImageBorder" ng-controller="BioCtrl" ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
+							<div class="thumbnail" style="cursor: pointer; height: 350px">
+		                        <img class="ImageBorder" ng-controller="BioCtrl" ng-click="removeTobeRead(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
 		                        <div class="caption" height="35%">
 		                            <h6> {{book.name}} </h6>
 		                            <p><i> {{book.author}} </i></p>
@@ -74,7 +74,7 @@
 				<div class="row">
 					<div class="col-xs-4 col-md-2">
 						<td>
-							<div class="thumbnail" style="cursor: pointer; height: 400px">
+							<div class="thumbnail" style="cursor: pointer; height: 350px">
 		                        <img class="ImageBorder" ng-controller="BioCtrl" ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
 		                        <div class="caption" height="35%">
 		                            <h6> {{book.name}} </h6>
