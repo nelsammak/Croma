@@ -21,8 +21,17 @@ var UserSchema = new Schema({
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
     alerts: [{type:ObjectId, ref:'alert'}],
-    ratings: { type: [Schema.Types.Mixed], default: []},
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+
+ facebook         : {                   //facebok requirements
+        id        : String,
+        token     : String,
+        email     : String,
+        name      : String
+   },
+      ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
+
 });
 
 UserSchema.pre('save', function(next) {

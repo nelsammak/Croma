@@ -1,4 +1,51 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Croma</title>
+
+    <!-- Bootstrap Core CSS - Uses Bootswatch Flatly Theme: http://bootswatch.com/flatly/ -->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top" class="index">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '448740468623491',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
 <div id="page-top" class="index">
+
 
     <!-- Navigation -->
     
@@ -12,9 +59,16 @@
             <button class="btn btn-lg btn-primary" type="button" ng-click="loginGo()">Login</button>
             &nbsp;
              <button class="btn btn-lg btn-primary"  type="button" ng-click="signupGo()">Sign Up</button>
-            </div>
+
+        <!-- adding facebook button -->
+             <h3 style="font-size:20px;">sign up using</h3>
+              <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
             
-        <div class="container">
+            </div>
+<div class="container">
+
+            
+        
 
 
             <div class="row">
