@@ -53,34 +53,48 @@
 		</div>
 		<br></br>
         <br></br>
-		<div id="review">
+		<div id="review" ng-controller="BookCtrl">
 			<div class="input-group">
     			<div>
     			<h6> Write a Review </h6><br>
-        			<textarea ng-model="book_review"
+        			<textarea ng-model="review"
         					class="form-control custom-control" 
+        					required
+                          	mongoose-error
         					rows="3" 
         					style="width: 200%;
         					resize:none
         					-webkit-border-radius: 10px;
         					border-radius: 10px;"></textarea>
 				</div>
-   				<br></br>
-        			<br></br>
+   				<br></br><br></br>
         		<div>
         			<span class="input-group-btn">
-        				<button class="btn btn-default" type="button"
+        				<button class="btn btn-primary active" type="button"
+        				style="margin-top: 10px"
         				ng-click= "writeReview()">
         				Post</button>
      				</span>
           		</div>
 			</div>
 			<div id="reviewList">
-				<row ng-repeat="review in bReviews">
-					<h6 id="uInfo">{{bReviews.userId}}</h6>
-					<br>
-					<h6 id="rInfo">{{bReviews.review}}</h6>
-				</row>
+
+				<!-- <table class="table">
+					<tr ng-repeat="review in reviews" >
+						<h6 id="uInfo" >{{review.userId.username}}</h6>
+						<br>
+
+						<h6 id="review">
+
+						</h6>
+					</tr>
+				</table> -->
+
+				<ul ng-repeat="review in reviews">
+				<li>
+					{{review.review}}
+				</li>
+				</ul>
 			</div>
 		</div>
 
