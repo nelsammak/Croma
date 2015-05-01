@@ -78,9 +78,8 @@ angular.module('angularPassportApp')
         .success(function(num) {
           $scope.rating = {}
           $scope.rating=num;
-
-    };
-
+      }
+  }
 
     /**
       * @function aadTobeRead
