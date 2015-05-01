@@ -19,6 +19,7 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
+    ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
 });
 
@@ -34,10 +35,10 @@ UserSchema.pre('save', function(next) {
         this.profilePhoto = '/image/avatar.png';
         }
         if (this.gender === 'male') {
-        this.profilePhoto = 'male_avatar.png';
+        this.profilePhoto = '/img/male_avatar.png';
         }
         if (this.gender === 'female') {
-        this.profilePhoto = 'female_avatar.png';
+        this.profilePhoto = '/img/female_avatar.png';
         }
      }
     if(!user.isModified('password')) {
