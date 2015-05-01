@@ -78,7 +78,11 @@ angular.module('angularPassportApp', [
         controller: 'searchResultCtrl'
       })
 
-
+      .when('/editpage',{
+        templateUrl: 'partials/editpage.html',
+        controller: 'EditCtrl'
+        
+      })
       .otherwise({
         redirectTo: '/'
       });
