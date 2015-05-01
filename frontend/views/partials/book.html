@@ -36,13 +36,12 @@
 		<div id = "bio">
 			<h1>Bio</h1>
 			<p ng-bind-html="book.bio"></p>
-			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Read it later</button>
-			
-			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-default disabled" type="button" >Will read it later</button>
-
+			<!-- section of buttons for user to choose if he want to add a book to any list of his -->
+			<button ng-hide="book.tobeRead" style="margin-top: 10px" class="btn btn-primary active" type="button" ng-click="addTobeRead()">Will Read it Later</button>
+			<button ng-show="book.tobeRead"  style="margin-top: 10px" class="btn btn-danger" type="button" ng-click="removeTobeRead()" >Remove from to-be read list</button>
 			<button type="button" class="btn btn-primary active" ng-click="sendReading()" style="margin-top: 10px"> Add to Currently Reading
 			</button>
-
+			<!-- end of buttons section -->
 		</div>
 		<div id="rate">
 			<input ng-model="rating"

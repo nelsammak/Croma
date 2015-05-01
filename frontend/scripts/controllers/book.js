@@ -29,12 +29,14 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
 
-      //get a boolean value to determin whether the book is on the current user tobe read list or not
-      $http.post('api/books/' + ShareService.getValue() + '/istoberead', {
-          userId: $scope.currentUser._id
-        })
-        .success(function(bool) {
-          $scope.book.tobeRead = bool;
+      /**
+      * @function getIsTobeRead
+      * @determines whether the book is on the current user tobe read list or not
+      * @param {boolean} bool - is Book on to-be read list
+      */
+      $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
+        .success(function getIsTobeRead(bool) {
+          $scope.book.tobeRead=bool;
           console.log("user added book " + bool);
         })
         .error(function(data) {
@@ -65,20 +67,34 @@ angular.module('angularPassportApp')
         });
     };
 
-    //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
+
+    /**
+      * @function aadTobeRead
+      * @adds a book to user's to be read list
+    */
     $scope.addTobeRead = function() {
-      console.log('user: ' + $scope.currentUser._id);
-      console.log('book: ' + ShareService.getValue());
-      $http.post('api/users/' + $scope.currentUser._id + '/addToBeRead', {
-          bookId: ShareService.getValue()
-        })
+      $http.post('api/books/'+ShareService.getValue()+'/ToBeRead')
         .success(function(response) {
-          $http.post('api/books/' + ShareService.getValue() + '/istoberead', {
-              userId: $scope.currentUser._id
-            })
-            .success(function(bool) {
-              $scope.book.tobeRead = true;
-              console.log("user added book" + bool);
+          $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
+          .success(function(bool) {
+          $scope.book.tobeRead=bool;
+        })
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+      };
+    /**
+      * @function removeTobeRead
+      * @deletes a book from user's to be read list
+    */
+    $scope.removeTobeRead = function() {
+      $http.delete('api/books/'+ShareService.getValue()+'/ToBeRead')
+        .success(function(response) {
+          $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
+          .success(function(bool) {
+          $scope.book.tobeRead=bool;
+           console.log("user added book" + bool);
             })
         })
         .error(function(data) {
