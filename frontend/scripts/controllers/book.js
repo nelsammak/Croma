@@ -82,6 +82,13 @@ angular.module('angularPassportApp')
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
   .controller('BookCtrl', function ($scope, $http, ShareService) {
+    $scope.review = '';
+    $scope.reviews = [];
+    $scope.hamada='';
+
+    $scope.$watch($scope.hamada, function() {
+      console.log('HAMADA', $scope.hamada)
+    })
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
@@ -118,6 +125,7 @@ angular.module('angularPassportApp')
       $http.get('api/books/' + ShareService.getValue() + '/review')
       .success(function (response) {
         $scope.reviews = response;
+        console.log('$scope.reviews', $scope.reviews);
       }).error(function(data) {
           console.log('Error: ' + data);
         });
@@ -168,17 +176,16 @@ angular.module('angularPassportApp')
 
     //writeReview sends the review along with the user and the book associated with that review
     $scope.writeReview = function (){
-      $http.post('api/books/' + ShareService.getValue() + '/review')
+      console.log('$scope.review:' , $scope.review);
+      $http.post('api/books/' + $scope.book._id + '/review',{'review' : $scope.review })
       .success(function (response) {
-        $scope.reviews = response;
+        $scope.reviews.push(response);
+        console.log('$scope.reviews', $scope.reviews);
       })
-      $scope.book_review = '';
+      $scope.review = '';
     };
-
-    
-    
-
-
-    
+    $scope.displayReview = function(reviewList){
+      console.log('reviewList'. reviewList)
+    }
 
   });
