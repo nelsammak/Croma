@@ -21,6 +21,9 @@ angular.module('angularPassportApp')
 	$scope.removeTobeRead = function(bookId) {
       $http.delete('api/books/'+bookId+'/ToBeRead')
         .success(function(response){
+		        $http.get('/api/users/' + $scope.currentUser._id + '/toBeReadBooks').success(function(response){
+				$scope.toBeRead = response;
+			});
         })
         .error(function(data) {
           console.log('Error: ' + data);
