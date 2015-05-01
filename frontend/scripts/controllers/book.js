@@ -28,6 +28,7 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
+
       /**
       * @function getIsTobeRead
       * @determines whether the book is on the current user tobe read list or not
@@ -36,7 +37,6 @@ angular.module('angularPassportApp')
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
         .success(function getIsTobeRead(bool) {
           $scope.book.tobeRead=bool;
-
           console.log("user added book " + bool);
         })
         .error(function(data) {
@@ -94,7 +94,13 @@ angular.module('angularPassportApp')
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
           $scope.book.tobeRead=bool;
-
+           console.log("user added book" + bool);
+            })
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+    };
 
     $scope.sendReading = function(bookid) {
       $http.post('/api/books/' + $scope.bookID + '/currentlyReading').success(function(response) {
