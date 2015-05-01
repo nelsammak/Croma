@@ -1,13 +1,15 @@
 angular.module('angularPassportApp')
     .controller('ReaderController', function($scope, $http, $timeout, $rootScope, $cookieStore) {
-        
-    	$scope.bookPath = $cookieStore.get('book').text;
+
+        $scope.bookPath = $cookieStore.get('book').text;
 
         console.log('$scope.bookPath', $scope.bookPath);
 
-        var Book = ePub($scope.bookPath, { restore: true });
+        var Book = ePub($scope.bookPath, {
+            restore: true
+        });
 
-        
+
 
 
 
@@ -56,7 +58,7 @@ angular.module('angularPassportApp')
                 Book.renderTo(are).then(function(argument) {
                     console.log(argument);
                 });
-            }, 30);
+            }, 0);
         });
 
         $scope.nextPage = function() {

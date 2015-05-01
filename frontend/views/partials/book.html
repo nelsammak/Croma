@@ -7,6 +7,14 @@
 			<button style="margin-top: 10px" class="btn btn-default" type="button" ng-click="broadCastEpub()" >Read the Book</button>
 
 
+		<div class="pull-right">
+			<button type="button" class="btn btn-danger" ng-click="removeBook()" ng-show="currentUser.admin"> 
+			<i class="fa fa-trash"> 
+			Remove Book
+			</i>
+			</button>
+		</div>
+		
 		<div id="nav">
 			<h3 id="info"> Genre</h3>
 			<div ng-repeat="genre in book.genres">

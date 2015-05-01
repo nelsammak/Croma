@@ -1,20 +1,21 @@
-	<!-- Page Content -->
-    <div class="container">
-
-    	<div class="col-lg-12">
-                <h1 class="page-header">Browse {{page}}</h1>
-        </div>
-
-        <div class="row">
-            <div ng-repeat="book in books" class="col-lg-3 col-md-3 col-xs-6 thumb">
-                <a class="thumbnail" style="cursor: pointer; height: 350px;" >
-                    <img  class="ImageBorder" ng-controller ="BioCtrl"  ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 100%; width: auto;">
-                </a>
+<div class="col-lg-12">
+    <h1 class="page-header">Browse {{page}}</h1>
+</div>
+<div class="row">
+    <div ng-repeat="book in books" class="col-lg-3 col-md-3 col-xs-6 thumb">
+        <div class="thumbnail" style="cursor: pointer; height: 400px; overflow:hidden;">
+            <img class="ImageBorder" ng-controller="BioCtrl" ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
+            <div class="caption" height="35%">
+                <h6> {{book.name}} </h6>
+                <p><i> {{book.author}} </i></p>
+                <button ng-show="currentUser.admin" class="btn btn-danger btn-sm" ng-click="removeBook(book._id)" style="margin: auto;">
+                    <i class="fa fa-trash">
+                                    Delete
+                                </i>
+                </button>
             </div>
         </div>
-
-        
-
     </div>
-
-
+</div>
+</div>
+</div>
