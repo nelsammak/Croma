@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var PostSchema = new Schema({
   poster: { type: Schema.Types.ObjectId, required: true},
   title: { type: String, required: true},
-  comments: {type: Array}
+  comments: {type: [Schema.Types.ObjectId]}
 });
 
 module.exports = mongoose.model('post', PostSchema);
