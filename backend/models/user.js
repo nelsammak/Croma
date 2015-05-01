@@ -24,7 +24,7 @@ var UserSchema = new Schema({
 //},
  google       : {
         id           : String,
-        token        : String,
+        token        : String,     //google attributes
         email        : String,
         name         : String
     }

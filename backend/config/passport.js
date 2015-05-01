@@ -1,9 +1,9 @@
-var mongoose = require('mongoose'),
-    LocalStrategy = require('passport-local').Strategy,
+var mongoose       = require('mongoose'),
+    LocalStrategy  = require('passport-local').Strategy,
     GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
-    passport = require('passport'),
-    configAuth = require('./auth'),
-    User = require('../models/user');
+    passport       = require('passport'),
+    configAuth     = require('./auth'),
+    User           = require('../models/user');
 
 module.exports = function () {
 
@@ -62,8 +62,7 @@ module.exports = function () {
       ));
 
 
- // GOOGLE ==================================================================
-    // =========================================================================
+ // use GOOGLE strategy
     passport.use(new GoogleStrategy({
 
         clientID        : configAuth.googleAuth.clientID,
@@ -97,7 +96,7 @@ module.exports = function () {
                     newUser.google.email = profile.emails[0].value; // pull the first email
                     newUser.username = newUser.google.name;
                     newUser.email = newUser.google.email;
-                    newUser.password = "123456789";
+                    newUser.password = "123456789";      //default value won't be use in anything
                     newUser.age ="";
                     //newUser.gender = "";
                     newUser.address = "";

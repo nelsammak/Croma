@@ -1,3 +1,5 @@
+
+//configiration for google auth
 module.exports = {
 
 
