@@ -1,7 +1,7 @@
-var request = require('supertest');
-var should = require('should');
-var setup = require('./setup');
-var User = require('../models/user');
+var request = require('supertest'),
+   should = require('should'),
+   setup = require('./setup'),
+   User = require('../models/user');
 
 
 var req = request('http://localhost:8081/api');
