@@ -1,56 +1,58 @@
 'use strict';
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
+var Genres = require('../models/genres.js');
 var cookieParser = require('cookie-parser');
+
 // var path = require('path');
 /**
-* A module to export /books routes
-*	@module Book
-*/
+ * A module to export /books routes
+ *	@module Book
+ */
 module.exports = function(router) {
 
 	/**
 	* @function addToCurrentlyReading Called on POST "/api/books/:id/currentlyReading" 
 	* Adds book to currently reading of the current user
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
-	* @return {String} {user: 'new User with currently reading updated' 
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
+	* @return {String} {user: 'new User with currently reading updated'
 	*/
 	router.route('/books/:id/currentlyReading')
-	.post(function addToCurrentlyReading (req, res, next) {
-		var id = req.params.id;
-		if (!req.user) {
-			return next('User not logged in');
-		}
-		var user = req.user;
-
-		Books.findOne({'_id': id}, function findBookText(err, book) {
-			if (err) {
-				res.json({err: err}).status(404);
+		.post(function addToCurrentlyReading (req, res, next) {
+			var id = req.params.id;
+			if (!req.user) {
+				return next('User not logged in');
 			}
-		if(user.currentlyReading.indexOf(book._id) === -1) {
-			user.currentlyReading.push(book._id);
-		}
-		
-			User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+			var user = req.user;
+
+			Books.findOne({'_id': id}, function findBookText(err, book) {
 				if (err) {
-					
-					return next(err);
-				}	
-				res.json({user: newUser});
+					res.json({err: err}).status(404);
+				}
+				if(user.currentlyReading.indexOf(book._id) === -1) {
+					user.currentlyReading.push(book._id);
+				}
+
+				User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
+					if (err) {
+
+						return next(err);
+					}
+					res.json({user: newUser});
+				})
 			})
 		})
-	})
 
 	/**
 	* @function getBookText Called on GET "/api/books/:id/text" 
 	* Returns books text and Adds book to currently reading of the current user
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
 	* @return {String} {user: 'new User with currently reading updated', 
 	* book: {text: 'Path of the epub book' }} 
 	*/
@@ -65,15 +67,15 @@ module.exports = function(router) {
 				res.json({err: err}).status(404);
 			}
 
-		if(user.currentlyReading.indexOf(book._id) === -1) {
-			user.currentlyReading.push(book._id);
-		}
-		
+			if(user.currentlyReading.indexOf(book._id) === -1) {
+				user.currentlyReading.push(book._id);
+			}
+
 			User.findOneAndUpdate({'_id' : user._id}, user, function (err, newUser) {
 				if (err) {
-					
+
 					return next(err);
-				}	
+				}
 				res.json({user: newUser, book: {text: book.text}});
 			})
 		})
@@ -83,10 +85,10 @@ module.exports = function(router) {
 	/**
 	* @function getBook Called on GET "/api/books/:id" 
 	* Returns book info 
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
-	* @params {Number} :id - ID of the book
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
 	* @return {JSON} {book: {BOOK} } 
 	*/
 	router.route('/books/:id').get(function getBook (req,res,next){
@@ -98,29 +100,53 @@ module.exports = function(router) {
 			res.json({book: book});
 		});
 	}); 
+
+	/**
+	* @function deleteBook Called on DELETE "/api/books/:id"  
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @param {Number} :id - ID of the book
+	*/
+	router.route('/books/:id').delete(function deleteBook (req,res,next){
+		var id = req.params.id;
+		Books.findOneAndRemove({'_id': id}, function removeBook(err, book) {
+			if (err) {
+				return next(err);
+			}
+			book.remove();
+
+			Books.find({}, function(err,books) {	
+				res.status(200);
+				res.json({books: books});
+			})
+			
+			
+		});
+	}); 
 	/**
 	* @function getBookCollection Called on GET "/api/books" 
 	* Returns All books
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { [{BOOKS}] } 
 	*/
 	router.route('/books').get(function getBooksCollection (req, res, next) {
-	  Books.find(function findAllBooks(err, books) {
-	    if (err) {
-	      next(err);
-	    }
-	    res.json(books);
-	  });
+		Books.find(function findAllBooks(err, books) {
+			if (err) {
+				next(err);
+			}
+			res.json(books);
+		});
 	});
 
 	/**
 	* @function getAllLabels Called on GET "/api/labels" 
 	* Returns All books
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { [[{'each book labels'}]] } 
 	*/
 	var getAllLabels = function (req, res, next) {
@@ -130,7 +156,7 @@ module.exports = function(router) {
 			}
 			var labels = [];
 			console.log('BOOOKS', books);
-			 for (var j = 0; j < books.length; j++) {
+			for (var j = 0; j < books.length; j++) {
 				for(var i = 0; i < books[j].labels.length; i++) {
 					if (labels.indexOf(books[j].labels[i]) === -1) {
 						labels.push(books[j].labels[i]);
@@ -145,9 +171,9 @@ module.exports = function(router) {
 	/**
 	* @function getLabels Called on GET "/api/books/:id/labels" 
 	* Returns All labels of a book
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} {book: {labels: ['book labels']}} 
 	*/
 	var getLabels = function (req, res, next) {
@@ -157,21 +183,21 @@ module.exports = function(router) {
 				console.log('ERROR', err);
 				return next(err);
 			}
-				if (book) {
-					res.json({book: {labels: book.labels}});
-				} else {
-					res.json({err: 'Book not found'})
-				}
-			});
-		}
-	
+			if (book) {
+				res.json({book: {labels: book.labels}});
+			} else {
+				res.json({err: 'Book not found'})
+			}
+		});
+	}
+
 
 	/**
 	* @function addLabels Called on Post "/api/books/:id/labels" 
 	* Returns Book after old labels are removed and new ones added
-	* @params {Object} req - Http request
-	* @params {Object} res - Http response
-	* @params {Object} next - Next middleware
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
 	* @return {JSON} { book: {'book'} } 
 	*/
 	var addLabels = function (req, res, next) {
@@ -180,8 +206,8 @@ module.exports = function(router) {
 		console.log('LABELS' , req.body);
 		Book.findOne({'_id': id}, function (err, book) {
 			if (err) {
-					return next(err);
-				}
+				return next(err);
+			}
 			if(book) {
 				console.log('Book LABELS', book.labels);
 				book.labels = req.body.labels;
@@ -194,22 +220,25 @@ module.exports = function(router) {
 			}
 		});
 	}
-	//Route to get the specific book's average Rating
-	router.route('/books/:id/avgRating').get(function getBookText(req, res, next) {
+
+	/**
+	 * @function getBookAvgRating Called on Get "/api/books/:id/avgRating"
+	 * Returns Book's average Rating
+	 * @params {Object} req - Http request
+	 * @params {Object} res - Http response
+	 * @params {Object} next - Next middleware
+	 * @return {JSON} { 'avgRating' }
+	 */
+	router.route('/books/:id/avgRating').get(function getBookAvgRating(req, res, next) {
 		var id = req.params.id;
-		Books.findOne({'_id': id}, function findBookText(err, book) {
+		Books.findOne({'_id': id}, function (err, book) {
 			if (err) {
 				res.status(404).json(err);
 				return next(err);
 			}
-			var sumOfRatings = 0;
-			for (var i = 0; i < book.ratings.length; i++) {
-				sumOfRatings += parseInt(book.ratings[i].rating);
-			}
-			console.log(sumOfRatings);
 
 			if (book.ratings.length > 0) {
-				res.json(sumOfRatings / book.ratings.length);
+				res.json(book.avgRating);
 			}
 			else {
 				res.json(0);
@@ -217,6 +246,14 @@ module.exports = function(router) {
 		})
 	});
 
+	/**
+	 * @function getMyRating Called on Get "/api/books/:id/getrate"
+	 * Returns the User's rating of the Book
+	 * @params {Object} req - Http request
+	 * @params {Object} res - Http response
+	 * @params {Object} next - Next middleware
+	 * @return {JSON} { 'rating' }
+	 */
 	router.route('/books/:id/getrate').post(function getMyRating(req, res, next) {
 		var id = req.params.id;
 		var userId = req.body.userId;
@@ -231,7 +268,7 @@ module.exports = function(router) {
 				}
 			}
 
-			return res.json("0");
+			return res.json(0);
 		})
 	});
 
@@ -252,7 +289,7 @@ module.exports = function(router) {
 		})
 	});
 
-	
+
 	//Route to get the New Arrivals
 	router.route('/newarrivals').get(function getBook(req, res, next) {
 		var id = req.params.id;
@@ -265,7 +302,14 @@ module.exports = function(router) {
 		});
 	});
 
-	//Route to rate the specific book
+	/**
+	 * @function rateBook Called on Get "/api/books/:id/rate"
+	 * Rates the Book
+	 * @params {Object} req - Http request
+	 * @params {Object} res - Http response
+	 * @params {Object} next - Next middleware
+	 * @return {JSON} { 'message' }
+	 */
 	router.route('/books/:id/rate').post(function rateBook(req, res, next) {
 		var bookId = req.params.id;
 		Books.findOne({'_id': bookId}, function findBook(err, book) {
@@ -276,7 +320,7 @@ module.exports = function(router) {
 
 			var alreadyRatedByThisUser = false;
 			var userId = req.body.userId;
-			var rating = String(req.body.rating);
+			var rating = req.body.rating;
 
 			console.log('user: ' +  userId + ', type: ' + typeof userId);
 			console.log('book: ' +  book._id + ', type: ' + typeof book._id);
@@ -286,26 +330,71 @@ module.exports = function(router) {
 			for (var i = 0; i < book.ratings.length; i++) {
 				if (book.ratings[i].id == userId) {
 					alreadyRatedByThisUser = true;
+					book.ratingsSum -= book.ratings[i]['rating'];
 					book.ratings[i]['rating'] = rating;	//Update the rating if already have rated
 					break;
 				}
 			}
 
 			if (!alreadyRatedByThisUser) {
+				book.ratingsSum += rating;
 				book.ratings.push({id: userId, rating: rating});
 				book.markModified('ratings');
+				book.avgRating = book.ratingsSum / book.ratings.length;
 				book.save();
-				res.json("Rated the book successfully");
 			}
 			else {
+				book.ratingsSum += rating;
 				book.markModified('ratings');
+				book.avgRating = book.ratingsSum / book.ratings.length;
 				book.save();
-				res.json("Updated the book rating successfully");
 			}
 
-		})
-	});
+			User.findOne({'_id': userId}, function findBookText(err, user) {
+				if (err) {
+					res.status(404).json(err);
+					return next(err);
+				}
+				alreadyRatedByThisUser = false;
+				for (var i = 0; i < user.ratings.length; i++) {
+					if (user.ratings[i].id == bookId) {
+						alreadyRatedByThisUser = true;
+						user.ratings[i]['rating'] = rating;	//Update the rating if already have rated
+						break;
+					}
+				}
 
+				if (!alreadyRatedByThisUser) {
+					user.ratings.push({id: bookId, rating: rating});
+					user.markModified('ratings');
+					user.save();
+					res.json("Rated the book successfully");
+				}
+				else {
+					user.markModified('ratings');
+					user.save();
+					res.json("Updated the book rating successfully");
+				}
+			});
+
+		});
+	});
+	/**
+	* @function getGenres Called on GET "/api/genre" 
+	* Returns All genres
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @return {JSON} { [{GENRES}] } 
+	*/
+	router.route('/genre').get(function getGenres(req, res, next) {
+		Genres.find(function findAllGenres(err, genres) {
+	    	if (err) {
+	      		next(err);
+	    	}
+	    	res.json(genres);
+	  	});
+	});
 	//Route to get the books of the specified genre
 	router.route('/genre/:genre').get(function getBookText(req, res, next) {
 		console.log("yeskarim123");
@@ -318,6 +407,60 @@ module.exports = function(router) {
 			res.json(books);
 		})
 	});
+
+	router.route('/books/:id/ToBeRead')
+	/**
+	* @function addToBeRead -  called on Post "/books/:id/ToBeRead"	
+	* adds a book from user's tobe read list
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @returns {JSON} string "Added the book successfully" as JSON
+ 	*/
+		.post(function addToBeRead(req, res, next) {
+	        var bookId = req.params.id;
+	        var userId = req.user.id;
+	        User.findById(userId, function (err, user) {
+	          if (err) {
+	            res.status(404).json(err);
+	            return next(err);
+	          }
+	          if (user.toBeRead.indexOf(bookId) > -1) { //Already has the book in his Currently Reading List
+	            return res.json("Already has the book");
+	          }
+	          else {
+	            user.toBeRead.push(bookId);
+	          }
+	          user.save();
+	          res.json("Added the book successfully");
+	        });
+	    })
+	/**
+	* @function removeToBeRead -  called on Delete "/books/:id/ToBeRead"	
+	* removes a book from user's tobe read list
+	* @params {Object} req - Http request
+	* @params {Object} res - Http response
+	* @params {Object} next - Next middleware
+	* @returns {JSON} string "Removed the book successfully" as JSON
+ 	*/
+ 		.delete(function removeToBeRead(req, res, next) {
+	        var bookId = req.params.id;
+	        var userId = req.user.id;
+	        //var userId = req.params.id;
+	        User.findById(userId, function (err, user) {
+	            if (err) {
+	                res.status(404).json(err);
+	                return next(err);
+	            }
+	            var index = user.toBeRead.indexOf(bookId);
+	            if (index > -1) {
+	                user.toBeRead.splice(index, 1);
+	            }
+	            user.save();
+	            res.json("Removed the book successfully");
+	        });
+	    });
+
 	router.route('/books/:id/labels').get(getLabels).post(addLabels);
 	router.route('/labels').get(getAllLabels);
 

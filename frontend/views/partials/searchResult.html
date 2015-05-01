@@ -1,0 +1,74 @@
+<div class="col-xs-12 col-sm-11">
+    <H1 class="text-center"> Search Result </H1>
+    <!-- The start of the Tabset -->
+    <tabset justified="true" type="tabs">
+        <!-- Books tab -->
+        <tab>
+            <tab-heading style="cursor: pointer;">
+                <i class="fa fa-book"></i>
+                <b>Books {{booksNotify}} </b>
+            </tab-heading>
+            <!-- Book Results -->
+            <div class="row">
+                <div ng-hide="books.length == 0" ng-repeat="book in filteredBooks" class="col-lg-3 col-md-3 col-xs-6 thumb">
+                    <div class="thumbnail" style="cursor: pointer; height: 400px">
+                        <img class="ImageBorder" ng-controller="BioCtrl" ng-click="viewBio(book.id)" ng-src="{{book.coverLocation}}" style="height: 65%; width: auto;">
+                        <div class="caption" height="35%">
+                            <h6> {{book.name}} </h6>
+                            <p><i> {{book.author}} </i></p>
+                            <button ng-show="currentUser.admin" class="btn btn-danger btn-sm" ng-click="removeBook(book._id)" style="margin: auto;">
+                                <i class="fa fa-trash">
+                                    Delete
+                                </i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="text-center" ng-show="books.length == 0">
+                    <h4> Movie Creators stole those books too !</h4>
+                </div>
+            </div>
+            <!-- End of Book results -->
+            <!-- Book Pagination -->
+            <div class="text-center">
+                <pagination style="margin: auto auto;" total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
+            </div>
+            <!-- End of Book Pagination -->
+        </tab>
+        <!-- End of Book tab -->
+        <!-- Users tab -->
+        <tab>
+            <tab-heading style="cursor: pointer;">
+                <i class="fa fa-users"></i>
+                <b> Users {{usersNotify}} </b>
+            </tab-heading>
+            <!-- User Results -->
+            <div class="row">
+                <div ng-hide="users.length == 0" ng-repeat="user in users" class="col-lg-3 col-md-3 col-xs-6 thumb">
+                    <div class="thumbnail" style="cursor: pointer; height: 300px">
+                        <img class="ImageBorder" ng-src="{{user.profilePhoto}}" style="height: 75%; width: auto">
+                        <div class="caption">
+                            <p style="font-style: italic"><b> {{user.username}} </b></p>
+                            <p> {{ user.firstName + " " + user.lastName}} </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div class="text-center" ng-show="users.length == 0">
+                <h4> No Bookworms found... :'( </h4>
+            </div>
+            <!-- End of User Results -->
+            <!-- User Pagination -->
+            <div class="text-center">
+                <pagination total-items="totalUser" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0"></pagination>
+            </div>
+            <!-- End of User Pagination -->
+        </tab>
+        <!-- End of Users tab -->
+    </tabset>
+    <!-- End of Tabset -->
+</div>
