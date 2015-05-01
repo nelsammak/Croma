@@ -1,7 +1,5 @@
 
 
-
-
 'use strict';
 
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
@@ -56,14 +54,22 @@ angular.module('angularPassportApp')
           console.log('Error: ' + data);
         });
     });
+
     
-   /**
+
+  /**
    * @function rate  
    * sends user rating to backend
    * @param {int} userRating - user rating
    */
-    $scope.rate = function rate(userRating) {
-      $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: userRating})
+    $scope.rate = function(userRating) {
+      console.log('user: ' + $scope.currentUser._id);
+      console.log('book: ' + ShareService.getValue());
+      console.log('rating: ' + $scope.rating);
+      $http.post('api/books/' + ShareService.getValue() + '/rate', {
+          userId: $scope.currentUser._id,
+          rating: userRating
+        })
         .success(function(response) {
           //function to get the avg rating of a book
           $http.get('api/books/' + ShareService.getValue() + '/avgRating').success(function(rating) {
@@ -74,13 +80,8 @@ angular.module('angularPassportApp')
         .error(function(data) {
           console.log('Error: ' + data);
         });
+    };
 
-      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
-        .success(function(num) {
-          $scope.rating = {}
-          $scope.rating=num;
-      }
-  
 
     /**
       * @function aadTobeRead
