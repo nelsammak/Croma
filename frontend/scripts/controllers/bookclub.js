@@ -91,3 +91,54 @@ angular.module('angularPassportApp')
           })
     }
   });
+
+//Controller to view a specific Post
+angular.module('angularPassportApp')
+  .controller('BookClubsCtrl7', function($scope, $http, $location, $modal, ShareService) {
+    $scope.viewPost = function(id) {
+      $location.path('posts/' + id);
+      ShareService.setValue(id);
+      $scope.id = ShareService.getValue();
+    }
+  });
+
+//Controller to get the Post's comments
+angular.module('angularPassportApp')
+  .controller('BookClubsCtrl8', function($scope, $http, $location, $modal, ShareService) {
+    $http.get('api/posts/' + ShareService.getValue()).success(function(response) {
+      $http.get('api/getusername/' + response.poster).success(function(username) {
+        $scope.poster = username;
+        $scope.title = response.title;
+        $scope.post = response.post;
+        $scope.comments = response.comments;
+        $scope.id = ShareService.getValue();
+      });
+    });
+
+    $scope.addComment = function(id) {
+      console.log("hihi");
+      console.log(id);
+      $location.path('addcomment/' + id);
+      ShareService.setValue(id);
+    }
+  });
+
+//Controller for the form to add a Comment
+angular.module('angularPassportApp')
+  .controller('BookClubsCtrl9', function($scope, $http, $location, $modal, ShareService) {
+    var id = ShareService.getValue();
+    $scope.success = false;
+    $scope.submit = function() {
+      if (!$scope.success) {
+        $http.post('api/addcomment/' + id, {
+          comment: $scope.text,
+          name: $scope.currentUser.username,
+          userId: $scope.currentUser._id
+        })
+          .success(function (response) {
+            $scope.success = true;
+            console.log("Added the Comment");
+          })
+      };
+    }
+  });
