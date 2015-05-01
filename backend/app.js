@@ -19,7 +19,12 @@ var MongoStore = require('connect-mongo')(expressSession);
 
 //importing the book model
 var Books = require('./models/book.js');
-// require('./inserts/book');
+
+
+//inserting the books
+
+/*require('./inserts/book');
+*/
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -53,14 +58,21 @@ app.use(expressSession({
     })
 })
 )
-
+  
+  
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan('dev'));
 
+ 
 var router = express.Router(); 
-app.use('/api', router);
+
+
+
+
+
+
 
 app.use(modRewrite([
 '^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
@@ -85,9 +97,34 @@ app.get('/views/*', function(req, res) {
 app.get('/', function(req, res) {
  	res.render('index.html');
 });
-
-
 var port = process.env.PORT || 8081; 
+app.use('/api', router);
+
+
+
+//Google route
+
+ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/#/main',
+                    failureRedirect : '/'
+            }));
+
+ 
+//facebook routes
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+   app.get('/auth/facebook/callback',
+       passport.authenticate('facebook', {
+          successRedirect : '/#/main',
+           failureRedirect : '/'
+        }));
+
+
 
 
 app.use(function reportInternalServerError(err, req, res, next) {

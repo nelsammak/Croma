@@ -4,17 +4,20 @@
 
 angular
     .module('angularPassportApp')
-    .controller('AlertsCtrl', ['$scope', AlertsCtrl]);
-
-function AlertsCtrl($scope) {
-    $scope.alerts = [{
+    .controller('AlertsCtrl', function AlertsCtrl($scope,$http) {
+     $scope.alerts = [{
         type: 'success',
-        msg: 'Thanks for visiting! Feel free to create pull requests to improve the dashboard!'
+        message: 'Thanks for visiting! Feel free to create pull requests to improve the dashboard!'
     }, {
         type: 'danger',
-        msg: 'Found a bug? Create an issue with as many details as you can.'
+        message: 'Found a bug? Create an issue with as many details as you can.'
     }];
 
+    $http.get('api/alert/'+$scope.currentUser._id).success(function(alerts) {
+      $scope.alerts=alerts;
+      console.log("alerts ahe", alerts);
+      });
+   
     $scope.addAlert = function() {
         $scope.alerts.push({
             msg: 'Another alert!'
@@ -24,4 +27,4 @@ function AlertsCtrl($scope) {
     $scope.closeAlert = function(index) {
         $scope.alerts.splice(index, 1);
     };
-}
+});

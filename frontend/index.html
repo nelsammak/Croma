@@ -14,24 +14,37 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" ui-sref="styles/main.css">
-    <!-- endbuild -->
+
+
+        <!-- build:css(.tmp) styles/main.css -->
+<!--         <link rel="stylesheet" ui-sref="styles/main.css">
+ -->        <!-- endbuild -->
+
+<link rel="stylesheet" type="text/css" href="bower_components/sweetalert/lib/sweet-alert.css">
+
+
+        <!-- STYLES -->
+       <!--  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css">  -->
+  <!-- build:css lib/css/main.min.css -->
+<!--   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css"> -->
+<!--   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css"> -->
+  <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
+
+<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
+ -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+
+
     <link href="/bower_components/sweetalert/lib/sweet-alert.css" rel="stylesheet">
-    <!-- STYLES -->
-    <!-- build:css lib/css/main.min.css -->
-    <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
-    <link href="css/bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- endbuild -->
+
 </head>
 
 <body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
@@ -91,6 +104,10 @@
                         <li class="page-scroll">
                             <a href="/#/shelves">Currently Reading</a>
                         </li>
+                        <li class="page-scroll">
+                            <a href="/#/bestsellers">Best Sellers</a>
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.navbar-collapse -->
@@ -111,21 +128,25 @@
             Dashboard
             <span class="menu-icon glyphicon glyphicon-transfer"></span>
           </a>
-                </li>
-                <li class="sidebar-title"><span>NAVIGATION</span></li>
-                <li class="sidebar-list" ng-show="currentUser.admin">
-                    <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
-                </li>
-                <li class="sidebar-list">
-                    <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
-                </li>
-                <li class="sidebar-list">
-                    <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-bars"></span></a>
-                </li>
-            </ul>
-            <div class="sidebar-footer">
-                <div class="col-xs-4">
-                    <a href="https://github.com/rdash/rdash-angular" target="_blank">
+        </li>
+        <li class="sidebar-title"><span>NAVIGATION</span></li>
+        <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/dashboard">Dashboard <span class="menu-icon fa fa-tachometer"></span></a>
+        </li>
+         <li class="sidebar-list" ng-show=  "currentUser.admin">
+          <a href="/#/announcments">System Panel <span class="menu-icon fa fa-bell-o"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
+          <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-bars"></span></a>
+        </li>
+      </ul>
+      <div class="sidebar-footer">
+        <div class="col-xs-4">
+          <a href="https://github.com/rdash/rdash-angular" target="_blank">
+
             Github
           </a>
                 </div>
@@ -141,66 +162,70 @@
                 </div>
             </div>
         </div>
-    <!-- End Sidebar -->
-    <div id="content-wrapper">
-        <div class="page-content">
-            <!-- Header Bar -->
-            <div ng-show="currentUser" class="row header">
-                <div class="col-xs-12">
-                    <div class="user pull-right">
-                        <div class="item dropdown">
-                            <a href="#" class="dropdown-toggle">
-                                <img src="{{currentUser.profilePhoto}}">
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-header">
-                                    {{currentUser.username}}
-                                </li>
-                                <li class="divider"></li>
-                                <li class="link">
-                                    <a href="/#/profile">
+        <!-- End Sidebar -->
+        <div id="content-wrapper">
+            <div class="page-content">
+                <!-- Header Bar -->
+                <div ng-show="currentUser" class="row header">
+                    <div class="col-xs-12">
+                        <div class="user pull-right">
+                            <div class="item dropdown">
+                                <a href="#" class="dropdown-toggle">
+                                    <img src="{{currentUser.profilePhoto}}">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-right">
+                                    <li class="dropdown-header">
+                                        {{currentUser.username}}
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="link">
+                                        <a href="/#/profile">
                       Profile
                     </a>
-                                </li>
-                                <li class="divider"></li>
-                                <li class="link">
-                                    <a ng-click="logout()">
+                                    </li>
+                                    <li class="divider"></li>
+                                    <li class="link">
+                                        <a ng-click="logout()">
                       Logout
                     </a>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="item dropdown">
-                            <a href="#" class="dropdown-toggle">
-                                <i class="fa fa-bell-o"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-right">
-                                <li class="dropdown-header">
-                                    Notifications
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#">Server Down!</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="meta">
-                        <div class="page">
-                        </div>
-                        <div class="breadcrumb-links">
-                            <!-- Home / Dashboard -->
-                        </div>
-                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="item dropdown">
+               <a href="#" class="dropdown-toggle">
+                  <i class="fa fa-bell-o"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <li class="dropdown-header">
+                    Notifications
+                  </li>
+                  <li class="divider"></li>
+                  <li> 
+                  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
+                   </li>
+                 
+                </ul>
+              </div>
+            </div>
+            <div class="meta">
+              <div class="page">
+                
+              </div>
+              <div class="breadcrumb-links">
+                <!-- Home / Dashboard -->
+              </div>
+            </div>
+          </div>
+
+                </div>
+                <!-- End Header Bar -->
+                <!-- Main Content -->
+                <br>
+                <br>
+                <div class="container" ng-view="">
                 </div>
             </div>
-            <!-- End Header Bar -->
-            <!-- Main Content -->
-            <br>
-            <br>
-            <div class="container" ng-view="">
-            </div>
-        </div>
+
         </div>
         <!-- End Page Content -->
     </div>
@@ -223,46 +248,76 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
     </script>
+    <script src="js/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
-    <!-- build:js(app) scripts/modules.js -->
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
-    <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <!-- endbuild -->
-    <!-- build:js({.tmp,app}) scripts/scripts.js -->
-    <script src="scripts/app.js"></script>
-    <script src="scripts/controllers/main.js"></script>
-    <script src="scripts/controllers/login.js"></script>
-    <script src="scripts/controllers/navbar.js"></script>
-    <script src="scripts/controllers/signup.js"></script>
-    <script src="scripts/controllers/books.js"></script>
-    <script src="scripts/controllers/profile.js"></script>
-     <script src="scripts/controllers/editctrl.js"></script>
-    <script src="scripts/directives/uniqueUsername.js"></script>
-    <script src="scripts/services/Auth.js"></script>
-    <script src="scripts/services/User.js"></script>
-    <script src="scripts/directives/onFocus.js"></script>
-    <script src="scripts/directives/mongooseError.js"></script>
-    <script src="scripts/services/Session.js"></script>
-    <script src="scripts/controllers/alert-ctrl.js"></script>
-    <script src="scripts/controllers/master-ctrl.js"></script>
-    <script src="scripts/directives/loading.js"></script>
-    <script src="scripts/directives/widget-body.js"></script>
-    <script src="scripts/directives/widget-footer.js"></script>
-    <script src="scripts/directives/widget-header.js"></script>
-    <script src="scripts/directives/widget.js"></script>
-    <script src="scripts/controllers/myShelf.js"></script>
-    <script src="scripts/controllers/book.js"></script>
+
+     
+    
+
+        <!-- build:js(app) scripts/modules.js -->
+        <script src="bower_components/angular-resource/angular-resource.js"></script>
+
+
+
+        <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+        <script src="bower_components/angular-route/angular-route.js"></script>
+        <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+        <script src="bower_components/angular-http-auth/src/http-auth-interceptor.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+
+        <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+
+        <!-- ng tags script -->
+
+         <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
+
+
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="scripts/app.js"></script>
+        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/login.js"></script>
+        <script src="scripts/controllers/navbar.js"></script>
+        <script src="scripts/controllers/signup.js"></script>
+        <script src="scripts/controllers/books.js"></script>
+        <script src="scripts/controllers/profile.js"></script>
+        <script src="scripts/directives/uniqueUsername.js"></script>
+        <script src="scripts/services/Auth.js"></script>
+        <script src="scripts/services/User.js"></script>
+        <script src="scripts/services/Books.js"></script>
+        <script src="scripts/directives/onFocus.js"></script>
+        <script src="scripts/directives/mongooseError.js"></script>
+        <script src="scripts/services/Session.js"></script>
+         <script src="scripts/services/Books.js"></script>
+		<script src="scripts/controllers/editctrl.js"></script>
+
+        <script src="scripts/controllers/alert-ctrl.js"></script>
+        <script src="scripts/controllers/master-ctrl.js"></script>
+
+         <script src="scripts/controllers/AnnounceCtrl.js"></script>
+
+
+
+        <script src="scripts/directives/loading.js"></script>
+        <script src="scripts/directives/widget-body.js"></script>
+        <script src="scripts/directives/widget-footer.js"></script>
+        <script src="scripts/directives/widget-header.js"></script>
+        <script src="scripts/directives/widget.js"></script>
+
+        <script src="scripts/controllers/myShelf.js"></script>
+        <script src="scripts/controllers/book.js"></script>
+
+  <script src="scripts/controllers/reader.js"></script>
+    <script src="scripts/services/Epub.js"></script>
+
+
+    <!-- jQuery -->
+
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/services/searchService.js"></script>
     <script src="scripts/controllers/searchResultCtrl.js"></script>
     <script src="scripts/controllers/searchCtrl.js"></script>
-    <!-- jQuery -->
-    <script src="js/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="js/bootstrap.min.js"></script>
     <!-- Plugin JavaScript -->
@@ -274,6 +329,39 @@
     <script src="js/contact_me.js"></script>
     <!-- Custom Theme JavaScript -->
     <script src="js/freelancer.js"></script>
+
+        <!-- endbuild -->
+
+
+
+         <!-- Libs -->
+   <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.7/angular.min.js"></script> -->
+    
+    <!-- <script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.10.2.min.js"><\/script>')</script> -->
+        
+
+    
+    <script src="scripts/libs/epubjs/epub.min.js"></script>
+    
+    <!-- Render -->
+    <script src="scripts/libs/jquery/jquery.highlight.js"></script>
+    
+    <!-- Hooks -->
+    <script async src="scripts/libs/epubjs/hooks.min.js"></script>
+    <script async src="scripts/libs/epubjs/base.js"></script>
+    <script async src="scripts/libs/epubjs/hypothesis.js"></script>
+    <script async src="scripts/libs/epubjs/pageturns.js"></script>
+    <script async src="scripts/libs/epubjs/highlight.js"></script>
+    
+    <!-- <script src="scripts/libs/angular/angular.min.js"></script> -->
+    <script src="scripts/libs/angular/angular-touch.min.js"></script>
+    
+    <script src="scripts/factories/ga_factory.js"></script>
+    <script src="scripts/directives/epub-reader.js"></script>
+    <script src="scripts/directives/epub-viewer.js"></script>
+    <script src="scripts/directives/epub-toc.js"></script>
+    <script src="scripts/directives/hypothesis.js"></script>
     <!-- endbuild -->
     <script src="scripts/directives/btn.js"></script>
     <script src="scripts/directives/drag-events.js"></script>
@@ -286,8 +374,10 @@
     <script src="scripts/provider.js"></script>
     <script src="bower_components/flow.js/dist/flow.js"></script>
     <script src="bower_components/flow.js/dist/flow.min.js"></script>
-    <!--  <script src="dist/ng-flow-standalone.js"></script> -->
+    <script src="bower_components/angular-css/angular-css.min.js"></script>
     <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
+    <script src="components/epubjs/epub.min.js"></script>
+    <script src="components/epubjs/libs/zip.min.js"></script>
 </body>
 
 </html>

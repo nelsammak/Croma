@@ -51,6 +51,22 @@ angular.module('angularPassportApp')
     }
   ]);
 
+/**
+@function bestSellersCollocetion 
+@gets all books that has labels best seller
+@param {object} $scope - service
+@param {object} $http - service
+*/
+angular.module('angularPassportApp')
+  .controller('BestSellersCtrl', ['$scope', '$http',
+    function bestSellersCollection($scope, $http) {
+      $scope.page = "Best Sellers";
+      $http.get('api/bestsellers').success(function(response) {
+        $scope.books = response;
+      });
+    }
+  ]);
+
 //genre display controller's job is  to request genre books from backend and display it
 angular.module('angularPassportApp')
   .controller('GenreDisplayCtrl', function($scope, $http, ShareService2) {
@@ -64,12 +80,36 @@ angular.module('angularPassportApp')
 
 
 //genre controller's job is  to  take the genre specified from html by click of user and request that genre from backend then route to it 
+
+/**
+  * @function Genre Called on "/genre" 
+  * Genre controller
+  * @param {Object} $scope - service
+  * @param {Object} $http - service
+  * @param {Object} $routeParams - service
+  * @param {Object} $location - service
+  * @param {Object} $window - service
+  * @param {Object} $shareService2 - service
+  */
 angular.module('angularPassportApp')
-  .controller('GenreCtrl', function($scope, $http, $routeParams, $location, $window, ShareService2) {
-    $scope.showGenre = function(genre) {
-      ShareService2.setValue(genre);
-      $location.path('genre/' + genre);
-    };
+  .controller('GenreCtrl',
+  function Genre($scope, $http, $routeParams, $location,$window, ShareService2) {
+  /**
+  * @function getAllGenres
+  * @gets all genres
+  * @param {JSON} response - genres
+  */
+    $http.get('api/genre').success(function getAllGenres(response) {
+      $scope.genres=response;
+    });
+    /**
+  * @function showGenre Called on GET "/genre/:genre"
+  * @param {String} genre - genre
+  */
+    $scope.showGenre = function showGenre(genre) {
+    ShareService2.setValue(genre);
+    $location.path ('genre/'+genre);
+   };
   });
 
 //response to view bio button and routing to a specific book
@@ -84,33 +124,3 @@ angular.module('angularPassportApp')
 
 
 
-//a service to pass id  from books Ctrl to book Ctrl
-angular.module('angularPassportApp')
-  .service('ShareService', function() {
-    var id = 0;
-    return {
-      getValue: function() {
-        return id;
-      },
-      setValue: function(value) {
-        id = value;
-      }
-    };
-
-  });
-
-//a service to pass genre  from Genre Ctrl to Genre display Ctrl
-angular.module('angularPassportApp')
-  .service('ShareService2', function() {
-    var genre = '';
-    return {
-      getValue: function() {
-        return genre;
-      },
-      setValue: function(value) {
-        genre = value;
-      }
-    };
-
-
-  });

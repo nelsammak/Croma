@@ -3,9 +3,9 @@
  */
 
 angular.module('angularPassportApp')
-    .controller('MasterCtrl', ['$scope', '$cookieStore', MasterCtrl]);
+    .controller('MasterCtrl', ['$scope', '$cookieStore','$timeout','$http', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore) {
+function MasterCtrl($scope, $cookieStore,$timeout,$http) {
     /**
      * Sidebar Toggle & Cookie Control
      */
@@ -36,4 +36,31 @@ function MasterCtrl($scope, $cookieStore) {
     window.onresize = function() {
         $scope.$apply();
     };
+  
+
+    $scope.alerts = [{
+        type: 'success',
+        message: 'Thanks for visiting! Feel free to create pull requests to improve the dashboard!'
+    }, {
+        type: 'danger',
+        message: 'Found a bug? Create an issue with as many details as you can.'
+    }];
+
+    $scope.closeAlert = function(index) {
+        $scope.alerts.splice(index, 1);
+        $http.post('api/alert/'+$scope.currentUser._id, {alrts: $scope.alerts});
+    };
+
+$timeout(function(){
+
+if($scope.currentUser){
+    $http.get('api/alert/'+$scope.currentUser._id).success(function(alerts) {
+      $scope.alerts=alerts;
+      console.log("alerts ahe");
+      });
+
+     console.log("alerts ahe bara");
+}
+},500);
+
 }
