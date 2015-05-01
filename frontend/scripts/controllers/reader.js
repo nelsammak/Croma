@@ -1,8 +1,15 @@
 angular.module('angularPassportApp')
-    .controller('ReaderController', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
+    .controller('ReaderController', function($scope, $http, $timeout, $rootScope, $cookieStore) {
         
-        $scope.bookPath =  "/books/bookEpub/Inferno_ A Novel - Dan Brown.epub";  
+    	$scope.bookPath = $cookieStore.get('book').text;
+
+        console.log('$scope.bookPath', $scope.bookPath);
+
         var Book = ePub($scope.bookPath, { restore: true ,  spreads: true});
+
+        
+
+
 
         $scope.$on('$viewContentLoaded', function(event) {
             $timeout(function() {
@@ -61,4 +68,4 @@ angular.module('angularPassportApp')
         }
 
 
-    }]);
+    });

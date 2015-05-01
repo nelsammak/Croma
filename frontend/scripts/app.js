@@ -55,11 +55,11 @@ angular.module('angularPassportApp', [
         templateUrl: '/partials/userprofile.html',
         controller: 'ProfileController'
       })
-      .when('/thebook', {
+      .when('/bookreader', {
 
         templateUrl: '/partials/index.html',
         controller: 'ReaderController',
-        css: '/bower_components/epubjs/css/main.css'
+        css: '/bower_components/epubjs/css/basic.css'
 
       })
       .when('/dashboard', {
