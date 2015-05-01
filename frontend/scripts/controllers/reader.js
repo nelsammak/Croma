@@ -5,7 +5,7 @@ angular.module('angularPassportApp')
 
         console.log('$scope.bookPath', $scope.bookPath);
 
-        var Book = ePub($scope.bookPath, { restore: true , height: '1000px'});
+        var Book = ePub($scope.bookPath, { restore: true });
 
         
 
@@ -13,7 +13,7 @@ angular.module('angularPassportApp')
 
         $scope.$on('$viewContentLoaded', function(event) {
             $timeout(function() {
-                var are = $('#viewer')[0];
+                var are = $('#area')[0];
 
                 console.log(are);
 
@@ -56,7 +56,7 @@ angular.module('angularPassportApp')
                 Book.renderTo(are).then(function(argument) {
                     console.log(argument);
                 });
-            }, 0);
+            }, 30);
         });
 
         $scope.nextPage = function() {
