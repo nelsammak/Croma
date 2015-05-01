@@ -1,4 +1,5 @@
 var User = require('../models/user.js');
+var Alert = require('../models/alert.js')
 
 /**
 * A module to export Signing up routes
@@ -74,5 +75,20 @@ module.exports = function(router) {
         });
     	});
 
+    	router.route('/alert')
+		.post(function PostAlert(req, res, next) {
+			var alert = Alert.create({
+					message: req.body.message,
+					type: req.body.type
+					},  function createAlert(err, user) {
+								if (err) {
+									console.log(err);
+									res.status(400).json(err);
+								} 
+								else {
+									res.status(201).json(alert);
+								}
+							});
+		});
 
 };
