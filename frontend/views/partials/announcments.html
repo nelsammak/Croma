@@ -1,4 +1,5 @@
  <form class="form" name="form" ng-submit="sendAlert(form)" novalidate>
+<!--  message field start -->
                 <div class="form-group">
                     <input class="form-control"
                            placeholder="Message"
@@ -9,6 +10,9 @@
                            autofocus
                            on-focus/>
                 </div>
+                <!-- message field end -->
+
+                <!-- Type buttons start -->
 
                  <div class="form-group">
                 <input type="hidden" name="option" value="" id="btn-input" />
@@ -33,31 +37,19 @@
 
                 </div>
                 </div>
-
-    
+                <!-- Type end -->
+    <!-- Submit button -->
 
                 <button 
                 ng-class="{'btn  btn-lg btn-info btn-block': type == 'announcment','btn  btn-lg btn-danger btn-block': type == 'warning','btn  btn-lg btn-success btn-block': type == 'notification'}"
                         type="submit"
                         ng-disabled="form.$invalid">Send</button>
+                        <!-- end button submit -->
             </form>
         </div>
     </div>
 </div>
-<!-- /*<script>
 
-  $('radioop0').on('click', function () {
-    $(this).button('complete') 
-  })
-
-  var btns = ['radioop0', 'radioop1'];
-  var input = document.getElementById('btn-input');
-  for(var i = 0; i < btns.length; i++) {
-    document.getElementById(radioop[i]).addEventListener('click', function() {
-      input.value = this.value;
-    });
-  }
-</script>*/ -->
 
 <script>
   var btns = ['btn-one', 'btn-two','btn-three'];

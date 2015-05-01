@@ -75,20 +75,42 @@ module.exports = function(router) {
         });
     	});
 
+
+
+/**
+	*	@function PostAlert - Adds alert to all users on Post "/api/alert"	
+	*	@params {Object} req - Http request
+	* @params {Object} res - Http response
+	*	@params {Object} next - Next middleware
+	*	@returns {JSON} "added alert successfully"
+ 	*/
     	router.route('/alert')
 		.post(function PostAlert(req, res, next) {
 			var alert = Alert.create({
 					message: req.body.message,
 					type: req.body.type
-					},  function createAlert(err, user) {
+					},  function createAlert(err, alert) {
 								if (err) {
 									console.log(err);
 									res.status(400).json(err);
-								} 
-								else {
-									res.status(201).json(alert);
+								} else {
+
+									User.find({}, function (err, users) {
+									if (err) {
+												next(err);
+								} else {
+									users.forEach(function (user){
+						
+									user.alerts.push(alert.id);
+									user.save();
+										});
+								res.status(201);
+							res.json("Sent Alert successfully");
+				}
+			});
 								}
 							});
+					
 		});
 
 };

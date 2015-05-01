@@ -21,7 +21,7 @@ var UserSchema = new Schema({
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
     toBeRead: [{type:ObjectId, ref: 'book'}],
-    alerts: [{type: ObjectId, ref:'alert'}]
+    alerts: [{type:ObjectId, ref:'alert'}]
 
 });
 

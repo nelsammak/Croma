@@ -7,7 +7,13 @@ angular.module('angularPassportApp')
 		$scope.type = 'notification';
 
 		$scope.sendAlert= function() {
-			
+			console.log("ba3at");
+			$http.post('api/alert', 
+				{message: $scope.message, type: $scope.type})
+			.success(function(bool) {
+				swal("Sent Alert!", "Your users have been notified!", "success");
+          
+        });
 
 		};
 
