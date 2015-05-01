@@ -1,7 +1,9 @@
 'use strict';
-var Books = require('../models/book.js'),
-	 User = require('../models/user.js'),
-	 cookieParser = require('cookie-parser');
+var Books = require('../models/book.js');
+var User = require('../models/user.js');
+var Genres = require('../models/genres.js');
+var cookieParser = require('cookie-parser');
+
 // var path = require('path');
 /**
  * A module to export /books routes
@@ -377,7 +379,22 @@ module.exports = function(router) {
 
 		});
 	});
-
+	/**
+	* @function getGenres Called on GET "/api/genre" 
+	* Returns All genres
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @return {JSON} { [{GENRES}] } 
+	*/
+	router.route('/genre').get(function getGenres(req, res, next) {
+		Genres.find(function findAllGenres(err, genres) {
+	    	if (err) {
+	      		next(err);
+	    	}
+	    	res.json(genres);
+	  	});
+	});
 	//Route to get the books of the specified genre
 	router.route('/genre/:genre').get(function getBookText(req, res, next) {
 		console.log("yeskarim123");

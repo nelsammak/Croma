@@ -64,12 +64,36 @@ angular.module('angularPassportApp')
 
 
 //genre controller's job is  to  take the genre specified from html by click of user and request that genre from backend then route to it 
+
+/**
+  * @function Genre Called on "/genre" 
+  * Genre controller
+  * @param {Object} $scope - service
+  * @param {Object} $http - service
+  * @param {Object} $routeParams - service
+  * @param {Object} $location - service
+  * @param {Object} $window - service
+  * @param {Object} $shareService2 - service
+  */
 angular.module('angularPassportApp')
-  .controller('GenreCtrl', function($scope, $http, $routeParams, $location, $window, ShareService2) {
-    $scope.showGenre = function(genre) {
-      ShareService2.setValue(genre);
-      $location.path('genre/' + genre);
-    };
+  .controller('GenreCtrl',
+  function Genre($scope, $http, $routeParams, $location,$window, ShareService2) {
+  /**
+  * @function getAllGenres
+  * @gets all genres
+  * @param {JSON} response - genres
+  */
+    $http.get('api/genre').success(function getAllGenres(response) {
+      $scope.genres=response;
+    });
+    /**
+  * @function showGenre Called on GET "/genre/:genre"
+  * @param {String} genre - genre
+  */
+    $scope.showGenre = function showGenre(genre) {
+    ShareService2.setValue(genre);
+    $location.path ('genre/'+genre);
+   };
   });
 
 //response to view bio button and routing to a specific book
@@ -84,6 +108,8 @@ angular.module('angularPassportApp')
 
 
 
+<<<<<<< HEAD
+=======
 //a service to pass id  from books Ctrl to book Ctrl
 angular.module('angularPassportApp')
   .service('ShareService', function() {
@@ -114,3 +140,4 @@ angular.module('angularPassportApp')
 
 
   });
+>>>>>>> origin/Development
