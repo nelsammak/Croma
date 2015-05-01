@@ -53,7 +53,7 @@ angular.module('angularPassportApp')
 
 /**
 @function bestSellersCollocetion 
-@gets all books that has labels best sellers
+@gets all books that has labels best seller
 @param {object} $scope - service
 @param {object} $http - service
 */
@@ -61,6 +61,7 @@ angular.module('angularPassportApp')
   .controller('BestSellersCtrl', ['$scope', '$http',
     function bestSellersCollection($scope, $http) {
       $scope.page = "Best Sellers";
+      $http.get('api/bestsellers').success(function(response) {
         console.log("I received best sellers");
         $scope.books = response;
       });
