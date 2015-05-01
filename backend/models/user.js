@@ -21,13 +21,26 @@ var UserSchema = new Schema({
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
     toBeRead: [{type:ObjectId, ref: 'book'}],
+
 //},
  google       : {
         id           : String,
         token        : String,     //google attributes
         email        : String,
         name         : String
-    }
+    },
+
+ facebook         : {                   //facebok requirements
+        id        : String,
+        token     : String,
+        email     : String,
+        name      : String
+   },
+  
+    ratings: { type: [Schema.Types.Mixed], default: []},
+    toBeRead: [{type:ObjectId, ref: 'book'}]
+
+
 });
 
 UserSchema.pre('save', function(next) {
@@ -42,10 +55,10 @@ UserSchema.pre('save', function(next) {
         this.profilePhoto = '/image/avatar.png';
         }
         if (this.gender === 'male') {
-        this.profilePhoto = 'male_avatar.png';
+        this.profilePhoto = '/img/male_avatar.png';
         }
         if (this.gender === 'female') {
-        this.profilePhoto = 'female_avatar.png';
+        this.profilePhoto = '/img/female_avatar.png';
         }
      }
     if(!user.isModified('password')) {

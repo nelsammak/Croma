@@ -20,8 +20,11 @@ var MongoStore = require('connect-mongo')(expressSession);
 //importing the book model
 var Books = require('./models/book.js');
 
+
 //inserting the books
-// require('./inserts/book');
+
+/*require('./inserts/book');
+*/
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
@@ -55,14 +58,17 @@ app.use(expressSession({
     })
 })
 )
-
+  
+  
 app.use(passport.initialize());
 app.use(passport.session());
 
 app.use(morgan('dev'));
 
+ 
 var router = express.Router(); 
-app.use('/api', router);
+
+
 
 
 
@@ -91,8 +97,10 @@ app.get('/views/*', function(req, res) {
 app.get('/', function(req, res) {
  	res.render('index.html');
 });
+var port = process.env.PORT || 8081; 
+app.use('/api', router);
 
-var port = process.env.PORT || 8081;
+
 
 //Google route
 
@@ -106,13 +114,18 @@ var port = process.env.PORT || 8081;
             }));
 
  
+//facebook routes
+app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
+
+    // handle the callback after facebook has authenticated the user
+   app.get('/auth/facebook/callback',
+       passport.authenticate('facebook', {
+          successRedirect : '/#/main',
+           failureRedirect : '/'
+        }));
 
 
-app.get('/error', function createError(req, res, next) {
-  var err = new Error('Sample error');
-  err.status = 500;
-  next(err);
-});
+
 
 app.use(function reportInternalServerError(err, req, res, next) {
   console.log(err.stack);
