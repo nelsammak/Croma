@@ -6,7 +6,7 @@
 	},
 	"test": {
 		"db": {
-			"url": "localhost/croma_test"
+			"url": "mongodb://localhost/croma_test"
 		}
 	},
 	"production": {
