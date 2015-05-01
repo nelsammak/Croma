@@ -51,6 +51,22 @@ angular.module('angularPassportApp')
     }
   ]);
 
+/**
+@function bestSellersCollocetion 
+@gets all books that has labels best seller
+@param {object} $scope - service
+@param {object} $http - service
+*/
+angular.module('angularPassportApp')
+  .controller('BestSellersCtrl', ['$scope', '$http',
+    function bestSellersCollection($scope, $http) {
+      $scope.page = "Best Sellers";
+      $http.get('api/bestsellers').success(function(response) {
+        $scope.books = response;
+      });
+    }
+  ]);
+
 //genre display controller's job is  to request genre books from backend and display it
 angular.module('angularPassportApp')
   .controller('GenreDisplayCtrl', function($scope, $http, ShareService2) {

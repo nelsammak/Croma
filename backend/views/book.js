@@ -140,7 +140,22 @@ module.exports = function(router) {
 			res.json(books);
 		});
 	});
-
+	/**
+	* @function getBestSellers Called on GET "/api/bestsellers" 
+	* Returns all books that have label best seller
+	* @param {Object} req - Http request
+	* @param {Object} res - Http response
+	* @param {Object} next - Next middleware
+	* @return {JSON} { [{BOOKS}] } - best sellers
+	*/
+	router.route('/bestsellers').get(function getBestSellers (req, res, next) {
+		Books.find({'labels.text' : 'Best_Seller'}, function findBooksByBestSellers (err, books) {
+			if (err) {
+				next(err);
+			}
+			res.json(books);
+		});
+	});
 	/**
 	* @function getAllLabels Called on GET "/api/labels" 
 	* Returns All books

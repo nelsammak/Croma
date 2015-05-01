@@ -34,6 +34,11 @@ angular.module('angularPassportApp', [
         controller: 'BooksCtrl'
 
       })
+      .when('/bestsellers', {
+        templateUrl: 'partials/books.html',
+        controller: 'BestSellersCtrl'
+
+      })
       .when('/newarrivals', {
         templateUrl: '/partials/books.html',
         controller: 'NewArrivalsCtrl'
