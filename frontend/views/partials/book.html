@@ -92,8 +92,10 @@
 
 				<ul ng-repeat="review in reviews">
 				<li>
-					{{review.review}}
+					{{review.review}} by {{review.userId.username}}
 				</li>
+				<button type="button" class="btn btn-default small-btn" data-toggle="button" ng-click="deleteReview(review)"><i class="fa fa-trash-o fa-lg"></i>
+				</button>
 				</ul>
 			</div>
 		</div>

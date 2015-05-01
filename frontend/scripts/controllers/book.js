@@ -84,11 +84,7 @@ angular.module('angularPassportApp')
   .controller('BookCtrl', function ($scope, $http, ShareService) {
     $scope.review = '';
     $scope.reviews = [];
-    $scope.hamada='';
-
-    $scope.$watch($scope.hamada, function() {
-      console.log('HAMADA', $scope.hamada)
-    })
+   
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
@@ -184,8 +180,15 @@ angular.module('angularPassportApp')
       })
       $scope.review = '';
     };
-    $scope.displayReview = function(reviewList){
-      console.log('reviewList'. reviewList)
+    $scope.deleteReview = function(rev){
+      console.log('reviewId' , rev._id);
+      console.log('reviewnafso' , rev.review);
+
+      $http.post('api/books/' + $scope.book._id + '/review',{delete: true, 'reviewId' : rev._id, 'userId': rev.userId._id })
+      .success(function (response) {
+        console.log('userId', rev.userId._id );
+        $scope.reviews.splice($scope.reviews.indexOf(rev),1);
+      })
     }
 
   });

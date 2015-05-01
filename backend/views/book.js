@@ -410,18 +410,30 @@ module.exports = function(router) {
             return next('User not logged in');
         }
         var user = req.user;
-        console.log('asdasdasdfasdas', req.body);
-        bReviews.create({
-            userId: user,
-            bookId: bookId,
-            review: req.body.review
-        }, function(err, reviews) {
-            if (err) {
-                // res.status(404).json(err);
-                return next(err);
-            } else {
-                res.status(201).json(reviews);
-            }
-        });
+        console.log(req.body.delete);
+        console.log(req.body.userId);        
+        if (req.body.delete && user._id==req.body.userId) {
+            bReviews.findOneAndRemove({_id: req.body.reviewId},function(err, reviews) {
+                    if (err) {
+                        // res.status(404).json(err);
+                        return next(err);
+                    } else {
+                        res.status(201).json(reviews);
+                    }
+                });
+        } else {
+            bReviews.create({
+                    userId: user,
+                    bookId: bookId,
+                    review: req.body.review
+                }, function(err, reviews) {
+                    if (err) {
+                        // res.status(404).json(err);
+                        return next(err);
+                    } else {
+                        res.status(201).json(reviews);
+                    }
+                  });
+          }
     });
 }
