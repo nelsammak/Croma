@@ -70,6 +70,10 @@ var router = express.Router();
 
 
 
+
+
+
+
 app.use(modRewrite([
 '^/(([^\/]*).xhtml|([0-9]+)/(.+))$ /views/partials/index.html [L]']))
 
@@ -96,6 +100,20 @@ app.get('/', function(req, res) {
 var port = process.env.PORT || 8081; 
 app.use('/api', router);
 
+
+
+//Google route
+
+ app.get('/auth/google', passport.authenticate('google', { scope : ['profile', 'email'] }));
+
+    // the callback after google has authenticated the user
+    app.get('/auth/google/callback',
+            passport.authenticate('google', {
+                    successRedirect : '/#/main',
+                    failureRedirect : '/'
+            }));
+
+ 
 //facebook routes
 app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' }));
 
@@ -105,6 +123,7 @@ app.get('/auth/facebook', passport.authenticate('facebook', { scope : 'email' })
           successRedirect : '/#/main',
            failureRedirect : '/'
         }));
+
 
 
 
