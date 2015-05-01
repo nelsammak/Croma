@@ -190,6 +190,10 @@
                                 <li>
                                     <a href="#">Server Down!</a>
                                 </li>
+                                <li class="divider"></li>
+                                <li ng-repeat-start="invite in currentUser.invites">  </li>
+                                    <li> <a href="#">{{invite.title}}</a> </li>
+                                <li ng-repeat-end></li>
                             </ul>
                         </div>
                     </div>

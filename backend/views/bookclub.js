@@ -88,4 +88,34 @@ module.exports = function(router) {
       }
       });
     });
+  router.route('/invitetobookclub/:id').post(function addPost(req, res, next) {
+    BookClubs.findById(req.params.id, function (err, bookClub) {
+      if (err) {
+        res.status(404).json(err);
+        return next(err);
+      }
+      User.findOne({username: req.body.user}, function (err, user) {
+        if (err) {
+          res.status(404).json(err);
+          return next(err);
+        }
+        var title = req.body.title;
+        var alreadyContainsThisInvite = false;
+        for (var i = 0; i < user.invites.length; i++) {
+          if(user.invites[i].id == req.params.id) {
+            alreadyContainsThisInvite = true;
+            break;
+          }
+        }
+        if(!alreadyContainsThisInvite) {
+          user.invites.push({title: title, id: req.params.id});
+          user.markModified('invites');
+          user.save();
+          res.status(200).json("Invited the user succesfully");
+        }
+        else
+          res.status(200).json("Already invited the user");
+        });
+      });
+    });
 };
