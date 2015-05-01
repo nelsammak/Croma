@@ -22,8 +22,6 @@ app.controller('searchResultCtrl', function searchResultCtrl($scope,$location, $
     $scope.booksNotify = '';
     $scope.usersNotify = '';
 
-
-
   /**
   * @function upDateSearchResults
   * Updates search results from service every 500 ms
