@@ -4,7 +4,7 @@
 
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
-  .controller('BookCtrl', function ($scope, $http, ShareService) {
+  .controller('BookCtrl', function ($scope, $http, $location, ShareService, EpubService) {
      /*$scope.tags = [
             { text: 'jusst' },
             { text: 'some' },

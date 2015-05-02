@@ -61,7 +61,7 @@ angular.module('angularPassportApp')
                 Book.renderTo(are).then(function(argument) {
                     console.log(argument);
                 });
-            }, 0);
+            }, 300);
         });
         
         /**

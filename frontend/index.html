@@ -13,33 +13,23 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
 
-        <!-- build:css(.tmp) styles/main.css -->
-<!--         <link rel="stylesheet" ui-sref="styles/main.css">
- -->        <!-- endbuild -->
-
-<link rel="stylesheet" type="text/css" href="bower_components/sweetalert/lib/sweet-alert.css">
 
 
-        <!-- STYLES -->
-       <!--  <link rel="stylesheet" href="bower_components/ng-tags-input/ng-tags-input.css">  -->
-  <!-- build:css lib/css/main.min.css -->
-<!--   <link rel="stylesheet" type="text/css" href="components/bootstrap/dist/css/bootstrap.min.css"> -->
-<!--   <link rel="stylesheet" type="text/css" href="components/font-awesome/css/font-awesome.min.css"> -->
+
+
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
-
-<!-- <link rel="stylesheet" type="text/css" href="styles/bootstrap-tagsinput.css">
  -->
-<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/bootstrap.css" rel="stylesheet">
 
 
     <link href="/bower_components/sweetalert/lib/sweet-alert.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="css/freelancer.css" rel="stylesheet">
     <!-- Custom Fonts -->
-    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+   
+    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <link href="http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css">
@@ -119,9 +109,9 @@
     <br>
     <br>
     <br>
-    <div ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}">
+    <div ng-controller="MasterCtrl" id="page-wrapper" ng-class="{'open': toggle}" >
         <!-- Sidebar -->
-        <div ng-hide="!currentUser" id="sidebar-wrapper">
+        <div ng-if="currentUser" id="sidebar-wrapper">
             <ul class="sidebar">
                 <li class="sidebar-main">
                     <a ng-click="toggleSidebar()">
@@ -166,7 +156,7 @@
         <div id="content-wrapper">
             <div class="page-content">
                 <!-- Header Bar -->
-                <div ng-show="currentUser" class="row header">
+                <div ng-if="currentUser" class="row header">
                     <div class="col-xs-12">
                         <div class="user pull-right">
                             <div class="item dropdown">
@@ -267,10 +257,6 @@
         <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
 
 
-        <script src="bower_components/sweetalert/lib/sweet-alert.min.js"></script>
-
-        <!-- ng tags script -->
-
          <script src="bower_components/ng-tags-input/ng-tags-input.js"></script>
 
 
@@ -318,10 +304,6 @@
     <script src="scripts/services/searchService.js"></script>
     <script src="scripts/controllers/searchResultCtrl.js"></script>
     <script src="scripts/controllers/searchCtrl.js"></script>
-    <!-- Bootstrap Core JavaScript -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- Plugin JavaScript -->
-    <!-- <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script> -->
     <script src="js/classie.js"></script>
     <script src="js/cbpAnimatedHeader.js"></script>
     <!-- Contact Form JavaScript -->
@@ -342,27 +324,6 @@
         
 
     
-    <script src="scripts/libs/epubjs/epub.min.js"></script>
-    
-    <!-- Render -->
-    <script src="scripts/libs/jquery/jquery.highlight.js"></script>
-    
-    <!-- Hooks -->
-    <script async src="scripts/libs/epubjs/hooks.min.js"></script>
-    <script async src="scripts/libs/epubjs/base.js"></script>
-    <script async src="scripts/libs/epubjs/hypothesis.js"></script>
-    <script async src="scripts/libs/epubjs/pageturns.js"></script>
-    <script async src="scripts/libs/epubjs/highlight.js"></script>
-    
-    <!-- <script src="scripts/libs/angular/angular.min.js"></script> -->
-    <script src="scripts/libs/angular/angular-touch.min.js"></script>
-    
-    <script src="scripts/factories/ga_factory.js"></script>
-    <script src="scripts/directives/epub-reader.js"></script>
-    <script src="scripts/directives/epub-viewer.js"></script>
-    <script src="scripts/directives/epub-toc.js"></script>
-    <script src="scripts/directives/hypothesis.js"></script>
-    <!-- endbuild -->
     <script src="scripts/directives/btn.js"></script>
     <script src="scripts/directives/drag-events.js"></script>
     <script src="scripts/directives/drop.js"></script>
