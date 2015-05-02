@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,6 +25,27 @@
 </head>
 
 <body id="page-top" class="index">
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '448740468623491',
+      xfbml      : true,
+      version    : 'v2.3'
+    });
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "//connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+
+
+<div id="page-top" class="index">
+
 
     <!-- Navigation -->
     
@@ -37,9 +59,25 @@
             <button class="btn btn-lg btn-primary" type="button" ng-click="loginGo()">Login</button>
             &nbsp;
              <button class="btn btn-lg btn-primary"  type="button" ng-click="signupGo()">Sign Up</button>
-            </div>
+
+              <!-- adding facebook button -->
+              <!-- adding google button -->
+
+             <h3 style="font-size:20px;">sign up using</h3>
+             <a href="/auth/facebook" class="btn btn-primary"><span class="fa fa-facebook"></span> Facebook</a>
+             <a href="/auth/google" class="btn btn-danger"><span class="fa fa-google-plus"></span> Google</a>
+
+
+        <!-- adding facebook button -->
             
-        <div class="container">
+              
+            
+
+            </div>
+<div class="container">
+
+            
+        
 
 
             <div class="row">
@@ -240,7 +278,7 @@
                     </div>
                     <div class="footer-col col-md-4">
                         <h3>About Croma</h3>
-                        <p>Croma is not just a book reader it's a community. <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <p>Croma is not just a book reader it's a community. </p>
                     </div>
                 </div>
             </div>
@@ -487,6 +525,4 @@
         </div>
     </div>
 
-</body>
-
-</html>
+</div>

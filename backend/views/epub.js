@@ -6,10 +6,14 @@ var Epub = require('epub'),
 	imageDirectory = '../frontend/books/bookCovers/',
 	imageDirectoryStatic = 'books/bookCovers/',
 	linkDirectory = '../frontend/books/bookLinks/';
-
+var Genre = require('../models/genres.js');
 module.exports = function(router) {
 	router.route('/admin/addBook').post(saveEpubData);
 }
+//code to remove books from DB if we want to
+//Book.remove({}, function error (err) {});
+//code to remove genres from DB if we want to
+//Genre.remove({}, function error (err) {});
 
 var saveEpubData = function (req, res, next) {
 	try {
@@ -23,6 +27,7 @@ var saveEpubData = function (req, res, next) {
 				flow.write(identifier, stream, {onDone: function () {
 					
 					flow.clean(identifier);
+
 					console.log('file: ', filename, 'succesfully saved.');
 					var epubTitle = filename;
 					var epubPath = 'books/bookEpub/' + epubTitle;
@@ -60,7 +65,13 @@ var saveEpubData = function (req, res, next) {
 							imagePathStatic = imageDirectoryStatic + 'default_cover.jpg';
 						}
 						var subjects = [];
-						subjects.push(epub.metadata.subject);
+						if(epub.metadata.subject){
+							subjects = epub.metadata.subject.split(/, | & /);						}
+						else{
+								subjects=["Unspecified"];
+						}
+						
+						
 						var book = new Book({
 							name: epub.metadata.title,
 							author: epub.metadata.creator,
@@ -68,15 +79,28 @@ var saveEpubData = function (req, res, next) {
 							text: epubPath,
 							genres: subjects,
 							bio: epub.metadata.description
-						})
+						})	
 						book.save(function saveBook(err, newBook) {
 							if (err) {
 								return next(err);
 							}
 							res.json(newBook).status(201);
 						})
+						console.log(subjects);
+						for(var i=0;i<subjects.length;i++){
+							Genre.findOneAndRemove({"name": subjects[i]}, function(err, person) {
+	  							if (err) {
+	   								 console.log('got an error');
+	  							}
+							});
+							var genre = new Genre({
+	 						name: subjects[i]
+							});
+							genre.save(function func (err, genre) {
+	  							if (err) return console.error(err);
+							});
+						}
 					});
-						
 						try {
 						epub.parse(); 
 					}

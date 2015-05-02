@@ -8,9 +8,9 @@ angular.module('angularPassportApp', [
   'http-auth-interceptor',
   'ui.bootstrap',
   'ui.router',
-  'flow'
-
-
+  'flow',
+  'ngTagsInput',
+  'door3.css'
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -18,67 +18,84 @@ angular.module('angularPassportApp', [
 
     $routeProvider
       .when('/', {
-        templateUrl: 'partials/main.html',
+        templateUrl: '/partials/main.html',
         controller: 'MainCtrl'
       })
       .when('/login', {
-        templateUrl: 'partials/login.html',
+        templateUrl: '/partials/login.html',
         controller: 'LoginCtrl'
       })
       .when('/signup', {
-        templateUrl: 'partials/signup.html',
+        templateUrl: '/partials/signup.html',
         controller: 'SignupCtrl'
       })
       .when('/books', {
-        templateUrl: 'partials/books.html',
+        templateUrl: '/partials/books.html',
         controller: 'BooksCtrl'
 
       })
-      .when('/newarrivals', {
+      .when('/bestsellers', {
         templateUrl: 'partials/books.html',
+        controller: 'BestSellersCtrl'
+
+      })
+      .when('/newarrivals', {
+        templateUrl: '/partials/books.html',
         controller: 'NewArrivalsCtrl'
       })
       .when('/genre', {
-        templateUrl: 'partials/genre.html',
+        templateUrl: '/partials/genre.html',
         controller: 'GenreCtrl'
       })
       .when('/genre/:genre', {
-        templateUrl: 'partials/books.html',
+        templateUrl: '/partials/books.html',
         controller: 'GenreDisplayCtrl'
       })
 
       .when('/books/:id', {
+
         templateUrl: 'partials/book.html',
-        controller: 'BookCtrl'
+        controller: 'BookCtrl',
+        css:'bower_components/ng-tags-input/ng-tags-input.css'
+
       })
       
       .when('/profile', {
-        templateUrl: 'partials/userprofile.html',
+        templateUrl: '/partials/userprofile.html',
         controller: 'ProfileController'
       })
-      .when('/thebook', {
+      .when('/bookreader', {
 
-        templateUrl: 'partials/index.html',
-       // controller: 'ReaderController'
+        templateUrl: '/partials/index.html',
+        controller: 'ReaderController',
+        css: 'components/epubjs/css/main.css'
 
       })
       .when('/dashboard', {
 
-        templateUrl: 'partials/dashboard.html',
+        templateUrl: '/partials/dashboard.html',
        // controller: 'ReaderController'
 
       })
       .when('/shelves',{
-        templateUrl: 'partials/myShelf.html',
+        templateUrl: '/partials/myShelf.html',
         controller: 'ShelfCtrl'
         
+      })
+      .when('/announcments',{
+        templateUrl: 'partials/announcments.html',
+        controller: 'AnnounceCtrl'
+        
+        })
+      .when('/searchResults', { 
+        templateUrl: 'partials/searchResult.html',
+        controller: 'searchResultCtrl'
       })
 
 
       .otherwise({
         redirectTo: '/'
       });
-
       
 
 

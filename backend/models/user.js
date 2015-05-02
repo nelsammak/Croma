@@ -4,14 +4,16 @@ var mongoose = require('mongoose');
     Schema = mongoose.Schema,
     ObjectId = Schema.Types.ObjectId,
     Book = require('./book.js'),
+    Alert = require('./alert.js'),
     _= require('lodash');
 
 var UserSchema = new Schema({
+    //local : {
     email: { type: String, index: {unique: true}, required: true },
     username: { type: String, required: true, unique: true},
     password: { type: String, required: true },
-    firstName: { type: String },
-    lastName: { type: String },
+    firstName: { type: String, index:true },
+    lastName: { type: String,  index:true },
     age: { type: Number },
     admin: {type: Boolean },
     address: { type: String },
@@ -19,7 +21,27 @@ var UserSchema = new Schema({
     gender: { type: String, enum: ['male', 'female']},
     currentlyReading: [{type: ObjectId, ref: 'book'}],
     read: [{type:ObjectId, ref: 'book'}],
+    alerts: [{type:ObjectId, ref:'alert'}],
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+
+//},
+ google       : {
+        id           : String,
+        token        : String,     //google attributes
+        email        : String,
+        name         : String
+    },
+
+ facebook         : {                   //facebok requirements
+        id        : String,
+        token     : String,
+        email     : String,
+        name      : String
+   },
+      ratings: { type: [Schema.Types.Mixed], default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
+
+
 });
 
 UserSchema.pre('save', function(next) {
@@ -27,17 +49,17 @@ UserSchema.pre('save', function(next) {
     // Initial update user avatar based on gender
   if (_.isUndefined(this.profilePhoto) 
      || _.isEmpty(this.profilePhoto) 
-     || this.profilePhoto === 'male_avatar.png' 
-     || this.profilePhoto === 'female_avatar.png' 
-     || this.profilePhoto === 'default_avatar.png') {
+     || this.profilePhoto === '/img/male_avatar.png' 
+     || this.profilePhoto === '/img/female_avatar.png' 
+     || this.profilePhoto === '/image/avatar.png') {
         if (_.isUndefined(this.gender)) {
-        this.profilePhoto = 'default_avatar.png';
+        this.profilePhoto = '/image/avatar.png';
         }
         if (this.gender === 'male') {
-        this.profilePhoto = 'male_avatar.png';
+        this.profilePhoto = '/img/male_avatar.png';
         }
         if (this.gender === 'female') {
-        this.profilePhoto = 'female_avatar.png';
+        this.profilePhoto = '/img/female_avatar.png';
         }
      }
     if(!user.isModified('password')) {

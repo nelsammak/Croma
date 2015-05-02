@@ -1,80 +1,3 @@
-/*'use strict';
-
-///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
-angular.module('angularPassportApp')
-  .controller('BookCtrl', function ($scope, $http, ShareService) {
-    $http.get('api/books/'+ShareService.getValue()).success(function(response) {
-      console.log("I received the book");
-      $scope.book=response.book;
-       $scope.book.tobeRead=false;
-});
-      //function to get the avg rating of a book
-      $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
-      console.log("avg rating is " + rating);
-      $scope.book.avgRating=rating;
-      });
-
-      //get the rating of the current user of that book
-      $http.post('api/books/'+ShareService.getValue()+'/getrate', {userId: $scope.currentUser._id})
-        .success(function(num) {
-          $scope.rating = {}
-          $scope.rating=num;
-          console.log("user rating is " + num);
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-
-      //get a boolean value to determin whether the book is on the current user tobe read list or not
-      $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
-        .success(function(bool) {
-          $scope.book.tobeRead=bool;
-          console.log("user added book " + bool);
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-    });
-
-    
-
-    //rate function's job is to send to the backend an object consisting of a user and his rating
-    $scope.rate = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
-      console.log('rating: ' +  $scope.rating);
-      $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: $scope.rating})
-        .success(function(response) {
-          //function to get the avg rating of a book
-          $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
-           console.log("avg rating is" + rating);
-            $scope.book.avgRating=rating;
-          });
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-    };
-
-   //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
-    $scope.addTobeRead = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
-      $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
-        .success(function(response) {
-          $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
-          .success(function(bool) {
-          $scope.book.tobeRead=true;
-          console.log("user added book" + bool);
-        })
-        })
-        .error(function(data) {
-          console.log('Error: ' + data);
-        });
-      };
-
-  });
-*/
 
 
 'use strict';
@@ -82,14 +5,21 @@ angular.module('angularPassportApp')
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
   .controller('BookCtrl', function ($scope, $http, ShareService) {
-    $scope.review = '';
-    $scope.reviews = [];
-   
+     /*$scope.tags = [
+            { text: 'jusst' },
+            { text: 'some' },
+            { text: 'cool' },
+            { text: 'tags' } 
+          ];*/
+
+          $scope.tags;
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
-      $scope.bookID = response.book._id
+      $scope.bookID = response.book._id;
       $scope.book.tobeRead=false;
+      console.log(response.book.labels);
+      $scope.tags = response.book.labels;
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
@@ -102,44 +32,49 @@ angular.module('angularPassportApp')
         .success(function(num) {
           $scope.rating = {}
           $scope.rating=num;
+
           console.log("user rating is " + num);
         })
         .error(function(data) {
           console.log('Error: ' + data);
         });
 
-      //get a boolean value to determin whether the book is on the current user tobe read list or not
+
+      /**
+      * @function getIsTobeRead
+      * @determines whether the book is on the current user tobe read list or not
+      * @param {boolean} bool - is Book on to-be read list
+      */
       $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
-        .success(function(bool) {
+        .success(function getIsTobeRead(bool) {
           $scope.book.tobeRead=bool;
           console.log("user added book " + bool);
         })
         .error(function(data) {
           console.log('Error: ' + data);
         });
-        //gets all reviews along with the user associated with that book
-      $http.get('api/books/' + ShareService.getValue() + '/review')
-      .success(function (response) {
-        $scope.reviews = response;
-        console.log('$scope.reviews', $scope.reviews);
-      }).error(function(data) {
-          console.log('Error: ' + data);
-        });
     });
 
     
 
-    //rate function's job is to send to the backend an object consisting of a user and his rating
-    $scope.rate = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
-      console.log('rating: ' +  $scope.rating);
-      $http.post('api/books/'+ShareService.getValue()+'/rate', {userId: $scope.currentUser._id, rating: $scope.rating})
+  /**
+   * @function rate  
+   * sends user rating to backend
+   * @param {int} userRating - user rating
+   */
+    $scope.rate = function(userRating) {
+      console.log('user: ' + $scope.currentUser._id);
+      console.log('book: ' + ShareService.getValue());
+      console.log('rating: ' + $scope.rating);
+      $http.post('api/books/' + ShareService.getValue() + '/rate', {
+          userId: $scope.currentUser._id,
+          rating: userRating
+        })
         .success(function(response) {
           //function to get the avg rating of a book
-          $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {
-           console.log("avg rating is" + rating);
-            $scope.book.avgRating=rating;
+          $http.get('api/books/' + ShareService.getValue() + '/avgRating').success(function(rating) {
+            console.log("avg rating is" + rating);
+            $scope.book.avgRating = rating;
           });
         })
         .error(function(data) {
@@ -147,25 +82,47 @@ angular.module('angularPassportApp')
         });
     };
 
-   //addTobeRead function's job is to send to the backend the request of a user to add a book to his to-be read list
+
+    /**
+      * @function aadTobeRead
+      * @adds a book to user's to be read list
+    */
     $scope.addTobeRead = function() {
-      console.log('user: ' +  $scope.currentUser._id);
-      console.log('book: ' +  ShareService.getValue());
-      $http.post('api/users/'+$scope.currentUser._id+'/addToBeRead', {bookId: ShareService.getValue()})
-        .success(function (response) {
+      $http.post('api/books/'+ShareService.getValue()+'/ToBeRead')
+        .success(function(response) {
           $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
           .success(function(bool) {
-          $scope.book.tobeRead=true;
-          console.log("user added book" + bool);
+
+          $scope.book.tobeRead=bool;
         })
+
+        })
+        .error(function(data) {
+          console.log('Error: ' + data);
+        });
+
+      };
+    /**
+      * @function removeTobeRead
+      * @deletes a book from user's to be read list
+    */
+    $scope.removeTobeRead = function() {
+      $http.delete('api/books/'+ShareService.getValue()+'/ToBeRead')
+        .success(function(response) {
+          $http.post('api/books/'+ShareService.getValue()+'/istoberead', {userId: $scope.currentUser._id})
+          .success(function(bool) {
+          $scope.book.tobeRead=bool;
+           console.log("user added book" + bool);
+            })
         })
         .error(function (data) {
           console.log('Error: ' + data);
         });
-      };
+    };
 
-      $scope.sendReading = function (bookid){
-      $http.post('/api/books/'+ $scope.bookID +'/currentlyReading').success(function(response){
+
+    $scope.sendReading = function(bookid) {
+      $http.post('/api/books/' + $scope.bookID + '/currentlyReading').success(function(response) {
         console.log(response);
       });
     };
@@ -220,5 +177,54 @@ angular.module('angularPassportApp')
        
       });
     };
+
+     /**
+  * @function editTags Called on tag-added or tag-removed
+  * Changes labels after a label is added or removed
+  */
+      $scope.editTags = function() {
+       var ss = $scope.tags;
+       console.log(ss);
+        $http.post('/api/books/' + $scope.bookID + '/labels', {labels: ss}).success(function(response){
+        console.log(response);
+      }).error(function(data) {
+          console.log('Errorlabel: ' + data);
+        });
+          };
+
+
+
+    /**
+     * @function removeBook
+     * Sends delete request
+     */
+    $scope.removeBook = function removeBook() {
+
+      swal({
+        title: "Are you sure?",
+        text: "You will not be able to recover the book!",
+        type: "error",
+        showCancelButton: true,
+        confirmButtonColor: "#DD6B55",
+        confirmButtonText: "Yes, delete it!",
+        closeOnConfirm: true
+      }, function() {
+        $http.delete('/api/books/' + $scope.book._id).success(function bookRemoved(response) {
+          $location.path('/books');
+        })
+      });
+    }
+
+    /**
+     * @function broadCastEpub
+     * Saves the book in epubService
+     */
+    $scope.broadCastEpub = function broadCastEpub() {
+            console.log('SCOPE BOOK', $scope.book);
+            EpubService.setValue($scope.book);
+            $location.path('/bookreader');
+        }
+
+
 
   });
