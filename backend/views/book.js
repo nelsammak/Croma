@@ -4,6 +4,7 @@ var Books = require('../models/book.js');
 var User = require('../models/user.js');
 var Genres = require('../models/genres.js');
 var cookieParser = require('cookie-parser');
+var bReviews = require('../models/book_review.js');
 
 // var path = require('path');
 /**

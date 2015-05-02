@@ -5,14 +5,9 @@
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
 angular.module('angularPassportApp')
   .controller('BookCtrl', function ($scope, $http, ShareService) {
-     /*$scope.tags = [
-            { text: 'jusst' },
-            { text: 'some' },
-            { text: 'cool' },
-            { text: 'tags' } 
-          ];*/
-
-          $scope.tags;
+    $scope.review = '';
+    $scope.reviews = [];    
+    $scope.tags;
     $http.get('api/books/'+ShareService.getValue()).success(function(response) {
       console.log("I received the book");
       $scope.book=response.book;
@@ -51,6 +46,14 @@ angular.module('angularPassportApp')
           console.log("user added book " + bool);
         })
         .error(function(data) {
+          console.log('Error: ' + data);
+        });
+
+        $http.get('api/books/' + ShareService.getValue() + '/review')
+      .success(function (response) {
+        $scope.reviews = response;
+        console.log('$scope.reviews', $scope.reviews);
+      }).error(function(data) {
           console.log('Error: ' + data);
         });
     });

@@ -5,11 +5,11 @@ Schema = mongoose.Schema,
 ObjectId = mongoose.Schema.Types.ObjectId;
 
 var book_reviewSchema = new Schema({
-	userId: { type: ObjectId, ref: 'user' },
+	userId: { type: ObjectId, ref: 'User' },
 	bookId: { type: ObjectId, ref: 'book'},
 	review: { type: String, required: true },
-	upVotes: [{ type: ObjectId, ref: 'user' ,  default: []}],
-	downVotes: [{ type: ObjectId, ref: 'user', default: []}]
+	upVotes: [{ type: ObjectId, ref: 'User' ,  default: []}],
+	downVotes: [{ type: ObjectId, ref: 'User', default: []}]
 });
 
 book_reviewSchema.index({userId:1, bookId:1});
