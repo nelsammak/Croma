@@ -1,0 +1,63 @@
+<div class="container">
+  <div ng-app>
+ 
+    <div ng-controller="EditCtrl">  
+        <h1>Edit</h1>
+          <br/>
+  <!-- Edit form starts here -->
+        <div style="margin-left: 150px;margin-right: 150px">
+                <!-- input firstname -->
+            <div class="form-group">
+                <input class="form-control"
+                    placeholder="{{currentUser.firstName}}"
+                    type="text"
+                    name="firstName"
+                    ng-model="user.firstName"/>
+            </div>
+                <!-- input lastname -->
+            <div class="form-group">
+                <input class="form-control"
+                    placeholder="{{currentUser.lastName}}"
+                    type="text"
+                    name="lastName"
+                    ng-model="user.lastName"/>
+            </div>
+                <!-- input age -->  
+            <div class="form-group">
+                  <input class="form-control"
+                  placeholder="{{currentUser.age}}"
+                  type="number"                    name="age"
+                  ng-model="user.age"
+                  min = 10
+                  max = 109/>
+            </div>
+                <!-- input address -->
+            <div class="form-group">
+                  <input class="form-control"
+                  placeholder="{{currentUser.address}}"
+                  type="text"
+                  name="address"
+                  ng-model="user.address"
+                  mongoose-error/>
+            </div>
+               
+              <button class="btn btn-lg btn-primary btn-block" ng-Click="edit()"
+                        type="submit">Submit</button>
+         
+             </div>
+
+
+
+        </div>
+      <!-- Edit form starts here -->
+    </div>
+</div>
+<script>
+  var btns = ['btn-one', 'btn-two'];
+  var input = document.getElementById('btn-input');
+  for(var i = 0; i < btns.length; i++) {
+    document.getElementById(btns[i]).addEventListener('click', function() {
+      input.value = this.value;
+    });
+  }
+</script> 
