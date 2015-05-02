@@ -60,7 +60,7 @@
             </div>
             <!-- these items when not logged in -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul ng-show="!currentUser" class="nav navbar-nav navbar-right">
+                <ul ng-if="!currentUser" class="nav navbar-nav navbar-right">
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
@@ -75,7 +75,7 @@
                     </li>
                 </ul>
                 <!-- these items when logged in -->
-                <div class="container" ng-show="currentUser" style="display:fluid;">
+                <div class="container" ng-if="currentUser" style="display:fluid;">
                     <ul class="nav navbar-nav navbar-right">
                         <li>
                             <div class="nav navbar-form">
