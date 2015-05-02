@@ -2,6 +2,11 @@
 
 <div ng-app>
   <div ng-controller="ProfileController">
+  <div style=" text-align:right">
+        <a href="/#/editpage"><i class="fa fa-pencil-square-o" style="color:CadetBlue;font-sizesize:3.0em">Edit</i></a>
+  
+      </div>
+
     <div ng-hide="editorEnabled">
      <h1> {{editedInfo.profile.username}}</h1>
       <a href="/#/profile"  ng-click="enableEditor()">Edit User Name</a>

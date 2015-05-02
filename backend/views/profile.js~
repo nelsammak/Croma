@@ -15,6 +15,7 @@ module.exports = function(router) {
   router.route('/users/:id/readBooks').get(alreadyReadBooks);
   router.route('/users/:id/toBeReadBooks').get(toBeReadBooks);
   router.route('/users/:id').get(profile).post(editProfile);
+  router.route('/users/:username').get(userprofile);
   router.route('/check_username/:username').get(checkUserName);
 };
  
