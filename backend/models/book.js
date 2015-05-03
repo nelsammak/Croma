@@ -15,6 +15,8 @@ var bookSchema = new Schema({
 	labels: [{ type: String }],
 	genres: [{type: String, index: true }],
 	ratings: { type: [Schema.Types.Mixed], default: []},
+	ratingsSum: { type: Number, default: 0},
+	avgRating: { type: Number, default: 0},
 	arrivalTime: { type: Date, default: Date.now}
 });
 
