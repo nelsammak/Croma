@@ -79,6 +79,7 @@ require('./views/search.js')(router);
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
 require('./views/bookclub.js')(router);
+require('./views/posts.js')(router);
 require('./views/user.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
