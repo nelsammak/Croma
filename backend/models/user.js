@@ -38,7 +38,7 @@ var UserSchema = new Schema({
         email     : String,
         name      : String
    },
-      ratings: { type: [Schema.Types.Mixed], default: []},
+    bookClubs: {type: Array, default: []},
     toBeRead: [{type:ObjectId, ref: 'book'}]
 
 

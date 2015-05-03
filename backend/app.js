@@ -16,7 +16,6 @@ var multer = require('multer');
 
 var MongoStore = require('connect-mongo')(expressSession);
 
-
 //importing the book model
 var Books = require('./models/book.js');
 
@@ -79,6 +78,7 @@ app.use(modRewrite([
 require('./views/search.js')(router);
 require('./views/epub.js')(router);
 require('./views/book.js')(router);
+require('./views/bookclub.js')(router);
 require('./views/user.js')(router);
 require('./views/session.js')(router);
 require('./views/profile.js')(router);
