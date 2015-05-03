@@ -112,7 +112,7 @@ exports.deletePhoto = function(profilePhoto) {
     var editProfile = function (req, res, next) {
     //console.log('response is',req.body);
     console.log('info ',req.body);
-    var id = req.params.id;
+    var id = req.params._id;
      // var id = user.id;
         Profile.findById(id, function(err, Profile) {
         if (err) throw err;
