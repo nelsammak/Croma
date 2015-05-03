@@ -143,6 +143,9 @@ module.exports = function(router) {
           res.status(404).json(err);
           return next(err);
         }
+        if(!user) {
+          return res.status(404).json("User Not Found");
+        }
         var title = req.body.title;
         var alreadyContainsThisInvite = false;
         for (var i = 0; i < user.invites.length; i++) {

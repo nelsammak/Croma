@@ -56,8 +56,6 @@ angular.module('angularPassportApp')
     };
   }
 ]);
-    }
-  ]);
 
 
 

@@ -58,7 +58,6 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/addcomment.html'
       })
       .when('/newarrivals', {
-      .when('/newarrivals', {
         templateUrl: '/partials/books.html',
         controller: 'NewArrivalsCtrl'
       })
@@ -93,10 +92,9 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/createbookclub.html'
         //controller: 'ExampleController'
       })
-      .when('/thebook', {
       .when('/dashboard', {
 
-        templateUrl: '/partials/dashboard.html',
+        templateUrl: '/partials/dashboard.html'
        // controller: 'ReaderController'
 
       })
