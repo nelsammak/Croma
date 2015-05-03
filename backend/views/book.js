@@ -219,6 +219,26 @@ module.exports = function(router) {
             res.json(books);
         });
     });
+
+  /**
+   * @function getBooksByRating Called on Get "/api/booksbyrating"
+   * Returns the all the books ordered by the rating
+   * @params {Object} req - Http request
+   * @params {Object} res - Http response
+   * @params {Object} next - Next middleware
+   * @return {JSON} { 'books' }
+   */
+  router.route('/booksbyrating').get(function getBooksByRating(req, res, next) {
+    var id = req.params.id;
+    Books.find({}).sort('-avgRating').exec(function (err, books) {
+      if (err) {
+        res.status(404).json(err);
+        return next(err);
+      }
+      res.status(200).json(books);
+    });
+  });
+
     /**
     * @function getBestSellers Called on GET "/api/bestsellers" 
     * Returns all books that have label best seller

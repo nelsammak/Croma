@@ -2,6 +2,7 @@
 
 //Books Controller's job is to send all books collection in JSON format
 angular.module('angularPassportApp')
+<<<<<<< HEAD
   .controller('BooksCtrl', ['$scope', '$http',
     function sendBookCollection($scope, $http) {
 
@@ -35,6 +36,45 @@ angular.module('angularPassportApp')
             $scope.books = response.books;
           })
         })
+      }
+
+      $scope.orderByRatingF = function() {
+      $scope.orderByRating = !$scope.orderByRating;
+      if(!$scope.orderByRating) {
+        $scope.page="All books";
+        $http.get('api/books').success(function(response) {
+          console.log("I received the DATA");
+          $scope.books=response;
+        });
+      }
+      else {
+        $scope.page="All books ordered by rating";
+        $http.get('api/booksbyrating').success(function(response) {
+          console.log("I received the DATA");
+          $scope.books=response;
+        });
+      }
+    };
+  }
+]);
+    }
+  ]);
+
+
+
+angular.module('angularPassportApp')
+  .controller('BooksByRatingCtrl', ['$scope', '$http',
+    function sendBookCollection ($scope, $http) {
+
+      $scope.page="All books ordered by rating";
+      $http.get('api/booksbyrating').success(function(response) {
+        console.log("I received the DATA");
+        $scope.books=response;
+      });
+      $scope.sendReading = function(bookid){
+        $http.post('/api/books/'+ bookid +'/currentlyReading').success(function(response){
+          console.log(response);
+        });
       }
     }
   ]);
