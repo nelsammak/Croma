@@ -629,5 +629,4 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
             }
         }
    });
-  }
 }
