@@ -1,14 +1,9 @@
 
-<link href="http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css"
-rel="stylesheet"/>
 <div class="container">
-  <div ng-app>
-    <div ng-controller="ProfileController">
+
       <div style="width:100%; text-align:center">
       
- <img ng-src="/img/{{userInfo.profile.profilePhoto}}" width="150" height="150" >
- 
-
+ <img ng-src="{{userInfo.profile.profilePhoto}}" width="150" height="150" >
         <h1 >{{userInfo.profile.username}}</h1>
         <div style=" text-align:right">
         <a href="/#/editpage"><i class="fa fa-pencil-square-o" style="color:CadetBlue;font-sizesize:3.0em">Edit</i></a>
@@ -32,8 +27,7 @@ rel="stylesheet"/>
       </div>
   
 
-    </div>
-  </div>
+
 </div>
 
 
