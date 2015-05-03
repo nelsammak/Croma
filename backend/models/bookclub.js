@@ -4,7 +4,7 @@ var Schema = mongoose.Schema;
 var BookClubsSchema = new Schema({
   creator: { type: Schema.Types.ObjectId, required: true},
   name: {type: String},
-  posts: {type: [Schema.Types.ObjectId], default: []},
+  posts: {type: [Schema.Types.Mixed], default: []},
   users: {type: [Schema.Types.ObjectId], default: []}
 });
 

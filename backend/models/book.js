@@ -95,5 +95,5 @@ bookSchema.pre('remove', function removeCoverAndEpub (next) {
 bookSchema.set('toJSON', { virtuals: true });
 
 //exporting the Book model to use it in app.js
-module.exports = mongoose.model('book', bookSchema)
+module.exports = mongoose.model('book', bookSchema);
 

@@ -5,9 +5,8 @@
   <title></title>
 </head>
 <body>
-<h2>Create Book Club</h2>
-<form name="myForm" ng-model="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl2">
-  Name: &nbsp;
+<form name="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl5">
+  Title: &nbsp;
   &nbsp;
   <input type="text" name="input" ng-model="title" ng-minlength = "5" ng-maxlength = "50">
   <input type="submit" id="submit" value="Submit"/>
@@ -16,9 +15,13 @@
   </div>
   <div role="alert">
       <span class="error" ng-show="myForm.input.$error.minlength">
-        The name should be at least 5 characters long</span>
+        The title should be at least 5 characters long</span>
       <span class="error" ng-show="myForm.input.$error.maxlength">
-        The name should not exceed 50 characters</span>
+        The title should not exceed 50 characters</span>
+  </div>
+  <br>
+  <div style="width: 800px">
+    <textarea class="form-control" rows="8" ng-model="text"></textarea>
   </div>
 </form>
 </body>
