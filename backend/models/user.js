@@ -39,9 +39,8 @@ var UserSchema = new Schema({
         name      : String
    },
     bookClubs: {type: Array, default: []},
-    toBeRead: [{type:ObjectId, ref: 'book'}]
-
-
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+    invites: {type: Array, default: []}
 });
 
 UserSchema.pre('save', function(next) {

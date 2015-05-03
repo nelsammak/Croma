@@ -52,9 +52,20 @@
   <div class="col-lg-12">
     <h1 class="page-header">{{name}}</h1>
   </div>
+  <form  ng-show ="adminOfBookClub" name="myForm" ng-model="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl6">
+    Invite User: &nbsp;
+    <input type="text" name="input" ng-model="user">
+    <input type="submit" id="submit" value="Invite"/>
+    <br>
+  </form>
+  <div ng-show ="success">
+    <font face="verdana" color="green">Invited {{invitedUsername}}</font>
+  </div>
+  <button type="button" class="btn btn-success" ng-click="addPost(id)">Add Post</button>
+  <br>
   <br>
   <h2> Posts </h2>
-  <button type="button" class="btn btn-success" ng-click="addPost(id)">Add Post</button>
+  <br>
   <div id="related_links" style="margin-top:20px">
   <ul>
     <div ng-repeat="post in posts">

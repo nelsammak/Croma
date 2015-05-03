@@ -175,24 +175,19 @@
                                         <a href="/#/profile">
                       Profile
                     </a>
-<<<<<<< HEAD
                                     </li>
-                                    <li class="divider"></li>
-                                    <li class="link">
-                                        <a ng-click="logout()">
-=======
-                                <li class="divider"></li>
+                                                                    <li class="divider"></li>
                                 <li class="link">
                                     <a href="/#/createbookclub">
                                         Create Book Club
                                     </a>
                                 </li>
-                                <li class="divider"></li>
-                                <li class="link">
-                                    <a ng-click="logout()">
->>>>>>> Create_a_book_club
+                                    <li class="divider"></li>
+                                    <li class="link">
+                                        <a ng-click="logout()">
                       Logout
                     </a>
+<<<<<<< HEAD
                   </li>
                 </ul>
               </div>
@@ -208,7 +203,11 @@
                   <li> 
                   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
                    </li>
-                 
+                                                 <li class="divider"></li>
+                                                 <li>Invites</li>
+                                <li ng-repeat-start="invite in currentUser.invites">  </li>
+                                    <li> <a href="#">{{invite.title}}</a> </li>
+                                <li ng-repeat-end></li>
                 </ul>
               </div>
             </div>

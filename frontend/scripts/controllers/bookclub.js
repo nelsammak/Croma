@@ -41,11 +41,10 @@ angular.module('angularPassportApp')
 angular.module('angularPassportApp')
   .controller('BookClubsCtrl4', function($scope, $http, $location, $modal, ShareService) {
       $http.get('api/bookclubs/' + ShareService.getValue()).success(function(response) {
-        console.log(ShareService.getValue());
-        console.log(response.name);
         $scope.posts = response.posts;
         $scope.name = response.name;
         $scope.id = response._id;
+        $scope.adminOfBookClub = $scope.currentUser._id == response.creator.toString();
       });
 
     $scope.addPost = function(id) {
@@ -71,5 +70,24 @@ angular.module('angularPassportApp')
           console.log("Added the Post");
         })
       };
+    }
+  });
+
+angular.module('angularPassportApp')
+  .controller('BookClubsCtrl6', function($scope, $http, $location, $modal, ShareService) {
+    var id = ShareService.getValue();
+    $scope.success = false;
+    $scope.invitedUsername = "";
+    $scope.submit = function() {
+        console.log($scope.user);
+        $http.post('api/invitetobookclub/' + id, {
+          title: $scope.name,
+          user: $scope.user
+        })
+          .success(function (response) {
+            $scope.invitedUsername = $scope.myForm.input.User;
+            $scope.success = true;
+            console.log("Invited the User");
+          })
     }
   });
