@@ -2,7 +2,6 @@
 
 //Books Controller's job is to send all books collection in JSON format
 angular.module('angularPassportApp')
-<<<<<<< HEAD
   .controller('BooksCtrl', ['$scope', '$http',
     function sendBookCollection($scope, $http) {
 
