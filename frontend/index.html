@@ -191,7 +191,7 @@
                   </li>
                   <li class="divider"></li>
                   <li> 
-                  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
+                  <alert ng-bind = "alerts" ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
                    </li>
                  
                 </ul>
