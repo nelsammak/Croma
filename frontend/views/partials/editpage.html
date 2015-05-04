@@ -1,7 +1,3 @@
-<div class="container">
-  <div ng-app>
- 
-    <div ng-controller="EditCtrl">  
         <h1>Edit</h1>
           <br/>
   <!-- Edit form starts here -->
@@ -9,7 +5,7 @@
                 <!-- input firstname -->
             <div class="form-group">
                 <input class="form-control"
-                    placeholder="{{currentUser.firstName}}"
+                    placeholder="First Name"
                     type="text"
                     name="firstName"
                     ng-model="user.firstName"/>
@@ -17,7 +13,7 @@
                 <!-- input lastname -->
             <div class="form-group">
                 <input class="form-control"
-                    placeholder="{{currentUser.lastName}}"
+                    placeholder="Last Name"
                     type="text"
                     name="lastName"
                     ng-model="user.lastName"/>
@@ -25,7 +21,7 @@
                 <!-- input age -->  
             <div class="form-group">
                   <input class="form-control"
-                  placeholder="{{currentUser.age}}"
+                  placeholder="Age"
                   type="number"                    name="age"
                   ng-model="user.age"
                   min = 10
@@ -34,7 +30,7 @@
                 <!-- input address -->
             <div class="form-group">
                   <input class="form-control"
-                  placeholder="{{currentUser.address}}"
+                  placeholder="Address"
                   type="text"
                   name="address"
                   ng-model="user.address"
@@ -46,18 +42,4 @@
          
              </div>
 
-
-
-        </div>
       <!-- Edit form starts here -->
-    </div>
-</div>
-<script>
-  var btns = ['btn-one', 'btn-two'];
-  var input = document.getElementById('btn-input');
-  for(var i = 0; i < btns.length; i++) {
-    document.getElementById(btns[i]).addEventListener('click', function() {
-      input.value = this.value;
-    });
-  }
-</script> 

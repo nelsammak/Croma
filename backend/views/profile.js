@@ -109,29 +109,49 @@ exports.deletePhoto = function(profilePhoto) {
 * @param {Object} res - Http response
 * @param {Object} next - Next middleware
 */
-    var editProfile = function (req, res, next) {
-    //console.log('response is',req.body);
-    console.log('info ',req.body);
-    var id = req.params.id;
-     // var id = user.id;
-        Profile.findById(id, function(err, Profile) {
-        if (err) throw err;
+    var editProfile = function(req, res, next) {
+      //console.log('response is',req.body);
+      console.log('info ', req.body);
+      var id = req.params.id;
+      console.log('ID:', id);
+      Profile.findById(id, function(err, user) {
+          if (err) {
+              return next(err);
+          }
+          console.log('User:', user);
 
           // change the users info
-          Profile.firstName = req.body.firstName;
-          Profile.lastName = req.body.lastName;
-          Profile.age = req.body.age;
-          Profile.address = req.body.address;
+          if (req.body.firstName) {
+              user.firstName = req.body.firstName;
+              user.markModified('firstName');
+          }
+          if (req.body.lastName) {
+              user.lastName = req.body.lastName;
+              user.markModified('lastName');
+
+          }
+          if (req.body.age) {
+              user.age = req.body.age;
+              user.markModified('age');
+
+          }
+          if (req.body.address) {
+              user.address = req.body.address;
+              user.markModified('address');
+
+          }
 
           // save the user
-          Profile.save(function(err) {
-            if (err) throw err;
+          user.save(function(err) {
+              if (err) throw err;
 
-            console.log('User successfully updated!');
+              console.log('User successfully updated!');
           });
 
-          });
-        }; 
+          res.status(201).json(user);
+
+      });
+  };
 /**
 * @function checkUserName Called on GET "/api/check_username/:username" 
 * Checks if username exists or not 
