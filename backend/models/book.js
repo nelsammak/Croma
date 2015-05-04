@@ -14,8 +14,8 @@ var bookSchema = new Schema({
 	text: { type: String, required: true},
 	labels: [{ type: Schema.Types.Mixed }],
 	genres: [{type: String, index: true }],
-	ratings: { type: [Schema.Types.Mixed], default: []},
 	ratingsSum: { type: Number, default: 0},
+	ratingsNum: { type: Number, default: 0},
 	avgRating: { type: Number, default: 0},
 	arrivalTime: { type: Date, default: Date.now}
 });
@@ -94,8 +94,6 @@ bookSchema.pre('remove', function removeCoverAndEpub (next) {
 //include Mongoose virtual fields in toJSON by default
 bookSchema.set('toJSON', { virtuals: true });
 
-
-
 //exporting the Book model to use it in app.js
-module.exports = mongoose.model('book', bookSchema)
+module.exports = mongoose.model('book', bookSchema);
 

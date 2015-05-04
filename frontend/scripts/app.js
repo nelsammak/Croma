@@ -29,6 +29,10 @@ angular.module('angularPassportApp', [
         templateUrl: '/partials/signup.html',
         controller: 'SignupCtrl'
       })
+      .when('/posts/:id', {
+        templateUrl: 'partials/post.html',
+        controller: 'BookClubsCtrl8'
+      })
       .when('/books', {
         templateUrl: '/partials/books.html',
         controller: 'BooksCtrl'
@@ -38,6 +42,20 @@ angular.module('angularPassportApp', [
         templateUrl: 'partials/books.html',
         controller: 'BestSellersCtrl'
 
+      })
+      .when('/bookclubs', {
+        templateUrl: 'partials/bookclubs.html',
+        controller: 'BookClubsCtrl'
+      })
+      .when('/bookclubs/:id', {
+        templateUrl: 'partials/bookclub.html',
+        controller: 'BookClubsCtrl4'
+      })
+      .when('/addpost/:id', {
+        templateUrl: 'partials/addpost.html'
+      })
+      .when('/addcomment/:id', {
+        templateUrl: 'partials/addcomment.html'
       })
       .when('/newarrivals', {
         templateUrl: '/partials/books.html',
@@ -65,15 +83,18 @@ angular.module('angularPassportApp', [
         controller: 'ProfileController'
       })
       .when('/bookreader', {
-
         templateUrl: '/partials/index.html',
         controller: 'ReaderController',
         css: 'components/epubjs/css/main.css'
 
       })
+      .when('/createbookclub', {
+        templateUrl: 'partials/createbookclub.html'
+        //controller: 'ExampleController'
+      })
       .when('/dashboard', {
 
-        templateUrl: '/partials/dashboard.html',
+        templateUrl: '/partials/dashboard.html'
        // controller: 'ReaderController'
 
       })

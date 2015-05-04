@@ -133,6 +133,9 @@
           <a href="/#/books">Books <span class="menu-icon fa fa-book"></span></a>
         </li>
         <li class="sidebar-list">
+            <a href="/#/bookclubs">Book Clubs <span class="menu-icon fa fa-book"></span></a>
+        </li>
+        <li class="sidebar-list">
           <a href="/#/shelves">My Shelves <span class="menu-icon fa fa-bars"></span></a>
         </li>
       </ul>
@@ -176,6 +179,12 @@
                       Profile
                     </a>
                                     </li>
+                                                                    <li class="divider"></li>
+                                <li class="link">
+                                    <a href="/#/createbookclub">
+                                        Create Book Club
+                                    </a>
+                                </li>
                                     <li class="divider"></li>
                                     <li class="link">
                                         <a ng-click="logout()">
@@ -196,7 +205,11 @@
                   <li> 
                   <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.message}}</alert> 
                    </li>
-                 
+                                                 <li class="divider"></li>
+                                                 <li>Invites</li>
+                                <li ng-repeat-start="invite in currentUser.invites">  </li>
+                                    <li> <a href="#">{{invite.title}}</a> </li>
+                                <li ng-repeat-end></li>
                 </ul>
               </div>
             </div>
@@ -271,6 +284,7 @@
         <script src="scripts/controllers/navbar.js"></script>
         <script src="scripts/controllers/signup.js"></script>
         <script src="scripts/controllers/books.js"></script>
+        <script src="scripts/controllers/bookclub.js"></script>
         <script src="scripts/controllers/profile.js"></script>
         <script src="scripts/controllers/editctrl.js"></script>
         <script src="scripts/directives/uniqueUsername.js"></script>
@@ -300,9 +314,6 @@
 
   <script src="scripts/controllers/reader.js"></script>
     <script src="scripts/services/Epub.js"></script>
-
-
-    <!-- jQuery -->
 
     <!-- build:js({.tmp,app}) scripts/scripts.js -->
     <script src="scripts/services/searchService.js"></script>

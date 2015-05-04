@@ -38,10 +38,9 @@ var UserSchema = new Schema({
         email     : String,
         name      : String
    },
-      ratings: { type: [Schema.Types.Mixed], default: []},
-    toBeRead: [{type:ObjectId, ref: 'book'}]
-
-
+    bookClubs: {type: Array, default: []},
+    toBeRead: [{type:ObjectId, ref: 'book'}],
+    invites: {type: Array, default: []}
 });
 
 UserSchema.pre('save', function(next) {
@@ -98,4 +97,4 @@ UserSchema.methods.verifyPassword = function(candidate, callback) {
     });
 };
  
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model('user', UserSchema);

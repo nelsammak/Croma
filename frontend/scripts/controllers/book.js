@@ -16,6 +16,7 @@ angular.module('angularPassportApp')
       $scope.book.tobeRead=false;
       console.log(response.book.labels);
       $scope.tags = response.book.labels;
+      $scope.orderedByRating = false;
 
       //function to get the avg rating of a book
       $http.get('api/books/'+ShareService.getValue()+'/avgRating').success(function(rating) {

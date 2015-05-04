@@ -53,7 +53,7 @@
     "passport-facebook": "^2.0.0",
     "passport-google-oauth": "^0.2.0",
     "passport-local": "~1.0.0",
-    "should": "~5.2.0",
+    "should": "^5.2.0",
     "supertest": "~0.15.0"
   },
   "devDependencies": {

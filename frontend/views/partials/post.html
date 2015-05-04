@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="content-language" content="en-us" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="author" content="Author Name Goes Here" />
+<meta name="design" content="Sadhana Ganapathiraju" />
+<meta name="copyright" content="Copyright Goes Here" />
+<meta name="description" content="Description Goes Here" />
+<meta name="keywords" content="And, Finally, Keywords Go Here." />
+<link rel="start" title="Home" href="http://www.sixpence.com/" />
+<link rel="stylesheet" type="text/css" media="screen" href="screen.css" />
+<!--[if lt ie 7]><link rel="stylesheet" type="text/css" media="screen" href="ie-win.css" /><![endif]-->
+</head>
+<body>
+
+<button type="button" class="btn btn-success" ng-click="addComment(id)">Add Comment</button>
+
+
+<div id="header">
+<div id="wrapper">
+    <div id="content">
+      <h4>{{title}} &nbsp; by {{poster}}</h4>
+      <dl>
+        <dt>{{poster}}</dt>
+        <dd> {{post}} </dd>
+        <div ng-repeat="comment in comments">
+          <dt> {{comment.name}}    </dt>
+          <dd> {{comment.comment}} </dd>
+        </div>
+      </dl>
+  </div>
+</div>
+</body>
+</html>

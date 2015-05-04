@@ -25,6 +25,7 @@ module.exports = function(router) {
 				}
 			});
 		})
+
 	/**
 	*	@function PostUsers - Creates a user on Post "/api/users"	
 	*	@params {Object} req - Http request
@@ -56,7 +57,14 @@ module.exports = function(router) {
 		});
 
 	
-	
+		router.route('/getusername/:id').get(function getUsername(req, res, next) {
+			User.findById(req.params.id, function (err, user) {
+				if (err) {
+					next(err);
+				}
+				res.json(user.username);
+			});
+		})
 
 
 /**

@@ -3,9 +3,9 @@
 var Books = require('../models/book.js');
 var User = require('../models/user.js');
 var Genres = require('../models/genres.js');
-var cookieParser = require('cookie-parser');
 var bReviews = require('../models/book_review.js');
-
+var BookUserRatings = require('../models/bookuserrating.js');
+var Mongoose = require('mongoose');
 // var path = require('path');
 /**
  * A module to export /books routes
@@ -219,6 +219,26 @@ module.exports = function(router) {
             res.json(books);
         });
     });
+
+  /**
+   * @function getBooksByRating Called on Get "/api/booksbyrating"
+   * Returns the all the books ordered by the rating
+   * @params {Object} req - Http request
+   * @params {Object} res - Http response
+   * @params {Object} next - Next middleware
+   * @return {JSON} { 'books' }
+   */
+  router.route('/booksbyrating').get(function getBooksByRating(req, res, next) {
+    var id = req.params.id;
+    Books.find({}).sort('-avgRating').exec(function (err, books) {
+      if (err) {
+        res.status(404).json(err);
+        return next(err);
+      }
+      res.status(200).json(books);
+    });
+  });
+
     /**
     * @function getBestSellers Called on GET "/api/bestsellers" 
     * Returns all books that have label best seller
@@ -346,13 +366,7 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
                 res.status(404).json(err);
                 return next(err);
             }
-
-            if (book.ratings.length > 0) {
-                res.json(book.avgRating);
-            }
-            else {
-                res.json(0);
-            }
+            res.json(book.avgRating);
         })
     });
 
@@ -365,20 +379,19 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
      * @return {JSON} { 'rating' }
      */
     router.route('/books/:id/getrate').post(function getMyRating(req, res, next) {
-        var id = req.params.id;
-        var userId = req.body.userId;
-        Books.findOne({'_id': id}, function findBookText(err, book) {
+        var id = Mongoose.Types.ObjectId(req.params.id);
+        var userId = Mongoose.Types.ObjectId(req.body.userId);
+        BookUserRatings.findOne({userId: userId, bookId: id}, function findBookText(err, bookUserRating) {
             if (err) {
                 res.status(404).json(err);
                 return next(err);
             }
-            for(var i = 0; i < book.ratings.length; i++) {
-                if(book.ratings[i].id==userId) {
-                    return res.json(book.ratings[i].rating);
-                }
+            if(bookUserRating) {
+                res.status(200).json(bookUserRating.rating);
             }
-
-            return res.json(0);
+            else {
+                res.status(200).json(0);
+            }
         })
     });
 
@@ -421,74 +434,42 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
      * @return {JSON} { 'message' }
      */
     router.route('/books/:id/rate').post(function rateBook(req, res, next) {
-        var bookId = req.params.id;
-        Books.findOne({'_id': bookId}, function findBook(err, book) {
+        var id = Mongoose.Types.ObjectId(req.params.id);
+        var userId = Mongoose.Types.ObjectId(req.body.userId);
+        var rating = req.body.rating;
+        BookUserRatings.findOne({userId: userId, bookId: id}, function (err, bookUserRating) {
             if (err) {
                 res.status(404).json(err);
                 return next(err);
             }
-
-            var alreadyRatedByThisUser = false;
-            var userId = req.body.userId;
-            var rating = req.body.rating;
-
-            console.log('user: ' +  userId + ', type: ' + typeof userId);
-            console.log('book: ' +  book._id + ', type: ' + typeof book._id);
-            console.log('rating: ' +  rating + ', type: ' + typeof rating);
-            console.log('book ratings length: ' + book.ratings.length);
-
-            for (var i = 0; i < book.ratings.length; i++) {
-                if (book.ratings[i].id == userId) {
-                    alreadyRatedByThisUser = true;
-                    book.ratingsSum -= book.ratings[i]['rating'];
-                    book.ratings[i]['rating'] = rating; //Update the rating if already have rated
-                    break;
-                }
-            }
-
-            if (!alreadyRatedByThisUser) {
-                book.ratingsSum += rating;
-                book.ratings.push({id: userId, rating: rating});
-                book.markModified('ratings');
-                book.avgRating = book.ratingsSum / book.ratings.length;
-                book.save();
+            if(bookUserRating) {
+                Books.findById(id, function (err, book) {
+                    book.ratingsSum -= bookUserRating.rating;
+                    book.ratingsSum += rating;
+                    book.avgRating = book.ratingsSum / book.ratingsNum;
+                    book.save();
+                    bookUserRating.rating = rating;
+                    bookUserRating.save();
+                });
             }
             else {
-                book.ratingsSum += rating;
-                book.markModified('ratings');
-                book.avgRating = book.ratingsSum / book.ratings.length;
-                book.save();
+                Books.findById(id, function (err, book) {
+                    book.ratingsSum += rating;
+                    book.ratingsNum ++;
+                    book.avgRating = book.ratingsSum / book.ratingsNum;
+                    book.save();
+                    bookUserRating = new BookUserRatings({
+                        userId: userId,
+                        bookId: id,
+                        rating: rating
+                    });
+                    bookUserRating.save();
+                });
             }
-
-            User.findOne({'_id': userId}, function findBookText(err, user) {
-                if (err) {
-                    res.status(404).json(err);
-                    return next(err);
-                }
-                alreadyRatedByThisUser = false;
-                for (var i = 0; i < user.ratings.length; i++) {
-                    if (user.ratings[i].id == bookId) {
-                        alreadyRatedByThisUser = true;
-                        user.ratings[i]['rating'] = rating; //Update the rating if already have rated
-                        break;
-                    }
-                }
-
-                if (!alreadyRatedByThisUser) {
-                    user.ratings.push({id: bookId, rating: rating});
-                    user.markModified('ratings');
-                    user.save();
-                    res.json("Rated the book successfully");
-                }
-                else {
-                    user.markModified('ratings');
-                    user.save();
-                    res.json("Updated the book rating successfully");
-                }
-            });
-
-        });
+            res.status(200).json("Rated the Book Successfully");
+        })
     });
+
     /**
     * @function getGenres Called on GET "/api/genre" 
     * Returns All genres
@@ -507,7 +488,6 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
     });
     //Route to get the books of the specified genre
     router.route('/genre/:genre').get(function getBookText(req, res, next) {
-        console.log("yeskarim123");
         var genre = req.params.genre;
         Books.find({ genres: genre }, function findBooksByGenre (err, books) {
             if (err) {
@@ -669,6 +649,4 @@ var searchTerm = new RegExp(req.query.searchTerm, "i");
             }
         }
    });
-
-
 }

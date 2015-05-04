@@ -1,0 +1,78 @@
+<head>
+  <style>
+    #related_links {
+      width: 12em;
+      border-right: 1px solid #000;
+      padding: 0 0 1em 0;
+      margin-bottom: 1em;
+      font-family: 'Trebuchet MS', 'Lucida Grande',
+      Verdana, Lucida, Geneva, Helvetica,
+      Arial, sans-serif;
+      background-color: #90bade;
+      color: #333;
+    }
+
+    #related_links ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    #related_links li {
+      border-bottom: 1px solid #90bade;
+      margin: 0;
+    }
+
+    #related_links li {
+      display: block;
+      padding: 5px 5px 5px 0.5em;
+      border-left: 10px solid #1958b7;
+      border-right: 10px solid #508fc4;
+      background-color: #2175bc;
+      color: #fff;
+      text-decoration: none;
+      width: 100%;
+    }
+
+    html>body #related_links li {
+      width: auto;
+    }
+
+    #related_links li:hover {
+      border-left: 10px solid #1c64d1;
+      border-right: 10px solid #5ba3e0;
+      background-color: #2586d7;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="col-lg-12">
+    <h1 class="page-header">{{name}}</h1>
+  </div>
+  <form  ng-show ="adminOfBookClub" name="myForm" ng-model="myForm" ng-submit="submit()" ng-controller="BookClubsCtrl6">
+    Invite User: &nbsp;
+    <input type="text" name="input" ng-model="user">
+    <input type="submit" id="submit" value="Invite"/>
+    <br>
+  </form>
+  <div ng-show ="success">
+    <font face="verdana" color="green">Invited {{invitedUsername}}</font>
+  </div>
+  <button type="button" class="btn btn-success" ng-click="addPost(id)">Add Post</button>
+  <br>
+  <br>
+  <h2> Posts </h2>
+  <br>
+  <div id="related_links" style="margin-top:20px">
+  <ul>
+    <div ng-repeat="post in posts">
+      <li ng-controller="BookClubsCtrl7" ng-click="viewPost(post.id)">
+        {{post.title}}
+      </li>
+    </div>
+  </ul>
+    </div>
+</body>
