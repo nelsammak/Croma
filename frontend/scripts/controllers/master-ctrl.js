@@ -3,9 +3,9 @@
  */
 
 angular.module('angularPassportApp')
-    .controller('MasterCtrl', ['$scope', '$cookieStore','$timeout','$http', MasterCtrl]);
+    .controller('MasterCtrl', ['$scope', '$cookieStore','$interval','$http', MasterCtrl]);
 
-function MasterCtrl($scope, $cookieStore,$timeout,$http) {
+function MasterCtrl($scope, $cookieStore,$interval,$http) {
     /**
      * Sidebar Toggle & Cookie Control
      */
@@ -51,7 +51,7 @@ function MasterCtrl($scope, $cookieStore,$timeout,$http) {
         $http.post('api/alert/'+$scope.currentUser._id, {alrts: $scope.alerts});
     };
 
-$timeout(function(){
+$interval(function(){
 
 if($scope.currentUser){
     $http.get('api/alert/'+$scope.currentUser._id).success(function(alerts) {
@@ -61,6 +61,7 @@ if($scope.currentUser){
 
      console.log("alerts ahe bara");
 }
-},500);
+
+},8000);
 
 }

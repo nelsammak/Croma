@@ -29,10 +29,10 @@
                           ng-model="type"
                           ng-click="type = 'danger'"
                           mongoose-error>Warning</button>
-                  <button id="btn-three" type="button" data-toggle="button"        name="option" value="announcment" 
-                          ng-class="{'btn btn-info': type == 'announcment', 'btn btn-primary': type != 'announcment'}"
+                  <button id="btn-three" type="button" data-toggle="button"        name="option" value="info" 
+                          ng-class="{'btn btn-info': type == 'info', 'btn btn-primary': type != 'info'}"
                           ng-model="type"
-                          ng-click="type = 'announcment'"
+                          ng-click="type = 'info'"
                           mongoose-error>Book Announcment</button>
 
                 </div>
@@ -42,7 +42,7 @@
 
                 <button 
                 class = "btn btn-lg btn-primary btn-block"
-                ng-class="{'btn  btn-lg btn-info btn-block': type == 'announcment','btn  btn-lg btn-danger btn-block': type == 'danger','btn  btn-lg btn-success btn-block': type == 'success'}"
+                ng-class="{'btn  btn-lg btn-info btn-block': type == 'info','btn  btn-lg btn-danger btn-block': type == 'danger','btn  btn-lg btn-success btn-block': type == 'success'}"
                         type="submit"
                         ng-disabled="form.$invalid">Send</button>
                         <!-- end button submit -->
