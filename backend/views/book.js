@@ -228,7 +228,7 @@ module.exports = function(router) {
     * @return {JSON} { [{BOOKS}] } - best sellers
     */
     router.route('/bestsellers').get(function getBestSellers (req, res, next) {
-        Books.find({'labels.text' : 'Best_Seller'}, function findBooksByBestSellers (err, books) {
+        Books.find({'labels.text' : 'BestSeller'}, function findBooksByBestSellers (err, books) {
             if (err) {
                 next(err);
             }

@@ -5,8 +5,8 @@
     <div class="pull-right btn btn-group">
         <button type="button" class="btn btn-danger" ng-click="removeBook()" ng-show="currentUser.admin">
             <i class="fa fa-trash"> 
-			Remove Book
-		</i>
+            Remove Book
+        </i>
         </button>
         <button class="btn btn-default" type="button" ng-click="broadCastEpub()">Read the Book</button>
     </div>
@@ -50,73 +50,74 @@
         <!-- star rating section starts here-->
         <div id="star">
             <span class="star-rating">
-				  <input type="radio" name="rating" ng-click="rate(1)" ng-model="rating" value="1"><i></i>
-				  <input type="radio" name="rating" ng-click="rate(2)" ng-model="rating" value="2"><i></i>
-				  <input type="radio" name="rating" ng-click="rate(3)" ng-model="rating" value="3"><i></i>
-				  <input type="radio" name="rating" ng-click="rate(4)" ng-model="rating" value="4"><i></i>
-				  <input type="radio" name="rating" ng-click="rate(5)" ng-model="rating" value="5"><i></i>
-				</span>
+                  <input type="radio" name="rating" ng-click="rate(1)" ng-model="rating" value="1"><i></i>
+                  <input type="radio" name="rating" ng-click="rate(2)" ng-model="rating" value="2"><i></i>
+                  <input type="radio" name="rating" ng-click="rate(3)" ng-model="rating" value="3"><i></i>
+                  <input type="radio" name="rating" ng-click="rate(4)" ng-model="rating" value="4"><i></i>
+                  <input type="radio" name="rating" ng-click="rate(5)" ng-model="rating" value="5"><i></i>
+                </span>
         </div>
         <!--star rating section ends her-->
     </div>
     <br></br>
     <br></br>
 </div>
-			<div id="review" ng-controller="BookCtrl">
-				<div class="input-group">
-    			<h6> Write a Review </h6><br>
-        			<textarea ng-model="review"
-        					class="form-control custom-control" 
-        					required
-                          	mongoose-error
-        					rows="3" 
-        					style="width: 200%;
-        					resize:none
-        					-webkit-border-radius: 10px;
-        					border-radius: 10px;"></textarea>
-				</div>
-   				<br></br><br></br>
-        		<div>
-        			<span class="input-group-btn">
-        				<button class="btn btn-primary active" type="button"
-        				style="margin-top: 10px"
-        				ng-click= "writeReview()">
-        				Post</button>
-     				</span>
-          		</div>
-			<div id="reviewList">
+<div id="review" ng-controller="BookCtrl">
+    <div class="input-group">
+        <h6> Write a Review </h6>
+        <br>
+        <textarea ng-model="review" class="form-control custom-control" required mongoose-error rows="3" style="width: 200%;
+                            resize:none
+                            -webkit-border-radius: 10px;
+                            border-radius: 10px;"></textarea>
+    </div>
+    <br></br>
+    <br></br>
+    <div>
+        <span class="input-group-btn">
+                        <button class="btn btn-primary active" type="button"
+                        style="margin-top: 10px"
+                        ng-click= "writeReview()">
+                        Post</button>
+                    </span>
+    </div>
+    <div id="reviewList">
+        <!-- <table class="table">
+                    <tr ng-repeat="review in reviews" >
+                        <h6 id="uInfo" >{{review.userId.username}}</h6>
+                        <br>
 
-				<!-- <table class="table">
-					<tr ng-repeat="review in reviews" >
-						<h6 id="uInfo" >{{review.userId.username}}</h6>
-						<br>
+                        <h6 id="review">
 
-						<h6 id="review">
-
-						</h6>
-					</tr>
-				</table> -->
-
-				<ul ng-repeat="review in reviews">
-				<div id ="header">
-					<div style="float: left">
-					{{review.userId.username}}
-					</div>
-					<div id="voticons" style="float: right">
-						<i class="fa fa-plus-square-o fa-2x" ng-click="voteReview(review, 'up')"></i>
-						<i class="fa fa-minus-square-o fa-2x"  ng-click="voteReview(review, 'down')"></i>
-						<br>
-						<i class="fa fa-trash-o fa-lg" ng-click="deleteReview(review)" ></i>
-					</div>
-				</div>
-				<br><br>
-				<div>
-					{{review.review}} 
-				</div>
-				<br><hr><br>
-				</ul>
-			</div>
-		</div>
+                        </h6>
+                    </tr>
+                </table> -->
+        <ul ng-repeat="review in reviews">
+            <div id="header">
+                <div style="float: left">
+                    {{review.userId.username}}
+                </div>
+                <div id="voticons" style="float: right">
+                    <i class="fa fa-plus-square-o fa-2x" ng-click="voteReview(review, 'up')"></i>
+                    <b>
+                        {{review.upVotes.length - review.downVotes.length}}
+                        </b>
+                    <i class="fa fa-minus-square-o fa-2x" ng-click="voteReview(review, 'down')"></i>
+                    <br>
+                    <i class="fa fa-trash-o fa-lg" ng-click="deleteReview(review)"></i>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div>
+                {{review.review}}
+            </div>
+            <br>
+            <hr>
+            <br>
+        </ul>
+    </div>
+</div>
 <style>
 .star-rating {
     font-size: 0;
