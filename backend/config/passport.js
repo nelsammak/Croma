@@ -80,7 +80,7 @@ module.exports = function () {
         // make the code asynchronous
         // User.findOne won't fire until we have all our data back from Google
         process.nextTick(function() {
-
+            console.log('PROFILE', profile._json)
             // try to find the user based on their google id
             User.findOne({ 'google.id' : profile.id }, function(err, user) {
                 if (err)
@@ -103,8 +103,11 @@ module.exports = function () {
                     newUser.email = newUser.google.email;
                     newUser.password = "123456789";      //default value won't be use in anything
                     newUser.age ="";
-                    //newUser.gender = "";
+                    newUser.gender = profile.gender;
                     newUser.address = "";
+                    newUser.profilePhoto = profile._json.image.url;
+                    newUser.firstName = profile._json.name.givenName;
+                    newUser.lastName = profile._json.name.familyName;
 
                     // save the user
                     newUser.save(function(err) {
@@ -133,7 +136,8 @@ module.exports = function () {
         // pull in our app id and secret from our auth.js file
         clientID        : configAuth.facebookAuth.clientID,
         clientSecret    : configAuth.facebookAuth.clientSecret,
-        callbackURL     : configAuth.facebookAuth.callbackURL
+        callbackURL     : configAuth.facebookAuth.callbackURL,
+        profileFields   : ['id', 'displayName', 'name', 'gender',  'email', 'photos']
 
     },
 
@@ -142,7 +146,7 @@ module.exports = function () {
 
         // asynchronous
         process.nextTick(function() {
-
+            console.log('FACEBOOK', profile);
             // find the user in the database based on their facebook id
             User.findOne({ 'facebook.id' : profile.id }, function(err, user) {
 
@@ -164,11 +168,12 @@ module.exports = function () {
                     newUser.username       = newUser.facebook.name;
                     newUser.email          = newUser.facebook.email;
                     newUser.password       = "123456789"; //init password won't be used
-                    newUser.firstName      = "";
-                    newUser.lastName       = "";  
+                    newUser.firstName      = profile.name.givenName;
+                    newUser.lastName       = profile.name.familyName;  
                     newUser.age            = "";
-                   // newUser.gender         = "";
+                   newUser.gender         =  profile.gender;
                     newUser.address        = "";
+                    newUser.profilePhoto = profile.photos[0].value;
 
 
                     //console.log(profile.id);

@@ -52,10 +52,7 @@ UserSchema.pre('save', function(next) {
      || this.profilePhoto === '/img/male_avatar.png' 
      || this.profilePhoto === '/img/female_avatar.png' 
      || this.profilePhoto === '/image/avatar.png') {
-        if (_.isUndefined(this.gender)) {
-        this.profilePhoto = '/image/avatar.png';
-        }
-        if (this.gender === 'male') {
+        if (this.gender === 'male' || _.isUndefined(this.gender)) {
         this.profilePhoto = '/img/male_avatar.png';
         }
         if (this.gender === 'female') {
