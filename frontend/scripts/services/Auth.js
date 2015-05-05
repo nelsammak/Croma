@@ -26,6 +26,7 @@ angular.module('angularPassportApp')
         var cb = callback || angular.noop;
         Session.delete(function(res) {
             $rootScope.currentUser = null;
+            $location.path('/');
             return cb();
           },
           function(err) {
