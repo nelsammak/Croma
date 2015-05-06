@@ -1,0 +1,4 @@
+db.development.sqlite
+node_modules
+bower_components
+books

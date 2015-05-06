@@ -1,5 +1,5 @@
-var passport = require('passport');
-var session = require('../config/session');
+var passport = require('passport'),
+	 session = require('../config/session');
 
 /**
 * A module to export login and logout routes
@@ -44,6 +44,13 @@ module.exports = function(router) {
 							res.json(req.user);
 						});
 					})(req, res, next);
+				})
+				.get(function getLoggedInUser(req, res, next) {
+					if (!req.user) {
+						return next('User not logged in');
+					}
+					res.json(req.user);
+
 				})
 			 
 };

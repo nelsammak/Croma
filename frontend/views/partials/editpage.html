@@ -1,0 +1,45 @@
+        <h1>Edit</h1>
+          <br/>
+  <!-- Edit form starts here -->
+        <div style="margin-left: 150px;margin-right: 150px">
+                <!-- input firstname -->
+            <div class="form-group">
+                <input class="form-control"
+                    placeholder="First Name"
+                    type="text"
+                    name="firstName"
+                    ng-model="user.firstName"/>
+            </div>
+                <!-- input lastname -->
+            <div class="form-group">
+                <input class="form-control"
+                    placeholder="Last Name"
+                    type="text"
+                    name="lastName"
+                    ng-model="user.lastName"/>
+            </div>
+                <!-- input age -->  
+            <div class="form-group">
+                  <input class="form-control"
+                  placeholder="Age"
+                  type="number"                    name="age"
+                  ng-model="user.age"
+                  min = 10
+                  max = 109/>
+            </div>
+                <!-- input address -->
+            <div class="form-group">
+                  <input class="form-control"
+                  placeholder="Address"
+                  type="text"
+                  name="address"
+                  ng-model="user.address"
+                  mongoose-error/>
+            </div>
+               
+              <button class="btn btn-lg btn-primary btn-block" ng-Click="edit()"
+                        type="submit">Submit</button>
+         
+             </div>
+
+      <!-- Edit form starts here -->

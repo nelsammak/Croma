@@ -1,0 +1,63 @@
+ <form class="form" name="form" ng-submit="sendAlert(form)" novalidate>
+<!--  message field start -->
+                <div class="form-group">
+                    <input class="form-control"
+                           placeholder="Message"
+                           type="textarea"
+                           name="Message"
+                           ng-model="message"
+                           required
+                           autofocus
+                           on-focus/>
+                </div>
+                <!-- message field end -->
+
+                <!-- Type buttons start -->
+
+                 <div class="form-group">
+                <input type="hidden" name="option" value="" id="btn-input" />
+                <div class="btn-group" data-toggle="buttons-radio">  
+                  <button id="btn-one" 
+                          type="button" data-toggle="button" 
+                          name="option" value="success" 
+                          ng-class="{'btn btn-success': type == 'success', 'btn btn-primary': type != 'success'}" 
+                          ng-model="type"
+                          ng-click="type='success'"
+                          mongoose-error>Notification</button>
+                  <button id="btn-two" type="button" data-toggle="button"        name="option" value="danger" 
+                          ng-class="{'btn btn-danger': type == 'danger', 'btn btn-primary': type != 'danger'}"
+                          ng-model="type"
+                          ng-click="type = 'danger'"
+                          mongoose-error>Warning</button>
+                  <button id="btn-three" type="button" data-toggle="button"        name="option" value="info" 
+                          ng-class="{'btn btn-info': type == 'info', 'btn btn-primary': type != 'info'}"
+                          ng-model="type"
+                          ng-click="type = 'info'"
+                          mongoose-error>Book Announcment</button>
+
+                </div>
+                </div>
+                <!-- Type end -->
+    <!-- Submit button -->
+
+                <button 
+                class = "btn btn-lg btn-primary btn-block"
+                ng-class="{'btn  btn-lg btn-info btn-block': type == 'info','btn  btn-lg btn-danger btn-block': type == 'danger','btn  btn-lg btn-success btn-block': type == 'success'}"
+                        type="submit"
+                        ng-disabled="form.$invalid">Send</button>
+                        <!-- end button submit -->
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+  var btns = ['btn-one', 'btn-two','btn-three'];
+  var input = document.getElementById('btn-input');
+  for(var i = 0; i < btns.length; i++) {
+    document.getElementById(btns[i]).addEventListener('click', function() {
+      input.value = this.value;
+    });
+  }
+</script>
