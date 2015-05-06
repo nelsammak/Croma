@@ -10,7 +10,6 @@ angular.module('angularPassportApp')
       if($scope.user.admin != true){
         $scope.user.admin = false;
       };
-      console.log($scope.user.admin);
       Auth.createUser({
           email: $scope.user.email,
           username: $scope.user.username,
@@ -28,7 +27,10 @@ angular.module('angularPassportApp')
           $scope.errors = {};
 
           if (!err) {
-            $location.path('/');
+            Auth.login('password', $scope.user, function() {
+              $location.path('/');
+            });
+
           } else {
             angular.forEach(err.errors, function(error, field) {
               form[field].$setValidity('mongoose', false);
