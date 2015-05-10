@@ -17,8 +17,6 @@
 
 
 
-
-
   <link rel="stylesheet" type="text/css" href="components/rdash-ui/dist/css/rdash.min.css">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link rel="stylesheet" href="css/animate.css">
@@ -37,7 +35,7 @@
 
 </head>
 
-<body ng-app="angularPassportApp" ng-controller="NavbarCtrl">
+<body ng-app="croma" ng-controller="NavbarCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -49,14 +47,15 @@
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header page-scroll">
+            <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/#/">Croma</a>
+                <a  class="navbar-brand" href="/#/#" >Croma</a>
+              
             </div>
             <!-- these items when not logged in -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -64,14 +63,17 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="/#/#portfolio">Browse</a>
+                     <li >
+                        <a href="#" scroll-to="page-top">Access</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="/#/#about">About</a>
+                    <li >
+                        <a href="#" scroll-to="portfolio">Browse</a>
                     </li>
-                    <li class="page-scroll">
-                        <a href="/#/#contact">Contact</a>
+                    <li >
+                        <a href="#" scroll-to="about">About</a>
+                    </li>
+                    <li >
+                        <a href="#" scroll-to="contact">Contact</a>
                     </li>
                 </ul>
                 <!-- these items when logged in -->
@@ -85,16 +87,16 @@
                         <li class="hidden">
                             <a href="#page-top"></a>
                         </li>
-                        <li class="page-scroll">
+                        <li >
                             <a href="/#/genre">Browse genre</a>
                         </li>
-                        <li class="page-scroll">
+                        <li >
                             <a href="/#/newarrivals">New Arrivals</a>
                         </li>
-                        <li class="page-scroll">
+                        <li >
                             <a href="/#/shelves">Currently Reading</a>
                         </li>
-                        <li class="page-scroll">
+                        <li >
                             <a href="/#/bestsellers">Best Sellers</a>
                         </li>
 
@@ -238,10 +240,10 @@
     ga('create', 'UA-XXXXX-X');
     ga('send', 'pageview');
     </script>
-    <script src="js/jquery.js"></script>
+  
     <script src="bower_components/angular/angular.js"></script>
 
-     
+     <script src="bower_components/jquery/jquery.js"></script>
     
 
         <!-- build:js(app) scripts/modules.js -->
@@ -322,8 +324,16 @@
     
     <!-- <script>window.jQuery || document.write('<script src="libs/jquery/jquery-1.10.2.min.js"><\/script>')</script> -->
         
+    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+    <script src="bower_components/angular-slick/dist/slick.min.js"></script>
 
-    
+    <!--
+        <script src="bower_components/slick.js/slick/slick.min.js"></script>
+         <script src="bower_components/slick.js/slick/slick.min.js"></script> -->
+
+
+    <script src="bower_components/ngSmoothScroll/angular-smooth-scroll.js"></script>
+
     <script src="scripts/directives/btn.js"></script>
     <script src="scripts/directives/drag-events.js"></script>
     <script src="scripts/directives/drop.js"></script>

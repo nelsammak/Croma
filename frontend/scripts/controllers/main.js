@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('MainCtrl', function ($scope,$routeParams, $location,$window) {
    $scope.loginGo = function() {
 

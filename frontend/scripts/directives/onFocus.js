@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .constant('focusConfig', {
     focusClass: 'focused'
   })

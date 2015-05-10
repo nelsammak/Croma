@@ -1,5 +1,5 @@
 //a service to pass id  from books Ctrl to book Ctrl
-angular.module('angularPassportApp')
+angular.module('croma')
  .service('ShareService', function(){
     var id = 0;
   
@@ -21,7 +21,7 @@ angular.module('angularPassportApp')
 });
 
  //a service to pass genre  from Genre Ctrl to Genre display Ctrl
-angular.module('angularPassportApp')
+angular.module('croma')
  .service('ShareService2', function(){
     var genre = '';
 

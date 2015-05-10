@@ -4,7 +4,7 @@
  */
 
 angular
-    .module('angularPassportApp')
+    .module('croma')
     .directive('rdLoading', rdLoading);
 
 function rdLoading() {

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
 	.directive('epubtoc', function() {
 		return {
 			restrict: "E",
@@ -81,7 +81,7 @@ angular.module('angularPassportApp')
 		}
 	});
 
-angular.module('angularPassportApp')
+angular.module('croma')
 	.directive('postClick', function() {
 			return function(scope, element, attrs) {
 					var $el = $(element);

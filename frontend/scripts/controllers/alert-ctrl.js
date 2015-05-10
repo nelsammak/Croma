@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('angularPassportApp')
+    .module('croma')
     .controller('AlertsCtrl', function AlertsCtrl($scope,$http) {
      $scope.alerts = [{
         type: 'success',

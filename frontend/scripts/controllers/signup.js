@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.gender='male';
 

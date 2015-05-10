@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
 	.directive('hypothesis', [ '$window', function($window) {
 		return {
 			restrict: "E",

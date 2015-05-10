@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
 .controller('AnnounceCtrl', 
 	function ($scope, $http){
 		$scope.message;

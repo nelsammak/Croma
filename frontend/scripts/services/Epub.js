@@ -1,4 +1,4 @@
-angular.module('angularPassportApp')
+angular.module('croma')
     .service('EpubService', function($cookieStore) {
         var book = {};
         return {

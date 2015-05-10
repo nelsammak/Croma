@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('EditCtrl', function ($scope,$http,$location) {
   /**
 * @function edit 

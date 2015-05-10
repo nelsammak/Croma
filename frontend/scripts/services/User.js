@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .factory('User', function ($resource) {
     return $resource('/api/users/:id/', {},
       {

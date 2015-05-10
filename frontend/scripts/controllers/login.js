@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('LoginCtrl', function ($scope, Auth, $location,$cookieStore) {
     $scope.error = {};
     $scope.user = {};

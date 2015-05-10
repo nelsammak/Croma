@@ -1,4 +1,4 @@
-angular.module('angularPassportApp')
+angular.module('croma')
     .controller('ReaderController', function($scope, $http, $timeout, $rootScope, $cookieStore) {
 
         $scope.bookPath = $cookieStore.get('book').text;

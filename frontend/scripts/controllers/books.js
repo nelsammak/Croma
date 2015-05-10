@@ -1,7 +1,7 @@
 'use strict';
 
 //Books Controller's job is to send all books collection in JSON format
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('BooksCtrl', ['$scope', '$http',
     function sendBookCollection($scope, $http) {
 
@@ -75,7 +75,7 @@ angular.module('angularPassportApp')
   ]);
 
 //New arrivals controller's job it to request new arrivals from backend and add it to the front end
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('NewArrivalsCtrl', ['$scope', '$http',
     function newArrivalsCollection($scope, $http) {
       $scope.page = "New Arrivals";
@@ -93,7 +93,7 @@ angular.module('angularPassportApp')
 @param {object} $scope - service
 @param {object} $http - service
 */
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('BestSellersCtrl', ['$scope', '$http',
     function bestSellersCollection($scope, $http) {
       $scope.page = "Best Sellers";
@@ -104,7 +104,7 @@ angular.module('angularPassportApp')
   ]);
 
 //genre display controller's job is  to request genre books from backend and display it
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('GenreDisplayCtrl', function($scope, $http, ShareService2) {
       $scope.itemsPerPage = 12;
     $http.get('api/genre/' + ShareService2.getValue()).success(function(response) {
@@ -154,7 +154,7 @@ angular.module('angularPassportApp')
  * @param {Object} $window - service
  * @param {Object} $shareService2 - service
  */
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('GenreCtrl',
     function Genre($scope, $http, $routeParams, $location, $window, ShareService2) {
       /**
@@ -176,7 +176,7 @@ angular.module('angularPassportApp')
     });
 
 //response to view bio button and routing to a specific book
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('BioCtrl', function($scope, $routeParams, $location, $window, ShareService) {
     $scope.viewBio = function(id) {
       $location.path('books/' + id);

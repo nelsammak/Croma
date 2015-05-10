@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('ShelfCtrl', function getShelves($scope, $http) {
 
     $http.get('/api/users/' + $scope.currentUser._id + '/currentlyReading').success(function(response) {

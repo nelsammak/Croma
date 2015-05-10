@@ -1,5 +1,5 @@
 'use strict'
-angular.module('angularPassportApp')
+angular.module('croma')
 .controller('ProfileController', ['$scope', '$http',
 	function sendUserInfo ($scope, $http) {
 		// var id = $rootScope.currentUser._id;

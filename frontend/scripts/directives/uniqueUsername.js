@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .directive('uniqueUsername', function ($http) {
     return {
       restrict: 'A',

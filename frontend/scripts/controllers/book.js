@@ -1,7 +1,7 @@
 'use strict';
 
 ///Book Controller's main job is to recieve a book and prepare it to be displayed with all its info
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('BookCtrl', function($scope, $http, $location, ShareService, EpubService) {
     $scope.review = '';
     $scope.reviews = [];

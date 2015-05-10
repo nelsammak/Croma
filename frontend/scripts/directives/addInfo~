@@ -1,4 +1,4 @@
-angularPassportApp.directive("ProfileController", function() {
+croma.directive("ProfileController", function() {
     var editorTemplate = '<div class="click-to-edit">' +
         '<div ng-hide="view.editorEnabled">' +
             '{{value}} ' +

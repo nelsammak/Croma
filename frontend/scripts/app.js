@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp', [
+angular.module('croma', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
@@ -10,7 +10,9 @@ angular.module('angularPassportApp', [
   'ui.router',
   'flow',
   'ngTagsInput',
-  'door3.css'
+  'door3.css',
+  'slick',
+  'smoothScroll'
 ])
 //choosing a specific partial HTML and a controller for any route
 
@@ -79,8 +81,11 @@ angular.module('angularPassportApp', [
       })
       .when('/shelves',{
         templateUrl: '/partials/myShelf.html',
-        controller: 'ShelfCtrl'
-        
+        controller: 'ShelfCtrl',
+        css: [/*'bower_components/slick.js/slick/slick.css',
+        'bower_components/slick.js/slick/slick-theme.css',*/
+        'bower_components/slick-carousel/slick/slick.css',
+        'bower_components/slick-carousel/slick/slick-theme.css']
       })
       .when('/announcments',{
         templateUrl: 'partials/announcments.html',

@@ -1,4 +1,4 @@
-angular.module('angularPassportApp')
+angular.module('croma')
 .service('searchService', function ($http, $location) {
 	var users = [];
 	var books = [];

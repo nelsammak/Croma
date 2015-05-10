@@ -2,7 +2,7 @@
  * Master Controller
  */
 
-angular.module('angularPassportApp')
+angular.module('croma')
     .controller('MasterCtrl', ['$scope', '$cookieStore', '$interval', '$http', MasterCtrl]);
 
 function MasterCtrl($scope, $cookieStore, $interval, $http) {

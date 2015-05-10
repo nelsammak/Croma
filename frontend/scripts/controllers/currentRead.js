@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
 .controller('CurrentReadCtrl', 
 	function getCurrentBooks ($scope, $http){
 		$http.get('/api/' + $scope.currentUser._id + '/currentlyReading')

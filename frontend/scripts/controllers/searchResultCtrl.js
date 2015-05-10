@@ -1,4 +1,4 @@
-var app = angular.module('angularPassportApp');
+var app = angular.module('croma');
 
 /** 
  * @function searchResultCtrl

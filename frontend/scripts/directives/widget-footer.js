@@ -3,7 +3,7 @@
  */
 
 angular
-    .module('angularPassportApp')
+    .module('croma')
     .directive('rdWidgetFooter', rdWidgetFooter);
 
 function rdWidgetFooter() {

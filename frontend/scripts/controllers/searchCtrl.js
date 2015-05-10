@@ -1,4 +1,4 @@
-angular.module('angularPassportApp')
+angular.module('croma')
 .controller('searchCtrl', function($scope ,$location, $http, searchService) {
      
   /**

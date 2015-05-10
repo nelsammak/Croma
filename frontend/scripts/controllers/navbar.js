@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('angularPassportApp')
+angular.module('croma')
   .controller('NavbarCtrl', function ($scope, Auth, $location) {
     $scope.menu = [
     ];
