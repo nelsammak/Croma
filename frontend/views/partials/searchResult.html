@@ -33,7 +33,7 @@
             <!-- End of Book results -->
             <!-- Book Pagination -->
             <div class="text-center">
-                <pagination style="margin: auto auto;" total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages"></pagination>
+                <pagination style="margin: auto auto;" total-items="totalBooks" ng-model="currentBookPage" ng-change="bookPageChanged(currentBookPage)" ng-hide="books.length == 0" num-pages="totalBookPages" items-per-page="itemsPerPage"></pagination>
             </div>
             <!-- End of Book Pagination -->
         </tab>
@@ -64,7 +64,7 @@
             <!-- End of User Results -->
             <!-- User Pagination -->
             <div class="text-center">
-                <pagination total-items="totalUser" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0"></pagination>
+                <pagination total-items="totalUser" ng-model="currentUserPage" ng-change="userPageChanged(currentUserPage)" ng-hide="users.length == 0" items-per-page="itemsPerPage"></pagination>
             </div>
             <!-- End of User Pagination -->
         </tab>

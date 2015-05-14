@@ -47,7 +47,8 @@ module.exports = function(router) {
 				})
 				.get(function getLoggedInUser(req, res, next) {
 					if (!req.user) {
-						return next('User not logged in');
+						res.status(404).json('User not logged in');
+						return 
 					}
 					res.json(req.user);
 

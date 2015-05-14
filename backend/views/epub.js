@@ -75,7 +75,6 @@ var saveEpubData = function(req, res, next) {
 									return next(err);
 								}
 								if (found.length != 0) {
-									console.log('WOWOWWOWOWOW: ', found);
 									res.status(400).json({'err': ' A book with the same title have been uploaded before'});
 									return;
 								}

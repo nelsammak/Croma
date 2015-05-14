@@ -36,7 +36,8 @@ angular.module('croma')
        * calculates total number of books pages to display
        */
       $scope.numberOfBookPages = function numberOfBookPages() {
-        $scope.totalBookPages = Math.ceil($scope.totalBooks / $scope.itemsPerPage);
+        $scope.totalBookPages = Math.floor($scope.totalBooks / $scope.itemsPerPage);
+        console.log('totalBookPages: ', $scope.totalBooks, '/', $scope.itemsPerPage, '=' ,$scope.totalBookPages);
       }
 
       $scope.bookPageChanged = function bookPageChanged(page) {
