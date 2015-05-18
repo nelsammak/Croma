@@ -68,7 +68,7 @@ angular.module('croma')
           closeOnConfirm: true
         }, function() {
           $http.delete('/api/books/' + id).success(function bookRemoved(response) {
-            $scope.books = response.books;
+            $scope.filteredBooks = response.books;
           })
         })
       }

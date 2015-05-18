@@ -68,7 +68,7 @@ angular.module('croma', [
       })
       .when('/bookreader', {
 
-        templateUrl: '/partials/index.html',
+        templateUrl: '/partials/reader.html',
         controller: 'ReaderController',
         css: 'components/epubjs/css/main.css'
 
