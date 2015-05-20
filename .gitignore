@@ -1,5 +1,6 @@
-db.development.sqlite
 node_modules
 bower_components
 npm-debug.log
 .idea
+EPUBS_TO_UPLOAD
+UML_DIAGRAMS
