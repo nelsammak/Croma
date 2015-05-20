@@ -10,5 +10,6 @@
 		}
 	},
 	"production": {
+		"url": "mongodb://arcode@ds031741.mongolab.com:31741/heroku_app37044178"
 	}
 }
