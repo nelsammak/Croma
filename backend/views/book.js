@@ -195,11 +195,7 @@ module.exports = function(router) {
             }
             book.remove();
 
-            Books.find({}, function(err,books) {    
-                res.status(200);
-                res.json({books: books});
-            })
-            
+            res.status(200).json(book);         
             
         });
     }); 

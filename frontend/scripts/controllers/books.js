@@ -68,7 +68,12 @@ angular.module('croma')
           closeOnConfirm: true
         }, function() {
           $http.delete('/api/books/' + id).success(function bookRemoved(response) {
-            $scope.filteredBooks = response.books;
+            for(var i = 0; i < $scope.filteredBooks.length; i++) {
+              if ($scope.filteredBooks[i].id == id) {
+                $scope.filteredBooks.splice(i, 1);
+                break;
+              }
+            }
           })
         })
       }
