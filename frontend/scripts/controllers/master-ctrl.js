@@ -60,4 +60,12 @@ function MasterCtrl($scope, $cookieStore, $interval, $http) {
 
     }, 5000);
 
+    $scope.$on('$viewContentLoaded', function(event) {
+        if ($scope.currentUser) {
+            $('#page-wrapper').append($('#content-wrapper'));
+        } else {
+            $('#page-wrapper').after($('#content-wrapper'));
+        }
+    });
+
 }
