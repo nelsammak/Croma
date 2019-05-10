@@ -1,1 +1,1 @@
-# Croma, Bitch
+# Croma
